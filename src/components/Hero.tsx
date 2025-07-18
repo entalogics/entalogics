@@ -136,8 +136,13 @@ const Hero = () => {
           </p>
           {/* Buttons */}
             <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 mb-2 md:mb-4 w-full md:w-auto">
-              <button className="w-full md:w-auto px-5 md:px-6 py-4 md:py-3 font-semibold rounded-xl shadow-lg transition-all duration-150 text-base flex items-center justify-center text-center gap-2 bg-[#512feb] text-white border-2 border-[#512feb] hover:bg-[#4a2bd4] focus:outline-none focus:ring-2 focus:ring-[#512feb] dark:bg-[#512feb] dark:text-white dark:border-[#512feb] dark:hover:bg-[#4a2bd4] dark:focus:ring-[#512feb]">
-               Schedule a Quick Call <ArrowRight className="w-5 h-5" />
+              <button
+                className="w-full md:w-auto px-5 md:px-6 py-4 md:py-3 font-semibold rounded-xl shadow-lg transition-all duration-150 text-base flex items-center justify-center text-center gap-2 bg-[#512feb] text-white border-2 border-[#512feb] hover:bg-[#4a2bd4] focus:outline-none focus:ring-2 focus:ring-[#512feb] dark:bg-[#512feb] dark:text-white dark:border-[#512feb] dark:hover:bg-[#4a2bd4] dark:focus:ring-[#512feb]"
+                data-cal-link="entalogics/30min"
+                data-cal-namespace="30min"
+                data-cal-config='{"layout":"month_view","theme":"auto"}'
+              >
+                Schedule a Quick Call <ArrowRight className="w-5 h-5" />
               </button>
               <button className="w-full md:w-auto px-5 md:px-6 py-4 md:py-3 font-semibold rounded-xl border-2 border-[#512feb] shadow-lg transition-all duration-150 text-base flex items-center justify-center text-center gap-2 bg-white text-[#512feb] hover:bg-gray-50 hover:shadow-[0_0_12px_2px_rgba(81,47,235,0.10)] focus:outline-none focus:ring-2 focus:ring-[#512feb] dark:bg-transparent dark:text-[#512feb] dark:border-[#512feb] dark:hover:bg-[#512feb]/10 dark:focus:ring-[#512feb]">
                 <Play className="w-5 h-5" /> Watch Demo
