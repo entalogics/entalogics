@@ -70,7 +70,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
       <div className="mt-auto flex-shrink-0 pt-2 flex justify-center md:justify-start">
         {service.slug ? (
           <Link
-            href={`/services/${service.slug}`}
+            href="/quote"
             className="inline-flex items-center px-4 py-2 rounded-full border border-[#512feb] text-sm font-semibold text-[#512feb] dark:text-[#512feb] bg-transparent hover:bg-[#512feb] hover:text-white dark:hover:bg-[#512feb] dark:hover:text-white transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#512feb]/20"
             style={{ minWidth: 0 }}
           >

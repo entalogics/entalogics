@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
 import { Mail, Phone, Globe, Send, MessageCircle, Calendar, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 const Contact = () => {
   const { ref, inView } = useInView({
@@ -53,92 +54,48 @@ const Contact = () => {
             Whether you're starting from scratch or scaling your next big idea — we're ready to bring it to life.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8">
-          {/* Left: Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-              <input
-                id="name"
-                {...register("name", { required: true })}
-                className="w-full px-4 py-3 bg-[#f9f9f9] dark:bg-[#1a1a1a] border border-[#e5e5e5] dark:border-[#2c2c2c] rounded-lg text-black dark:text-white text-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#512feb]/30 transition-all"
-                placeholder="Name*"
-                autoComplete="name"
-              />
-              {errors.name && <span className="text-red-500 text-xs font-normal">Name is required</span>}
-              <input
-                id="email"
-                type="email"
-                {...register("email", { required: true })}
-                className="w-full px-4 py-3 bg-[#f9f9f9] dark:bg-[#1a1a1a] border border-[#e5e5e5] dark:border-[#2c2c2c] rounded-lg text-black dark:text-white text-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#512feb]/30 transition-all"
-                placeholder="Email*"
-                autoComplete="email"
-              />
-              {errors.email && <span className="text-red-500 text-xs font-normal">Email is required</span>}
-              <textarea
-                id="message"
-                rows={4}
-                {...register("message", { required: true })}
-                className="w-full px-4 py-3 bg-[#f9f9f9] dark:bg-[#1a1a1a] border border-[#e5e5e5] dark:border-[#2c2c2c] rounded-lg text-black dark:text-white text-sm placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#512feb]/30 transition-all resize-none"
-                placeholder="Message*"
-              />
-              {errors.message && <span className="text-red-500 text-xs font-normal">Message is required</span>}
-              <motion.button
-                type="submit"
-                className="w-full py-3 px-6 bg-[#512feb] hover:bg-[#4a2bd4] text-white font-semibold rounded-lg transition-all duration-200 text-base mt-2 border-2 border-[#512feb] focus:outline-none focus:ring-2 focus:ring-[#512feb] dark:bg-[#512feb] dark:hover:bg-[#4a2bd4] dark:text-white dark:border-[#512feb] dark:focus:ring-[#512feb]"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Send Message
-              </motion.button>
-            </form>
-          </motion.div>
-          {/* Right: Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-6 justify-start"
-          >
-            {contactInfo.map((info, idx) => (
-              <div key={idx} className="flex items-center gap-4">
-                <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#f9f9f9] dark:bg-[#1a1a1a] text-[#512feb] dark:text-[#512feb] border border-[#e5e5e5] dark:border-[#2c2c2c]">
-                  {info.icon}
-                </span>
-                <div className="flex flex-col">
-                  <span className="text-xs text-gray-500 dark:text-[#A1A1AA] font-medium mb-0.5">{info.label}</span>
-                  {info.link ? (
-                    <a href={info.link} className="text-sm text-[#111827] dark:text-white font-semibold hover:underline break-all">{info.value}</a>
-                  ) : (
-                    <span className="text-sm text-[#111827] dark:text-white font-semibold">{info.value}</span>
-                  )}
-                </div>
-              </div>
-            ))}
-            
-            {/* Trust Reminder */}
-            <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-              <div className="flex flex-wrap gap-3 text-xs text-gray-600 dark:text-gray-400">
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  NDA Friendly
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  SSL Secure
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                  Top Rated Plus Team
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Contact Info */}
+          <div className="flex-1 flex flex-col gap-6">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#f3f0ff] text-[#512feb] border border-[#e5e5e5]">
+                <Mail className="w-5 h-5" />
               </span>
+              <div className="flex flex-col">
+                <span className="text-xs text-gray-500 font-medium mb-0.5">Drop us a message</span>
+                <span className="text-sm text-[#111827] dark:text-white font-semibold">hello@entalogics.com</span>
               </div>
             </div>
-          </motion.div>
+            <div className="flex items-center gap-4">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#f3f0ff] text-[#512feb] border border-[#e5e5e5]">
+                <Calendar className="w-5 h-5" />
+              </span>
+              <div className="flex flex-col">
+                <span className="text-xs text-gray-500 font-medium mb-0.5">Book a 15-min Discovery Call</span>
+                <span className="text-sm text-[#512feb] font-semibold">Schedule Now</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#f3f0ff] text-[#512feb] border border-[#e5e5e5]">
+                <Linkedin className="w-5 h-5" />
+              </span>
+              <div className="flex flex-col">
+                <span className="text-xs text-gray-500 font-medium mb-0.5">Prefer chat?</span>
+                <span className="text-sm text-[#512feb] font-semibold">Ping us directly on LinkedIn or Upwork</span>
+              </div>
+            </div>
+            <div className="mt-4">
+              <Link href="/quote" className="inline-block px-4 py-2 bg-[#512feb] text-white rounded-lg font-semibold text-xs shadow hover:bg-[#4a2bd4] transition">Request a Quote</Link>
+            </div>
+          </div>
+          {/* Badges */}
+          <div className="flex-1 flex flex-col gap-2 items-center md:items-start mt-8 md:mt-0">
+            <div className="flex gap-4 flex-wrap bg-white/80 dark:bg-neutral-900/80 rounded-xl px-4 py-3 border border-gray-200 dark:border-gray-800">
+              <span className="flex items-center gap-1 text-xs text-green-600 font-semibold"><span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span> NDA Friendly</span>
+              <span className="flex items-center gap-1 text-xs text-blue-600 font-semibold"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block"></span> SSL Secure</span>
+              <span className="flex items-center gap-1 text-xs text-purple-600 font-semibold"><span className="w-2 h-2 rounded-full bg-purple-500 inline-block"></span> Top Rated Plus Team</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
