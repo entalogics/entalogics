@@ -145,7 +145,7 @@ const Hero = () => {
                 Schedule a Quick Call <ArrowRight className="w-5 h-5" />
               </button>
               <button className="w-full md:w-auto px-5 md:px-6 py-4 md:py-3 font-semibold rounded-xl border-2 border-[#512feb] shadow-lg transition-all duration-150 text-base flex items-center justify-center text-center gap-2 bg-white text-[#512feb] hover:bg-gray-50 hover:shadow-[0_0_12px_2px_rgba(81,47,235,0.10)] focus:outline-none focus:ring-2 focus:ring-[#512feb] dark:bg-transparent dark:text-[#512feb] dark:border-[#512feb] dark:hover:bg-[#512feb]/10 dark:focus:ring-[#512feb]">
-                <Play className="w-5 h-5" /> Watch Demo
+                Get a Quote
               </button>
             </div>
             {/* Security Badge Row */}
