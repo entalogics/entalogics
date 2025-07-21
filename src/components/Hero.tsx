@@ -7,16 +7,13 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <>
-      <section id="home" className="relative w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4">
+      <section id="home" className="relative w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4 subtle-grid-background">
         {/* Blurred background circles for RozmeriGPT effect */}
         {/* Top-left blue circle */}
         <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
         {/* Bottom-right purple circle */}
         <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
-        {/* Remove all other hero background gradients/overlays */}
-        {/* Subtle grid background (light mode only) */}
-        <div className="absolute inset-0 subtle-grid-background z-0 dark:hidden"></div>
-
+        
         {/* Main Content Container */}
         <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
           {/* Badge */}
@@ -43,7 +40,7 @@ const Hero = () => {
               data-cal-namespace="30min"
               data-cal-config='{"layout":"month_view","theme":"auto"}'
             >
-              Schedule a Quick Call 
+              Schedule a Quick Call
               <motion.span
                 animate={{ x: [0, 8, 0] }}
                 transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
@@ -53,8 +50,7 @@ const Hero = () => {
               </motion.span>
             </button>
             <Link href="/quote" legacyBehavior>
-              <a className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg border border-[1px] border-gray-300 dark:border-blue-400/30 bg-white dark:bg-transparent text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2 transition-all duration-200 text-base"
-              >
+              <a className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-transparent text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2 transition-all duration-200 text-base">
                 Get a Quote
               </a>
             </Link>
