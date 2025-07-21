@@ -156,32 +156,32 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="absolute top-3 right-3 text-gray-500 hover:text-black dark:hover:text-white p-2 rounded-full focus:outline-none"
                 aria-label="Close menu"
-          >
+              >
                 <X className="w-6 h-6" />
               </button>
-              <nav className="flex flex-col items-center space-y-8 mt-4 w-full">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + index * 0.1 }}
-                  onClick={() => handleNavClick(item.href)}
-                    className="text-2xl font-bold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors w-full text-left"
-                >
-                  {item.name}
-                </motion.button>
-              ))}
-            </nav>
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + navItems.length * 0.1 }}
-              onClick={() => handleNavClick('#contact')}
-                className="mt-10 w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow transition-colors text-lg"
-            >
+              <nav className="flex flex-col items-center space-y-6 mt-8 w-full">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.08 }}
+                    onClick={() => handleNavClick(item.href)}
+                    className="text-xl font-bold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors w-full text-center"
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+              </nav>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + navItems.length * 0.08 }}
+                onClick={() => handleNavClick('#contact')}
+                className="mt-8 w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow transition-colors text-base"
+              >
                 Book a Call
-            </motion.button>
+              </motion.button>
             </motion.div>
           </motion.div>
         )}
