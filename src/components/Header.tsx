@@ -57,7 +57,7 @@ const Header = () => {
       )}
       <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className={`pointer-events-auto w-full max-w-6xl mx-auto px-2 transition-all duration-300 ${shrink ? 'max-w-xl' : 'max-w-6xl'}`}>
-        <div className={`grid grid-cols-3 items-center bg-white/80 dark:bg-[#0a1225]/80 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 ${shrink ? 'px-3 py-1' : 'px-4 py-2 md:py-3'} transition-all duration-300 w-full`}>
+        <div className={`grid grid-cols-2 md:grid-cols-3 items-center bg-white/80 dark:bg-[#0a1225]/80 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 ${shrink ? 'px-3 py-1' : 'px-4 py-2 md:py-3'} transition-all duration-300 w-full`}>
           {/* Logo */}
           <div className="flex items-center justify-self-start">
             <Link href="/" className="flex items-center space-x-2 group">
