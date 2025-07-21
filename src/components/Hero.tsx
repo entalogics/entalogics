@@ -23,50 +23,51 @@ const Hero = () => {
             </span>
           </div>
           {/* Main heading with gradient only on 'Scalable Product' */}
-          <h1 className="relative text-[clamp(1.8rem,8vw,3.8rem)] font-extrabold leading-[1.15] mb-4 md:mb-7 tracking-tighter text-black dark:text-white">
+          <h1 className="relative text-[clamp(1.3rem,6vw,3.2rem)] font-extrabold leading-[1.15] mb-4 md:mb-7 tracking-tighter text-black dark:text-white">
             From Idea to <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Scalable Product</span><br />
             We Build What Others<br />
             Don’t Dare To.
           </h1>
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
             We're your full-stack product development partner for startups, scaleups, and innovators. Whether it's SaaS, AI platforms, custom browsers, or Web3 apps — we engineer and launch with precision, speed, and business logic.
           </p>
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-6">
             <button
-              className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg shadow transition-all duration-200 text-base bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-400/40"
+              className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg shadow transition-all duration-200 text-base bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-400/40 text-center"
               data-cal-link="entalogics/30min"
               data-cal-namespace="30min"
               data-cal-config='{"layout":"month_view","theme":"auto"}'
             >
-              Schedule a Quick Call
-              <motion.span
-                animate={{ x: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
-                className="inline-flex"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </motion.span>
+              <span className="flex items-center justify-center w-full">Schedule a Quick Call
+                <motion.span
+                  animate={{ x: [0, 8, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
+                  className="inline-flex ml-2"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </motion.span>
+              </span>
             </button>
             <Link href="/quote" legacyBehavior>
-              <a className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-transparent text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 flex items-center gap-2 transition-all duration-200 text-base">
-                Get a Quote
+              <a className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-transparent text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 flex items-center justify-center gap-2 transition-all duration-200 text-base text-center">
+                <span className="w-full flex items-center justify-center">Get a Quote</span>
               </a>
             </Link>
           </div>
           {/* Security Badge Row */}
-          <div className="flex items-center justify-center space-x-4 mt-4">
-            <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400">
-              <Shield size={14} />
+          <div className="flex items-center justify-center flex-nowrap space-x-2 sm:space-x-4 mt-4">
+            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400">
+              <Shield size={11} />
               <span>NDA Friendly</span>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-blue-600 dark:text-blue-400">
-              <Lock size={14} />
+            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-blue-600 dark:text-blue-400">
+              <Lock size={11} />
               <span>SSL Secure</span>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-violet-600 dark:text-violet-400">
-              <UserCheck size={14} />
+            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-violet-600 dark:text-violet-400">
+              <UserCheck size={11} />
               <span>Top Rated Plus Team</span>
             </div>
           </div>

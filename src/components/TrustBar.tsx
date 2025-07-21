@@ -33,7 +33,7 @@ const TrustBar = () => {
         </div>
       </div>
       {/* Bottom Tagline */}
-      <div className="relative z-10 text-center mt-6">
+      <div className="relative z-10 text-center mt-6 px-4">
         <p className="text-sm text-gray-600 dark:text-gray-400 italic">
           "Rated 5.0 on Upwork, loved by 500+ founders, backed by code that scales."
         </p>
