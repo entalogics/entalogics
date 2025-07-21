@@ -37,8 +37,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative isolate bg-gray-50 dark:bg-[#0D1526] py-20 px-4 md:px-12 overflow-hidden">
-      {/* Blurred background circles for RozmeriGPT effect */}
       <div className="absolute inset-0 -z-10">
+        {/* Blurred background circles for RozmeriGPT effect */}
         <div className="absolute -top-1/2 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
         <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
       </div>

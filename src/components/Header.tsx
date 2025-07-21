@@ -51,9 +51,11 @@ const Header = () => {
 
   return (
     <header className={`fixed top-4 left-0 w-full z-50 flex justify-center transition-all duration-300 ${shrink ? 'pt-0' : ''} ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-      {/* Blurred background circles for RozmeriGPT effect */}
-      <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 -z-10">
+        {/* Blurred background circles for RozmeriGPT effect */}
+        <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
+      </div>
       <div className={`pointer-events-auto w-full max-w-6xl mx-auto px-2 transition-all duration-300 ${shrink ? 'max-w-xl' : 'max-w-6xl'}`}>
         <div className={`grid grid-cols-3 items-center bg-white/80 dark:bg-[#0a1225]/80 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 ${shrink ? 'px-3 py-1' : 'px-4 py-2 md:py-3'} transition-all duration-300 w-full`}>
           {/* Logo */}

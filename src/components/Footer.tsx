@@ -36,9 +36,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative isolate bg-white dark:bg-[#0a1225] pt-20 pb-8 overflow-hidden">
-      {/* Blurred background circles for RozmeriGPT effect */}
+    <footer className="bg-white dark:bg-[#0a1225] pt-20 pb-8 relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
+        {/* Blurred background circles for RozmeriGPT effect */}
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
       </div>

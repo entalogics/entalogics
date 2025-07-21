@@ -10,9 +10,9 @@ const logos = [
 
 const TrustBar = () => {
   return (
-    <section className="relative isolate pt-6 pb-6 bg-white dark:bg-[#0a1225] flex flex-col items-center justify-center overflow-hidden">
-      {/* Blurred background circles for RozmeriGPT effect */}
+    <section className="pt-6 pb-6 bg-white dark:bg-[#0a1225] flex flex-col items-center justify-center relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
+        {/* Blurred background circles for RozmeriGPT effect */}
         <div className="absolute -top-12 -left-12 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
       </div>
