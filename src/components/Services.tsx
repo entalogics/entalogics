@@ -85,14 +85,15 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-10 md:py-20 bg-white dark:bg-[#0a1225] relative overflow-hidden">
+    <section id="services" className="relative bg-white dark:bg-[#0a1225] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
-      <div className="absolute -top-24 -left-24 w-[320px] h-[320px] rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="absolute -bottom-32 -right-32 w-[340px] h-[340px] rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black dark:text-white mb-2 md:mb-6 tracking-tight">
-            What We Build for <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">You</span>
+      <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white">
+            We Help <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">You</span> Build
           </h2>
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed mb-4 md:mb-6">
             From powerful SaaS platforms to cutting-edge AI apps — we bring your vision to life with logic, clarity, and scale.

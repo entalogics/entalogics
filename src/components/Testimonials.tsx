@@ -280,19 +280,18 @@ const Testimonials = () => {
   // Duplicate testimonials 3x for smooth infinite scroll
   const marqueeTestimonials = [...testimonials, ...testimonials, ...testimonials];
   return (
-    <section className="py-16 bg-white dark:bg-[#0a1225] relative overflow-hidden">
+    <section id="testimonials" className="relative bg-white dark:bg-[#0a1225] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
-      <div className="absolute top-1/4 left-0 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="container mx-auto px-[20px] md:px-8 relative z-10">
-        <div className="flex flex-col items-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 tracking-tight text-center">
-            What Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Clients Say</span> About Working With Us
-          </h2>
+      <div className="absolute top-1/2 -translate-y-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute top-1/2 -translate-y-1/2 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto text-center relative z-10">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-12">
+          What Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Clients Say</span>
+        </h2>
           <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-2xl mx-auto text-center">
             Real feedback from founders, product leads, and long-term partners we've helped scale.
           </p>
-        </div>
         {/* Infinite horizontal scroll with drag support */}
         <div
           className="w-full overflow-x-hidden relative"

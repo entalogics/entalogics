@@ -51,12 +51,12 @@ const FAQ = () => {
   }, [showCookie]);
 
   return (
-    <section id="faq" className="py-20 bg-gray-50 dark:bg-[#0D1526] relative overflow-hidden">
+    <section id="faq" className="relative bg-gray-50 dark:bg-[#0D1526] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
-      <div className="absolute -top-1/4 -left-24 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="absolute -bottom-1/4 -right-24 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
-      
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto max-w-4xl relative z-10">
         {/* Section Header */}
         <motion.div
           ref={ref}
@@ -65,7 +65,7 @@ const FAQ = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-2xl md:text-6xl font-bold text-black dark:text-white mb-2 md:mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white text-center mb-12">
             Frequently Asked <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Questions</span>
           </h2>
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-4 md:mb-6">

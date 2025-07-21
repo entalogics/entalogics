@@ -119,11 +119,15 @@ const Process = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-20 bg-gray-50 dark:bg-[#0D1526] relative overflow-hidden">
+    <section id="process" className="relative bg-gray-50 dark:bg-[#0D1526] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
-      <div className="absolute top-1/4 left-0 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="container mx-auto px-6 md:px-12 max-w-3xl relative z-10">
+      <div className="absolute -top-1/4 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto text-center relative z-10">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-4">
+          How We <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>
+        </h2>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -131,9 +135,6 @@ const Process = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <h2 className="text-2xl md:text-2xl font-bold text-black dark:text-white mb-2 md:mb-2 tracking-tight">
-            Here's How We <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>
-          </h2>
           <p className="text-base md:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4 md:mb-4">
             Our process keeps you in the loop — with speed, clarity, and zero guesswork. We don't just code — we collaborate.
           </p>
