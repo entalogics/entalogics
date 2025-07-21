@@ -15,7 +15,7 @@ const TrustBar = () => {
       <div className="absolute -top-12 -left-12 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       {/* Section Title and Subtitle */}
-      <div className="container mx-auto px-[20px] md:px-12 relative z-10 text-center mb-8">
+      <div className="container mx-auto px-4 md:px-12 relative z-10 text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 sm:mb-3">
           <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Trusted</span> by Industry Leaders
         </h2>

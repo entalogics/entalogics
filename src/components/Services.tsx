@@ -85,7 +85,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
 
 const Services = () => {
   return (
-    <section id="services" className="relative bg-white dark:bg-[#0a1225] py-20 px-2 sm:px-4 md:px-12 overflow-hidden">
+    <section id="services" className="relative bg-white dark:bg-[#0a1225] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
       <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
@@ -103,7 +103,7 @@ const Services = () => {
           {servicesList.map((service, index) => (
             <div className="h-full w-full" key={service.slug}>
               <motion.div
-                className="relative h-full w-full min-h-[340px] flex flex-col group bg-white dark:bg-[#111A2F] backdrop-blur-xl border border-gray-300 dark:border-blue-900/40 rounded-2xl px-4 sm:px-6 md:px-8 py-7 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-blue-900/20 transition-all duration-200"
+                className="relative h-full w-full min-h-[340px] flex flex-col group bg-white dark:bg-[#111A2F] backdrop-blur-xl border border-gray-300 dark:border-blue-900/40 rounded-2xl px-6 sm:px-8 py-7 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-blue-900/20 transition-all duration-200"
                 whileHover={{ y: -4, transition: { duration: 0.15 } }}
                 style={{ boxSizing: 'border-box' }}
               >

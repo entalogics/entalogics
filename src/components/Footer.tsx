@@ -40,7 +40,7 @@ const Footer = () => {
       {/* Blurred background circles for RozmeriGPT effect */}
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="container mx-auto px-[20px] md:px-12 relative z-10">
+      <div className="container mx-auto px-4 md:px-12 relative z-10">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           {/* Column 1: Logo and Newsletter */}
