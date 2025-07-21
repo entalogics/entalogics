@@ -94,16 +94,16 @@ const Header = () => {
           </nav>
 
           {/* Right side: theme toggle + CTA */}
-          <div className={`flex items-center justify-self-end ${shrink ? 'space-x-1' : 'space-x-2'}`}>
+          <div className={`flex items-center justify-self-end space-x-2`}>
             <motion.button
               onClick={toggleTheme}
               whileTap={{ scale: 0.9, rotate: 15 }}
-              className={`mr-1 rounded-full flex items-center justify-center transition-colors border border-gray-200 dark:border-blue-900/40 ${shrink ? 'w-7 h-7 p-0 bg-gray-100 dark:bg-blue-900/10' : 'p-2 bg-gray-100 dark:bg-blue-900/10'}`}
+              className="w-9 h-9 rounded-full flex items-center justify-center transition-colors border border-gray-200 dark:border-blue-900/40 bg-gray-100 dark:bg-blue-900/10"
               aria-label="Toggle theme"
             >
               {theme === 'light' 
-                ? <Moon className="w-4 h-4" /> 
-                : <Sun className="w-4 h-4 text-white" />
+                ? <Moon className="w-5 h-5" /> 
+                : <Sun className="w-5 h-5 text-white" />
               }
             </motion.button>
             {/* Book a call button: only show on md+ screens */}
@@ -126,7 +126,7 @@ const Header = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`md:hidden transition-colors ml-1 ${shrink ? 'w-8 h-8 p-0 rounded-full bg-gray-100 dark:bg-blue-900/10 border border-gray-200 dark:border-blue-900/40 flex items-center justify-center' : 'p-2 rounded-full bg-gray-100 dark:bg-blue-900/10 border border-gray-200 dark:border-blue-900/40 flex items-center justify-center'}`}
+              className="md:hidden w-9 h-9 rounded-full flex items-center justify-center transition-colors border border-gray-200 dark:border-blue-900/40 bg-gray-100 dark:bg-blue-900/10"
               aria-label="Toggle Menu"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
