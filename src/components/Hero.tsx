@@ -8,11 +8,11 @@ const Hero = () => {
   return (
     <>
       <section id="home" className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4 subtle-grid-background">
-        {/* Blurred background circles for RozmeriGPT effect */}
-        {/* These will now be properly contained by the 'isolate' property on the section */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
-          <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
+        {/* Blurred background circles for RozmeriGPT effect - CONTAINED to hero only */}
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          {/* This blue circle will now only render in dark mode */}
+          <div className="hidden dark:block absolute -top-24 -left-24 w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] sm:-top-32 sm:-left-32 max-w-none max-h-none rounded-full bg-blue-600/5 blur-3xl" style={{zIndex: -10}}></div>
+          <div className="absolute -bottom-24 -right-40 w-[400px] h-[400px] sm:w-[520px] sm:h-[520px] sm:-bottom-40 sm:-right-40 max-w-none max-h-none rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl" style={{zIndex: -10}}></div>
         </div>
         
         {/* Main Content Container - no z-index needed here now */}

@@ -119,14 +119,12 @@ const Process = () => {
   ];
 
   return (
-    <section id="process" className="relative isolate bg-gray-50 dark:bg-[#0D1526] py-20 px-4 md:px-12 overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        {/* Blurred background circles for RozmeriGPT effect */}
-        <div className="absolute -top-1/4 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
-        <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
-      </div>
+    <section id="process" className="relative bg-gray-50 dark:bg-[#0D1526] py-20 px-4 md:px-12 overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute -top-1/4 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
 
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center relative z-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-4">
           How We <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>
         </h2>
