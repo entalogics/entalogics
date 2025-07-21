@@ -280,12 +280,14 @@ const Testimonials = () => {
   // Duplicate testimonials 3x for smooth infinite scroll
   const marqueeTestimonials = [...testimonials, ...testimonials, ...testimonials];
   return (
-    <section id="testimonials" className="relative bg-white dark:bg-[#0a1225] py-20 px-4 md:px-12 overflow-hidden">
+    <section id="testimonials" className="relative isolate bg-white dark:bg-[#0a1225] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
-      <div className="absolute top-1/2 -translate-y-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
-      <div className="absolute top-1/2 -translate-y-1/2 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/2 -translate-y-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 -translate-y-1/2 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl pointer-events-none"></div>
+      </div>
 
-      <div className="container mx-auto text-center relative z-10">
+      <div className="container mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-12">
           What Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Clients Say</span>
         </h2>
