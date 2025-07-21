@@ -12,7 +12,7 @@ import Contact from '../src/components/Contact';
 
 const HomePage = () => {
   return (
-    <Layout>
+    <Layout noPaddingTop>
       <Hero />
       <Services />
       <CaseStudies />

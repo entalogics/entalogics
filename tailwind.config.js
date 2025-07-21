@@ -9,21 +9,63 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.sky,
-        secondary: colors.slate,
-        accent: colors.teal,
-        neon: {
-          cyan: '#01F5C3',
-          orange: '#FF6B6B',
+        // Brand Colors
+        primary: {
+          DEFAULT: '#3B82F6', // blue-500
+          dark: '#1D4ED8',    // blue-700
         },
-        glass: {
-          light: 'rgba(255, 255, 255, 0.1)',
-          dark: 'rgba(0, 0, 0, 0.2)',
-          border: {
-            light: 'rgba(255, 255, 255, 0.2)',
-            dark: 'rgba(0, 0, 0, 0.3)',
-          }
-        }
+        secondary: {
+          DEFAULT: '#0EA5E9', // sky-500
+          dark: '#0284C7',    // sky-600
+        },
+        accent: {
+          DEFAULT: '#8B5CF6', // violet-500
+          dark: '#7C3AED',    // violet-600
+        },
+        success: {
+          DEFAULT: '#10B981', // emerald-500
+          dark: '#059669',    // emerald-600
+        },
+        pakistan: {
+          DEFAULT: '#059669', // emerald-600
+          dark: '#047857',    // emerald-700
+        },
+        white: '#FFFFFF',
+        // Backgrounds
+        background: {
+          DEFAULT: '#FFFFFF',
+          secondary: '#F9FAFB',
+          card: '#FFFFFF',
+          accent: '#EFF6FF',
+          dark: '#0A1225',
+          darkSecondary: '#0D1526',
+          darkCard: '#111A2F',
+          darkAccent: '#1E293B',
+        },
+        // Text
+        text: {
+          DEFAULT: '#111827',
+          secondary: '#6B7280',
+          muted: '#9CA3AF',
+          accent: '#2563EB',
+          dark: '#FFFFFF',
+          darkSecondary: '#D1D5DB',
+          darkMuted: '#9CA3AF',
+          darkAccent: '#60A5FA',
+        },
+        // Borders
+        border: {
+          light: '#E5E7EB',
+          dark: '#1E293B',
+        },
+        // Gradients
+        gradient: {
+          hero: ['#60A5FA', '#8B5CF6', '#3B82F6'], // from-blue-400 via-purple-500 to-blue-500
+          cta: ['#2563EB', '#1E40AF'], // from-blue-600 to-blue-800
+          cardLight: ['#DBEAFE', '#EDE9FE'], // from-blue-100 to-purple-100
+          cardDark: ['#1E293B99', '#4C1D9599'], // from-blue-900/30 to-purple-900/30
+          pakistan: ['#059669', '#047857'], // from-green-600 to-green-700
+        },
       },
       fontFamily: {
         'sans': ['Sora', 'system-ui', 'sans-serif'],

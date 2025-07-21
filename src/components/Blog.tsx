@@ -17,14 +17,15 @@ const Blog = () => {
   };
 
   return (
-    <section id="blog" className="py-10 md:py-20 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
+    <section id="blog" className="py-10 md:py-20 bg-white dark:bg-[#0a1225] relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-20">
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-black dark:text-white mb-2 md:mb-6 tracking-tight">
-            Latest Insights & Updates
+            Latest <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Insights & Updates</span>
           </h2>
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed mb-4 md:mb-6">
             Stay ahead with our latest thoughts on technology, development, and industry trends.
@@ -35,7 +36,7 @@ const Blog = () => {
           {blogPosts.map((post, index) => (
             <motion.div
               key={post.slug}
-              className="relative h-full flex flex-col group bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-[#e5e7eb] dark:border-white/30 rounded-2xl px-6 py-5 md:px-6 md:py-6 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/50 transition-all duration-200"
+              className="relative h-full flex flex-col group bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-2xl px-6 py-5 md:px-6 md:py-6 shadow-lg shadow-black/5 dark:shadow-blue-900/10 hover:shadow-2xl hover:shadow-blue-900/20 dark:hover:shadow-blue-900/20 transition-all duration-200"
               whileHover={{ y: -4, transition: { duration: 0.15 } }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +45,7 @@ const Blog = () => {
             >
               {/* Category Badge */}
               <div className="flex-shrink-0 mb-4">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#512feb]/10 text-[#512feb] dark:bg-[#512feb]/20 dark:text-[#512feb]">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
                   {post.category}
                 </span>
               </div>
@@ -54,7 +55,7 @@ const Blog = () => {
                 <h4 className="font-medium text-base md:text-lg tracking-tight text-black dark:text-white mb-2 md:mb-3 leading-tight line-clamp-2">
                   {post.title}
                 </h4>
-                <p className="text-sm md:text-base text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed font-normal mb-3 md:mb-4 line-clamp-3">
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal mb-3 md:mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
               </div>
@@ -81,8 +82,7 @@ const Blog = () => {
               <div className="mt-auto flex-shrink-0 pt-2 flex justify-center md:justify-start">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center px-3 py-1.5 rounded-full border border-[#512feb] text-xs md:text-sm font-semibold text-[#512feb] dark:text-[#512feb] bg-transparent hover:bg-[#512feb] hover:text-white dark:hover:bg-[#512feb] dark:hover:text-white transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#512feb]/20"
-                  style={{ minWidth: 0 }}
+                  className="inline-flex items-center px-4 py-2 rounded-lg border border-gray-300 dark:border-blue-400/30 text-sm font-bold text-gray-900 dark:text-white bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/20 gap-2"
                 >
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
@@ -96,7 +96,7 @@ const Blog = () => {
         <div className="text-center mt-12">
           <Link
             href="/blog"
-            className="inline-flex items-center px-6 py-3 rounded-lg border border-[#512feb] text-sm md:text-base font-semibold text-[#512feb] dark:text-[#512feb] bg-transparent hover:bg-[#512feb] hover:text-white dark:hover:bg-[#512feb] dark:hover:text-white transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#512feb]/20"
+            className="inline-flex items-center px-7 py-3 rounded-lg border border-gray-300 dark:border-blue-400/30 text-base font-bold text-gray-900 dark:text-white bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/20 gap-2"
           >
             <span>View All Posts</span>
             <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />

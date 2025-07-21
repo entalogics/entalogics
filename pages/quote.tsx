@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../src/components/Layout';
 import Link from 'next/link';
 import { ArrowLeft, Mail, Briefcase, MapPin } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface QuoteFormState {
   name: string;
@@ -79,6 +80,17 @@ export default function QuotePage() {
   const [serverError, setServerError] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const [lastSubmit, setLastSubmit] = useState(0);
+  const [showHelpPopup, setShowHelpPopup] = useState(false);
+
+  useEffect(() => {
+    const hasDismissed = sessionStorage.getItem('quotePopupDismissed');
+    if (!hasDismissed) {
+      const timer = setTimeout(() => {
+        setShowHelpPopup(true);
+      }, 1500); // 1.5-second delay before showing
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   function validate() {
     const errs: any = {};
@@ -139,209 +151,220 @@ export default function QuotePage() {
     }
   }
 
+  const handleDismissPopup = () => {
+    sessionStorage.setItem('quotePopupDismissed', 'true');
+    setShowHelpPopup(false);
+  };
+
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="pt-8 md:pt-14 pb-0 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
+      <section className="relative bg-white dark:bg-[#0a1225] overflow-hidden">
+        {/* Blurred background circles */}
+        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+        <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
+        
         <div className="container mx-auto px-4 md:px-12 relative z-10">
-          <div className="rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-[#f3f0ff] via-white to-[#e9e6fa] dark:from-[#1a133a] dark:via-[#18122b] dark:to-[#1a133a] flex flex-col items-center justify-center py-10 md:py-16 mb-8">
-            <h1 className="text-3xl md:text-4xl font-extrabold text-[#512feb] mb-2 text-center">REQUEST A QUOTE</h1>
-            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-4 text-center max-w-2xl mx-auto font-medium">We ensure we get back to you within 24 hours, with an estimate ready to be evaluated by you.</p>
-            {/* Tech Logos Row */}
-            <div className="relative w-full max-w-2xl mx-auto overflow-x-hidden">
-              <div className="flex items-center gap-10 animate-marquee whitespace-nowrap will-change-transform py-2" style={{animation: 'marquee 32s linear infinite'}}>
-                <img src="/assets/tech-icons/nodejs.svg" alt="Node.js" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/react.svg" alt="React" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/nextjs.svg" alt="Next.js" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/typescript.svg" alt="TypeScript" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/python.svg" alt="Python" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/docker.svg" alt="Docker" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/graphql.svg" alt="GraphQL" className="h-8 w-auto opacity-80" />
-                {/* Repeat for infinite effect */}
-                <img src="/assets/tech-icons/nodejs.svg" alt="Node.js" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/react.svg" alt="React" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/nextjs.svg" alt="Next.js" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/typescript.svg" alt="TypeScript" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/python.svg" alt="Python" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/docker.svg" alt="Docker" className="h-8 w-auto opacity-80" />
-                <img src="/assets/tech-icons/graphql.svg" alt="GraphQL" className="h-8 w-auto opacity-80" />
-              </div>
-              <style>{`
-                @keyframes marquee {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(-50%); }
-                }
-              `}</style>
-            </div>
+          
+          {/* Page Title & Subtitle */}
+          <div className="text-center mb-10 pt-8 md:pt-12">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-2">
+              REQUEST A <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">QUOTE</span>
+            </h1>
+            <p className="text-base md:text-lg text-text-secondary dark:text-white max-w-2xl mx-auto font-medium">
+              We ensure we get back to you within 24 hours, with an estimate ready to be evaluated by you.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Form Card Section */}
-      <section className="pb-10 md:pb-16 bg-white dark:bg-[#0d0d0d] flex justify-center items-start">
-        <div className="w-full max-w-3xl bg-gray-50 dark:bg-white/5 rounded-2xl shadow-xl border border-gray-200 dark:border-white/10 p-6 md:p-10 mx-2">
-          {success ? (
-            <div className="text-center py-8">
-              <h2 className="text-2xl font-extrabold mb-2 text-[#512feb]">Thank you!</h2>
-              <p className="text-gray-700 dark:text-gray-200 mb-4">We received your quote request and will get in touch soon.</p>
-              <Link href="/" className="inline-block mt-4 px-6 py-3 bg-[#512feb] text-white rounded-lg font-semibold shadow hover:bg-[#4a2bd4] transition">Back to Home</Link>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <input type="text" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" value={honeypot} onChange={e => setHoneypot(e.target.value)} />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200" htmlFor="name">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm focus:border-[#512feb] focus:ring-2 focus:ring-[#512feb]/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
-                    value={form.name}
-                    onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                    placeholder="Your full name"
-                  />
-                  {errors.name && <span className="text-xs text-red-500">{errors.name}</span>}
+          {/* Form Card Section */}
+          <div className="pb-10 md:pb-16 flex justify-center items-start">
+            <div className="w-full max-w-3xl bg-white dark:bg-[#111A2F] rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 p-6 md:p-10 mx-2">
+              {success ? (
+                <div className="text-center py-8">
+                  <h2 className="text-2xl font-extrabold mb-2 text-blue-600 dark:text-blue-400">Thank you!</h2>
+                  <p className="text-gray-700 dark:text-gray-200 mb-4">We received your quote request and will get in touch soon.</p>
+                  <Link href="/" className="inline-block mt-4 px-7 py-3 font-bold rounded-lg shadow transition-all duration-200 text-base bg-blue-600 hover:bg-blue-700 text-white">Back to Home</Link>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200" htmlFor="country">Select Country *</label>
-                  <select
-                    id="country"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm focus:border-[#512feb] focus:ring-2 focus:ring-[#512feb]/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
-                    value={form.country}
-                    onChange={e => setForm(f => ({ ...f, country: e.target.value }))}
-                  >
-                    {countries.map((c, i) => <option key={i} value={c}>{c || 'Select Country'}</option>)}
-                  </select>
-                  {errors.country && <span className="text-xs text-red-500">{errors.country}</span>}
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200" htmlFor="email">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm focus:border-[#512feb] focus:ring-2 focus:ring-[#512feb]/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
-                    value={form.email}
-                    onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                    placeholder="you@email.com"
-                  />
-                  {errors.email && <span className="text-xs text-red-500">{errors.email}</span>}
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200" htmlFor="phone">Phone Number</label>
-                  <input
-                    type="text"
-                    id="phone"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm focus:border-[#512feb] focus:ring-2 focus:ring-[#512feb]/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
-                    value={form.phone}
-                    onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                    placeholder="(optional)"
-                  />
-                </div>
-              </div>
-              <div className="mt-4">
-                <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200" htmlFor="description">How Can We Help? *</label>
-                <textarea
-                  id="description"
-                  rows={3}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-black dark:text-white shadow-sm focus:border-[#512feb] focus:ring-2 focus:ring-[#512feb]/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
-                  value={form.description}
-                  onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
-                  placeholder="Describe your project, goals, and requirements..."
-                  minLength={50}
-                  maxLength={1500}
-                />
-                {errors.description && <span className="text-xs text-red-500">{errors.description}</span>}
-              </div>
-              <div className="mt-4">
-                <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200">What Are You Looking For? *</label>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-1">
-                  {lookingForGroups.map(group => (
-                    <div key={group.label} className="mb-2">
-                      <div className="font-bold text-xs text-gray-600 dark:text-gray-300 mb-1 flex items-center gap-1">
-                        {group.label === 'Development Services' && <span className="text-lg">🧩</span>}
-                        {group.label === 'AI & Automation' && <span className="text-lg">🧠</span>}
-                        {group.label === 'Team & Business Solutions' && <span className="text-lg">👥</span>}
-                        {group.label}
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        {group.options.map(option => (
-                          <label key={option} className="flex items-center gap-2 text-xs font-medium text-gray-700 dark:text-gray-200 cursor-pointer">
-                            <input
-                              type="checkbox"
-                              checked={form.lookingFor.includes(option)}
-                              onChange={() => handleCheckbox(option)}
-                              className="accent-[#512feb] w-4 h-4 rounded"
-                            />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {errors.lookingFor && <span className="text-xs text-red-500">{errors.lookingFor}</span>}
-              </div>
-              <div className="mt-4">
-                <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-200">Select Your Budget *</label>
-                <div className="flex flex-col gap-2 mt-1">
-                  {budgetOptions.map(option => (
-                    <label key={option} className="flex items-center gap-2 text-xs font-medium text-gray-700 dark:text-gray-200 cursor-pointer">
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <input type="text" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" value={honeypot} onChange={e => setHoneypot(e.target.value)} />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300" htmlFor="name">Full Name *</label>
                       <input
-                        type="radio"
-                        name="budget"
-                        value={option}
-                        checked={form.budget === option}
-                        onChange={() => handleBudget(option)}
-                        className="accent-[#512feb] w-4 h-4"
+                        type="text"
+                        id="name"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-[#0D1526] text-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
+                        value={form.name}
+                        onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                        placeholder="Your full name"
                       />
-                      {option}
-                      {option === 'Custom budget' && form.budget === 'Custom budget' && (
-                        <input
-                          type="text"
-                          className="ml-2 px-3 py-1 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-neutral-900 text-black dark:text-white text-xs focus:border-[#512feb] focus:ring-2 focus:ring-[#512feb]/20 transition w-32"
-                          placeholder="Enter amount"
-                          value={form.budgetCustom || ''}
-                          onChange={e => setForm(f => ({ ...f, budgetCustom: e.target.value }))}
-                        />
-                      )}
-                    </label>
-                  ))}
-                </div>
-                {errors.budget && <span className="text-xs text-red-500">{errors.budget}</span>}
-                {form.budget === 'Custom budget' && errors.budgetCustom && <span className="text-xs text-red-500">{errors.budgetCustom}</span>}
+                      {errors.name && <span className="text-xs text-red-500">{errors.name}</span>}
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300" htmlFor="country">Select Country *</label>
+                      <select
+                        id="country"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-[#0D1526] text-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
+                        value={form.country}
+                        onChange={e => setForm(f => ({ ...f, country: e.target.value }))}
+                      >
+                        {countries.map((c, i) => <option key={i} value={c}>{c || 'Select Country'}</option>)}
+                      </select>
+                      {errors.country && <span className="text-xs text-red-500">{errors.country}</span>}
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300" htmlFor="email">Email *</label>
+                      <input
+                        type="email"
+                        id="email"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-[#0D1526] text-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
+                        value={form.email}
+                        onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                        placeholder="you@email.com"
+                      />
+                      {errors.email && <span className="text-xs text-red-500">{errors.email}</span>}
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300" htmlFor="phone">Phone Number</label>
+                      <input
+                        type="text"
+                        id="phone"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-[#0D1526] text-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
+                        value={form.phone}
+                        onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                        placeholder="(optional)"
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300" htmlFor="description">How Can We Help? *</label>
+                    <textarea
+                      id="description"
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-[#0D1526] text-black dark:text-white shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition placeholder-gray-400 dark:placeholder-gray-500 text-base"
+                      value={form.description}
+                      onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
+                      placeholder="Describe your project, goals, and requirements..."
+                      minLength={50}
+                      maxLength={1500}
+                    />
+                    {errors.description && <span className="text-xs text-red-500">{errors.description}</span>}
+                  </div>
+                  <div className="mt-4">
+                    <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300">What Are You Looking For? *</label>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-1">
+                      {lookingForGroups.map(group => (
+                        <div key={group.label} className="mb-2">
+                          <div className="font-bold text-xs text-gray-600 dark:text-gray-300 mb-1 flex items-center gap-1">
+                            {group.label === 'Development Services' && <span className="text-lg">🧩</span>}
+                            {group.label === 'AI & Automation' && <span className="text-lg">🧠</span>}
+                            {group.label === 'Team & Business Solutions' && <span className="text-lg">👥</span>}
+                            {group.label}
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            {group.options.map(option => (
+                              <label key={option} className="flex items-center gap-2 text-xs font-medium text-gray-700 dark:text-gray-300 cursor-pointer">
+                                <input
+                                  type="checkbox"
+                                  checked={form.lookingFor.includes(option)}
+                                  onChange={() => handleCheckbox(option)}
+                                  className="accent-blue-600 w-4 h-4 rounded"
+                                />
+                                {option}
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    {errors.lookingFor && <span className="text-xs text-red-500">{errors.lookingFor}</span>}
+                  </div>
+                  <div className="mt-4">
+                    <label className="block text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300">Select Your Budget *</label>
+                    <div className="flex flex-col gap-2 mt-1">
+                      {budgetOptions.map(option => (
+                        <label key={option} className="flex items-center gap-2 text-xs font-medium text-gray-700 dark:text-gray-300 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="budget"
+                            value={option}
+                            checked={form.budget === option}
+                            onChange={() => handleBudget(option)}
+                            className="accent-blue-600 w-4 h-4"
+                          />
+                          {option}
+                          {option === 'Custom budget' && form.budget === 'Custom budget' && (
+                            <input
+                              type="text"
+                              className="ml-2 px-3 py-1 rounded border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-[#0D1526] text-black dark:text-white text-xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition w-32"
+                              placeholder="Enter amount"
+                              value={form.budgetCustom || ''}
+                              onChange={e => setForm(f => ({ ...f, budgetCustom: e.target.value }))}
+                            />
+                          )}
+                        </label>
+                      ))}
+                    </div>
+                    {errors.budget && <span className="text-xs text-red-500">{errors.budget}</span>}
+                    {form.budget === 'Custom budget' && errors.budgetCustom && <span className="text-xs text-red-500">{errors.budgetCustom}</span>}
+                  </div>
+                  {serverError && <div className="text-red-500 text-sm mt-2 mb-2">{serverError}</div>}
+                  <div className="flex justify-center mt-6">
+                    <button type="submit" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transition-all duration-200 text-base border-0 focus:outline-none focus:ring-2 focus:ring-blue-400/40 disabled:opacity-60" disabled={loading}>
+                      {loading ? 'Submitting...' : 'Submit'}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+
+          {/* Contact/FAQ Section */}
+          <div className="py-10 md:py-16 flex flex-col items-center">
+            <h2 className="text-xl md:text-2xl font-bold text-black dark:text-white mb-8">HAVE A <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">QUESTION?</span></h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+              <div className="flex flex-col items-center bg-white dark:bg-[#111A2F] rounded-xl border border-gray-200 dark:border-blue-900/40 shadow-lg p-6">
+                <Mail className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2" />
+                <div className="font-semibold mb-1 text-black dark:text-white">General Inquiry</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">info@entalogics.com</div>
               </div>
-              {serverError && <div className="text-red-500 text-sm mt-2 mb-2">{serverError}</div>}
-              <div className="flex justify-center mt-6">
-                <button type="submit" className="px-8 py-3 bg-[#512feb] hover:bg-[#4a2bd4] text-white font-bold rounded-lg shadow-lg transition-all duration-200 text-base border-0 focus:outline-none focus:ring-2 focus:ring-[#512feb] dark:focus:ring-[#512feb] disabled:opacity-60" disabled={loading}>
-                  {loading ? 'Submitting...' : 'Submit'}
-                </button>
+              <div className="flex flex-col items-center bg-white dark:bg-[#111A2F] rounded-xl border border-gray-200 dark:border-blue-900/40 shadow-lg p-6">
+                <Briefcase className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2" />
+                <div className="font-semibold mb-1 text-black dark:text-white">Career</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">hr@entalogics.com</div>
               </div>
-            </form>
-          )}
+              <div className="flex flex-col items-center bg-white dark:bg-[#111A2F] rounded-xl border border-gray-200 dark:border-blue-900/40 shadow-lg p-6">
+                <MapPin className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2" />
+                <div className="font-semibold mb-1 text-black dark:text-white">Office</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">123 Main St, Your City</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact/FAQ Section */}
-      <section className="py-10 md:py-16 bg-white dark:bg-[#0d0d0d] flex flex-col items-center">
-        <h2 className="text-xl md:text-2xl font-bold text-black dark:text-white mb-8">HAVE A QUESTION?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
-          <div className="flex flex-col items-center bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow p-6">
-            <Mail className="w-8 h-8 text-[#512feb] mb-2" />
-            <div className="font-semibold mb-1">General Inquiry</div>
-            <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">info@entalogics.com</div>
-          </div>
-          <div className="flex flex-col items-center bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow p-6">
-            <Briefcase className="w-8 h-8 text-[#512feb] mb-2" />
-            <div className="font-semibold mb-1">Career</div>
-            <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">hr@entalogics.com</div>
-          </div>
-          <div className="flex flex-col items-center bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow p-6">
-            <MapPin className="w-8 h-8 text-[#512feb] mb-2" />
-            <div className="font-semibold mb-1">Office</div>
-            <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">123 Main St, Your City</div>
-          </div>
-        </div>
-      </section>
+      <AnimatePresence>
+        {showHelpPopup && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed bottom-4 right-4 max-w-xs w-full bg-white dark:bg-[#111A2F] rounded-xl shadow-lg p-4 border border-gray-200 dark:border-blue-900/40 z-50"
+          >
+            <h3 className="font-bold text-base text-black dark:text-white mb-2">💡 Need help getting started?</h3>
+            <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
+              Please fill in your name, email, and a brief description of your project goals. Select the services and estimated budget that best match your needs, and we’ll get back to you within 24 hours with a personalized quote.
+            </p>
+            <button
+              onClick={handleDismissPopup}
+              className="w-full px-4 py-1.5 bg-blue-600 text-white rounded-md font-semibold text-xs shadow hover:bg-blue-700 transition"
+            >
+              Got it!
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Layout>
   );
 } 

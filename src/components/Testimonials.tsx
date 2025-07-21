@@ -280,14 +280,16 @@ const Testimonials = () => {
   // Duplicate testimonials 3x for smooth infinite scroll
   const marqueeTestimonials = [...testimonials, ...testimonials, ...testimonials];
   return (
-    <section className="py-16 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
+    <section className="py-16 bg-white dark:bg-[#0a1225] relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute top-1/4 left-0 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="container mx-auto px-[20px] md:px-8 relative z-10">
         <div className="flex flex-col items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 tracking-tight text-center">
-            What Our Clients Say About Working With Us
+            What Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Clients Say</span> About Working With Us
           </h2>
-          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-center">
+          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-2xl mx-auto text-center">
             Real feedback from founders, product leads, and long-term partners we've helped scale.
           </p>
         </div>
@@ -307,7 +309,20 @@ const Testimonials = () => {
           <div className={`flex items-center gap-4 animate-marquee-infinite py-2${isDragging ? ' pause-marquee' : ''}`} style={{animation: isDragging ? 'none' : 'marquee-infinite 35s linear infinite'}}>
             <div className="min-w-[40px] md:min-w-[120px]" />
             {marqueeTestimonials.map((testimonial, idx) => (
-              <TestimonialCard testimonial={testimonial} key={idx} />
+               <div key={idx} className="flex-shrink-0 bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-xl p-3 md:p-4 flex flex-col items-center shadow-md min-w-[140px] max-w-[140px] md:min-w-[240px] md:max-w-[240px] mx-1 md:mx-2 h-[120px] md:h-[140px] justify-between">
+                <div className="flex items-center mb-1">
+                  {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-emerald-500 fill-emerald-500 mr-0.5" />
+                  ))}
+                  {testimonial.rating % 1 !== 0 && (
+                    <Star className="w-3 h-3 md:w-4 md:h-4 text-emerald-500 fill-emerald-500 mr-0.5 opacity-60" />
+                  )}
+                  <span className="ml-1 text-xs font-semibold text-gray-700 dark:text-gray-200">{testimonial.rating.toFixed(1)}</span>
+                </div>
+                <p className="text-xs md:text-sm text-gray-700 dark:text-gray-200 text-center mb-1 line-clamp-3">"{testimonial.quote}"</p>
+                <div className="text-xs font-bold text-black dark:text-white text-center">{testimonial.name}</div>
+                <div className="text-[10px] md:text-[11px] text-gray-500 dark:text-gray-400 text-center">{testimonial.role}, {testimonial.company}</div>
+                </div>
             ))}
             <div className="min-w-[40px] md:min-w-[120px]" />
           </div>
@@ -326,7 +341,7 @@ const Testimonials = () => {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm md:text-base bg-[#512feb] text-white border-2 border-[#512feb] hover:bg-[#4a2bd4] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#512feb] shadow-lg"
+            className="inline-flex items-center justify-center px-7 py-3 rounded-lg font-bold text-base bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/40 shadow-lg"
           >
             Let's talk →
           </a>

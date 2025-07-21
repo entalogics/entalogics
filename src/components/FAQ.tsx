@@ -51,9 +51,10 @@ const FAQ = () => {
   }, [showCookie]);
 
   return (
-    <section id="faq" className="py-20 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
+    <section id="faq" className="py-20 bg-gray-50 dark:bg-[#0D1526] relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute -top-1/4 -left-24 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute -bottom-1/4 -right-24 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
@@ -65,9 +66,9 @@ const FAQ = () => {
           className="text-center mb-20"
         >
           <h2 className="text-2xl md:text-6xl font-bold text-black dark:text-white mb-2 md:mb-6 tracking-tight">
-            Frequently Asked Questions
+            Frequently Asked <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Questions</span>
           </h2>
-          <p className="text-base md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4 md:mb-6">
+          <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-4 md:mb-6">
             Still have questions? We've got answers.
           </p>
         </motion.div>
@@ -85,14 +86,14 @@ const FAQ = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              className={`bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 rounded-xl transition-all duration-200 overflow-hidden shadow-sm hover:shadow-md group` + (openIndex === index ? '' : '')}
+              className={`bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-xl transition-all duration-200 overflow-hidden shadow-sm hover:shadow-lg dark:hover:shadow-blue-900/20 group`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex items-center justify-between px-5 py-5 md:px-6 md:py-6 text-left group focus:outline-none rounded-xl"
                 style={{ fontSize: 16 }}
               >
-                <span className="font-semibold text-black dark:text-white group-hover:underline group-hover:underline-offset-2 transition-colors duration-200 leading-relaxed">
+                <span className="font-semibold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-relaxed">
                   {faq.question}
                 </span>
                 <motion.div
@@ -134,7 +135,7 @@ const FAQ = () => {
           <motion.button
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#512feb] text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:bg-[#4a2bd4] transition-all duration-300 border-2 border-[#512feb] inline-flex items-center space-x-2"
+            className="bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 border-2 border-blue-600 inline-flex items-center space-x-2"
           >
             <span>Send us a message →</span>
           </motion.button>

@@ -152,6 +152,16 @@
     margin: 0 auto;
     padding: 0 clamp(1rem, 4vw, 2rem);
   }
+
+  .subtle-grid-background {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .dark .subtle-grid-background {
+    background-image: none;
+  }
 }
 
 /* Custom scrollbar */
@@ -582,7 +592,7 @@
 }
 
 .dark .prose a {
-  color: #512feb;
+  color: #60A5FA;
 }
 
 .dark .prose strong {
@@ -631,7 +641,7 @@
 }
 
 .dark .prose a code {
-  color: #512feb;
+  color: #60A5FA;
 }
 
 .dark .prose pre {
@@ -653,6 +663,7 @@
 }
 
 /* Remove hover/focus/active effect from TagCanvas sphere icons */
+/*
 #taglist a,
 #taglist a:focus,
 #taglist a:active,
@@ -673,4 +684,5 @@
   box-shadow: none !important;
   background: transparent !important;
   border: none !important;
-} 
+}
+*/ 

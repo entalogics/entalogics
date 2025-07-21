@@ -10,20 +10,19 @@ const logos = [
 
 const TrustBar = () => {
   return (
-    <section className="pt-6 pb-6 bg-white dark:bg-[#0d0d0d] flex flex-col items-center justify-center relative">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
-      
+    <section className="pt-6 pb-6 bg-white dark:bg-[#0a1225] flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute -top-12 -left-12 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       {/* Section Title and Subtitle */}
       <div className="container mx-auto px-[20px] md:px-12 relative z-10 text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 sm:mb-3">
-          Trusted by Industry Leaders
+          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Trusted</span> by Industry Leaders
         </h2>
-        <p className="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-xs sm:max-w-md md:max-w-2xl mx-auto px-2 sm:px-4 mt-2">
+        <p className="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-xs sm:max-w-md md:max-w-2xl mx-auto px-2 sm:px-4 mt-2">
           From global startups to funded scaleups — Entalogics has partnered with 500+ teams building AI tools, custom software, and next-gen platforms.
         </p>
       </div>
-
       <div className="w-full overflow-hidden">
         <div className="flex items-center gap-8 md:gap-12 animate-marquee whitespace-nowrap will-change-transform px-2 md:px-0" style={{animation: 'marquee 32s linear infinite'}}>
           {[...logos, ...logos, ...logos].map((logo, idx) => (
@@ -33,14 +32,12 @@ const TrustBar = () => {
           ))}
         </div>
       </div>
-
       {/* Bottom Tagline */}
       <div className="relative z-10 text-center mt-6">
-        <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+        <p className="text-sm text-gray-600 dark:text-gray-400 italic">
           "Rated 5.0 on Upwork, loved by 500+ founders, backed by code that scales."
         </p>
       </div>
-
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }

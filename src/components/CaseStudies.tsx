@@ -127,9 +127,10 @@ const CaseStudies = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
+    <section className="py-20 bg-gray-50 dark:bg-[#0D1526] relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute top-0 left-0 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       
       <div className="container mx-auto px-[20px] md:px-12 relative z-10">
         <motion.div
@@ -140,7 +141,7 @@ const CaseStudies = () => {
           className="text-center mb-20"
         >
           <h2 className="text-2xl md:text-6xl font-bold text-black dark:text-white mb-2 md:mb-6 tracking-tight">
-            Work That Speaks for Itself
+            Work That <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Speaks for Itself</span>
           </h2>
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed font-normal">
             From AI-native platforms to custom browsers and full-stack SaaS — here's what we've shipped.
@@ -151,7 +152,7 @@ const CaseStudies = () => {
           {/* Left/Right scroll buttons for desktop */}
           <button
             type="button"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-white/50 dark:bg-black/50 text-black dark:text-white border-2 border-white/60 dark:border-black/60 backdrop-blur-xl rounded-full w-12 h-12 items-center justify-center shadow-lg hover:bg-white/70 dark:hover:bg-black/70 transition-all duration-150"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 bg-white/50 dark:bg-[#111A2F]/50 text-black dark:text-white border-2 border-gray-300 dark:border-blue-900/40 backdrop-blur-xl rounded-full w-12 h-12 items-center justify-center shadow-lg hover:bg-white/70 dark:hover:bg-[#111A2F]/70 transition-all duration-150"
             style={{marginLeft: 0}}
             onClick={() => {
               setIsUserInteracting(true);
@@ -167,7 +168,7 @@ const CaseStudies = () => {
           </button>
           <button
             type="button"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 bg-white/50 dark:bg-black/50 text-black dark:text-white border-2 border-white/60 dark:border-black/60 backdrop-blur-xl rounded-full w-12 h-12 items-center justify-center shadow-lg hover:bg-white/70 dark:hover:bg-black/70 transition-all duration-150"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 bg-white/50 dark:bg-[#111A2F]/50 text-black dark:text-white border-2 border-gray-300 dark:border-blue-900/40 backdrop-blur-xl rounded-full w-12 h-12 items-center justify-center shadow-lg hover:bg-white/70 dark:hover:bg-[#111A2F]/70 transition-all duration-150"
             style={{marginRight: 0}}
             onClick={() => {
               setIsUserInteracting(true);
@@ -197,13 +198,13 @@ const CaseStudies = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group w-full sm:w-1/2 md:w-1/3 flex-shrink-0 snap-center"
                 >
-                  <div className="bg-white/60 dark:bg-white/10 backdrop-blur-lg border border-[#e5e7eb] dark:border-white/20 rounded-2xl overflow-hidden shadow-lg shadow-black/5 dark:shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/10 dark:group-hover:shadow-black/40 transition-all duration-200 transform group-hover:scale-105 flex flex-col min-h-[320px] md:min-h-[340px] h-full">
-                    <div className="aspect-video w-full bg-gray-100 dark:bg-[#232323] relative overflow-hidden">
+                  <div className="bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-2xl overflow-hidden shadow-lg shadow-black/5 dark:shadow-blue-900/10 group-hover:shadow-2xl group-hover:shadow-blue-900/10 dark:group-hover:shadow-blue-900/20 transition-all duration-200 transform group-hover:scale-105 flex flex-col min-h-[320px] md:min-h-[340px] h-full">
+                    <div className="aspect-video w-full bg-gray-100 dark:bg-[#0D1526] relative overflow-hidden">
                       {cardImg && (
                         <img src={cardImg} alt={study.title} className="absolute inset-0 w-full h-full object-cover rounded-t-2xl" />
                       )}
                       <div className="absolute top-3 left-3 flex flex-wrap gap-2 z-10">
-                        <span className="px-2 py-0.5 rounded-full border border-gray-300 dark:border-white text-[10px] md:text-xs font-medium text-gray-700 dark:text-white bg-white/80 dark:bg-transparent backdrop-blur-sm">
+                        <span className="px-2 py-0.5 rounded-full border border-gray-300 dark:border-blue-400/30 text-[10px] md:text-xs font-medium text-gray-700 dark:text-white bg-white/80 dark:bg-black/30 backdrop-blur-sm">
                           {study.category}
                         </span>
                       </div>
@@ -212,17 +213,17 @@ const CaseStudies = () => {
                       <h3 className="text-lg font-bold text-black dark:text-white mb-1 leading-tight line-clamp-2">{study.title}</h3>
                       <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 font-normal line-clamp-2">{study.description}</p>
                       {study.metrics && (
-                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                        <div className="text-xs text-blue-600 dark:text-blue-400 mb-2 font-medium">
                           {study.metrics}
                         </div>
                       )}
                       {study.title === 'E-Commerce Platform Redesign' ? (
-                        <Link href="/case-studies/ecommerce-redesign" className="inline-flex items-center text-[#512feb] hover:underline hover:text-[#3a22a8] focus:text-[#3a22a8] text-xs font-semibold mt-1 group transition-colors duration-150">
+                        <Link href="/case-studies/ecommerce-redesign" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:hover:text-blue-300 focus:text-blue-700 dark:focus:text-blue-300 text-xs font-semibold mt-1 group transition-colors duration-150">
                           View Case Study <ExternalLink className="w-4 h-4 ml-1" />
                         </Link>
                       ) : (
                         study.link ? (
-                          <a href={study.link} className="inline-flex items-center text-[#512feb] hover:underline hover:text-[#3a22a8] focus:text-[#3a22a8] text-xs font-semibold mt-1 group transition-colors duration-150">
+                          <a href={study.link} className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:hover:text-blue-300 focus:text-blue-700 dark:focus:text-blue-300 text-xs font-semibold mt-1 group transition-colors duration-150">
                             View Case Study <ExternalLink className="w-4 h-4 ml-1" />
                           </a>
                         ) : null
@@ -234,7 +235,6 @@ const CaseStudies = () => {
             })}
           </div>
         </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -242,12 +242,12 @@ const CaseStudies = () => {
           className="text-center mt-12"
         >
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Want to see more of what we've built? <a href="#contact" className="text-[#512feb] hover:underline">Explore all case studies</a> or let's create yours next
+            Want to see more of what we've built? <a href="#contact" className="text-blue-600 dark:text-blue-400 hover:underline">Explore all case studies</a> or let's create yours next
           </p>
           <motion.button
             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#512feb] text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:bg-[#4a2bd4] transition-all duration-300 border-2 border-[#512feb] inline-flex items-center space-x-2"
+            className="bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 border-2 border-blue-600 inline-flex items-center space-x-2"
           >
             <span>Book a 15-min call</span>
             <ArrowRight className="w-5 h-5" />

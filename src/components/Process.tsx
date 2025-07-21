@@ -119,9 +119,10 @@ const Process = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-20 bg-white dark:bg-[#0D0D0D] relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
+    <section ref={sectionRef} className="py-12 md:py-20 bg-gray-50 dark:bg-[#0D1526] relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute top-1/4 left-0 w-72 h-72 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="container mx-auto px-6 md:px-12 max-w-3xl relative z-10">
         <motion.div
           ref={ref}
@@ -131,7 +132,7 @@ const Process = () => {
           className="text-center mb-10"
         >
           <h2 className="text-2xl md:text-2xl font-bold text-black dark:text-white mb-2 md:mb-2 tracking-tight">
-            Here's How We Build With You
+            Here's How We <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>
           </h2>
           <p className="text-base md:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4 md:mb-4">
             Our process keeps you in the loop — with speed, clarity, and zero guesswork. We don't just code — we collaborate.
@@ -151,19 +152,19 @@ const Process = () => {
               >
                 {/* Step circle */}
                 <div className="flex flex-col items-center mr-6">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg border-4 border-white dark:border-[#181818] bg-gradient-to-br from-[#512feb] to-[#01F5C3] mb-2 z-10`}>{step.step}</div>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg border-4 border-white dark:border-background-darkCard bg-gradient-to-br from-blue-500 to-sky-500 mb-2 z-10`}>{step.step}</div>
                   {idx < processSteps.length - 1 && (
-                    <div className="w-1 h-10 bg-gradient-to-b from-[#512feb] to-[#01F5C3] opacity-60" style={{ minHeight: 40 }} />
+                    <div className="w-1 h-10 bg-gradient-to-b from-blue-400 to-sky-400 opacity-60" style={{ minHeight: 40 }} />
                   )}
               </div>
                 {/* Step content */}
-                <div className="flex-1 bg-white/80 dark:bg-white/10 backdrop-blur-lg border border-[#e5e7eb] dark:border-white/20 rounded-xl px-5 py-4 shadow-md">
+                <div className="flex-1 bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-xl px-5 py-4 shadow-md">
                   <div className="flex items-center gap-3 mb-1">
-                    <span className="text-[#512feb] dark:text-[#01F5C3]">{React.cloneElement(step.icon, { className: 'w-6 h-6' })}</span>
+                    <span className="text-blue-600 dark:text-blue-400">{React.cloneElement(step.icon, { className: 'w-6 h-6' })}</span>
                     <span className="text-base md:text-lg font-semibold text-black dark:text-white">{step.title}</span>
-              </div>
-                  <p className="text-sm md:text-base text-[#4B5563] dark:text-[#A1A1AA] leading-relaxed">{step.description}</p>
-            </div>
+                  </div>
+                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">{step.description}</p>
+                </div>
               </motion.div>
           ))}
           </div>
@@ -178,7 +179,7 @@ const Process = () => {
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-4">💬 Ready to start building?</p>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm md:text-base bg-[#512feb] text-white border-2 border-[#512feb] hover:bg-[#4a2bd4] dark:bg-[#512feb] dark:text-white dark:border-[#512feb] dark:hover:bg-[#4a2bd4] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#512feb] shadow-lg"
+            className="inline-flex items-center justify-center px-7 py-3 rounded-lg font-bold text-base bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/40 shadow-lg"
             style={{ minWidth: 0 }}
           >
             Book a 15-min call →

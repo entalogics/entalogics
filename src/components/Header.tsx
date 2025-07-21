@@ -51,10 +51,13 @@ const Header = () => {
 
   return (
     <header className={`fixed top-4 left-0 w-full z-50 flex justify-center transition-all duration-300 ${shrink ? 'pt-0' : ''} ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className={`pointer-events-auto w-full max-w-6xl mx-auto px-2 transition-all duration-300 ${shrink ? 'max-w-xl' : 'max-w-6xl'}`}>
-        <div className={`flex items-center bg-white/80 dark:bg-black/80 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 dark:border-black/30 px-4 transition-all duration-300 ${shrink ? 'py-1' : 'py-2 md:py-3'} w-full`}>
+        <div className={`grid grid-cols-3 items-center bg-white/80 dark:bg-[#0a1225]/80 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 ${shrink ? 'px-3 py-1' : 'px-4 py-2 md:py-3'} transition-all duration-300 w-full`}>
           {/* Logo */}
-          <div className="flex-1 flex items-center">
+          <div className="flex items-center justify-self-start">
             <Link href="/" className="flex items-center space-x-2 group">
               <div
                 className={`w-9 h-9 rounded-lg flex items-center justify-center bg-transparent p-0 ${shrink ? 'w-8 h-8' : ''}`}
@@ -73,15 +76,15 @@ const Header = () => {
           </div>
 
           {/* Nav links (centered) */}
-          <nav className={`hidden md:flex flex-1 justify-center items-center space-x-6 ${shrink ? 'space-x-4' : ''}`}>
+          <nav className={`hidden md:flex justify-self-center items-center ${shrink ? 'space-x-2' : 'space-x-6'}`}>
             {navItems.map((item, index) => (
               <motion.button
-                key={item.name}
+                key={index}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.08 }}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-base font-medium transition-colors px-2 py-1 rounded ${shrink ? 'text-gray-700 dark:text-gray-300 text-sm' : 'text-gray-700 dark:text-gray-300 hover:text-neon-cyan dark:hover:text-neon-cyan'}`}
+                className={`text-base font-medium transition-colors px-2 py-1 rounded ${shrink ? 'text-gray-700 dark:text-gray-300 text-sm' : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'}`}
               >
                 {item.name}
               </motion.button>
@@ -89,11 +92,11 @@ const Header = () => {
           </nav>
 
           {/* Right side: theme toggle + CTA */}
-          <div className={`flex-1 flex items-center justify-end ${shrink ? 'space-x-1' : 'space-x-2'}`}>
+          <div className={`flex items-center justify-self-end ${shrink ? 'space-x-1' : 'space-x-2'}`}>
             <motion.button
               onClick={toggleTheme}
               whileTap={{ scale: 0.9, rotate: 15 }}
-              className={`rounded-full flex items-center justify-center transition-colors border border-gray-200 dark:border-gray-700 ${shrink ? 'w-7 h-7 p-0 bg-gray-100 dark:bg-gray-800/70' : 'p-2 bg-gray-100 dark:bg-gray-800/50'}`}
+              className={`mr-1 rounded-full flex items-center justify-center transition-colors border border-gray-200 dark:border-blue-900/40 ${shrink ? 'w-7 h-7 p-0 bg-gray-100 dark:bg-blue-900/10' : 'p-2 bg-gray-100 dark:bg-blue-900/10'}`}
               aria-label="Toggle theme"
             >
               {theme === 'light' 
@@ -107,10 +110,10 @@ const Header = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
               onClick={() => handleNavClick('#contact')}
-              className={`ml-2 hidden md:flex items-center justify-center transition-all duration-200 font-semibold rounded-lg shadow text-base
+              className={`ml-2 hidden md:flex items-center justify-center transition-all duration-200 font-bold rounded-lg shadow text-base ${shrink ? 'mr-1' : ''}
                 ${theme === 'dark' 
-                  ? (shrink ? 'bg-[#512feb] text-white hover:bg-[#3a22a8] w-9 h-9 p-0 border-2 border-[#512feb]' : 'bg-[#512feb] text-white hover:bg-[#3a22a8] px-5 py-2 border-2 border-[#512feb]')
-                  : (shrink ? 'bg-[#512feb] text-white hover:bg-[#3a22a8] w-9 h-9 p-0 border-2 border-[#512feb]' : 'bg-[#512feb] text-white hover:bg-[#3a22a8] px-5 py-2 border-2 border-[#512feb]')
+                  ? (shrink ? 'bg-blue-600 text-white hover:bg-blue-700 w-9 h-9 p-0 border border-blue-600' : 'bg-blue-600 text-white hover:bg-blue-700 px-5 py-2 border border-blue-600')
+                  : (shrink ? 'bg-blue-600 text-white hover:bg-blue-700 w-9 h-9 p-0 border border-blue-600' : 'bg-blue-600 text-white hover:bg-blue-700 px-5 py-2 border border-blue-600')
               }
               `}
               aria-label="Book a call"
@@ -121,7 +124,7 @@ const Header = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`md:hidden transition-colors ml-1 ${shrink ? 'w-8 h-8 p-0 rounded-full bg-gray-100 dark:bg-gray-800/70 border border-gray-200 dark:border-gray-700 flex items-center justify-center' : 'p-2 rounded-full bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 flex items-center justify-center'}`}
+              className={`md:hidden transition-colors ml-1 ${shrink ? 'w-8 h-8 p-0 rounded-full bg-gray-100 dark:bg-blue-900/10 border border-gray-200 dark:border-blue-900/40 flex items-center justify-center' : 'p-2 rounded-full bg-gray-100 dark:bg-blue-900/10 border border-gray-200 dark:border-blue-900/40 flex items-center justify-center'}`}
               aria-label="Toggle Menu"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -144,7 +147,7 @@ const Header = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-xs mx-auto bg-white dark:bg-neutral-900 rounded-xl shadow-2xl p-6 flex flex-col items-center"
+              className="relative w-full max-w-xs mx-auto bg-white dark:bg-[#111A2F] rounded-xl shadow-2xl p-6 flex flex-col items-center"
             >
               {/* Close button */}
               <button
@@ -162,7 +165,7 @@ const Header = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
                   onClick={() => handleNavClick(item.href)}
-                    className="text-2xl font-bold text-gray-800 dark:text-gray-200 hover:text-neon-cyan dark:hover:text-neon-cyan transition-colors w-full text-left"
+                    className="text-2xl font-bold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors w-full text-left"
                 >
                   {item.name}
                 </motion.button>
@@ -173,7 +176,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + navItems.length * 0.1 }}
               onClick={() => handleNavClick('#contact')}
-                className="mt-10 w-full px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white dark:bg-teal-400 dark:hover:bg-teal-500 dark:text-black font-bold rounded-lg shadow transition-colors text-lg"
+                className="mt-10 w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow transition-colors text-lg"
             >
                 Book a Call
             </motion.button>

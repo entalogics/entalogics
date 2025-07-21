@@ -1,149 +1,103 @@
-# Entalogics Website - Next.js + TypeScript
+# Entalogics Agency Website
 
-A modern, responsive website for Entalogics, a full-stack development agency. Built with Next.js, **TypeScript**, React, Tailwind CSS, and Framer Motion.
+This is the official marketing website for Entalogics, a full-stack development agency specializing in custom software, AI applications, and browser development. The site is built with Next.js, Tailwind CSS, and TypeScript to be fast, responsive, and modern.
 
-## 🚀 Features
+![Entalogics Homepage](https://user-images.githubusercontent.com/your-image-url.png) <!-- Replace with a real screenshot URL -->
 
-- **Modern Design**: Clean, professional design with glass morphism effects
-- **Dark/Light Mode**: Toggle between themes with smooth transitions
-- **Responsive**: Fully responsive design that works on all devices
-- **Animations**: Smooth animations powered by Framer Motion
-- **Performance**: Optimized with Next.js for fast loading
-- **SEO Ready**: Built with Next.js for better SEO
-- **Type Safety**: All components and pages are written in TypeScript (`.tsx`/`.ts`), providing static type checking and safer code
+## ✨ Features
 
-## 🛠️ Tech Stack
+- **Fully Responsive Design**: Looks great on all devices, from mobile to desktop.
+- **Dark/Light Mode**: User-selectable theme that persists across sessions.
+- **Interactive Hero Section**: Features a 3D rotating tag cloud of technologies.
+- **Comprehensive Quote Form**: A multi-step form for users to request a quote, with client-side and server-side validation.
+- **Email Notifications**: Automatically sends quote details to the admin and a confirmation email to the user via Resend.
+- **Embedded Scheduling**: Integrates with Cal.com for easy discovery call scheduling.
+- **Smooth Animations**: Uses Framer Motion for subtle and professional animations.
+- **Clean & Modern UI**: Styled with Tailwind CSS for a consistent and beautiful interface.
 
-- **Framework**: Next.js 14
-- **Language**: TypeScript
-- **UI Library**: React 18
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Routing**: Next.js App Router
+## 🚀 Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Email API**: [Resend](https://resend.com/)
+- **Scheduling**: [Cal.com](https://cal.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 🛠️ Getting Started
+
+Follow these instructions to get a local copy up and running for development and testing purposes.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16.x or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/entalogics/entalogics.git
+    cd entalogics-website
+    ```
+
+2.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a file named `.env.local` in the root of your project and add the following variables.
+
+    ```env
+    # Your API key from Resend for sending quote emails
+    RESEND_API_KEY=your_resend_api_key
+
+    # The "from" email address (must be a verified domain in Resend)
+    EMAIL_USER=quote@yourdomain.com
+    ```
+
+### Running the Development Server
+
+To start the local development server, run:
+
+```sh
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## 🌐 Deployment
+
+This site is optimized for deployment on [Vercel](https://vercel.com/).
+
+1.  **Connect your GitHub repository** to a new Vercel project.
+2.  **Add your environment variables** from `.env.local` to the Vercel project settings under **Settings > Environment Variables**.
+3.  Vercel will automatically build and deploy your site on every push to the main branch.
 
 ## 📁 Project Structure
 
 ```
-ada/
-├── pages/                    # Next.js pages (.tsx)
-│   ├── _app.tsx              # App wrapper with theme provider
-│   ├── index.tsx             # Homepage
-│   ├── services/             # Service pages
-│   │   └── [serviceSlug].tsx # Dynamic service routes
-│   └── case-studies/         # Case study pages
-│       └── ecommerce-redesign.tsx
-├── src/
-│   ├── components/           # React components (.tsx)
-│   ├── context/              # React context (ThemeProvider, .ts)
-│   ├── data/                 # Static data (.ts)
-├── public/                   # Static files
-├── index.css                 # Global styles
-├── tailwind.config.js        # Tailwind configuration
-├── next.config.js            # Next.js configuration
-├── tsconfig.json             # TypeScript configuration
-└── package.json              # Dependencies and scripts
+.
+├── pages/                # Next.js pages and API routes
+│   ├── api/
+│   │   └── quote.ts      # API endpoint for quote form
+│   ├── _app.tsx          # Global App component
+│   ├── _document.tsx     # Custom Document for fonts/scripts
+│   ├── index.tsx         # Homepage
+│   └── quote.tsx         # Request a Quote page
+│
+├── src/                  # Source files
+│   ├── components/       # Reusable React components
+│   ├── context/          # React Context (e.g., ThemeContext)
+│   └── data/             # Static data for components
+│
+├── public/               # Static assets (images, fonts)
+├── tailwind.config.js    # Tailwind CSS configuration
+└── next.config.js        # Next.js configuration
 ```
 
-## 🚀 Getting Started
+## 🤝 Contributing
 
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd ada
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 🎨 Customization
-
-### Colors
-The brand color is `#512feb` (rgb(81, 47, 235)) and is used throughout the site for buttons, links, and accents.
-
-### Components
-All components are located in `src/components/` and are now written in TypeScript (`.tsx`).
-
-### Data
-Service data is managed in `src/data/servicesData.ts` and can be easily updated.
-
-## 📱 Mobile Responsiveness
-
-The site is fully responsive and optimized for:
-- Mobile phones (320px+)
-- Tablets (768px+)
-- Desktop (1024px+)
-- Large screens (1280px+)
-
-## 🌙 Dark Mode
-
-The site includes a built-in dark/light mode toggle that:
-- Persists user preference
-- Provides smooth transitions
-- Maintains accessibility
-- Works across all components
-
-## 🔧 Configuration
-
-### Tailwind CSS
-Tailwind configuration is in `tailwind.config.js` and includes custom colors and animations.
-
-### Next.js
-Next.js configuration is in `next.config.js` with optimizations for:
-- Image optimization
-- Performance
-- SEO
-
-### TypeScript
-- All components, pages, and data files are now `.tsx`/`.ts`.
-- Minimal type annotations are provided for props, state, and context.
-- No changes to UI, styling, or content—just safer code!
-
-## 📄 Pages
-
-- **Homepage** (`/`) - Main landing page with all sections
-- **Services** (`/services/[slug]`) - Individual service pages
-- **Case Studies** (`/case-studies/ecommerce-redesign`) - Portfolio examples
-
-## 🚀 Deployment
-
-The site can be deployed to:
-- Vercel (recommended for Next.js)
-- Netlify
-- Any static hosting service
-
-### Vercel Deployment
-1. Connect your repository to Vercel
-2. Vercel will automatically detect Next.js + TypeScript
-3. Deploy with zero configuration
-
-## 📞 Support
-
-For questions or support, please contact the development team.
-
----
-
-**Note**: This project is now fully migrated to Next.js + TypeScript with minimal type annotations and no changes to UI, styling, or content.
+Contributions, issues, and feature requests are welcome. Feel free to check the [issues page](https://github.com/entalogics/entalogics/issues) if you want to contribute.

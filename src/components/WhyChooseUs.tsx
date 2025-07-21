@@ -87,9 +87,10 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
+    <section className="py-20 bg-white dark:bg-[#0a1225] relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute top-1/4 left-0 w-80 h-80 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -99,16 +100,13 @@ const WhyChooseUs = () => {
           className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white mb-2 md:mb-4 tracking-tight">
-            We're Not Just a Dev Agency — We're Your Long-Term Tech Partner
+            We're Not Just a Dev Agency — We're Your <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Long-Term Tech Partner</span>
           </h2>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto mb-4 md:mb-6 font-normal leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-4xl mx-auto mb-4 md:mb-6 font-normal leading-relaxed">
             Entalogics was founded with one goal — to bring clarity and logic into software development. 
             We're a team of engineers, designers, and product minds helping founders go from idea to launch… with systems that scale.
-            Whether you're building an AI tool, browser platform, or custom enterprise app — we become your extended tech team. 
-            From MVP to V1 and beyond — we build what matters.
           </p>
         </motion.div>
-
         {/* Stats Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -124,15 +122,14 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="flex flex-col items-center text-center p-4 bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-xl border border-[#e5e7eb] dark:border-white/30 shadow-lg"
+              className="flex flex-col items-center text-center p-4 bg-white dark:bg-[#111A2F] rounded-xl border border-gray-300 dark:border-blue-900/40 shadow-lg"
             >
-              <span className="text-[#512feb] mb-2">{stat.icon}</span>
+              <span className="text-blue-600 dark:text-blue-400 mb-2">{stat.icon}</span>
               <div className="text-lg md:text-xl font-bold text-black dark:text-white">{stat.value}</div>
               <div className="text-xs text-gray-600 dark:text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
-
         {/* Core Beliefs */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -152,7 +149,7 @@ const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="px-4 py-2 bg-[#512feb]/10 dark:bg-[#512feb]/20 text-[#512feb] dark:text-[#512feb] rounded-full text-sm font-medium border border-[#512feb]/20"
+                className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700"
               >
                 {belief}
               </motion.span>
@@ -181,13 +178,13 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="flex flex-col items-start bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-xl p-5 md:p-6 border border-[#e5e7eb] dark:border-white/30 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/50 transition-all duration-200"
+              className="flex flex-col items-start bg-white dark:bg-[#111A2F] rounded-xl p-5 md:p-6 border border-gray-300 dark:border-blue-900/40 shadow-lg hover:shadow-xl dark:hover:shadow-blue-900/20 transition-all duration-200"
             >
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 dark:bg-[#222] text-black dark:text-white mb-2">
+              <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-3">
                 {item.icon}
               </span>
-              <h3 className="text-sm font-medium text-black dark:text-white mb-1 leading-tight">{item.title}</h3>
-              <p className="text-xs text-gray-600 dark:text-[#A1A1AA] font-normal leading-relaxed">{item.desc}</p>
+              <h3 className="text-lg font-bold text-black dark:text-white mb-1 leading-tight">{item.title}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 font-normal leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>

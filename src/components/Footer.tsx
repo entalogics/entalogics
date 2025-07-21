@@ -7,7 +7,7 @@ const Footer = () => {
   
   const footerLinks = {
     company: [
-      { name: 'About Us', path: '#' },
+      { name: 'About Us', path: '/about' },
       { name: 'Our Process', path: '#' },
       { name: 'Case Studies', path: '#' },
       { name: 'Our Team', path: '#' },
@@ -36,10 +36,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-100 dark:bg-[#0d0d0d] pt-20 pb-8 relative overflow-hidden">
-      {/* Background gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>
-      
+    <footer className="bg-white dark:bg-[#0a1225] pt-20 pb-8 relative overflow-hidden">
+      {/* Blurred background circles for RozmeriGPT effect */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-100/40 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-purple-100/40 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="container mx-auto px-[20px] md:px-12 relative z-10">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
@@ -47,7 +47,7 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <div className="mb-8">
               <Link href="/" className="flex items-center space-x-3 group">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#512feb] to-[#4a2bd4] flex items-center justify-center shadow-lg group-hover:shadow-[#512feb]/30 transition-all duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300">
                   <span className="text-white font-bold text-xl">E</span>
                 </div>
                 <span className="text-2xl font-bold text-black dark:text-white tracking-tight">Entalogics</span>
@@ -64,9 +64,9 @@ const Footer = () => {
               <input 
                 type="email" 
                 placeholder="Enter your email" 
-                className="flex-1 px-4 py-3 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:border-[#512feb] dark:focus:border-[#512feb] focus:outline-none text-black dark:text-white font-normal"
+                className="flex-1 px-4 py-3 text-sm bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-lg focus:border-blue-600 dark:focus:border-blue-400 focus:outline-none text-black dark:text-white font-normal"
               />
-              <button type="submit" className="px-4 py-3 bg-[#512feb] text-white rounded-xl hover:bg-[#4a2bd4] transition-all duration-300 border-2 border-[#512feb] shadow-lg hover:shadow-[#512feb]/30">
+              <button type="submit" className="px-5 py-3 bg-blue-600 text-white rounded-lg font-bold shadow hover:bg-blue-700 transition-all duration-200 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400/40">
                 <ArrowRight className="w-5 h-5" />
               </button>
             </form>
@@ -84,7 +84,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link 
                       href={link.path} 
-                      className="text-gray-700 dark:text-gray-400 hover:text-[#512feb] dark:hover:text-[#512feb] font-normal transition-all duration-300 hover:underline"
+                      className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-normal transition-all duration-300 hover:underline"
                     >
                       {link.name}
                     </Link>
@@ -99,7 +99,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link 
                       href={link.path} 
-                      className="text-gray-700 dark:text-gray-400 hover:text-[#512feb] dark:hover:text-[#512feb] font-normal transition-all duration-300 hover:underline"
+                      className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-normal transition-all duration-300 hover:underline"
                     >
                       {link.name}
                     </Link>
@@ -114,7 +114,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link 
                       href={link.path} 
-                      className="text-gray-700 dark:text-gray-400 hover:text-[#512feb] dark:hover:text-[#512feb] font-normal transition-all duration-300 hover:underline"
+                      className="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-normal transition-all duration-300 hover:underline"
                     >
                       {link.name}
                     </Link>
@@ -126,7 +126,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar: Copyright and Socials */}
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-200 dark:border-blue-900/40 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-0 font-normal">
             &copy; {new Date().getFullYear()} Entalogics. All Rights Reserved.
           </p>
@@ -135,7 +135,7 @@ const Footer = () => {
               <a 
                 key={index} 
                 href={link.path} 
-                className={`w-10 h-10 rounded-xl bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-[#512feb] dark:hover:text-[#512feb] hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-[#512feb] dark:hover:border-[#512feb]`}
+                className={`w-10 h-10 rounded-lg bg-white dark:bg-[#111A2F] flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-blue-900/10 transition-all duration-300 border border-gray-300 dark:border-blue-900/40 hover:border-blue-600 dark:hover:border-blue-400`}
               >
                 <link.icon className="w-5 h-5" strokeWidth={2} />
               </a>
