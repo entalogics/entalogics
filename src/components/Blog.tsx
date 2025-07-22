@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import { getBlogPosts } from '../data/blogData';
@@ -34,14 +33,9 @@ const Blog = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-8">
           {blogPosts.map((post, index) => (
-            <motion.div
+            <div
               key={post.slug}
               className="relative h-full flex flex-col group bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-2xl px-6 py-5 md:px-6 md:py-6 shadow-lg shadow-black/5 dark:shadow-blue-900/10 hover:shadow-2xl hover:shadow-blue-900/20 dark:hover:shadow-blue-900/20 transition-all duration-200"
-              whileHover={{ y: -4, transition: { duration: 0.15 } }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
             >
               {/* Category Badge */}
               <div className="flex-shrink-0 mb-4">
@@ -88,7 +82,7 @@ const Blog = () => {
                   <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

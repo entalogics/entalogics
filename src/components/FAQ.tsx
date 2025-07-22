@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Plus, Minus, ChevronDown, ChevronUp, Mail } from 'lucide-react';
 
@@ -58,11 +57,8 @@ const FAQ = () => {
 
       <div className="container mx-auto max-w-4xl relative z-10">
         {/* Section Header */}
-        <motion.div
+        <div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white text-center mb-12">
@@ -71,21 +67,15 @@ const FAQ = () => {
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-4 md:mb-6">
             Still have questions? We've got answers.
           </p>
-        </motion.div>
+        </div>
 
         {/* FAQ Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+        <div
           className="max-w-3xl mx-auto space-y-4"
         >
           {faqs.map((faq, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               className={`bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-xl transition-all duration-200 overflow-hidden shadow-sm hover:shadow-lg dark:hover:shadow-blue-900/20 group`}
             >
               <button
@@ -96,50 +86,35 @@ const FAQ = () => {
                 <span className="font-semibold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-relaxed">
                   {faq.question}
                 </span>
-                <motion.div
-                  className="w-8 h-8 flex items-center justify-center rounded-full transition-all duration-200 text-black dark:text-white"
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
+                <div
+                  className={`w-8 h-8 flex items-center justify-center rounded-full transition-all duration-200 text-black dark:text-white ${openIndex === index ? 'rotate-180' : ''}`}
                 >
                   <ChevronDown className="w-5 h-5" />
-                </motion.div>
+                </div>
               </button>
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: 'easeInOut' }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-5 pb-5 md:px-6 md:pb-6 text-gray-700 dark:text-gray-300 leading-relaxed font-normal text-sm">
-                      <p>{faq.answer}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              {openIndex === index && (
+                <div className="overflow-hidden">
+                  <div className="px-5 pb-5 md:px-6 md:pb-6 text-gray-700 dark:text-gray-300 leading-relaxed font-normal text-sm">
+                    <p>{faq.answer}</p>
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+        <div
           className="text-center mt-12"
         >
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6">
             Have a different question?
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            whileTap={{ scale: 0.95 }}
+          <button
             className="bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 border-2 border-blue-600 inline-flex items-center space-x-2"
           >
             <span>Send us a message →</span>
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </div>
 
       {/* Back to Top & CTA Floating Buttons */}

@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
@@ -133,11 +132,8 @@ const CaseStudies = () => {
       <div className="absolute bottom-0 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
       
       <div className="container mx-auto relative z-10">
-        <motion.div
+        <div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white">
@@ -146,7 +142,7 @@ const CaseStudies = () => {
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed font-normal">
             From AI-native platforms to custom browsers and full-stack SaaS — here's what we've shipped.
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative">
           {/* Left/Right scroll buttons for desktop */}
@@ -191,11 +187,8 @@ const CaseStudies = () => {
               else if (study.title === 'Web3 Browser (Brave Fork)') cardImg = '/assets/Custom Browser Solution.png';
               else if (study.title === 'Real-Time Healthcare System') cardImg = '/assets/management system.png';
               return (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group w-full sm:w-1/2 md:w-1/3 flex-shrink-0 snap-center"
                 >
                   <div className="bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-2xl overflow-hidden shadow-lg shadow-black/5 dark:shadow-blue-900/10 group-hover:shadow-2xl group-hover:shadow-blue-900/10 dark:group-hover:shadow-blue-900/20 transition-all duration-200 transform group-hover:scale-105 flex flex-col min-h-[320px] md:min-h-[340px] h-full">
@@ -230,29 +223,24 @@ const CaseStudies = () => {
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
+        <div
           className="text-center mt-12"
         >
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6">
             Want to see more of what we've built? <a href="#contact" className="text-blue-600 dark:text-blue-400 hover:underline">Explore all case studies</a> or let's create yours next
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            whileTap={{ scale: 0.95 }}
+          <button
             className="bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 border-2 border-blue-600 inline-flex items-center space-x-2"
           >
             <span>Book a 15-min call</span>
             <ArrowRight className="w-5 h-5" />
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </div>
     </section>
   );

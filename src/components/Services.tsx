@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
@@ -21,9 +20,8 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ service, index }: ServiceCardProps) => {
   return (
-    <motion.div
+    <div
       className="relative h-full min-h-[340px] flex flex-col group bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-[#e5e7eb] dark:border-white/30 rounded-2xl px-3 sm:px-6 md:px-8 py-7 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-black/10 dark:hover:shadow-black/50 transition-all duration-200"
-      whileHover={{ y: -4, transition: { duration: 0.15 } }}
       style={{ boxSizing: 'border-box' }}
     >
       <div className="flex-shrink-0 mb-4 md:mb-6">
@@ -79,7 +77,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
           </Link>
         ) : null}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -102,9 +100,8 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-8 w-full">
           {servicesList.map((service, index) => (
             <div className="h-full w-full" key={service.slug}>
-              <motion.div
+              <div
                 className="relative h-full w-full min-h-[340px] flex flex-col group bg-white dark:bg-[#111A2F] backdrop-blur-xl border border-gray-300 dark:border-blue-900/40 rounded-2xl px-6 sm:px-8 py-7 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-blue-900/20 transition-all duration-200"
-                whileHover={{ y: -4, transition: { duration: 0.15 } }}
                 style={{ boxSizing: 'border-box' }}
               >
                 <div className="flex-shrink-0 mb-4 md:mb-6">
@@ -160,7 +157,7 @@ const Services = () => {
                     </Link>
                   ) : null}
                 </div>
-              </motion.div>
+              </div>
             </div>
           ))}
         </div>
