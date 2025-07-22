@@ -17,13 +17,13 @@ const Layout = ({ children, noPaddingTop = false }: LayoutProps) => {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <Header />
+      <Header logoSrc="/assets/Favicon/Entalogics favicon blue color.svg" />
 
       <main className={`flex-grow ${noPaddingTop ? '' : 'pt-24'}`}>
         {children}
       </main>
 
-      <Footer />
+      <Footer logoSrc="/assets/Favicon/Entalogics favicon blue color.svg" />
     </div>
   );
 };

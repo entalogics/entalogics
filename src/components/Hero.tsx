@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <>
-      <section id="home" className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4 subtle-grid-background">
+      <section id="home" className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4 subtle-grid-background pb-0">
         {/* Blurred background circles for RozmeriGPT effect - CONTAINED to hero only */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute -top-24 -left-24 w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] sm:-top-32 sm:-left-32 max-w-none max-h-none rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl" style={{zIndex: -10}}></div>
@@ -32,6 +32,7 @@ const Hero = () => {
           <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
             We're your full-stack product development partner for startups, scaleups, and innovators. Whether it's SaaS, AI platforms, custom browsers, or Web3 apps — we engineer and launch with precision, speed, and business logic.
           </p>
+
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-6">
             <button
@@ -56,21 +57,57 @@ const Hero = () => {
               </a>
             </Link>
           </div>
-          {/* Security Badge Row */}
-          <div className="flex items-center justify-center flex-nowrap space-x-2 sm:space-x-4 mt-4">
-            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400">
-              <Shield size={11} />
-              <span>NDA Friendly</span>
-            </div>
-            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-blue-600 dark:text-blue-400">
-              <Lock size={11} />
-              <span>SSL Secure</span>
-            </div>
-            <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-violet-600 dark:text-violet-400">
-              <UserCheck size={11} />
-              <span>Top Rated Plus Team</span>
-            </div>
+          {/* Trust Bar: Enterprise-Polish, Single Line */}
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 mt-4 text-[13px] text-gray-500 dark:text-blue-300 font-medium">
+            <span className="flex items-center gap-1">🛡️ NDA Friendly</span>
+            <span className="mx-1">|</span>
+            <span className="flex items-center gap-1">🔒 SSL Secure</span>
+            <span className="mx-1">|</span>
+            <span className="flex items-center gap-1">🏗️ 100+ Projects Delivered</span>
+            <span className="mx-1">|</span>
+            <span className="flex items-center gap-1">⭐ Top-Rated Plus Agency</span>
           </div>
+        </div>
+
+        {/* Tech Icons Row - improved theme matching */}
+        <div className="sm:flex hidden flex-wrap justify-center items-center gap-4 mt-10 mb-2">
+          {[
+            { src: '/assets/tech-icons/figma.svg', alt: 'Figma' },
+            { src: '/assets/tech-icons/flutter.svg', alt: 'Flutter' },
+            { src: '/assets/tech-icons/graphql.svg', alt: 'GraphQL' },
+            { src: '/assets/tech-icons/nextjs.svg', alt: 'Next.js' },
+            { src: '/assets/tech-icons/nodejs.svg', alt: 'Node.js' },
+            { src: '/assets/tech-icons/python.svg', alt: 'Python' },
+            { src: '/assets/tech-icons/react.svg', alt: 'React' },
+            { src: '/assets/tech-icons/tailwindcss.svg', alt: 'Tailwind CSS' },
+            { src: '/assets/tech-icons/typescript.svg', alt: 'TypeScript' },
+            { src: '/assets/tech-icons/docker.svg', alt: 'Docker' },
+            { src: '/assets/tech-icons/postgresql.svg', alt: 'PostgreSQL' },
+          ].map(icon => (
+            <div key={icon.alt} className="bg-white/70 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700/40 rounded-xl p-3 flex items-center justify-center backdrop-blur-md shadow-md transition-all duration-300 w-14 h-14 mx-auto">
+              <img src={icon.src} alt={icon.alt} className="w-10 h-10 filter invert-0 dark:invert" />
+            </div>
+          ))}
+        </div>
+        {/* Mobile: horizontal scrollable row, tiny icons */}
+        <div className="flex sm:hidden gap-2 mt-10 mb-2 overflow-x-auto px-1" style={{ WebkitOverflowScrolling: 'touch' }}>
+          {[
+            { src: '/assets/tech-icons/figma.svg', alt: 'Figma' },
+            { src: '/assets/tech-icons/flutter.svg', alt: 'Flutter' },
+            { src: '/assets/tech-icons/graphql.svg', alt: 'GraphQL' },
+            { src: '/assets/tech-icons/nextjs.svg', alt: 'Next.js' },
+            { src: '/assets/tech-icons/nodejs.svg', alt: 'Node.js' },
+            { src: '/assets/tech-icons/python.svg', alt: 'Python' },
+            { src: '/assets/tech-icons/react.svg', alt: 'React' },
+            { src: '/assets/tech-icons/tailwindcss.svg', alt: 'Tailwind CSS' },
+            { src: '/assets/tech-icons/typescript.svg', alt: 'TypeScript' },
+            { src: '/assets/tech-icons/docker.svg', alt: 'Docker' },
+            { src: '/assets/tech-icons/postgresql.svg', alt: 'PostgreSQL' },
+          ].map(icon => (
+            <div key={icon.alt} className="bg-white/70 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700/40 rounded-xl p-0.5 flex items-center justify-center backdrop-blur-md shadow-md transition-all duration-300 w-8 h-8 flex-shrink-0">
+              <img src={icon.src} alt={icon.alt} className="w-7 h-7 filter invert-0 dark:invert" />
+            </div>
+          ))}
         </div>
       </section>
       <TrustBar />

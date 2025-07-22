@@ -3,7 +3,10 @@ import Link from 'next/link';
 import { Twitter, Linkedin, Github, Mail, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
-const Footer = () => {
+const Footer = ({ logoSrc }: { logoSrc?: string }) => {
+  const { theme } = useTheme();
+  // Always use blue favicon
+  const faviconSrc = '/assets/Favicon/Entalogics favicon blue color.svg';
   
   const footerLinks = {
     company: [
@@ -46,11 +49,12 @@ const Footer = () => {
           {/* Column 1: Logo and Newsletter */}
           <div className="lg:col-span-4">
             <div className="mb-8">
-              <Link href="/" className="flex items-center space-x-3 group">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg group-hover:shadow-blue-500/30 transition-all duration-300">
-                  <span className="text-white font-bold text-xl">E</span>
+              <Link href="/" className="flex items-center space-x-3 group items-center">
+                <img src={faviconSrc} alt="Entalogics logo" className="w-10 h-10" />
+                <div>
+                  <span className="text-2xl font-bold text-black dark:text-white tracking-tight uppercase">ENTALOGICS</span>
+                  <div className="text-[11px] text-gray-500 dark:text-gray-400 -mt-1">Built With Logic</div>
                 </div>
-                <span className="text-2xl font-bold text-black dark:text-white tracking-tight">Entalogics</span>
               </Link>
             </div>
             <p className="text-gray-700 dark:text-gray-300 mb-8 max-w-sm font-normal leading-relaxed">

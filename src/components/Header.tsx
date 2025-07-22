@@ -12,7 +12,7 @@ const navItems: { name: string; href: string }[] = [
   { name: 'Contact', href: '#contact' },
 ];
 
-const Header = () => {
+const Header = ({ logoSrc }: { logoSrc?: string }) => {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
@@ -65,7 +65,7 @@ const Header = () => {
                 className={`w-9 h-9 rounded-lg flex items-center justify-center bg-transparent p-0 ${shrink ? 'w-8 h-8' : ''}`}
               >
                 <img
-                  src={theme === 'dark' ? '/assets/logo icon white.svg' : '/assets/logo icon black.svg'}
+                  src={logoSrc ? logoSrc : (theme === 'dark' ? '/assets/logo icon white.svg' : '/assets/logo icon black.svg')}
                   alt="Entalogics logo"
                   className={`object-contain transition-all duration-300 ${shrink ? 'w-7 h-7' : 'w-8 h-8'}`}
                   draggable="false"

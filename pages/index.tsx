@@ -4,7 +4,7 @@ import Hero from '../src/components/Hero';
 import Services from '../src/components/Services';
 import CaseStudies from '../src/components/CaseStudies';
 import WhyChooseUs from '../src/components/WhyChooseUs';
-import Process from '../src/components/Process';
+import HowWeBuildWithYou from '../src/components/HowWeBuildWithYou';
 import Testimonials from '../src/components/Testimonials';
 import FAQ from '../src/components/FAQ';
 import Blog from '../src/components/Blog';
@@ -17,7 +17,7 @@ const HomePage = () => {
       <Services />
       <CaseStudies />
       <WhyChooseUs />
-      <Process />
+      <HowWeBuildWithYou />
       <Testimonials />
       <FAQ />
       <Blog />
