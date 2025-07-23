@@ -4,7 +4,7 @@ import { Plus, Minus, ChevronDown, ChevronUp, Mail } from 'lucide-react';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [showCookie, setShowCookie] = useState(true);
+  // Removed showCookie and setShowCookie
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -47,11 +47,8 @@ const FAQ = () => {
   };
 
   useEffect(() => {
-    if (showCookie) {
-      const timer = setTimeout(() => setShowCookie(false), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [showCookie]);
+    // Removed cookie popup logic
+  }, []);
 
   return (
     <section id="faq" className="relative bg-gray-50 dark:bg-[#0D1526] py-20 px-4 md:px-12 overflow-hidden">
@@ -183,25 +180,6 @@ const FAQ = () => {
           <ChevronUp className="w-5 h-5" />
         </button>
       </div>
-
-      {/* Cookies Popup */}
-      {showCookie && (
-        <div className="fixed bottom-4 left-4 z-50 bg-white dark:bg-[#181818] text-gray-800 dark:text-gray-100 px-5 py-3 rounded-xl shadow-lg flex items-center gap-3 border border-gray-200 dark:border-gray-700 animate-fade-in">
-          <span className="text-xs">This site uses cookies to enhance your experience.</span>
-          <button
-            onClick={() => setShowCookie(false)}
-            className="ml-2 px-3 py-1 rounded-lg bg-[#512feb] text-white text-xs font-semibold hover:bg-[#3a22a8] transition-colors"
-          >
-            Accept
-          </button>
-          <button
-            onClick={() => setShowCookie(false)}
-            className="ml-1 px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
-            Reject
-          </button>
-        </div>
-      )}
     </section>
   );
 };

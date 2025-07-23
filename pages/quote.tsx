@@ -80,13 +80,12 @@ export default function QuotePage() {
   const [serverError, setServerError] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const [lastSubmit, setLastSubmit] = useState(0);
-  const [showHelpPopup, setShowHelpPopup] = useState(false);
 
   useEffect(() => {
     const hasDismissed = sessionStorage.getItem('quotePopupDismissed');
     if (!hasDismissed) {
       const timer = setTimeout(() => {
-        setShowHelpPopup(true);
+        // setShowHelpPopup(true); // This line is removed
       }, 1500); // 1.5-second delay before showing
       return () => clearTimeout(timer);
     }
@@ -150,11 +149,6 @@ export default function QuotePage() {
       setLoading(false);
     }
   }
-
-  const handleDismissPopup = () => {
-    sessionStorage.setItem('quotePopupDismissed', 'true');
-    setShowHelpPopup(false);
-  };
 
   return (
     <Layout>
@@ -342,29 +336,6 @@ export default function QuotePage() {
           </div>
         </div>
       </section>
-
-      <AnimatePresence>
-        {showHelpPopup && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed bottom-4 right-4 max-w-xs w-full bg-white dark:bg-[#111A2F] rounded-xl shadow-lg p-4 border border-gray-200 dark:border-blue-900/40 z-50"
-          >
-            <h3 className="font-bold text-base text-black dark:text-white mb-2">💡 Need help getting started?</h3>
-            <p className="text-xs text-gray-600 dark:text-gray-300 mb-3">
-              Please fill in your name, email, and a brief description of your project goals. Select the services and estimated budget that best match your needs, and we’ll get back to you within 24 hours with a personalized quote.
-            </p>
-            <button
-              onClick={handleDismissPopup}
-              className="w-full px-4 py-1.5 bg-blue-600 text-white rounded-md font-semibold text-xs shadow hover:bg-blue-700 transition"
-            >
-              Got it!
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </Layout>
   );
 } 
