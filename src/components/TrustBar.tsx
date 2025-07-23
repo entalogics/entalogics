@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
+import Image from 'next/image';
 
 const logos = [
   { name: 'Marvian', src: '/assets/trustbar logos/marvian logo-01.svg' },
@@ -40,7 +41,7 @@ const TrustBar = () => {
               ? 'bg-gradient-to-br from-blue-600 to-blue-900 border border-blue-400 shadow-[0_0_16px_4px_rgba(83,75,211,0.25)]'
               : 'bg-white/10 border border-blue-200 shadow-[0_0_16px_4px_rgba(98,92,208,0.15)]')
           }>
-            <img src={faviconSrc} alt="Entalogics Favicon" className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
+            <Image src={faviconSrc} alt="Entalogics Favicon" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
           </div>
         </div>
         {/* Logos Row: left-to-center (marquee, duplicated for smooth loop) */}
@@ -48,7 +49,7 @@ const TrustBar = () => {
           <div className="marquee-track-ltr flex items-center gap-4 sm:gap-10" style={{ width: 'max-content', animation: 'marqueeLTR 24s linear infinite' }}>
             {[...logos, ...logos].map((logo, idx) => (
               <div key={logo.name + 'ltr' + idx} className="flex items-center justify-center min-w-[48px] sm:min-w-[90px] h-8 sm:h-12 transition">
-                <img src={logo.src} alt={logo.name} className="h-7 w-auto sm:h-8" loading="lazy" />
+                <Image src={logo.src} alt={logo.name} width={32} height={28} className="h-7 w-auto sm:h-8" loading="lazy" />
               </div>
             ))}
           </div>
@@ -60,7 +61,7 @@ const TrustBar = () => {
           <div className="marquee-track-rtl flex items-center gap-4 sm:gap-10" style={{ width: 'max-content', animation: 'marqueeRTL 24s linear infinite' }}>
             {[...logos, ...logos].slice().reverse().map((logo, idx) => (
               <div key={logo.name + 'rtl' + idx} className="flex items-center justify-center min-w-[48px] sm:min-w-[90px] h-8 sm:h-12 transition">
-                <img src={logo.src} alt={logo.name} className="h-7 w-auto sm:h-8" loading="lazy" />
+                <Image src={logo.src} alt={logo.name} width={32} height={28} className="h-7 w-auto sm:h-8" loading="lazy" />
               </div>
             ))}
           </div>

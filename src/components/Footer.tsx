@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Twitter, Linkedin, Github, Mail, ArrowRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import Image from 'next/image';
 
 const Footer = ({ logoSrc }: { logoSrc?: string }) => {
   const { theme } = useTheme();
@@ -50,7 +51,7 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
           <div className="lg:col-span-4">
             <div className="mb-8">
               <Link href="/" className="flex items-center space-x-3 group items-center">
-                <img src={faviconSrc} alt="Entalogics logo" className="w-10 h-10" />
+                <Image src={faviconSrc} alt="Entalogics logo" width={40} height={40} className="w-10 h-10" />
                 <div>
                   <span className="text-2xl font-bold text-black dark:text-white tracking-tight uppercase">ENTALOGICS</span>
                   <div className="text-[11px] text-gray-500 dark:text-gray-400 -mt-1">Built With Logic</div>

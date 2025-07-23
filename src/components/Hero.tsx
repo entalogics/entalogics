@@ -3,11 +3,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play, Globe, UserCheck, Lock, Shield } from 'lucide-react';
 import TrustBar from './TrustBar';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Sora } from 'next/font/google';
+
+const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '800'], display: 'swap' });
 
 const Hero = () => {
   return (
     <>
-      <section id="home" className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4 subtle-grid-background pb-0">
+      <section id="home" className={`relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-24 md:py-32 lg:py-40 px-4 subtle-grid-background pb-0 ${sora.className}`}>
         {/* Blurred background circles for RozmeriGPT effect - CONTAINED to hero only */}
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute -top-24 -left-24 w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] sm:-top-32 sm:-left-32 max-w-none max-h-none rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl" style={{zIndex: -10}}></div>
@@ -51,7 +55,7 @@ const Hero = () => {
                 </motion.span>
               </span>
             </button>
-            <Link href="/quote" legacyBehavior>
+            <Link href="/quote" legacyBehavior> 
               <a className="w-full sm:w-auto px-7 py-3 font-bold rounded-lg border border-gray-300 dark:border-blue-400/30 bg-white dark:bg-transparent text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 flex items-center justify-center gap-2 transition-all duration-200 text-base text-center">
                 <span className="w-full flex items-center justify-center">Get a Quote</span>
               </a>
@@ -85,7 +89,7 @@ const Hero = () => {
             { src: '/assets/tech-icons/postgresql.svg', alt: 'PostgreSQL' },
           ].map(icon => (
             <div key={icon.alt} className="bg-white/70 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700/40 rounded-xl p-3 flex items-center justify-center backdrop-blur-md shadow-md transition-all duration-300 w-14 h-14 mx-auto">
-              <img src={icon.src} alt={icon.alt} className="w-10 h-10 filter invert-0 dark:invert" />
+              <Image src={icon.src} alt={icon.alt} width={40} height={40} className="w-10 h-10 filter invert-0 dark:invert" />
             </div>
           ))}
         </div>

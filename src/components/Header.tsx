@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navItems: { name: string; href: string }[] = [
   { name: 'Process', href: '#process' },
@@ -64,9 +65,11 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
               <div
                 className={`w-9 h-9 rounded-lg flex items-center justify-center bg-transparent p-0 ${shrink ? 'w-8 h-8' : ''}`}
               >
-                <img
+                <Image
                   src={logoSrc ? logoSrc : (theme === 'dark' ? '/assets/logo icon white.svg' : '/assets/logo icon black.svg')}
                   alt="Entalogics logo"
+                  width={32}
+                  height={32}
                   className={`object-contain transition-all duration-300 ${shrink ? 'w-7 h-7' : 'w-8 h-8'}`}
                   draggable="false"
                 />

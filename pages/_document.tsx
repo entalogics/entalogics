@@ -4,10 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Sora Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet" />
+        {/* Sora Google Fonts - removed for next/font migration */}
         <link rel="icon" type="image/svg+xml" href="/assets/Favicon/Entalogics favicon blue color.svg" />
       </Head>
       <body>
