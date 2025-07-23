@@ -16,6 +16,10 @@ import Layout from "../src/components/Layout";
 import { motion } from "framer-motion";
 import React from "react";
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 const AboutPage = () => {
   const sections = [
     {

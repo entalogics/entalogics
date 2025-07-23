@@ -12,6 +12,6 @@ const nextConfig = {
       'framerusercontent.com',
     ],
   },
-}
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig; 
