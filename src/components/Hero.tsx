@@ -94,7 +94,7 @@ const Hero = () => {
           ))}
         </div>
         {/* Mobile: horizontal scrollable row, tiny icons */}
-        <div className="flex sm:hidden gap-2 mt-10 mb-2 overflow-x-auto px-1" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="hidden sm:hidden gap-2 mt-10 mb-2 overflow-x-auto px-1" style={{ WebkitOverflowScrolling: 'touch' }}>
           {[
             { src: '/assets/tech-icons/figma.svg', alt: 'Figma' },
             { src: '/assets/tech-icons/flutter.svg', alt: 'Flutter' },

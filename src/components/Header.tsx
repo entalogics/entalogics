@@ -6,10 +6,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const navItems: { name: string; href: string }[] = [
-  { name: 'Process', href: '#process' },
+  { name: 'Process', href: '#how-we-build-with-you' },
   { name: 'Services', href: '#services' },
-  { name: 'Benefits', href: '#benefits' },
-  { name: 'Plans', href: '#plans' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'FAQs', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ];
 

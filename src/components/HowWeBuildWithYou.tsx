@@ -35,7 +35,7 @@ const buildSteps = [
 
 const HowWeBuildWithYou = () => {
   return (
-    <section className="relative z-10 container mx-auto px-4 md:px-12 py-20">
+    <section id="how-we-build-with-you" className="relative z-10 container mx-auto px-4 md:px-12 py-20">
       <div className="max-w-5xl mx-auto text-center mb-12">
         <h2 className="text-2xl md:text-4xl font-extrabold mb-3">
           <span className="text-black dark:text-white">How We</span> <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>

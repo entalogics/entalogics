@@ -149,7 +149,7 @@ const PortfolioCarousel = () => {
   };
 
   return (
-    <section className="relative w-full py-16 px-2 md:px-8 bg-transparent overflow-hidden">
+    <section id="portfolio" className="relative w-full py-16 px-2 md:px-8 bg-transparent overflow-hidden">
       {/* Blurred background circles for gradient effect */}
       <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/10 blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/10 blur-3xl z-0 pointer-events-none"></div>
