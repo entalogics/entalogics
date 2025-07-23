@@ -115,8 +115,18 @@ const AboutPage = () => {
   return (
     <Layout>
       <Head>
-        <title>About Us - EntaLogics</title>
-        <meta name="description" content="Turning bold ideas into real, scalable products — one line of thoughtful code at a time." />
+        <title>About Us | Entalogics</title>
+        <meta name="description" content="Meet the Entalogics team: engineers, designers, and product experts building scalable software and AI solutions for startups and enterprises." />
+        <meta property="og:title" content="About Entalogics - Meet the Team" />
+        <meta property="og:description" content="Meet the Entalogics team: engineers, designers, and product experts building scalable software and AI solutions for startups and enterprises." />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:url" content="https://entalogics.com/about" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Entalogics - Meet the Team" />
+        <meta name="twitter:description" content="Meet the Entalogics team: engineers, designers, and product experts building scalable software and AI solutions for startups and enterprises." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <link rel="canonical" href="https://entalogics.com/about" />
       </Head>
 
       <div className="bg-white dark:bg-[#0a1225] text-black dark:text-white">

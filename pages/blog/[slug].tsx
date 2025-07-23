@@ -6,6 +6,7 @@ import Layout from '../../src/components/Layout';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import { getBlogPost, getBlogPosts } from '../../src/data/blogData';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 
 interface BlogPostPageProps {
   post: any;
@@ -38,6 +39,20 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
 
   return (
     <Layout>
+      <Head>
+        <title>{post.title} | Entalogics Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={post.title + ' | Entalogics Blog'} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.ogImage || 'https://entalogics.com/assets/og-image.jpg'} />
+        <meta property="og:url" content={`https://entalogics.com/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title + ' | Entalogics Blog'} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.ogImage || 'https://entalogics.com/assets/og-image.jpg'} />
+        <link rel="canonical" href={`https://entalogics.com/blog/${post.slug}`} />
+      </Head>
       <article className="py-10 md:py-20 bg-white dark:bg-[#0d0d0d] relative overflow-hidden">
         {/* Background gradient for depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-800 opacity-60"></div>

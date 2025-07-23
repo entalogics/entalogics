@@ -5,6 +5,7 @@ import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { servicesData } from '../../src/data/servicesData';
 import Contact from '../../src/components/Contact';
 import Layout from '../../src/components/Layout';
+import Head from 'next/head';
 
 const ServicePage = () => {
   const router = useRouter();
@@ -69,6 +70,20 @@ const ServicePage = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>{service.title} | Services | Entalogics</title>
+        <meta name="description" content={service.tagline || 'Explore our custom software, AI, and web development services.'} />
+        <meta property="og:title" content={service.title + ' | Services | Entalogics'} />
+        <meta property="og:description" content={service.tagline || 'Explore our custom software, AI, and web development services.'} />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:url" content={`https://entalogics.com/services/${serviceSlug}`} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={service.title + ' | Services | Entalogics'} />
+        <meta name="twitter:description" content={service.tagline || 'Explore our custom software, AI, and web development services.'} />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <link rel="canonical" href={`https://entalogics.com/services/${serviceSlug}`} />
+      </Head>
       {/* Hero Section */}
       <section className="relative bg-secondary-50 dark:bg-secondary-900 pt-32 pb-20">
         <div className="container-custom">
