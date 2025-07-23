@@ -9,6 +9,7 @@ const nextConfig = {
       'static.clutch.co',
       'assets.goodfirms.co',
       'cdn.g2crowd.com',
+      'framerusercontent.com',
     ],
   },
 }

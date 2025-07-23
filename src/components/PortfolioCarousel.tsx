@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const portfolioItems = [
   {
@@ -190,7 +191,7 @@ const PortfolioCarousel = () => {
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg glass-light dark:glass-dark border border-gray-300 dark:border-white/10" style={{}}>
                   <div className="absolute inset-0 z-0">
-                    <img src={item.img} alt={item.alt} className="w-full h-full object-cover object-top rounded-2xl" />
+                    <Image src={item.img} alt={item.alt} fill className="w-full h-full object-cover object-top rounded-2xl" sizes="(max-width: 600px) 90vw, 407px" priority={idx < 2} />
                   </div>
                   <div className="absolute inset-0 z-10" style={{background:'linear-gradient(180deg,rgba(11,13,20,0) 75%,#0b0d14 100%)',borderRadius:16}} />
                   {/* Hover Overlay */}
