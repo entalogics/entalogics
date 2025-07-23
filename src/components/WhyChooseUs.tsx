@@ -38,17 +38,18 @@ const WhyChooseUs = () => {
 
   const stats = [
     { icon: <Brain className="w-5 h-5" />, value: "33+", label: "Products Launched" },
-    { icon: <DollarSign className="w-5 h-5" />, value: "$10M+", label: "ARR Scaled" },
+    { icon: <DollarSign className="w-5 h-5" />, value: "$40M+", label: "ARR Scaled" },
     { icon: <Shield className="w-5 h-5" />, value: "Privacy", label: "Focused Stack" },
     { icon: <Star className="w-5 h-5" />, value: "Top Rated", label: "Plus on Upwork" },
   ];
 
+  // For mobile, sort by length ascending; for desktop, keep original order
   const coreBeliefs = [
-    "Build smart, scalable code",
-    "Design for clarity & simplicity", 
     "Own what you ship",
+    "Build smart, scalable code",
     "Think like product partners",
-    "Communicate with logic"
+    "Communicate with logic",
+    "Design for clarity & simplicity"
   ];
 
   const points = [
@@ -104,12 +105,12 @@ const WhyChooseUs = () => {
         </div>
         {/* Stats Block */}
         <div
-          className="flex flex-wrap justify-center items-center gap-4 mb-12"
+          className="grid grid-cols-2 lg:grid-cols-4 md:flex md:flex-wrap justify-center items-center gap-4 mb-12 max-w-5xl mx-auto"
         >
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center text-center p-4 bg-white dark:bg-[#111A2F] rounded-xl border border-gray-300 dark:border-blue-900/40 shadow-lg min-w-[220px] max-w-[260px] flex-1"
+              className="flex flex-col items-center text-center p-4 glass-light dark:glass-dark rounded-xl border border-gray-300 dark:border-blue-900/40 shadow-lg w-full aspect-[4/2] min-h-[110px] md:min-w-[220px] md:max-w-[260px] md:w-auto flex-1 lg:min-w-0 lg:max-w-none"
             >
               <span className="text-blue-600 dark:text-blue-400 mb-2">{stat.icon}</span>
               <div className="text-lg md:text-xl font-bold text-black dark:text-white">{stat.value}</div>
@@ -124,11 +125,11 @@ const WhyChooseUs = () => {
           <h3 className="text-xl md:text-2xl font-bold text-black dark:text-white text-center mb-6">
             Our Core Beliefs
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap md:flex-nowrap justify-center gap-2 md:gap-4">
             {coreBeliefs.map((belief, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-700"
+                className="px-2 py-1 md:px-5 md:py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-[11px] md:text-sm font-medium border border-blue-200 dark:border-blue-700 whitespace-nowrap"
               >
                 {belief}
               </span>
@@ -149,7 +150,7 @@ const WhyChooseUs = () => {
           {points.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-start bg-white dark:bg-[#111A2F] rounded-xl p-5 md:p-6 border border-gray-300 dark:border-blue-900/40 shadow-lg hover:shadow-xl dark:hover:shadow-blue-900/20 transition-all duration-200"
+              className="flex flex-col items-start glass-light dark:glass-dark rounded-xl p-5 md:p-6 border border-gray-300 dark:border-blue-900/40 shadow-lg hover:shadow-xl dark:hover:shadow-blue-900/20 transition-all duration-200"
             >
               <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-3">
                 {item.icon}

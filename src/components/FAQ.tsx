@@ -38,6 +38,10 @@ const FAQ = () => {
     }
   ];
 
+  // Split FAQs into two columns for grid layout
+  const leftFaqs = faqs.filter((_, i) => i % 2 === 0);
+  const rightFaqs = faqs.filter((_, i) => i % 2 === 1);
+
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -55,57 +59,95 @@ const FAQ = () => {
       <div className="absolute -bottom-40 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/5 blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
 
-      <div className="container mx-auto max-w-4xl relative z-10">
+      <div className="container mx-auto max-w-5xl relative z-10">
+        {/* Section Label */}
+        <div className="text-center mb-2">
+          <span className="text-xs font-semibold tracking-widest uppercase text-blue-600 dark:text-blue-400 opacity-80">FAQs</span>
+        </div>
         {/* Section Header */}
-        <div
-          ref={ref}
-          className="text-center mb-20"
-        >
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white text-center mb-12">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Questions</span>
+        <div ref={ref} className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-4">
+            <span className="text-black dark:text-white">Questions?</span> <span className="font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">We have answers.</span>
           </h2>
-          <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-4 md:mb-6">
-            Still have questions? We've got answers.
-          </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div
-          className="max-w-3xl mx-auto space-y-4"
-        >
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-xl transition-all duration-200 overflow-hidden shadow-sm hover:shadow-lg dark:hover:shadow-blue-900/20 group`}
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between px-5 py-5 md:px-6 md:py-6 text-left group focus:outline-none rounded-xl"
-                style={{ fontSize: 16 }}
-              >
-                <span className="font-semibold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-relaxed">
-                  {faq.question}
-                </span>
-                <div
-                  className={`w-8 h-8 flex items-center justify-center rounded-full transition-all duration-200 text-black dark:text-white ${openIndex === index ? 'rotate-180' : ''}`}
-                >
-                  <ChevronDown className="w-5 h-5" />
-                </div>
-              </button>
-              {openIndex === index && (
-                <div className="overflow-hidden">
-                  <div className="px-5 pb-5 md:px-6 md:pb-6 text-gray-700 dark:text-gray-300 leading-relaxed font-normal text-sm">
-                    <p>{faq.answer}</p>
+        {/* FAQ Accordion Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {/* Custom two-column grid with col-span-2 for last item if odd */}
+          {(() => {
+            const isOdd = faqs.length % 2 === 1;
+            const lastIndex = faqs.length - 1;
+            return [0, 1].map(col => (
+              <div key={col} className="flex flex-col gap-4 md:gap-6">
+                {faqs
+                  .filter((_, i) => i % 2 === col && (!isOdd || i !== lastIndex))
+                  .map((faq, i) => {
+                    const index = col + i * 2;
+                    return (
+                      <div
+                        key={faq.question}
+                        className={`bg-glass-light dark:bg-glass-dark border border-gray-300 dark:border-blue-900/40 rounded-2xl transition-all duration-200 overflow-hidden shadow-sm hover:shadow-glass-light dark:hover:shadow-glass-dark group`}
+                      >
+                        <button
+                          onClick={() => toggleFAQ(index)}
+                          className="w-full flex items-center justify-between px-6 py-6 text-left group focus:outline-none rounded-2xl"
+                          style={{ fontSize: 18 }}
+                        >
+                          <span className="font-medium text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-relaxed text-base md:text-lg">
+                            {faq.question}
+                          </span>
+                          <div
+                            className={`w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 text-black dark:text-white bg-white/80 dark:bg-white/10 border border-white/20 dark:border-blue-900/40 ml-4 ${openIndex === index ? 'rotate-45' : ''}`}
+                          >
+                            <span className="text-2xl font-bold select-none">+</span>
+                          </div>
+                        </button>
+                        {openIndex === index && (
+                          <div className="overflow-hidden">
+                            <div className="px-6 pb-6 text-gray-700 dark:text-gray-300 leading-relaxed font-normal text-sm md:text-base">
+                              <p>{faq.answer}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                {/* If odd, add the last item as col-span-2 in the first column */}
+                {isOdd && col === 0 && (
+                  <div
+                    key={faqs[lastIndex].question}
+                    className="bg-glass-light dark:bg-glass-dark border border-gray-300 dark:border-blue-900/40 rounded-2xl transition-all duration-200 overflow-hidden shadow-sm hover:shadow-glass-light dark:hover:shadow-glass-dark group col-span-2 mt-4"
+                    style={{ gridColumn: 'span 2 / span 2' }}
+                  >
+                    <button
+                      onClick={() => toggleFAQ(lastIndex)}
+                      className="w-full flex items-center justify-between px-6 py-6 text-left group focus:outline-none rounded-2xl"
+                      style={{ fontSize: 18 }}
+                    >
+                      <span className="font-medium text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-relaxed text-base md:text-lg">
+                        {faqs[lastIndex].question}
+                      </span>
+                      <div
+                        className={`w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 text-black dark:text-white bg-white/80 dark:bg-white/10 border border-white/20 dark:border-blue-900/40 ml-4 ${openIndex === lastIndex ? 'rotate-45' : ''}`}
+                      >
+                        <span className="text-2xl font-bold select-none">+</span>
+                      </div>
+                    </button>
+                    {openIndex === lastIndex && (
+                      <div className="overflow-hidden">
+                        <div className="px-6 pb-6 text-gray-700 dark:text-gray-300 leading-relaxed font-normal text-sm md:text-base">
+                          <p>{faqs[lastIndex].answer}</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ));
+          })()}
         </div>
 
-        <div
-          className="text-center mt-12"
-        >
+        <div className="text-center mt-12">
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6">
             Have a different question?
           </p>

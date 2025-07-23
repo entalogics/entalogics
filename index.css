@@ -87,7 +87,7 @@
 
   /* Responsive card styles */
   .card-glass {
-    @apply bg-glass-light dark:bg-glass-dark backdrop-blur-xl rounded-2xl border border-glass-border-light dark:border-glass-border-dark hover:shadow-glass-light dark:hover:shadow-glass-dark transition-all duration-300;
+    @apply bg-glass-light dark:bg-glass-dark backdrop-blur-xl rounded-2xl border border-white/20 dark:border-blue-900/40 transition-all duration-300;
     padding: clamp(1rem, 3vw, 2rem);
   }
 
@@ -687,4 +687,14 @@
   background-image:
     linear-gradient(to right, rgba(255,255,255,0.018) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255,255,255,0.018) 1px, transparent 1px);
+} 
+
+/* Hide horizontal scrollbar for carousel */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Portfolio carousel card overlay styles */
+@media (max-width: 600px) {
+  .portfolio-card-title { font-size: 13px !important; }
+  .portfolio-card-btn { font-size: 12px !important; padding: 0.4rem 0.9rem !important; }
 } 

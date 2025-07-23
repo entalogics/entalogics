@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../src/components/Layout';
 import Hero from '../src/components/Hero';
 import Services from '../src/components/Services';
-import CaseStudies from '../src/components/CaseStudies';
+import PortfolioCarousel from '../src/components/PortfolioCarousel';
 import WhyChooseUs from '../src/components/WhyChooseUs';
 import HowWeBuildWithYou from '../src/components/HowWeBuildWithYou';
 import Testimonials from '../src/components/Testimonials';
@@ -15,7 +15,7 @@ const HomePage = () => {
     <Layout noPaddingTop>
       <Hero />
       <Services />
-      <CaseStudies />
+      <PortfolioCarousel />
       <WhyChooseUs />
       <HowWeBuildWithYou />
       <Testimonials />

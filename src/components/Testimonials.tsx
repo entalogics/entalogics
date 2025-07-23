@@ -255,30 +255,8 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
 );
 
 const Testimonials = () => {
-  const marqueeRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  // Mouse/touch drag handlers
-  const handleDragStart = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    setIsDragging(true);
-    const pageX = 'touches' in e ? e.touches[0].pageX : e.pageX;
-    setStartX(pageX);
-    if (marqueeRef.current) {
-      setScrollLeft(marqueeRef.current.scrollLeft);
-    }
-  };
-  const handleDragMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    if (!isDragging || !marqueeRef.current) return;
-    const x = 'touches' in e ? e.touches[0].pageX : e.pageX;
-    const walk = (x - startX) * -1; // reverse direction
-    marqueeRef.current.scrollLeft = scrollLeft + walk;
-  };
-  const handleDragEnd = () => setIsDragging(false);
-
-  // Duplicate testimonials 3x for smooth infinite scroll
-  const marqueeTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  // Show only the first 6 testimonials for the grid (customize as needed)
+  const featured = testimonials.slice(0, 6);
   return (
     <section id="testimonials" className="relative bg-white dark:bg-[#0a1225] py-20 px-4 md:px-12 overflow-hidden">
       {/* Blurred background circles for RozmeriGPT effect */}
@@ -286,75 +264,36 @@ const Testimonials = () => {
       <div className="absolute top-1/2 -translate-y-1/2 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/5 blur-3xl z-0 pointer-events-none"></div>
 
       <div className="container mx-auto text-center relative z-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white mb-4">
           What Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Clients Say</span>
         </h2>
-          <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-2xl mx-auto text-center">
-            Real feedback from founders, product leads, and long-term partners we've helped scale.
-          </p>
-        {/* Infinite horizontal scroll with drag support */}
-        <div
-          className="w-full overflow-x-hidden relative"
-          ref={marqueeRef}
-          onMouseDown={handleDragStart}
-          onMouseMove={handleDragMove}
-          onMouseUp={handleDragEnd}
-          onMouseLeave={handleDragEnd}
-          onTouchStart={handleDragStart}
-          onTouchMove={handleDragMove}
-          onTouchEnd={handleDragEnd}
-          style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-        >
-          <div className={`flex items-center gap-4 animate-marquee-infinite py-2${isDragging ? ' pause-marquee' : ''}`} style={{animation: isDragging ? 'none' : 'marquee-infinite 35s linear infinite'}}>
-            <div className="min-w-[40px] md:min-w-[120px]" />
-            {marqueeTestimonials.map((testimonial, idx) => (
-               <div key={idx} className="flex-shrink-0 bg-white dark:bg-[#111A2F] border border-gray-300 dark:border-blue-900/40 rounded-xl p-3 md:p-4 flex flex-col items-center shadow-md min-w-[140px] max-w-[140px] md:min-w-[240px] md:max-w-[240px] mx-1 md:mx-2 h-[120px] md:h-[140px] justify-between">
-                <div className="flex items-center mb-1">
-                  {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-emerald-500 fill-emerald-500 mr-0.5" />
-                  ))}
-                  {testimonial.rating % 1 !== 0 && (
-                    <Star className="w-3 h-3 md:w-4 md:h-4 text-emerald-500 fill-emerald-500 mr-0.5 opacity-60" />
-                  )}
-                  <span className="ml-1 text-xs font-semibold text-gray-700 dark:text-gray-200">{testimonial.rating.toFixed(1)}</span>
+        <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-2xl mx-auto text-center mb-10">
+          Real feedback from founders, product leads, and long-term partners we've helped scale.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {featured.map((t, idx) => (
+            <div key={idx} className="card-glass flex flex-col h-full shadow-lg text-left relative p-3 sm:p-4 md:p-5 lg:p-6 min-h-[140px] min-w-[0] w-full max-w-full border border-gray-300 dark:border-blue-900/40">
+              {/* Stars */}
+              <div className="flex items-center mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-blue-500 dark:text-blue-400 fill-blue-500 dark:fill-blue-400 mr-1" />
+                ))}
+              </div>
+              {/* Quote */}
+              <div className="text-sm sm:text-base md:text-base lg:text-base font-semibold text-black dark:text-white mb-2">"{t.quote.split('.')[0]}."</div>
+              {/* Review text */}
+              <div className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-sm mb-4">{t.quote.split('.').slice(1).join('.').trim()}</div>
+              {/* User info */}
+              <div className="flex items-center mt-auto">
+                <img src={t.avatar} alt={t.name} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
+                <div>
+                  <div className="text-black dark:text-white font-bold text-xs sm:text-sm leading-tight">{t.name}</div>
+                  <div className="text-gray-500 dark:text-gray-400 text-[11px] sm:text-xs leading-tight">{t.role}</div>
                 </div>
-                <p className="text-xs md:text-sm text-gray-700 dark:text-gray-200 text-center mb-1 line-clamp-3">"{testimonial.quote}"</p>
-                <div className="text-xs font-bold text-black dark:text-white text-center">{testimonial.name}</div>
-                <div className="text-[10px] md:text-[11px] text-gray-500 dark:text-gray-400 text-center">{testimonial.role}, {testimonial.company}</div>
-                </div>
-            ))}
-            <div className="min-w-[40px] md:min-w-[120px]" />
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
-        
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mt-8"
-        >
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-4">
-            Want to see what we could build for you?
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-7 py-3 rounded-lg font-bold text-base bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/40 shadow-lg"
-          >
-            Let's talk →
-          </a>
-        </motion.div>
-        
-        <style>{`
-          @keyframes marquee-infinite {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.333%); }
-          }
-          .pause-marquee {
-            animation-play-state: paused !important;
-          }
-        `}</style>
       </div>
     </section>
   );

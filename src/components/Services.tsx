@@ -101,7 +101,7 @@ const Services = () => {
           {servicesList.map((service, index) => (
             <div className="h-full w-full" key={service.slug}>
               <div
-                className="relative h-full w-full min-h-[340px] flex flex-col group bg-white dark:bg-[#111A2F] backdrop-blur-xl border border-gray-300 dark:border-blue-900/40 rounded-2xl px-6 sm:px-8 py-7 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-blue-900/20 transition-all duration-200"
+                className="relative h-full w-full min-h-[340px] flex flex-col group glass-light dark:glass-dark border border-gray-300 dark:border-blue-900/40 rounded-2xl px-6 sm:px-8 py-7 shadow-lg shadow-black/5 dark:shadow-black/30 hover:shadow-2xl hover:shadow-blue-900/10 dark:hover:shadow-blue-900/20 transition-all duration-200"
                 style={{ boxSizing: 'border-box' }}
               >
                 <div className="flex-shrink-0 mb-4 md:mb-6">

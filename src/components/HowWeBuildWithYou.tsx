@@ -38,7 +38,7 @@ const HowWeBuildWithYou = () => {
     <section className="relative z-10 container mx-auto px-4 md:px-12 py-20">
       <div className="max-w-5xl mx-auto text-center mb-12">
         <h2 className="text-2xl md:text-4xl font-extrabold mb-3">
-          How We <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>
+          <span className="text-black dark:text-white">How We</span> <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Build With You</span>
         </h2>
         <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium">
           Our process keeps you in the loop — with speed, clarity, and zero guesswork. We don't just code — we collaborate.
@@ -49,7 +49,7 @@ const HowWeBuildWithYou = () => {
         {buildSteps.map((step, i) => (
           <motion.div
             key={step.title}
-            className="bg-white dark:bg-[#111A2F] rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-200"
+            className="glass-light dark:glass-dark rounded-2xl shadow-lg border border-white/20 dark:border-blue-900/40 p-6 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-200"
             whileHover={{ y: -4 }}
           >
             <div className="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/20 text-3xl mb-4">
@@ -65,7 +65,7 @@ const HowWeBuildWithYou = () => {
         {buildSteps.map((step, i) => (
           <motion.div
             key={step.title}
-            className="min-w-[270px] max-w-[300px] bg-white dark:bg-[#111A2F] rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 p-5 flex flex-col items-center text-center snap-center hover:-translate-y-1 transition-transform duration-200"
+            className="min-w-[270px] max-w-[300px] glass-light dark:glass-dark rounded-2xl shadow-lg border border-white/20 dark:border-blue-900/40 p-5 flex flex-col items-center text-center snap-center hover:-translate-y-1 transition-transform duration-200"
             whileHover={{ y: -4 }}
           >
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/20 text-2xl mb-3">
