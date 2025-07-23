@@ -115,17 +115,20 @@ const AboutPage = () => {
   return (
     <Layout>
       <Head>
-        <title>About Us | Entalogics</title>
-        <meta name="description" content="Meet the Entalogics team: engineers, designers, and product experts building scalable software and AI solutions for startups and enterprises." />
-        <meta property="og:title" content="About Entalogics - Meet the Team" />
-        <meta property="og:description" content="Meet the Entalogics team: engineers, designers, and product experts building scalable software and AI solutions for startups and enterprises." />
-        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <title>About Entalogics — Full-Stack Devs & Chromium Browser Experts</title>
+        <meta name="description" content="We're a team of full-stack developers specializing in AI SaaS platforms, scalable apps, and custom Chromium browser development." />
+        {/* Open Graph */}
+        <meta property="og:title" content="About Entalogics — Your Dev Partner for AI, SaaS & Browsers" />
+        <meta property="og:description" content="From MVPs to AI software and Chromium-based browsers, Entalogics is the team behind scalable, logic-driven solutions." />
+        <meta property="og:image" content="https://entalogics.com/assets/about-og.jpg" />
         <meta property="og:url" content="https://entalogics.com/about" />
         <meta property="og:type" content="website" />
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Entalogics - Meet the Team" />
-        <meta name="twitter:description" content="Meet the Entalogics team: engineers, designers, and product experts building scalable software and AI solutions for startups and enterprises." />
-        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:title" content="About Entalogics — AI & Chromium Dev Agency" />
+        <meta name="twitter:description" content="We engineer clean, scalable code for AI SaaS, web platforms, and custom Chromium browsers." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/about-og.jpg" />
+        {/* Canonical */}
         <link rel="canonical" href="https://entalogics.com/about" />
       </Head>
 
