@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import Image from 'next/image';
 
 const trustLogos = [
   { name: 'Upwork', src: 'https://cdn.worldvectorlogo.com/logos/upwork.svg' },
@@ -285,7 +286,7 @@ const Testimonials = () => {
               <div className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-sm mb-4">{t.quote.split('.').slice(1).join('.').trim()}</div>
               {/* User info */}
               <div className="flex items-center mt-auto">
-                <img src={t.avatar} alt={t.name} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
+                <Image src={t.avatar} alt={t.name} width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
                 <div>
                   <div className="text-black dark:text-white font-bold text-xs sm:text-sm leading-tight">{t.name}</div>
                   <div className="text-gray-500 dark:text-gray-400 text-[11px] sm:text-xs leading-tight">{t.role}</div>

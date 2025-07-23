@@ -94,7 +94,7 @@ const Hero = () => {
           ))}
         </div>
         {/* Mobile: horizontal scrollable row, tiny icons */}
-        {/* <div className="flex sm:hidden gap-2 mt-10 mb-2 overflow-x-auto px-1" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="flex sm:hidden gap-2 mt-10 mb-2 overflow-x-auto px-1" style={{ WebkitOverflowScrolling: 'touch' }}>
           {[
             { src: '/assets/tech-icons/figma.svg', alt: 'Figma' },
             { src: '/assets/tech-icons/flutter.svg', alt: 'Flutter' },
@@ -109,10 +109,10 @@ const Hero = () => {
             { src: '/assets/tech-icons/postgresql.svg', alt: 'PostgreSQL' },
           ].map(icon => (
             <div key={icon.alt} className="bg-white/70 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700/40 rounded-xl p-0.5 flex items-center justify-center backdrop-blur-md shadow-md transition-all duration-300 w-8 h-8 flex-shrink-0">
-              <img src={icon.src} alt={icon.alt} className="w-7 h-7 filter invert-0 dark:invert" />
+              <Image src={icon.src} alt={icon.alt} width={28} height={28} className="w-7 h-7 filter invert-0 dark:invert" />
             </div>
           ))}
-        </div> */}
+        </div>
       </section>
       <TrustBar />
     </>
