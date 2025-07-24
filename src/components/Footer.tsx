@@ -18,11 +18,15 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
     ],
     services: [
       { name: 'SaaS Product Development', path: '/services/saas-development' },
-      { name: 'AI-Powered Apps & Platforms', path: '/services/ai-apps' },
+      { name: 'AI-Powered Apps & Platforms', path: '/services/ai-apps-development' },
       { name: 'Web App Development', path: '/services/web-development' },
-      { name: 'Mobile App Development', path: '/services/mobile-apps' },
-      { name: 'Chromium & Browser Development', path: '/services/browser-development' },
+      { name: 'Mobile App Development', path: '/services/mobile-app-development' },
+      { name: 'Chromium & Browser Development', path: '/services/chromium-browser-development' },
       { name: 'UI/UX Design', path: '/services/ui-ux-design' },
+      { name: 'DevOps & Deployment', path: '/services/devops-deployment' },
+      { name: 'Maintenance & Ongoing Support', path: '/services/maintenance-support' },
+      { name: 'Desktop Software Development', path: '/services/desktop-software' },
+      { name: 'Web3 & Trading Platforms', path: '/services/web3-trading' },
     ],
     connect: [
       { name: 'Contact Us', path: '#contact' },

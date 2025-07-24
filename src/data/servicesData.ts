@@ -37,9 +37,9 @@ export const servicesData = {
       'Deployment & support'
     ]
   },
-  'ai-apps': {
+  'ai-apps-development': {
     title: 'AI-Powered Apps & Platforms',
-    slug: 'ai-apps',
+    slug: 'ai-apps-development',
     icon: Brain,
     tagline: 'We develop AI-native tools and workflows — from custom LLM apps to agent-powered dashboards.',
     description: 'AI solutions that drive real business value.',
@@ -77,7 +77,7 @@ export const servicesData = {
   },
   'mobile-apps': {
     title: 'Mobile App Development',
-    slug: 'mobile-apps',
+    slug: 'mobile-app-development',
     icon: Smartphone,
     tagline: 'Native + cross-platform mobile apps using Flutter & React Native.',
     description: 'Mobile experiences that users love.',
@@ -96,7 +96,7 @@ export const servicesData = {
   },
   'browser-development': {
     title: 'Chromium & Browser Development',
-    slug: 'browser-development',
+    slug: 'chromium-browser-development',
     icon: Chrome,
     tagline: 'Custom browsers for privacy, crypto, AI, or enterprise use.',
     description: 'Custom browser solutions built for your specific needs.',

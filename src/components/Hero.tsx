@@ -89,7 +89,7 @@ const Hero = () => {
             { src: '/assets/tech-icons/postgresql.svg', alt: 'PostgreSQL' },
           ].map(icon => (
             <div key={icon.alt} className="bg-white/70 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700/40 rounded-xl p-3 flex items-center justify-center backdrop-blur-md shadow-md transition-all duration-300 w-14 h-14 mx-auto">
-              <Image src={icon.src} alt={icon.alt} width={40} height={40} className="w-10 h-10 filter invert-0 dark:invert" />
+              <Image src={icon.src} alt={icon.alt} width={40} height={40} className="w-10 h-10 filter invert-0 dark:invert" style={{ width: 'auto', height: 'auto' }} />
             </div>
           ))}
         </div>
@@ -109,7 +109,7 @@ const Hero = () => {
             { src: '/assets/tech-icons/postgresql.svg', alt: 'PostgreSQL' },
           ].map(icon => (
             <div key={icon.alt} className="bg-white/70 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-700/40 rounded-xl p-0.5 flex items-center justify-center backdrop-blur-md shadow-md transition-all duration-300 w-8 h-8 flex-shrink-0">
-              <Image src={icon.src} alt={icon.alt} width={28} height={28} className="w-7 h-7 filter invert-0 dark:invert" />
+              <Image src={icon.src} alt={icon.alt} width={28} height={28} className="w-7 h-7 filter invert-0 dark:invert" style={{ width: 'auto', height: 'auto' }} />
             </div>
           ))}
         </div>

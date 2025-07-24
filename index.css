@@ -698,3 +698,76 @@
   .portfolio-card-title { font-size: 13px !important; }
   .portfolio-card-btn { font-size: 12px !important; padding: 0.4rem 0.9rem !important; }
 } 
+
+/* Liquid Button Styles - Overwrite to match user demo */
+.liquid-btn {
+  position: relative;
+  padding: 20px 50px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.liquid-btn span {
+  position: relative;
+  z-index: 1;
+  color: #FFF;
+  font-size: 20px;
+}
+.liquid-btn .liquid {
+  position: absolute;
+  left: 0;
+  top: -80px;
+  width: 200px;
+  height: 200px;
+  background-color: #4973ff;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+  transition: 0.5s;
+}
+.liquid-btn:hover .liquid {
+  animation: fillup 0.125s linear;
+  animation-fill-mode: forwards;
+}
+.liquid-btn .liquid:before, .liquid-btn .liquid:after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #000;
+}
+.liquid-btn .liquid:before {
+  border-radius: 45%;
+  background: rgba(20,20,20,1);
+  animation: slosh 5s linear infinite;
+}
+.liquid-btn .liquid:after {
+  border-radius: 40%;
+  background: rgba(20,20,20,0.5);
+  animation: slosh 10s linear infinite;
+}
+@keyframes fillup {
+  0% {
+    top: -80px;
+  }
+  100% {
+    top: -120px;
+  }
+}
+@keyframes slosh {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+} 

@@ -41,7 +41,7 @@ const TrustBar = () => {
               ? 'bg-gradient-to-br from-blue-600 to-blue-900 border border-blue-400 shadow-[0_0_16px_4px_rgba(83,75,211,0.25)]'
               : 'bg-white/10 border border-blue-200 shadow-[0_0_16px_4px_rgba(98,92,208,0.15)]')
           }>
-            <Image src={faviconSrc} alt="Entalogics Favicon" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
+            <Image src={faviconSrc} alt="Entalogics Favicon" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" style={{ width: 'auto', height: 'auto' }} />
           </div>
         </div>
         {/* Logos Row: left-to-center (marquee, duplicated for smooth loop) */}
