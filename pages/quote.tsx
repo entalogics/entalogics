@@ -320,7 +320,7 @@ export default function QuotePage() {
                     </div>
                     {serverError && <div className="text-red-500 text-sm mt-2 mb-2">{serverError}</div>}
                     <div className="flex justify-center mt-6">
-                      <button type="submit" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transition-all duration-200 text-base border-0 focus:outline-none focus:ring-2 focus:ring-blue-400/40 disabled:opacity-60" disabled={loading}>
+                      <button type="submit" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg transition-all duration-200 text-base border-0 focus:outline-none focus:ring-2 focus:ring-blue-400/40 disabled:opacity-60 min-w-[140px]" disabled={loading}>
                         {loading ? 'Submitting...' : 'Submit'}
                       </button>
                     </div>
