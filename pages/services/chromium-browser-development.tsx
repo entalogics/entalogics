@@ -7,7 +7,17 @@ const BrowserDevelopment = () => {
     <Layout>
       <Head>
         <title>Chromium & Browser Development | Entalogics</title>
-        <meta name="description" content="Custom browsers for privacy, crypto, AI, and enterprise. We build Chromium-based browsers with your branding, features, and logic." />
+        <meta name="description" content="Chromium browser development services by Entalogics. Custom browsers for privacy, crypto, AI, and enterprise. We build Chromium-based browsers with your branding, features, and logic for startups and enterprises." />
+        <link rel="canonical" href="https://entalogics.com/services/chromium-browser-development" />
+        <meta property="og:title" content="Chromium & Browser Development | Entalogics" />
+        <meta property="og:description" content="Chromium browser development services by Entalogics. Custom browsers for privacy, crypto, AI, and enterprise. We build Chromium-based browsers with your branding, features, and logic for startups and enterprises." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/chromium-browser-development" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Chromium & Browser Development | Entalogics" />
+        <meta name="twitter:description" content="Chromium browser development services by Entalogics. Custom browsers for privacy, crypto, AI, and enterprise. We build Chromium-based browsers with your branding, features, and logic for startups and enterprises." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

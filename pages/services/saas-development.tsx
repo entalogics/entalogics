@@ -7,7 +7,17 @@ const SaasDevelopment = () => {
     <Layout>
       <Head>
         <title>SaaS Product Development | Entalogics</title>
-        <meta name="description" content="From MVP to scalable SaaS, Entalogics builds clean, secure, and flexible SaaS products for founders and teams. Multi-tenant, API-first, secure, and ready to scale." />
+        <meta name="description" content="SaaS product development services by Entalogics. We build scalable, secure, and flexible SaaS platforms for startups and enterprises. Multi-tenant, API-first, cloud-ready, and optimized for growth." />
+        <link rel="canonical" href="https://entalogics.com/services/saas-development" />
+        <meta property="og:title" content="SaaS Product Development | Entalogics" />
+        <meta property="og:description" content="SaaS product development services by Entalogics. We build scalable, secure, and flexible SaaS platforms for startups and enterprises. Multi-tenant, API-first, cloud-ready, and optimized for growth." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/saas-development" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SaaS Product Development | Entalogics" />
+        <meta name="twitter:description" content="SaaS product development services by Entalogics. We build scalable, secure, and flexible SaaS platforms for startups and enterprises. Multi-tenant, API-first, cloud-ready, and optimized for growth." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

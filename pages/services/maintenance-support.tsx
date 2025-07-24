@@ -7,7 +7,17 @@ const MaintenanceSupport = () => {
     <Layout>
       <Head>
         <title>Maintenance & Ongoing Support | Entalogics</title>
-        <meta name="description" content="Post-launch support, bug fixes, feature updates, and monitoring. We keep your SaaS, app, or AI tool sharp and working flawlessly." />
+        <meta name="description" content="Maintenance and ongoing support services by Entalogics. Post-launch support, bug fixes, feature updates, performance monitoring, and platform care for SaaS, apps, and AI tools." />
+        <link rel="canonical" href="https://entalogics.com/services/maintenance-support" />
+        <meta property="og:title" content="Maintenance & Ongoing Support | Entalogics" />
+        <meta property="og:description" content="Maintenance and ongoing support services by Entalogics. Post-launch support, bug fixes, feature updates, performance monitoring, and platform care for SaaS, apps, and AI tools." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/maintenance-support" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Maintenance & Ongoing Support | Entalogics" />
+        <meta name="twitter:description" content="Maintenance and ongoing support services by Entalogics. Post-launch support, bug fixes, feature updates, performance monitoring, and platform care for SaaS, apps, and AI tools." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

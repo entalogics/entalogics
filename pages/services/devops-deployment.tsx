@@ -7,7 +7,17 @@ const DevOpsDeployment = () => {
     <Layout>
       <Head>
         <title>DevOps & Deployment | Entalogics</title>
-        <meta name="description" content="Automated CI/CD, cloud-native infrastructure, and real-time monitoring. Launch fast, scale smart, and stay online with Entalogics." />
+        <meta name="description" content="DevOps and deployment services by Entalogics. Automated CI/CD, cloud-native infrastructure, and real-time monitoring for startups and enterprises. Launch fast, scale smart, and stay online with expert DevOps solutions." />
+        <link rel="canonical" href="https://entalogics.com/services/devops-deployment" />
+        <meta property="og:title" content="DevOps & Deployment | Entalogics" />
+        <meta property="og:description" content="DevOps and deployment services by Entalogics. Automated CI/CD, cloud-native infrastructure, and real-time monitoring for startups and enterprises. Launch fast, scale smart, and stay online with expert DevOps solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/devops-deployment" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DevOps & Deployment | Entalogics" />
+        <meta name="twitter:description" content="DevOps and deployment services by Entalogics. Automated CI/CD, cloud-native infrastructure, and real-time monitoring for startups and enterprises. Launch fast, scale smart, and stay online with expert DevOps solutions." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

@@ -7,7 +7,17 @@ const AiApps = () => {
     <Layout>
       <Head>
         <title>AI-Powered Apps & Platforms | Entalogics</title>
-        <meta name="description" content="Custom AI software, LLM integration, and real-world AI platforms built by Entalogics. No hype, just production-grade tools that work." />
+        <meta name="description" content="AI app development services by Entalogics. Custom AI software, LLM integration, and production-grade AI platforms for startups and enterprises. Build AI-powered dashboards, assistants, and tools with real-world logic." />
+        <link rel="canonical" href="https://entalogics.com/services/ai-apps-development" />
+        <meta property="og:title" content="AI-Powered Apps & Platforms | Entalogics" />
+        <meta property="og:description" content="AI app development services by Entalogics. Custom AI software, LLM integration, and production-grade AI platforms for startups and enterprises. Build AI-powered dashboards, assistants, and tools with real-world logic." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/ai-apps-development" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AI-Powered Apps & Platforms | Entalogics" />
+        <meta name="twitter:description" content="AI app development services by Entalogics. Custom AI software, LLM integration, and production-grade AI platforms for startups and enterprises. Build AI-powered dashboards, assistants, and tools with real-world logic." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

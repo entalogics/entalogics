@@ -7,7 +7,17 @@ const DesktopSoftware = () => {
     <Layout>
       <Head>
         <title>Desktop Software Development | Entalogics</title>
-        <meta name="description" content="High-performance, cross-platform desktop apps with OS-level integrations. Built for Windows, macOS, and Linux using the right tech for your needs." />
+        <meta name="description" content="Desktop software development services by Entalogics. High-performance, cross-platform desktop apps with OS-level integrations for Windows, macOS, and Linux. Built with C++, Tauri, .NET, or platform-native code." />
+        <link rel="canonical" href="https://entalogics.com/services/desktop-software" />
+        <meta property="og:title" content="Desktop Software Development | Entalogics" />
+        <meta property="og:description" content="Desktop software development services by Entalogics. High-performance, cross-platform desktop apps with OS-level integrations for Windows, macOS, and Linux. Built with C++, Tauri, .NET, or platform-native code." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/desktop-software" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Desktop Software Development | Entalogics" />
+        <meta name="twitter:description" content="Desktop software development services by Entalogics. High-performance, cross-platform desktop apps with OS-level integrations for Windows, macOS, and Linux. Built with C++, Tauri, .NET, or platform-native code." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

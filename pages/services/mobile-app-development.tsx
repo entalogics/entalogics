@@ -7,7 +7,17 @@ const MobileAppDevelopment = () => {
     <Layout>
       <Head>
         <title>Mobile App Development | Entalogics</title>
-        <meta name="description" content="Cross-platform, native-feel mobile apps built with Flutter and React Native. High-performance, beautiful, and launch-ready mobile applications." />
+        <meta name="description" content="Mobile app development services by Entalogics. Cross-platform, native-feel mobile apps built with Flutter and React Native. High-performance, beautiful, and launch-ready mobile applications for startups and enterprises." />
+        <link rel="canonical" href="https://entalogics.com/services/mobile-app-development" />
+        <meta property="og:title" content="Mobile App Development | Entalogics" />
+        <meta property="og:description" content="Mobile app development services by Entalogics. Cross-platform, native-feel mobile apps built with Flutter and React Native. High-performance, beautiful, and launch-ready mobile applications for startups and enterprises." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/mobile-app-development" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mobile App Development | Entalogics" />
+        <meta name="twitter:description" content="Mobile app development services by Entalogics. Cross-platform, native-feel mobile apps built with Flutter and React Native. High-performance, beautiful, and launch-ready mobile applications for startups and enterprises." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">

@@ -7,7 +7,17 @@ const UiUxDesign = () => {
     <Layout>
       <Head>
         <title>UI/UX Design | Entalogics</title>
-        <meta name="description" content="Clean, conversion-focused UI/UX design for SaaS, mobile, and AI products. Modern, logical, and tailored to your audience." />
+        <meta name="description" content="UI/UX design services by Entalogics. Clean, conversion-focused UI/UX for SaaS, mobile, and AI products. Modern, logical, and tailored to your audience for higher engagement and conversions." />
+        <link rel="canonical" href="https://entalogics.com/services/ui-ux-design" />
+        <meta property="og:title" content="UI/UX Design | Entalogics" />
+        <meta property="og:description" content="UI/UX design services by Entalogics. Clean, conversion-focused UI/UX for SaaS, mobile, and AI products. Modern, logical, and tailored to your audience for higher engagement and conversions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://entalogics.com/services/ui-ux-design" />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="UI/UX Design | Entalogics" />
+        <meta name="twitter:description" content="UI/UX design services by Entalogics. Clean, conversion-focused UI/UX for SaaS, mobile, and AI products. Modern, logical, and tailored to your audience for higher engagement and conversions." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
       {/* Hero Section */}
       <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden flex flex-col items-center justify-center py-20 md:py-24 lg:py-28 px-4 subtle-grid-background pb-0">
