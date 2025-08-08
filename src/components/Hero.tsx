@@ -4,10 +4,11 @@ import { ArrowRight, Play, Globe, UserCheck, Lock, Shield } from 'lucide-react';
 import TrustBar from './TrustBar';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Sora, Inter } from 'next/font/google';
+import { Sora, Inter, Poppins } from 'next/font/google';
 
 const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '800'], display: 'swap' });
-const inter = Inter({ subsets: ['latin'], weight: ['400', '600', '800'], display: 'swap' });
+const inter = Inter({ subsets: ['latin'], weight: ['400', '600', '800', '900'], display: 'swap' });
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'], display: 'swap' });
 
 const Hero = () => {
   return (
@@ -28,7 +29,7 @@ const Hero = () => {
             </span>
           </div>
           {/* Main heading with gradient only on 'Scalable Product' */}
-          <h1 className={`relative text-[clamp(1.3rem,6vw,3.2rem)] font-extrabold leading-[1.15] mb-4 md:mb-7 tracking-tighter text-black dark:text-white ${inter.className}`}>
+          <h1 className={`relative text-[clamp(1.3rem,6vw,3.2rem)] font-black leading-[1.15] mb-4 md:mb-7 tracking-tighter text-black dark:text-white ${poppins.className}`}>
             From Idea to <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Scalable Product</span><br />
             We Build What Others<br />
             Don’t Dare To.
