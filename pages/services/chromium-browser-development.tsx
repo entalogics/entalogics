@@ -14,6 +14,9 @@ const BrowserDevelopment = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/chromium-browser-development" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="Chromium Browser Development by Entalogics - Custom, secure browsers" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Chromium & Browser Development | Entalogics" />
         <meta name="twitter:description" content="Chromium browser development services by Entalogics. Custom browsers for privacy, crypto, AI, and enterprise. We build Chromium-based browsers with your branding, features, and logic for startups and enterprises." />

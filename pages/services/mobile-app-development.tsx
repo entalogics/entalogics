@@ -14,6 +14,9 @@ const MobileAppDevelopment = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/mobile-app-development" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="Mobile App Development by Entalogics - Cross-platform, high-performance apps" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile App Development | Entalogics" />
         <meta name="twitter:description" content="Mobile app development services by Entalogics. Cross-platform, native-feel mobile apps built with Flutter and React Native. High-performance, beautiful, and launch-ready mobile applications for startups and enterprises." />

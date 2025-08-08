@@ -14,6 +14,9 @@ const Web3Trading = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/web3-trading" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="Web3 & Trading Platforms by Entalogics - Blockchain, DeFi, and trading solutions" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Web3 & Trading Platforms | Entalogics" />
         <meta name="twitter:description" content="Web3 and trading platform development by Entalogics. Decentralized, blockchain-integrated platforms, custom UIs, smart contracts, and real-time data for fintech and DeFi projects." />

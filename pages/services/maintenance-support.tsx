@@ -14,6 +14,9 @@ const MaintenanceSupport = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/maintenance-support" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="Maintenance & Ongoing Support by Entalogics - Post-launch care and updates" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Maintenance & Ongoing Support | Entalogics" />
         <meta name="twitter:description" content="Maintenance and ongoing support services by Entalogics. Post-launch support, bug fixes, feature updates, performance monitoring, and platform care for SaaS, apps, and AI tools." />

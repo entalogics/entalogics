@@ -14,6 +14,9 @@ const UiUxDesign = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/ui-ux-design" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="UI/UX Design by Entalogics - Modern, conversion-focused design" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="UI/UX Design | Entalogics" />
         <meta name="twitter:description" content="UI/UX design services by Entalogics. Clean, conversion-focused UI/UX for SaaS, mobile, and AI products. Modern, logical, and tailored to your audience for higher engagement and conversions." />

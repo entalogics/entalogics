@@ -1,6 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const portfolioItems = [
   {
@@ -69,85 +73,8 @@ const portfolioItems = [
 ];
 
 const PortfolioCarousel = () => {
-  const carouselRef = useRef<HTMLUListElement>(null);
-  const [isInteracting, setIsInteracting] = useState(false);
-  const [isHovered, setIsHovered] = useState<number | null>(null);
-  const [lastTouched, setLastTouched] = useState<number | null>(null);
   const router = useRouter();
-
-  // Duplicate items for seamless infinite scroll
-  const items = [...portfolioItems, ...portfolioItems];
-
-  // Auto-scroll logic
-  useEffect(() => {
-    if (!carouselRef.current) return;
-    let frame: number;
-    let lastTimestamp: number | null = null;
-    const speed = 0.2; // px/ms (slower)
-
-    function step(ts: number) {
-      if (isInteracting || isHovered !== null) {
-        lastTimestamp = ts;
-        frame = requestAnimationFrame(step);
-        return;
-      }
-      if (lastTimestamp !== null && carouselRef.current) {
-        carouselRef.current.scrollLeft += (ts - lastTimestamp) * speed;
-        // Loop logic
-        const totalWidth = carouselRef.current.scrollWidth / 2;
-        if (carouselRef.current.scrollLeft >= totalWidth) {
-          carouselRef.current.scrollLeft -= totalWidth;
-        }
-      }
-      lastTimestamp = ts;
-      frame = requestAnimationFrame(step);
-    }
-    frame = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frame);
-  }, [isInteracting, isHovered]);
-
-  // Pause auto-scroll on user interaction
-  useEffect(() => {
-    const el = carouselRef.current;
-    if (!el) return;
-    let isDragging = false;
-    let startX = 0;
-    let scrollLeft = 0;
-
-    const onDown = (e: MouseEvent | TouchEvent) => {
-      setIsInteracting(true);
-      isDragging = true;
-      startX = 'touches' in e ? e.touches[0].pageX : (e as MouseEvent).pageX;
-      scrollLeft = el.scrollLeft;
-    };
-    const onMove = (e: MouseEvent | TouchEvent) => {
-      if (!isDragging) return;
-      const x = 'touches' in e ? e.touches[0].pageX : (e as MouseEvent).pageX;
-      el.scrollLeft = scrollLeft - (x - startX);
-    };
-    const onUp = () => {
-      isDragging = false;
-      setIsInteracting(false);
-    };
-    el.addEventListener('mousedown', onDown);
-    el.addEventListener('touchstart', onDown);
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('touchmove', onMove);
-    window.addEventListener('mouseup', onUp);
-    window.addEventListener('touchend', onUp);
-    return () => {
-      el.removeEventListener('mousedown', onDown);
-      el.removeEventListener('touchstart', onDown);
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('touchmove', onMove);
-      window.removeEventListener('mouseup', onUp);
-      window.removeEventListener('touchend', onUp);
-    };
-  }, []);
-
-  const handleCardClick = (slug: string) => {
-    router.push(`/portfolio/${slug}`);
-  };
+  const swiperRef = useRef<any>(null);
 
   return (
     <section id="portfolio" className="relative w-full py-16 px-2 md:px-8 bg-transparent overflow-hidden">
@@ -161,62 +88,48 @@ const PortfolioCarousel = () => {
         <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed text-center mb-8 max-w-2xl mx-auto">
           From AI-native platforms to custom browsers and full-stack SaaS — here's what we've shipped.
         </p>
-        <div className="relative">
-          {/* Fade mask left */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-10" style={{maskImage:'linear-gradient(to right,rgba(0,0,0,0) 0%,#000 100%)',WebkitMaskImage:'linear-gradient(to right,rgba(0,0,0,0) 0%,#000 100%)'}} />
-          {/* Fade mask right */}
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-10" style={{maskImage:'linear-gradient(to left,rgba(0,0,0,0) 0%,#000 100%)',WebkitMaskImage:'linear-gradient(to left,rgba(0,0,0,0) 0%,#000 100%)'}} />
-          <ul
-            ref={carouselRef}
-            className="flex gap-6 py-2 px-1 no-scrollbar select-none"
-            style={{scrollSnapType:'x mandatory',WebkitOverflowScrolling:'touch',overflowX:'auto',overflowY:'hidden'}}
-          >
-            {items.map((item, idx) => (
-              <li
-                key={idx}
-                className="flex-shrink-0 group"
-                style={{width:'90vw',maxWidth:407,minWidth:240,height:308, position:'relative'}}
-                onMouseEnter={() => setIsHovered(idx)}
-                onMouseLeave={() => setIsHovered(null)}
-                onTouchStart={e => {
-                  // Only show overlay on tap, not scroll
-                  if (lastTouched !== idx) {
-                    setIsHovered(idx);
-                    setLastTouched(idx);
-                  } else {
-                    setIsHovered(null);
-                    setLastTouched(null);
-                  }
-                }}
-              >
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg glass-light dark:glass-dark border border-gray-300 dark:border-white/10" style={{}}>
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          loop
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="portfolio-swiper"
+          onSwiper={swiper => (swiperRef.current = swiper)}
+          onMouseEnter={() => swiperRef.current?.autoplay?.stop()}
+          onMouseLeave={() => swiperRef.current?.autoplay?.start()}
+        >
+          {portfolioItems.map((item, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="flex flex-col items-center group" style={{width:'100%',maxWidth:407,minWidth:240,height:308, position:'relative', margin:'0 auto'}}>
+                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg glass-light dark:glass-dark border border-gray-300 dark:border-white/10">
                   <div className="absolute inset-0 z-0">
                     <Image src={item.img} alt={item.alt} fill className="w-full h-full object-cover object-top rounded-2xl" sizes="(max-width: 600px) 90vw, 407px" priority={idx < 2} />
                   </div>
                   <div className="absolute inset-0 z-10" style={{background:'linear-gradient(180deg,rgba(11,13,20,0) 75%,#0b0d14 100%)',borderRadius:16}} />
-                  {/* Hover Overlay */}
-                  <div
-                    className={`absolute inset-0 z-20 flex flex-col items-center justify-center transition-opacity duration-200 ${isHovered === idx ? 'opacity-100 bg-black/60' : 'opacity-0 pointer-events-none'}`}
-                    style={{touchAction:'manipulation'}}
-                  >
-                    <div
-                      className="portfolio-card-title text-white text-xs sm:text-sm md:text-base font-semibold text-center px-2 md:px-4 mb-2 md:mb-3 max-w-[90%] truncate md:whitespace-normal"
-                    >
+                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 bg-black/60 transition-opacity duration-200" style={{touchAction:'manipulation'}}>
+                    <div className="portfolio-card-title text-white text-xs sm:text-sm md:text-base font-semibold text-center px-2 md:px-4 mb-2 md:mb-3 max-w-[90%] truncate md:whitespace-normal">
                       {item.title}
                     </div>
                     <button
                       className="portfolio-card-btn text-xs sm:text-sm px-3 py-1 rounded-full bg-white/90 text-black font-semibold shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-400/40 transition-all"
                       style={{marginTop:4}}
-                      onClick={e => { e.stopPropagation(); handleCardClick(item.slug); setIsHovered(null); setLastTouched(null); }}
+                      onClick={() => router.push(`/portfolio/${item.slug}`)}
                     >
                       view case study
                     </button>
                   </div>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

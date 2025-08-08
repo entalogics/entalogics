@@ -34,7 +34,7 @@ const Hero = () => {
           </h1>
           {/* Subtitle */}
           <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
-            We're your full-stack product development partner for startups, scaleups, and innovators. Whether it's SaaS, AI platforms, custom browsers, or Web3 apps — we engineer and launch with precision, speed, and business logic.
+            We're your full-stack product development partner for startups, scaleups, and innovators. Whether it's SaaS, AI platforms, Custom Chromium Browsers, or Web3 apps — we engineer and launch with precision, speed, and business logic.
           </p>
 
           {/* Buttons */}

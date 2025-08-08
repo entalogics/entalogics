@@ -14,6 +14,9 @@ const SaasDevelopment = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/saas-development" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="SaaS Product Development by Entalogics - Scalable, secure SaaS platforms" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="SaaS Product Development | Entalogics" />
         <meta name="twitter:description" content="SaaS product development services by Entalogics. We build scalable, secure, and flexible SaaS platforms for startups and enterprises. Multi-tenant, API-first, cloud-ready, and optimized for growth." />

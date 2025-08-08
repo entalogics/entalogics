@@ -14,6 +14,9 @@ const DevOpsDeployment = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/devops-deployment" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="DevOps & Deployment by Entalogics - CI/CD, cloud-native, monitoring" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DevOps & Deployment | Entalogics" />
         <meta name="twitter:description" content="DevOps and deployment services by Entalogics. Automated CI/CD, cloud-native infrastructure, and real-time monitoring for startups and enterprises. Launch fast, scale smart, and stay online with expert DevOps solutions." />

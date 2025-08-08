@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Main Pages -->
+  <url>
+    <loc>https://entalogics.com/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/og-image.jpg</image:loc>
+      <image:title>Entalogics - Custom Software Development Agency</image:title>
+      <image:caption>Full-stack development agency specializing in SaaS, AI, and custom browser development</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/about</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/about-hero.jpg</image:loc>
+      <image:title>About Entalogics - Our Story</image:title>
+      <image:caption>Learn about our mission, team, and approach to software development</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/quote</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/quote-form.jpg</image:loc>
+      <image:title>Get a Free Quote - Entalogics</image:title>
+      <image:caption>Request a custom quote for your software development project</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/chromium-browser-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/chromium-browser.jpg</image:loc>
+      <image:title>Custom Chromium Browser Development</image:title>
+      <image:caption>Custom browser solutions for privacy, crypto, and enterprise use</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Service Pages -->
+  <url>
+    <loc>https://entalogics.com/services/saas-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/saas-development.jpg</image:loc>
+      <image:title>SaaS Product Development Services</image:title>
+      <image:caption>Complete SaaS solutions with billing, auth, and multi-tenant architecture</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/ai-apps-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/ai-apps.jpg</image:loc>
+      <image:title>AI-Powered Applications Development</image:title>
+      <image:caption>Custom AI solutions with LLM integration and agent workflows</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/web-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/web-development.jpg</image:loc>
+      <image:title>Modern Web Application Development</image:title>
+      <image:caption>SEO-optimized web apps using Next.js, React, and modern stacks</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/mobile-app-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/mobile-apps.jpg</image:loc>
+      <image:title>Mobile App Development Services</image:title>
+      <image:caption>Cross-platform mobile apps with Flutter and React Native</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/chromium-browser-development</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/chromium-browser.jpg</image:loc>
+      <image:title>Custom Chromium Browser Development</image:title>
+      <image:caption>Privacy-focused and enterprise browser solutions</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/ui-ux-design</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/ui-ux-design.jpg</image:loc>
+      <image:title>UI/UX Design Services</image:title>
+      <image:caption>User-centered design from wireframes to functional interfaces</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/desktop-software</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/desktop-software.jpg</image:loc>
+      <image:title>Desktop Software Development</image:title>
+      <image:caption>Cross-platform desktop applications with native OS integration</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/devops-deployment</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/devops.jpg</image:loc>
+      <image:title>DevOps and Deployment Services</image:title>
+      <image:caption>CI/CD pipelines and cloud deployment solutions</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/maintenance-support</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/maintenance.jpg</image:loc>
+      <image:title>Software Maintenance and Support</image:title>
+      <image:caption>24/7 monitoring, updates, and proactive support</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://entalogics.com/services/web3-trading</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/web3-trading.jpg</image:loc>
+      <image:title>Web3 and Trading Platform Development</image:title>
+      <image:caption>Decentralized trading platforms with smart contract integration</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Blog Section -->
+  <url>
+    <loc>https://entalogics.com/blog</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/blog-hero.jpg</image:loc>
+      <image:title>Entalogics Blog - Software Development Insights</image:title>
+      <image:caption>Latest insights on SaaS, AI, and custom software development</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Portfolio Section -->
+  <url>
+    <loc>https://entalogics.com/portfolio</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/portfolio-hero.jpg</image:loc>
+      <image:title>Entalogics Portfolio - Our Work</image:title>
+      <image:caption>Showcase of our successful software development projects</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Case Studies Section -->
+  <url>
+    <loc>https://entalogics.com/case-studies</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/case-studies.jpg</image:loc>
+      <image:title>Case Studies - Entalogics Success Stories</image:title>
+      <image:caption>Detailed case studies of our software development projects</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://entalogics.com/contact</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://entalogics.com/assets/contact-hero.jpg</image:loc>
+      <image:title>Contact Entalogics - Get in Touch</image:title>
+      <image:caption>Ready to start your project? Contact our development team</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://entalogics.com/privacy-policy</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://entalogics.com/terms-of-service</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+</urlset>

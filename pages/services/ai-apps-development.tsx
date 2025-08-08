@@ -14,6 +14,9 @@ const AiApps = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/ai-apps-development" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="AI Apps Development by Entalogics - Custom AI software and platforms" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AI-Powered Apps & Platforms | Entalogics" />
         <meta name="twitter:description" content="AI app development services by Entalogics. Custom AI software, LLM integration, and production-grade AI platforms for startups and enterprises. Build AI-powered dashboards, assistants, and tools with real-world logic." />

@@ -14,6 +14,9 @@ const DesktopSoftware = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/desktop-software" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="Desktop Software Development by Entalogics - Native, cross-platform apps" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Desktop Software Development | Entalogics" />
         <meta name="twitter:description" content="Desktop software development services by Entalogics. High-performance, cross-platform desktop apps with OS-level integrations for Windows, macOS, and Linux. Built with C++, Tauri, .NET, or platform-native code." />

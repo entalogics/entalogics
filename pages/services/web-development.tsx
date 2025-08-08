@@ -14,6 +14,9 @@ const WebDevelopment = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://entalogics.com/services/web-development" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:site_name" content="Entalogics" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:alt" content="Web App Development by Entalogics - Modern, scalable web applications" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Web App Development | Entalogics" />
         <meta name="twitter:description" content="Web app development services by Entalogics. We design and develop pixel-perfect, SEO-ready, and scalable web applications for startups and enterprises. Modern stacks, clean architecture, and high performance." />
