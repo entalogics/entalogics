@@ -110,7 +110,23 @@ const PortfolioCarousel = () => {
               <div className="flex flex-col items-center group" style={{width:'100%',maxWidth:407,minWidth:240,height:308, position:'relative', margin:'0 auto'}}>
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg glass-light dark:glass-dark border border-gray-300 dark:border-white/10">
                   <div className="absolute inset-0 z-0">
-                    <Image src={item.img} alt={item.alt} fill className="w-full h-full object-cover object-top rounded-2xl" sizes="(max-width: 600px) 90vw, 407px" priority={idx < 2} />
+                    <Image 
+                      src={item.img} 
+                      alt={item.alt} 
+                      fill 
+                      className="w-full h-full object-cover object-top rounded-2xl" 
+                      sizes="(max-width: 600px) 90vw, 407px" 
+                      priority={idx < 2}
+                      onError={(e) => {
+                        // Fallback to a gradient background if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        }
+                      }}
+                    />
                   </div>
                   <div className="absolute inset-0 z-10" style={{background:'linear-gradient(180deg,rgba(11,13,20,0) 75%,#0b0d14 100%)',borderRadius:16}} />
                   <div className="absolute inset-0 z-20 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 bg-black/60 transition-opacity duration-200" style={{touchAction:'manipulation'}}>
