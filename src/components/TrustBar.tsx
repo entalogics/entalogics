@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import Image from 'next/image';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'], display: 'swap' });
 
 const logos = [
   { name: 'Marvian', src: '/assets/trustbar logos/marvian logo-01.svg' },
@@ -22,7 +25,7 @@ const TrustBar = () => {
     <section className="relative flex flex-col items-center justify-center py-4 sm:py-6 pb-0 mb-0 -mb-12 sm:-mt-24 bg-transparent overflow-visible" style={{ minHeight: 180 }}>
       {/* Heading and Subtitle - above tray */}
       <div className="container mx-auto px-2 sm:px-4 md:px-12 relative z-10 text-center mt-6 sm:mt-10 mb-0">
-        <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 sm:mb-3">
+        <h2 className={`text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 sm:mb-3 ${poppins.className}`}>
           <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Trusted</span> by Industry Leaders
         </h2>
         <p className="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 max-w-xs sm:max-w-md md:max-w-2xl mx-auto px-2 sm:px-4 mt-2">

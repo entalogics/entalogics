@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Settings, Lock, Brain, Code2, MousePointerClick, Briefcase, Rocket, DollarSign, Shield, Globe, Star, Users } from 'lucide-react';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'], display: 'swap' });
 
 const WhyChooseUs = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -95,7 +98,7 @@ const WhyChooseUs = () => {
         <div
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white mb-2 md:mb-4 tracking-tight">
+          <h2 className={`text-2xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white mb-2 md:mb-4 tracking-tight ${poppins.className}`}>
             Your <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Long-Term Tech Partner</span>
           </h2>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-4xl mx-auto mb-4 md:mb-6 font-normal leading-relaxed">

@@ -2,6 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { servicesData } from '../data/servicesData';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'], display: 'swap' });
 
 interface Service {
   slug: string;
@@ -90,7 +93,7 @@ const Services = () => {
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-black dark:text-white">
+          <h2 className={`text-3xl md:text-4xl font-extrabold text-black dark:text-white ${poppins.className}`}>
             We Help <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">You</span> Build
           </h2>
           <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed mb-4 md:mb-6">

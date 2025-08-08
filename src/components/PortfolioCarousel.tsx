@@ -5,6 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'], display: 'swap' });
 
 const portfolioItems = [
   {
@@ -82,7 +85,7 @@ const PortfolioCarousel = () => {
       <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-purple-100/50 dark:bg-purple-600/10 blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute top-1/2 -left-40 w-[480px] h-[480px] rounded-full bg-blue-100/50 dark:bg-blue-600/10 blur-3xl z-0 pointer-events-none"></div>
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 text-black dark:text-white">
+        <h2 className={`text-2xl md:text-3xl font-bold text-center mb-2 text-black dark:text-white ${poppins.className}`}>
           Our Work <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Speaks for Itself</span>
         </h2>
         <p className="text-base md:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed text-center mb-8 max-w-2xl mx-auto">

@@ -29,7 +29,7 @@ const Hero = () => {
             </span>
           </div>
           {/* Main heading with gradient only on 'Scalable Product' */}
-          <h1 className={`relative text-[clamp(1.3rem,6vw,3.2rem)] font-black leading-[1.15] mb-4 md:mb-7 tracking-tighter text-black dark:text-white ${poppins.className}`}>
+          <h1 className={`relative text-[clamp(1.3rem,6vw,3.2rem)] font-extrabold leading-[1.15] mb-4 md:mb-7 tracking-tight text-black dark:text-white ${poppins.className}`}>
             From Idea to <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Scalable Product</span><br />
             We Build What Others<br />
             Don’t Dare To.
