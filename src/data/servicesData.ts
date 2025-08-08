@@ -132,9 +132,9 @@ export const servicesData = {
       'User testing'
     ]
   },
-  'desktop-software': {
-    title: 'Desktop Software',
-    slug: 'desktop-software',
+  'desktop-software-development': {
+    title: 'Desktop Software Development',
+    slug: 'desktop-software-development',
     icon: Monitor,
     tagline: 'We build high-performance desktop apps with deep OS integrations… they run smooth on Win, Mac & Linux…',
     description: 'Desktop applications that feel native.',

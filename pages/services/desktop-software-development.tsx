@@ -8,11 +8,11 @@ const DesktopSoftware = () => {
       <Head>
         <title>Desktop Software Development | Entalogics</title>
         <meta name="description" content="Desktop software development services by Entalogics. High-performance, cross-platform desktop apps with OS-level integrations for Windows, macOS, and Linux. Built with C++, Tauri, .NET, or platform-native code." />
-        <link rel="canonical" href="https://entalogics.com/services/desktop-software" />
+        <link rel="canonical" href="https://entalogics.com/services/desktop-software-development" />
         <meta property="og:title" content="Desktop Software Development | Entalogics" />
         <meta property="og:description" content="Desktop software development services by Entalogics. High-performance, cross-platform desktop apps with OS-level integrations for Windows, macOS, and Linux. Built with C++, Tauri, .NET, or platform-native code." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://entalogics.com/services/desktop-software" />
+        <meta property="og:url" content="https://entalogics.com/services/desktop-software-development" />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
         <meta property="og:site_name" content="Entalogics" />
         <meta property="og:locale" content="en_US" />

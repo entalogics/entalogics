@@ -25,7 +25,7 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
       { name: 'UI/UX Design', path: '/services/ui-ux-design' },
       { name: 'DevOps & Deployment', path: '/services/devops-deployment' },
       { name: 'Maintenance & Ongoing Support', path: '/services/maintenance-support' },
-      { name: 'Desktop Software Development', path: '/services/desktop-software' },
+      { name: 'Desktop Software Development', path: '/services/desktop-software-development' },
       { name: 'Web3 & Trading Platforms', path: '/services/web3-trading' },
     ],
     connect: [

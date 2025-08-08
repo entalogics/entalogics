@@ -165,7 +165,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       }
     },
     { 
-      url: '/services/desktop-software', 
+      url: '/services/desktop-software-development', 
       priority: '0.7', 
       changefreq: 'monthly',
       image: {

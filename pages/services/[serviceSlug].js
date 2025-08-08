@@ -127,7 +127,7 @@ const ServicePage = () => {
       ],
       ogImage: 'https://entalogics.com/assets/og-uiux.jpg',
     },
-    'desktop-software': {
+    'desktop-software-development': {
       headline: 'Desktop Software',
       description: 'We build high-performance desktop apps with deep OS integrations. Our desktop applications feel native and run smoothly on Windows, Mac, and Linux.',
       features: [
