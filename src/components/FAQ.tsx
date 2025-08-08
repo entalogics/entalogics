@@ -6,28 +6,32 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'What is your web design process?',
-      answer: 'Our web design process starts with understanding your needs, followed by wireframing, prototyping, and final design implementation. We keep you involved at every step.'
+      question: 'What industries do you specialize in?',
+      answer: 'We work across multiple industries — from startups launching their first MVP to enterprises scaling AI-powered platforms. Our past projects span finance, healthcare, e-commerce, Web3, and custom browser development.'
     },
     {
-      question: 'What is your web development process?',
-      answer: 'We use modern frameworks and best practices to build scalable, maintainable websites. Our process includes planning, development, testing, and deployment.'
+      question: 'Can you build both web and mobile apps?',
+      answer: 'Yes! We develop responsive web apps, native iOS/Android apps, and cross-platform solutions using frameworks like React Native and Flutter — all built for performance, scalability, and user-friendly experiences.'
     },
     {
-      question: 'How long does it take to design and develop a website?',
-      answer: 'Timelines vary by project scope, but most websites are completed within 4–8 weeks. We provide a detailed timeline after our initial consultation.'
+      question: 'Do you offer AI-powered solutions?',
+      answer: 'Absolutely. We integrate AI into apps, websites, and browsers — from intelligent chatbots to advanced automation and data-driven features — using APIs like OpenAI, DeepSeek, and custom AI models.'
     },
     {
-      question: 'What is LinkedIn profile optimization?',
-      answer: 'LinkedIn profile optimization involves improving your profile content, visuals, and keywords to increase visibility and attract opportunities.'
+      question: 'What is Chromium browser development?',
+      answer: 'It\'s creating custom browsers based on the Chromium engine. We can modify UI, add features like ad-blockers, VPN, crypto wallets, or AI tools, and remove unnecessary components to meet your exact requirements.'
     },
     {
-      question: 'How can a better LinkedIn profile help my career?',
-      answer: 'A strong LinkedIn profile can help you get noticed by recruiters, connect with industry peers, and showcase your expertise.'
+      question: 'Do you handle end-to-end product development?',
+      answer: 'Yes. From idea validation, design, and development to testing, deployment, and long-term maintenance — we manage the full product lifecycle.'
     },
     {
-      question: 'Do you rewrite my LinkedIn summary and headline?',
-      answer: 'Yes, we can rewrite your summary and headline to better reflect your skills, experience, and career goals.'
+      question: 'How long does it take to complete a project?',
+      answer: 'Timelines depend on complexity. A simple landing page can be ready in 1-2 weeks, while a full-scale SaaS platform or browser build may take 8-12 weeks.'
+    },
+    {
+      question: 'Do you provide ongoing support after launch?',
+      answer: 'Yes, we offer maintenance, updates, and feature enhancements to keep your product secure, optimized, and ahead of the competition.'
     }
   ];
 
