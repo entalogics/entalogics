@@ -35,7 +35,7 @@ const testimonials = [
     company: 'UK', 
     quote: 'Their team is full-stack in the real sense — design, dev, deployment. Super responsive and detail-focused. We\'ve already booked Phase 2.', 
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face'
   },
   { 
     name: 'Harish G.', 
@@ -293,7 +293,17 @@ const Testimonials = () => {
               <div className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-sm mb-4">{t.quote.split('.').slice(1).join('.').trim()}</div>
               {/* User info */}
               <div className="flex items-center mt-auto">
-                <Image src={t.avatar || AVATAR_SRC} alt={t.name} width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
+                <Image 
+                  src={t.avatar || AVATAR_SRC} 
+                  alt={t.name} 
+                  width={40} 
+                  height={40} 
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = AVATAR_SRC;
+                  }}
+                />
                 <div>
                   <div className="text-black dark:text-white font-bold text-xs sm:text-sm leading-tight">{t.name}</div>
                   <div className="text-gray-500 dark:text-gray-400 text-[11px] sm:text-xs leading-tight">{t.role}</div>
