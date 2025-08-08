@@ -51,7 +51,7 @@ const testimonials = [
     company: 'Germany', 
     quote: 'It\'s rare to find a dev team that actually thinks like product owners. Entalogics does.', 
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face'
   },
   { 
     name: 'Sarah Johnson', 
