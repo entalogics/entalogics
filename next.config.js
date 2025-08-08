@@ -81,7 +81,7 @@ const nextConfig = {
       },
       // Cache static assets
       {
-        source: '/assets/(.*)',
+        source: '/assets/:path*',
         headers: [
           {
             key: 'Cache-Control',
@@ -91,7 +91,7 @@ const nextConfig = {
       },
       // Cache images
       {
-        source: '/(.*\\.(jpg|jpeg|png|gif|webp|svg|ico))',
+        source: '/:path*\\.(jpg|jpeg|png|gif|webp|svg|ico)',
         headers: [
           {
             key: 'Cache-Control',
@@ -101,7 +101,7 @@ const nextConfig = {
       },
       // Cache fonts
       {
-        source: '/(.*\\.(woff|woff2|ttf|eot))',
+        source: '/:path*\\.(woff|woff2|ttf|eot)',
         headers: [
           {
             key: 'Cache-Control',
@@ -115,7 +115,6 @@ const nextConfig = {
   compress: true,
   // Enable experimental features for better performance
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
   },
   // Webpack configuration for better performance
