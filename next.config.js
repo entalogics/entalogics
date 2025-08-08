@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['entalogics.com', 'framerusercontent.com'],
+    domains: ['entalogics.com', 'framerusercontent.com', 'images.unsplash.com'],
     formats: ['image/webp', 'image/avif'],
   },
   async redirects() {

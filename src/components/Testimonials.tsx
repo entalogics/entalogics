@@ -18,43 +18,49 @@ const testimonials = [
     role: 'SaaS Founder', 
     company: 'Canada', 
     quote: 'Entalogics didn\'t just build the product — they helped us shape it. From first call to live launch, the process was smooth, clear, and surprisingly fast.', 
-    rating: 5
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
   },
   { 
     name: 'Stefano M.', 
     role: 'Web3 Startup', 
     company: 'UAE', 
     quote: 'We needed a browser fork with custom AI features and wallet integration. Umar\'s team knew exactly how to handle it — very few devs can pull that off at this level.', 
-    rating: 5
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
   },
   { 
     name: 'Mina T.', 
     role: 'HealthTech Product Lead', 
     company: 'UK', 
     quote: 'Their team is full-stack in the real sense — design, dev, deployment. Super responsive and detail-focused. We\'ve already booked Phase 2.', 
-    rating: 5
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
   },
   { 
     name: 'Harish G.', 
     role: 'Marketing SaaS', 
     company: 'India', 
     quote: 'Top-tier communication and problem-solving. The AI-powered dashboard they built now saves our team hours daily.', 
-    rating: 5
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face'
   },
   { 
     name: 'David K.', 
     role: 'Startup Advisor', 
     company: 'Germany', 
     quote: 'It\'s rare to find a dev team that actually thinks like product owners. Entalogics does.', 
-    rating: 5
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face'
   },
-    { 
-      name: 'Sarah Johnson', 
+  { 
+    name: 'Sarah Johnson', 
     role: 'CTO', 
-      company: 'Stellar Solutions', 
+    company: 'Stellar Solutions', 
     quote: 'Exceptional code quality and support. Highly recommended for any project.', 
-      rating: 5
-    },
+    rating: 5,
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
+  },
     { 
       name: 'Michael Brown', 
     role: 'CEO', 
@@ -247,7 +253,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
     </div>
     <p className="text-xs md:text-sm text-gray-700 dark:text-gray-200 text-center mb-1 line-clamp-3">"{testimonial.quote}"</p>
     <div className="flex items-center mt-3">
-      <Image src={AVATAR_SRC} alt={testimonial.name} width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
+      <Image src={testimonial.avatar || AVATAR_SRC} alt={testimonial.name} width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
       <div>
         <div className="text-xs font-bold text-black dark:text-white text-center">{testimonial.name}</div>
         <div className="text-[10px] md:text-[11px] text-gray-500 dark:text-gray-400 text-center">{testimonial.role}</div>
@@ -287,7 +293,7 @@ const Testimonials = () => {
               <div className="text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-sm mb-4">{t.quote.split('.').slice(1).join('.').trim()}</div>
               {/* User info */}
               <div className="flex items-center mt-auto">
-                <Image src={AVATAR_SRC} alt={t.name} width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
+                <Image src={t.avatar || AVATAR_SRC} alt={t.name} width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover mr-3 border border-gray-300 dark:border-blue-900/40" />
                 <div>
                   <div className="text-black dark:text-white font-bold text-xs sm:text-sm leading-tight">{t.name}</div>
                   <div className="text-gray-500 dark:text-gray-400 text-[11px] sm:text-xs leading-tight">{t.role}</div>
