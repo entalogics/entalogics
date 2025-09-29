@@ -226,7 +226,7 @@ const FAQPage = () => {
                           initial={false}
                           animate={{ height: isOpen ? 'auto' : 0 }}
                           transition={{ duration: 0.3, ease: 'easeInOut' }}
-                          className="overflow-hidden"
+                          style={{ overflow: 'hidden' }}
                         >
                           <div className="px-6 pb-4">
                             <Paragraph className="text-gray-600 dark:text-gray-300 leading-relaxed">

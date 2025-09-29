@@ -129,7 +129,6 @@ const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     scrollRestoration: true,
-    optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   // SEO and Performance optimizations

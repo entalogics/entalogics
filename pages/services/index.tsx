@@ -313,7 +313,6 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
           </section>
         </div>
       </Layout>
-    </>
   )
 }
 
