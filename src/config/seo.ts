@@ -47,38 +47,48 @@ export const SEO_CONFIG = {
     {
       name: 'SaaS Development',
       description: 'Complete SaaS solutions with billing, auth, and multi-tenant architecture',
-      keywords: 'SaaS development, subscription software, multi-tenant architecture, billing systems, user management'
+      keywords: 'top SaaS development company, best SaaS developers, leading SaaS development agency, premier SaaS development services, top subscription software developers, best multi-tenant architecture developers, SaaS development, subscription software, multi-tenant architecture, billing systems, user management'
     },
     {
       name: 'AI-Powered Applications',
       description: 'Custom AI solutions with LLM integration and agent workflows',
-      keywords: 'AI development, machine learning, LLM integration, AI agents, artificial intelligence'
+      keywords: 'top AI development company, best AI developers, leading AI development agency, premier AI development services, top machine learning developers, best LLM integration experts, AI development, machine learning, LLM integration, AI agents, artificial intelligence'
     },
     {
       name: 'Web Development',
       description: 'Modern web applications using React, Next.js, and TypeScript',
-      keywords: 'web development, React, Next.js, TypeScript, frontend development, web applications'
+      keywords: 'top web development company, best web developers, leading web development agency, premier web development services, top React developers, best Next.js developers, web development, React, Next.js, TypeScript, frontend development, web applications'
     },
     {
       name: 'Mobile App Development',
       description: 'Cross-platform mobile apps with Flutter and React Native',
-      keywords: 'mobile app development, Flutter, React Native, iOS, Android, cross-platform'
+      keywords: 'top mobile app development company, best mobile app developers, leading mobile app development agency, premier mobile app development services, top Flutter developers, best React Native developers, mobile app development, Flutter, React Native, iOS, Android, cross-platform'
     },
     {
       name: 'Chromium Browser Development',
       description: 'Custom browser solutions for privacy, crypto, and enterprise use',
-      keywords: 'Chromium browser, custom browser, privacy browser, enterprise browser, browser development'
+      keywords: 'top Chromium browser developers, best custom browser developers, leading browser development agency, premier Chromium development services, top privacy browser developers, best enterprise browser developers, Chromium browser, custom browser, privacy browser, enterprise browser, browser development'
     },
     {
       name: 'UI/UX Design',
       description: 'User-centered design from wireframes to functional interfaces',
-      keywords: 'UI design, UX design, user interface, user experience, design systems, wireframing'
+      keywords: 'top UI UX design agency, best UI designers, leading UX design company, premier UI design services, top user experience designers, best interface design agency, UI design, UX design, user interface, user experience, design systems, wireframing'
     }
   ],
   
   // Target Keywords by Page
   keywords: {
     home: [
+      'top development agency in US',
+      'best software development company UK',
+      'leading full-stack development agency',
+      'top custom software developers',
+      'premier AI development company',
+      'best SaaS development agency',
+      'top web development company',
+      'leading mobile app developers',
+      'top Chromium browser developers',
+      'best software agency worldwide',
       'custom software development',
       'AI development',
       'SaaS development',
@@ -91,6 +101,12 @@ export const SEO_CONFIG = {
       'scaleup development'
     ],
     about: [
+      'top development agency founder',
+      'best software development team leader',
+      'leading full-stack developer Umar Abdullah',
+      'top AI development expert',
+      'premier SaaS development founder',
+      'best Chromium browser developer',
       'about Entalogics',
       'Umar Abdullah',
       'development team',
@@ -108,6 +124,16 @@ export const SEO_CONFIG = {
       'expert team'
     ],
     services: [
+      'top software development services',
+      'best SaaS development company',
+      'leading AI development agency',
+      'premier web development services',
+      'top mobile app development company',
+      'best UI UX design agency',
+      'leading Chromium browser developers',
+      'top maintenance support services',
+      'best custom software developers',
+      'premier full-stack development agency',
       'software development services',
       'SaaS development',
       'AI development',
@@ -155,22 +181,22 @@ export const SEO_CONFIG = {
   // Meta Tag Templates
   metaTemplates: {
     title: {
-      home: 'Custom Software Development | AI, SaaS & Web Apps | Entalogics',
-      about: 'About Us | Expert Full-Stack Development Team | Entalogics',
-      services: 'Software Development Services | AI, SaaS, Web & Mobile Apps | Entalogics',
-      contact: 'Contact Us | Get in Touch with Our Development Team | Entalogics',
-      quote: 'Get Free Quote | Custom Software Development | Entalogics',
-      blog: 'Blog | Software Development Insights | Entalogics',
-      portfolio: 'Portfolio | Our Development Projects | Entalogics'
+      home: 'Top Development Agency in US & UK | AI, SaaS & Web Apps | Entalogics',
+      about: 'About Us | Leading Full-Stack Development Team | Top Developers | Entalogics',
+      services: 'Top Software Development Services | Best AI, SaaS & Web Developers | Entalogics',
+      contact: 'Contact Top Development Agency | Leading Software Developers | Entalogics',
+      quote: 'Get Quote from Top Development Agency | Best Software Developers | Entalogics',
+      blog: 'Blog | Top Development Agency Insights | Software Development | Entalogics',
+      portfolio: 'Portfolio | Top Development Agency Projects | Best Software Developers | Entalogics'
     },
     description: {
-      home: 'Transform your ideas into scalable software products. Expert full-stack development for AI applications, SaaS platforms, web apps, mobile apps, and custom Chromium browsers. From concept to launch with clean code and business logic.',
-      about: 'Meet Umar Abdullah and the Entalogics team of expert full-stack developers. 5+ years experience in AI SaaS platforms, web applications, mobile apps, and custom Chromium browser development. Learn about our mission, expertise, and client-focused approach.',
-      services: 'Comprehensive software development services including SaaS development, AI-powered applications, web development, mobile apps, UI/UX design, Chromium browser development, and maintenance support. Expert team delivering scalable solutions.',
-      contact: 'Ready to start your project? Contact our expert development team for a free consultation. We specialize in AI, SaaS, web apps, mobile apps, and custom Chromium browser development.',
-      quote: 'Get a free quote for your custom software development project. Expert full-stack development for AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. No obligation, fast response.',
-      blog: 'Latest insights on software development, AI, SaaS, web development, and technology trends. Expert articles from our development team at Entalogics.',
-      portfolio: 'Explore our portfolio of successful software development projects. AI applications, SaaS platforms, web apps, mobile apps, and custom Chromium browsers built for clients worldwide.'
+      home: 'Leading development agency in US & UK. Top custom software developers specializing in AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. Premier full-stack development with 5+ years expertise and 100+ successful projects.',
+      about: 'Meet Umar Abdullah, founder of top development agency Entalogics. Leading full-stack developer with 5+ years experience in AI SaaS platforms, web applications, mobile apps, and custom Chromium browser development. Premier software development team delivering excellence.',
+      services: 'Top software development services from leading agency. Best AI developers, premier SaaS development, top web developers, leading mobile app developers, and top Chromium browser developers. Expert team delivering scalable solutions worldwide.',
+      contact: 'Contact top development agency Entalogics. Leading software developers specializing in AI, SaaS, web apps, mobile apps, and custom Chromium browser development. Get free consultation from premier development team.',
+      quote: 'Get quote from top development agency Entalogics. Best software developers for AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. Premier full-stack development services with fast response.',
+      blog: 'Latest insights from top development agency Entalogics. Expert articles on software development, AI, SaaS, web development, and technology trends from leading developers worldwide.',
+      portfolio: 'Explore portfolio of top development agency Entalogics. Successful AI applications, SaaS platforms, web apps, mobile apps, and custom Chromium browsers built by best software developers for clients worldwide.'
     }
   },
   

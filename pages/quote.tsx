@@ -154,16 +154,16 @@ export default function QuotePage() {
   return (
     <>
       <Head>
-        <title>Contact | Entalogics</title>
-        <meta name="description" content="Get in touch with Entalogics for your software, AI, or web project. Fast, transparent, and tailored to your needs." />
-        <meta property="og:title" content="Contact | Entalogics" />
-        <meta property="og:description" content="Get in touch with Entalogics for your software, AI, or web project. Fast, transparent, and tailored to your needs." />
+        <title>Get Quote from Top Development Agency | Best Software Developers | Entalogics</title>
+        <meta name="description" content="Get quote from top development agency Entalogics. Best software developers for AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. Premier full-stack development services with fast response." />
+        <meta property="og:title" content="Get Quote from Top Development Agency | Best Software Developers | Entalogics" />
+        <meta property="og:description" content="Get quote from top development agency Entalogics. Best software developers for AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. Premier full-stack development services with fast response." />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
         <meta property="og:url" content="https://entalogics.com/contact" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact | Entalogics" />
-        <meta name="twitter:description" content="Get in touch with Entalogics for your software, AI, or web project. Fast, transparent, and tailored to your needs." />
+        <meta name="twitter:title" content="Get Quote from Top Development Agency | Best Software Developers | Entalogics" />
+        <meta name="twitter:description" content="Get quote from top development agency Entalogics. Best software developers for AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. Premier full-stack development services with fast response." />
         <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
         <link rel="canonical" href="https://entalogics.com/contact" />
       </Head>

@@ -138,25 +138,25 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
   return (
     <>
       <Head>
-        <title>{String(service.title)} | Entalogics</title>
-        <meta name="description" content={service.tagline} />
-        <meta name="keywords" content={`${service.title}, ${service.title.toLowerCase()} development, custom ${service.title.toLowerCase()}, ${service.title.toLowerCase()} services, software development, web development, mobile app development, AI development, SaaS development, Chromium browser development, UI UX design, maintenance support, Entalogics`} />
+        <title>{`Top ${service.title} Company | Best ${service.title} Developers | Entalogics`}</title>
+        <meta name="description" content={`Leading ${service.title} company. Top ${service.title} developers specializing in ${service.tagline}. Premier ${service.title} services with 5+ years expertise and 100+ successful projects.`} />
+        <meta name="keywords" content={`top ${service.title} company, best ${service.title} developers, leading ${service.title} agency, premier ${service.title} services, top ${service.title.toLowerCase()} developers, best ${service.title.toLowerCase()} company, ${service.title}, ${service.title.toLowerCase()} development, custom ${service.title.toLowerCase()}, ${service.title.toLowerCase()} services, software development, web development, mobile app development, AI development, SaaS development, Chromium browser development, UI UX design, maintenance support, Entalogics`} />
         <meta name="author" content="Entalogics" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={`${service.title} | Entalogics`} />
-        <meta property="og:description" content={service.tagline} />
+        <meta property="og:title" content={`Top ${service.title} Company | Best ${service.title} Developers | Entalogics`} />
+        <meta property="og:description" content={`Leading ${service.title} company. Top ${service.title} developers specializing in ${service.tagline}. Premier ${service.title} services with 5+ years expertise.`} />
         <meta property="og:image" content={service.ogImage || "https://entalogics.com/assets/og-image.jpg"} />
         <meta property="og:url" content={`https://entalogics.com/services/${service.slug}`} />
         <meta property="og:site_name" content="Entalogics" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${service.title} | Entalogics`} />
-        <meta name="twitter:description" content={service.tagline} />
+        <meta name="twitter:title" content={`Top ${service.title} Company | Best ${service.title} Developers | Entalogics`} />
+        <meta name="twitter:description" content={`Leading ${service.title} company. Top ${service.title} developers specializing in ${service.tagline}. Premier ${service.title} services with 5+ years expertise.`} />
         <meta name="twitter:image" content={service.ogImage || "https://entalogics.com/assets/og-image.jpg"} />
         
         {/* Additional SEO */}

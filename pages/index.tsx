@@ -33,9 +33,9 @@ export default function Page() {
         noPaddingTop 
         canonicalPath="/"
         seo={{
-          title: "Custom Software Development | AI, SaaS & Web Apps | Entalogics",
-          description: "Transform your ideas into scalable software products. Expert full-stack development for AI applications, SaaS platforms, web apps, mobile apps, and custom Chromium browsers. From concept to launch with clean code and business logic.",
-          keywords: "custom software development, AI development, SaaS development, web application development, mobile app development, Chromium browser development, full-stack development, React, Next.js, TypeScript, Node.js, Python, Flutter, React Native, software agency, startup development, scaleup development",
+          title: "Top Development Agency in US & UK | AI, SaaS & Web Apps | Entalogics",
+          description: "Leading development agency in US & UK. Top custom software developers specializing in AI applications, SaaS platforms, web apps, mobile apps, and Chromium browsers. Premier full-stack development with 5+ years expertise and 100+ successful projects.",
+          keywords: "top development agency in US, best software development company UK, leading full-stack development agency, top custom software developers, premier AI development company, best SaaS development agency, top web development company, leading mobile app developers, top Chromium browser developers, best software agency worldwide, custom software development, AI development, SaaS development, web application development, mobile app development, Chromium browser development, full-stack development, React, Next.js, TypeScript, Node.js, Python, Flutter, React Native, software agency, startup development, scaleup development",
           image: "https://entalogics.com/assets/og-image.jpg",
           type: "website",
           structuredData: {

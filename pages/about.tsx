@@ -43,9 +43,9 @@ const AboutPage = () => {
     <Layout
       canonicalPath="/about"
       seo={{
-        title: "About Us | Expert Full-Stack Development Team | Entalogics",
-        description: "Meet Umar Abdullah and the Entalogics team of expert full-stack developers. 5+ years experience in AI SaaS platforms, web applications, mobile apps, and custom Chromium browser development. Learn about our mission, expertise, and client-focused approach.",
-        keywords: "about Entalogics, Umar Abdullah, development team, full-stack developers, AI development team, SaaS development experts, Chromium browser developers, software development company, web development team, mobile app developers, founder, lead developer, 5 years experience, client-focused, expert team",
+        title: "About Us | Leading Full-Stack Development Team | Top Developers | Entalogics",
+        description: "Meet Umar Abdullah, founder of top development agency Entalogics. Leading full-stack developer with 5+ years experience in AI SaaS platforms, web applications, mobile apps, and custom Chromium browser development. Premier software development team delivering excellence.",
+        keywords: "top development agency founder, best software development team leader, leading full-stack developer Umar Abdullah, top AI development expert, premier SaaS development founder, best Chromium browser developer, about Entalogics, Umar Abdullah, development team, full-stack developers, AI development team, SaaS development experts, Chromium browser developers, software development company, web development team, mobile app developers, founder, lead developer, 5 years experience, client-focused, expert team",
         image: "https://entalogics.com/assets/about-og.jpg",
         type: "website",
         structuredData: {

@@ -171,9 +171,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
     <Layout
       canonicalPath="/services"
       seo={{
-        title: "Software Development Services | AI, SaaS, Web & Mobile Apps | Entalogics",
-        description: "Comprehensive software development services including SaaS development, AI-powered applications, web development, mobile apps, UI/UX design, Chromium browser development, and maintenance support. Expert team delivering scalable solutions.",
-        keywords: "software development services, SaaS development, AI development, web development, mobile app development, UI UX design, Chromium browser development, maintenance support, custom software, full-stack development, React, Next.js, TypeScript, Node.js, Python, Flutter, React Native, enterprise solutions, startup development",
+        title: "Top Software Development Services | Best AI, SaaS & Web Developers | Entalogics",
+        description: "Top software development services from leading agency. Best AI developers, premier SaaS development, top web developers, leading mobile app developers, and top Chromium browser developers. Expert team delivering scalable solutions worldwide.",
+        keywords: "top software development services, best SaaS development company, leading AI development agency, premier web development services, top mobile app development company, best UI UX design agency, leading Chromium browser developers, top maintenance support services, best custom software developers, premier full-stack development agency, software development services, SaaS development, AI development, web development, mobile app development, UI UX design, Chromium browser development, maintenance support, custom software, full-stack development, React, Next.js, TypeScript, Node.js, Python, Flutter, React Native, enterprise solutions, startup development",
         image: "https://entalogics.com/assets/og-services.jpg",
         type: "service",
         structuredData: {

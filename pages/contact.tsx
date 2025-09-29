@@ -159,9 +159,9 @@ export default function QuotePage() {
   return (
     <>
       <Head>
-        <title>Contact Us | Get Free Quote | Entalogics</title>
-        <meta name="description" content="Contact Entalogics for your software development needs. Get free quotes for AI SaaS platforms, web apps, mobile apps, and custom Chromium browser development. Fast response guaranteed." />
-        <meta name="keywords" content="contact Entalogics, software development quote, AI development contact, web development quote, mobile app development, Chromium browser development, free consultation, development services contact" />
+        <title>Contact Top Development Agency | Leading Software Developers | Entalogics</title>
+        <meta name="description" content="Contact top development agency Entalogics. Leading software developers specializing in AI SaaS platforms, web apps, mobile apps, and custom Chromium browser development. Get free consultation from premier development team." />
+        <meta name="keywords" content="contact top development agency, leading software developers contact, best development company contact, premier software development quote, top AI development contact, best SaaS development quote, leading web development contact, top mobile app development, best Chromium browser developers contact, contact Entalogics, software development quote, AI development contact, web development quote, mobile app development, Chromium browser development, free consultation, development services contact" />
         <meta name="author" content="Entalogics" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

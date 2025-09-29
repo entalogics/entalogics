@@ -154,9 +154,9 @@ const FAQPage = () => {
     <Layout
       canonicalPath="/faq"
       seo={{
-        title: "Frequently Asked Questions | Software Development | Entalogics",
-        description: "Find answers to common questions about our software development services, AI applications, SaaS development, pricing, process, and technical capabilities. Get insights from our expert team.",
-        keywords: "FAQ, frequently asked questions, software development FAQ, AI development questions, SaaS development FAQ, web development questions, mobile app development FAQ, pricing questions, development process, technical questions, Entalogics FAQ",
+        title: "FAQ | Top Development Agency | Best Software Developers | Entalogics",
+        description: "Find answers about top development agency Entalogics. Leading software developers FAQ covering AI applications, SaaS development, pricing, process, and technical capabilities. Expert insights from premier development team.",
+        keywords: "top development agency FAQ, best software developers questions, leading development company FAQ, premier software development FAQ, top AI development questions, best SaaS development FAQ, leading web development questions, top mobile app development FAQ, best Chromium browser developers FAQ, pricing questions, development process, technical questions, Entalogics FAQ, frequently asked questions, software development FAQ",
         image: "https://entalogics.com/assets/og-faq.jpg",
         type: "website",
         structuredData
