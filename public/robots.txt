@@ -1,12 +1,14 @@
 # Entalogics Website Robots.txt
-# Last Updated: January 2024
+# Last Updated: January 2025
+# Enhanced SEO Configuration
 
 # Allow all search engines
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://entalogics.com/sitemap.xml
+Sitemap: https://entalogics.com/sitemap-images.xml
 
 # Crawl delay for all bots (1 second)
 Crawl-delay: 1

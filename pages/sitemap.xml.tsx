@@ -14,6 +14,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       url: '/', 
       priority: '1.0', 
       changefreq: 'weekly',
+      lastmod: new Date().toISOString().split('T')[0],
       image: {
         loc: '/assets/og-image.jpg',
         title: 'Entalogics - Custom Software Development Agency',

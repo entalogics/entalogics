@@ -40,35 +40,32 @@ const AboutPage = () => {
 
 
   return (
-    <Layout>
-      <Head>
-        <title>About Us | Full-Stack Development Team | Entalogics</title>
-        <meta name="description" content="Meet the Entalogics team of expert full-stack developers. We specialize in AI SaaS platforms, web applications, mobile apps, and custom Chromium browser development. Learn about our mission and expertise." />
-        <meta name="keywords" content="about Entalogics, development team, full-stack developers, AI development team, SaaS development experts, Chromium browser developers, software development company, web development team, mobile app developers" />
-        <meta name="author" content="Entalogics" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="About Us | Full-Stack Development Team | Entalogics" />
-        <meta property="og:description" content="Meet the Entalogics team of expert full-stack developers specializing in AI SaaS platforms, web applications, and custom Chromium browser development." />
-        <meta property="og:image" content="https://entalogics.com/assets/about-og.jpg" />
-        <meta property="og:url" content="https://entalogics.com/about" />
-        <meta property="og:site_name" content="Entalogics" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Us | Full-Stack Development Team | Entalogics" />
-        <meta name="twitter:description" content="Meet the Entalogics team of expert full-stack developers specializing in AI SaaS platforms and custom Chromium browser development." />
-        <meta name="twitter:image" content="https://entalogics.com/assets/about-og.jpg" />
-        
-        {/* Additional SEO */}
-        <link rel="canonical" href="https://entalogics.com/about" />
-        <meta name="theme-color" content="#3b82f6" />
-        
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
+    <Layout
+      canonicalPath="/about"
+      seo={{
+        title: "About Us | Expert Full-Stack Development Team | Entalogics",
+        description: "Meet Umar Abdullah and the Entalogics team of expert full-stack developers. 5+ years experience in AI SaaS platforms, web applications, mobile apps, and custom Chromium browser development. Learn about our mission, expertise, and client-focused approach.",
+        keywords: "about Entalogics, Umar Abdullah, development team, full-stack developers, AI development team, SaaS development experts, Chromium browser developers, software development company, web development team, mobile app developers, founder, lead developer, 5 years experience, client-focused, expert team",
+        image: "https://entalogics.com/assets/about-og.jpg",
+        type: "website",
+        structuredData: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Entalogics",
+          "description": "Learn about our team of expert full-stack developers and our mission to transform ideas into scalable software products",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Entalogics",
+            "founder": {
+              "@type": "Person",
+              "name": "Umar Abdullah",
+              "jobTitle": "Founder & Lead Developer",
+              "description": "Full-stack developer with 5+ years of experience in AI, SaaS, and custom software development"
+            }
+          }
+        }
+      }}
+    >
 
       <div className={`bg-white dark:bg-[#0a1225] text-black dark:text-white ${poppins.className}`} style={{ scrollBehavior: 'smooth' }}>
         {/* Hero Section */}

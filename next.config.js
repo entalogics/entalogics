@@ -129,6 +129,32 @@ const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     scrollRestoration: true,
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
+  // SEO and Performance optimizations
+  poweredByHeader: false,
+  generateEtags: true,
+  // Image optimization
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'entalogics.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'framerusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000, // 1 year
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   // Turbopack configuration (replaces webpack config for Turbopack)
   // Note: turbo config is now handled by Next.js 15 automatically

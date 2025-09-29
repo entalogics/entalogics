@@ -29,7 +29,29 @@ export default function Page() {
         <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
       </Head>
 
-      <Layout noPaddingTop canonicalPath="/">
+      <Layout 
+        noPaddingTop 
+        canonicalPath="/"
+        seo={{
+          title: "Custom Software Development | AI, SaaS & Web Apps | Entalogics",
+          description: "Transform your ideas into scalable software products. Expert full-stack development for AI applications, SaaS platforms, web apps, mobile apps, and custom Chromium browsers. From concept to launch with clean code and business logic.",
+          keywords: "custom software development, AI development, SaaS development, web application development, mobile app development, Chromium browser development, full-stack development, React, Next.js, TypeScript, Node.js, Python, Flutter, React Native, software agency, startup development, scaleup development",
+          image: "https://entalogics.com/assets/og-image.jpg",
+          type: "website",
+          structuredData: {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Entalogics",
+            "url": "https://entalogics.com",
+            "description": "Full-stack development agency specializing in custom software, AI applications, and browser development",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://entalogics.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        }}
+      >
         {/* Global Background Container - Fixed backgrounds */}
         <div className="overflow-x-hidden overflow-y-visible max-w-[100vw]">
         

@@ -168,35 +168,44 @@ interface ServicesPageProps {
 
 const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
   return (
-    <>
-      <Head>
-        <title>Our Services | Entalogics - Professional Software Development</title>
-        <meta name="description" content="Explore our comprehensive range of software development services including SaaS development, AI-powered apps, web development, mobile apps, UI/UX design, and more." />
-        <meta name="keywords" content="software development services, SaaS development, AI development, web development, mobile app development, UI UX design, Chromium browser development, maintenance support, Entalogics" />
-        <meta name="author" content="Entalogics" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Our Services | Entalogics" />
-        <meta property="og:description" content="Explore our comprehensive range of software development services including SaaS development, AI-powered apps, web development, mobile apps, UI/UX design, and more." />
-        <meta property="og:image" content="https://entalogics.com/assets/og-services.jpg" />
-        <meta property="og:url" content="https://entalogics.com/services" />
-        <meta property="og:site_name" content="Entalogics" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Our Services | Entalogics" />
-        <meta name="twitter:description" content="Explore our comprehensive range of software development services including SaaS development, AI-powered apps, web development, mobile apps, UI/UX design, and more." />
-        <meta name="twitter:image" content="https://entalogics.com/assets/og-services.jpg" />
-        
-        {/* Additional SEO */}
-        <link rel="canonical" href="https://entalogics.com/services" />
-        <meta name="theme-color" content="#3b82f6" />
-      </Head>
-      
-      <Layout>
+    <Layout
+      canonicalPath="/services"
+      seo={{
+        title: "Software Development Services | AI, SaaS, Web & Mobile Apps | Entalogics",
+        description: "Comprehensive software development services including SaaS development, AI-powered applications, web development, mobile apps, UI/UX design, Chromium browser development, and maintenance support. Expert team delivering scalable solutions.",
+        keywords: "software development services, SaaS development, AI development, web development, mobile app development, UI UX design, Chromium browser development, maintenance support, custom software, full-stack development, React, Next.js, TypeScript, Node.js, Python, Flutter, React Native, enterprise solutions, startup development",
+        image: "https://entalogics.com/assets/og-services.jpg",
+        type: "service",
+        structuredData: {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Software Development Services",
+          "description": "Comprehensive software development services including SaaS, AI, web, and mobile applications",
+          "provider": {
+            "@type": "Organization",
+            "name": "Entalogics",
+            "url": "https://entalogics.com"
+          },
+          "serviceType": "Software Development",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Software Development Services",
+            "itemListElement": services.map(service => ({
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": service.title,
+                "description": service.tagline
+              }
+            }))
+          }
+        }
+      }}
+    >
         <div className={`bg-background dark:bg-[#0a1225] min-h-screen ${poppins.variable}`}>
           {/* Hero Section */}
           <section className="relative isolate w-full bg-gradient-to-br from-background dark:from-[#0a1225] to-muted/30 dark:to-gray-800/30 overflow-hidden">

@@ -3,48 +3,51 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 import CanonicalUrl from './CanonicalUrl';
+import SEOHead from './SEOHead';
+import StructuredData from './StructuredData';
+import PerformanceOptimizer from './PerformanceOptimizer';
 
 interface LayoutProps {
   children: React.ReactNode;
   noPaddingTop?: boolean;
   canonicalPath?: string;
   noIndex?: boolean;
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string;
+    image?: string;
+    type?: 'website' | 'article' | 'service';
+    structuredData?: any;
+  };
 }
 
-const Layout = ({ children, noPaddingTop = false, canonicalPath, noIndex = false }: LayoutProps) => {
+const Layout = ({ children, noPaddingTop = false, canonicalPath, noIndex = false, seo }: LayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-[#0a1225]">
-      <Head>
-        <meta name="description" content="Your full-stack development partner for modern startups and scaleups. From custom browsers to SaaS apps—designed, engineered, and launched with clarity." />
-        <link rel="icon" href="/favicon.svg" />
-        
-        {/* Additional SEO meta tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="theme-color" content="#3B82F6" />
-        <meta name="msapplication-TileColor" content="#3B82F6" />
-        
-        {/* Language and locale */}
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Entalogics" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@entalogics" />
-        <meta name="twitter:creator" content="@entalogics" />
-        
-        {/* Mobile app meta */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Entalogics" />
-        <meta name="application-name" content="Entalogics" />
-        <meta name="format-detection" content="telephone=no" />
-        
-        {/* Security headers */}
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-      </Head>
+      {/* Enhanced SEO Head */}
+      <SEOHead
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        type={seo?.type}
+        noIndex={noIndex}
+        canonicalUrl={canonicalPath ? `https://entalogics.com${canonicalPath}` : undefined}
+        structuredData={seo?.structuredData}
+      />
+
+      {/* Organization Structured Data */}
+      <StructuredData type="organization" />
+
+      {/* Performance Optimizer */}
+      <PerformanceOptimizer
+        preloadImages={[
+          '/assets/og-image.jpg',
+          '/about.png',
+          '/umar.jpg'
+        ]}
+      />
 
       {/* Canonical URL component */}
       <CanonicalUrl path={canonicalPath} noIndex={noIndex} />
