@@ -31,33 +31,23 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       }
     },
     { 
-      url: '/quote', 
+      url: '/contact', 
       priority: '0.9', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/quote-form.jpg',
-        title: 'Get a Free Quote - Entalogics',
-        caption: 'Request a custom quote for your software development project'
-      }
-    },
-    { 
-      url: '/contact', 
-      priority: '0.8', 
-      changefreq: 'monthly',
-      image: {
         loc: '/assets/contact-hero.jpg',
-        title: 'Contact Entalogics - Get in Touch',
-        caption: 'Ready to start your project? Contact our development team'
+        title: 'Contact Entalogics - Get Free Quote',
+        caption: 'Ready to start your project? Get a free quote from our development team'
       }
     },
     { 
-      url: '/chromium-browser-development', 
+      url: '/services', 
       priority: '0.8', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/chromium-browser.jpg',
-        title: 'Custom Chromium Browser Development',
-        caption: 'Custom browser solutions for privacy, crypto, and enterprise use'
+        loc: '/assets/services-hero.jpg',
+        title: 'Our Services - Software Development Solutions',
+        caption: 'Comprehensive software development services from web apps to AI solutions'
       }
     },
     { 
@@ -81,22 +71,17 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       }
     },
     { 
-      url: '/case-studies', 
-      priority: '0.6', 
-      changefreq: 'monthly',
-      image: {
-        loc: '/assets/case-studies.jpg',
-        title: 'Case Studies - Entalogics Success Stories',
-        caption: 'Detailed case studies of our software development projects'
-      }
-    },
-    { 
       url: '/privacy-policy', 
       priority: '0.3', 
       changefreq: 'yearly'
     },
     { 
-      url: '/terms-of-service', 
+      url: '/terms-and-conditions', 
+      priority: '0.3', 
+      changefreq: 'yearly'
+    },
+    { 
+      url: '/gdpr', 
       priority: '0.3', 
       changefreq: 'yearly'
     }
@@ -109,19 +94,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: '0.8', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/saas-development.jpg',
+        loc: '/assets/services/saas.jpg',
         title: 'SaaS Product Development Services',
         caption: 'Complete SaaS solutions with billing, auth, and multi-tenant architecture'
-      }
-    },
-    { 
-      url: '/services/ai-apps-development', 
-      priority: '0.8', 
-      changefreq: 'monthly',
-      image: {
-        loc: '/assets/ai-apps.jpg',
-        title: 'AI-Powered Applications Development',
-        caption: 'Custom AI solutions with LLM integration and agent workflows'
       }
     },
     { 
@@ -129,19 +104,29 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: '0.8', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/web-development.jpg',
+        loc: '/assets/services/web-app.jpg',
         title: 'Modern Web Application Development',
         caption: 'SEO-optimized web apps using Next.js, React, and modern stacks'
       }
     },
     { 
-      url: '/services/mobile-app-development', 
+      url: '/services/ai-apps-development', 
       priority: '0.8', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/mobile-apps.jpg',
-        title: 'Mobile App Development Services',
-        caption: 'Cross-platform mobile apps with Flutter and React Native'
+        loc: '/assets/services/ai.jpg',
+        title: 'AI-Powered Applications Development',
+        caption: 'Custom AI solutions with LLM integration and agent workflows'
+      }
+    },
+    { 
+      url: '/services/desktop-mobile-app-development', 
+      priority: '0.8', 
+      changefreq: 'monthly',
+      image: {
+        loc: '/assets/services/soft.jpg',
+        title: 'Desktop & Mobile App Development',
+        caption: 'Cross-platform desktop and mobile apps with native performance'
       }
     },
     { 
@@ -149,7 +134,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: '0.8', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/chromium-browser.jpg',
+        loc: '/assets/services/chromium.jpg',
         title: 'Custom Chromium Browser Development',
         caption: 'Privacy-focused and enterprise browser solutions'
       }
@@ -159,29 +144,9 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: '0.7', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/ui-ux-design.jpg',
+        loc: '/assets/services/ui.jpg',
         title: 'UI/UX Design Services',
         caption: 'User-centered design from wireframes to functional interfaces'
-      }
-    },
-    { 
-      url: '/services/desktop-software-development', 
-      priority: '0.7', 
-      changefreq: 'monthly',
-      image: {
-        loc: '/assets/desktop-software.jpg',
-        title: 'Desktop Software Development',
-        caption: 'Cross-platform desktop applications with native OS integration'
-      }
-    },
-    { 
-      url: '/services/devops-deployment', 
-      priority: '0.7', 
-      changefreq: 'monthly',
-      image: {
-        loc: '/assets/devops.jpg',
-        title: 'DevOps and Deployment Services',
-        caption: 'CI/CD pipelines and cloud deployment solutions'
       }
     },
     { 
@@ -189,25 +154,69 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       priority: '0.7', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/maintenance.jpg',
+        loc: '/assets/services/maintainance.jpg',
         title: 'Software Maintenance and Support',
         caption: '24/7 monitoring, updates, and proactive support'
       }
     },
     { 
-      url: '/services/web3-trading', 
+      url: '/services/cloud-devops-solutions', 
       priority: '0.7', 
       changefreq: 'monthly',
       image: {
-        loc: '/assets/web3-trading.jpg',
-        title: 'Web3 and Trading Platform Development',
-        caption: 'Decentralized trading platforms with smart contract integration'
+        loc: '/assets/services/illlustration.jpg',
+        title: 'Cloud & DevOps Solutions',
+        caption: 'CI/CD pipelines and cloud deployment solutions'
+      }
+    },
+    { 
+      url: '/services/automation-workflow-tools', 
+      priority: '0.7', 
+      changefreq: 'monthly',
+      image: {
+        loc: '/assets/services/soft.jpg',
+        title: 'Automation & Workflow Tools',
+        caption: 'Custom automation scripts and workflow systems'
+      }
+    }
+  ];
+
+  // Define blog posts with enhanced SEO data
+  const blogPages = [
+    { 
+      url: '/blog/ai-development-trends-2024', 
+      priority: '0.6', 
+      changefreq: 'monthly',
+      image: {
+        loc: '/assets/services/saas.jpg',
+        title: 'AI Development Trends 2024 - Entalogics Blog',
+        caption: 'Discover cutting-edge AI technologies and development approaches reshaping intelligent applications'
+      }
+    },
+    { 
+      url: '/blog/saas-architecture-best-practices', 
+      priority: '0.6', 
+      changefreq: 'monthly',
+      image: {
+        loc: '/assets/services/web-app.jpg',
+        title: 'SaaS Architecture Best Practices - Entalogics Blog',
+        caption: 'Learn essential architectural patterns for building scalable SaaS applications'
+      }
+    },
+    { 
+      url: '/blog/mobile-app-performance-optimization', 
+      priority: '0.6', 
+      changefreq: 'monthly',
+      image: {
+        loc: '/assets/services/mobile-app.jpg',
+        title: 'Mobile App Performance Optimization - Entalogics Blog',
+        caption: 'Proven techniques for optimizing mobile app performance and user experience'
       }
     }
   ];
 
   // Combine all pages
-  const allPages = [...staticPages, ...servicePages];
+  const allPages = [...staticPages, ...servicePages, ...blogPages];
 
   // Generate XML sitemap with image support
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
