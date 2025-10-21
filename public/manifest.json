@@ -1,0 +1,15 @@
+{
+  "short_name": "EntaLogics",
+  "name": "EntaLogics - We Build Digital Logic That Works",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#111827",
+  "background_color": "#ffffff"
+} 
