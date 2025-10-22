@@ -62,9 +62,14 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // HTML pages - minimal caching, always revalidate
       {
-        source: '/(.*)',
+        source: '/:path*',
         headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',

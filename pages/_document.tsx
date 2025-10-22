@@ -1,11 +1,15 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
+  // Build timestamp to help with cache invalidation
+  const buildVersion = process.env.NEXT_PUBLIC_BUILD_ID || Date.now().toString();
+  
   return (
     <Html lang="en">
       <Head>
         {/* Sora Google Fonts - removed for next/font migration */}
         <link rel="icon" type="image/svg+xml" href="/assets/Favicon/Entalogics favicon blue color.svg" />
+        <meta name="build-version" content={buildVersion} />
       </Head>
       <body>
         <Main />
