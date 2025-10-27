@@ -6,11 +6,15 @@ import { Analytics } from '@vercel/analytics/next';
 import { Sora } from 'next/font/google';
 import Lenis from 'lenis';
 import { useEffect } from 'react';
+import { registerServiceWorker } from '../src/lib/serviceWorker';
 
 const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '800'], display: 'swap' });
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    // Register service worker for PWA functionality and cache busting
+    registerServiceWorker();
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

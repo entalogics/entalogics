@@ -62,14 +62,48 @@ const nextConfig = {
   },
   async headers() {
     return [
-      // HTML pages - minimal caching, always revalidate
+      // Critical files (JS/CSS/HTML) – always fetch latest version
       {
-        source: '/:path*',
+        source: '/:all*(js|css|html)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=0, must-revalidate',
+            value: 'no-cache, no-store, must-revalidate',
           },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Expires',
+            value: '0',
+          },
+        ],
+      },
+      // Static assets (images, videos) – long-term caching for performance
+      {
+        source: '/:all*(png|jpg|jpeg|svg|webp|gif|ico|mp4|webm|ogg)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Fonts – long-term caching
+      {
+        source: '/:all*(woff|woff2|ttf|eot|otf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Security headers for all pages
+      {
+        source: '/:path*',
+        headers: [
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
@@ -90,40 +124,9 @@ const nextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
-          // Security headers for SEO
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload',
-          },
-        ],
-      },
-      // Cache static assets
-      {
-        source: '/assets/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      // Cache images
-      {
-        source: '/:path*\\.(jpg|jpeg|png|gif|webp|svg|ico)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      // Cache fonts
-      {
-        source: '/:path*\\.(woff|woff2|ttf|eot)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
