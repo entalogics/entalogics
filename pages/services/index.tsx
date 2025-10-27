@@ -258,7 +258,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
           </section>
 
           {/* CTA Section */}
-          <section className="relative px-4 md:px-8 py-16 lg:py-24 bg-gradient-to-b from-background to-primary/5 dark:from-[#0a1225] dark:to-primary/5">
+          <section className="relative px-4 md:px-8 pt-4 pb-16 lg:pb-24 bg-gradient-to-b from-background to-primary/5 dark:from-[#0a1225] dark:to-primary/5">
             <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-4xl text-center">
               <div className="space-y-6">
                 <Heading level={2} gradient={true} gradientText="Amazing" className="mb-4">

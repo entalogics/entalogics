@@ -6,6 +6,7 @@ import Heading from "./ui/Heading"
 import SubHeading from "./ui/SubHeading"
 import Button from "./ui/Button"
 import Paragraph from "./ui/Paragraph"
+import HowWeDiffer from "./HowWeDiffer"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -90,14 +91,19 @@ const WhyChooseUs = () => {
     <section className={`relative  px-4 md:px-8  ${poppins.className}`}>
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
-          <Heading level={2} className="mb-6" gradient={true} gradientText="Long-Term Tech Partner">
-            Your Long-Term Tech Partner
+          <Heading level={2} className="mb-6" gradient={true} gradientText="Differently">
+            How We Make Things Differently
           </Heading>
 
              <Paragraph size="sm" className="max-w-4xl mx-auto" center={true}>
             Entalogics was founded with one goal — to bring clarity and logic into software development. We're a team of
             engineers, designers, and product minds helping founders go from idea to launch… with systems that scale.
           </Paragraph>
+        </div>
+
+        {/* How We Differ Section */}
+        <div className="mb-16">
+          <HowWeDiffer showHeading={false} />
         </div>
 
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-12 max-w-5xl mx-auto px-3">

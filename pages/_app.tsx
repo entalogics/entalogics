@@ -1,4 +1,5 @@
 import '../index.css';
+import 'lenis/dist/lenis.css';
 import { ThemeProvider } from '../src/context/ThemeContext';
 import type { AppProps } from 'next/app';
 import { Analytics } from '@vercel/analytics/next';
@@ -11,16 +12,33 @@ const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '800'], display: 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.6, // ultra-smooth
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // ease-out
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      infinite: false,
     });
+
+    let rafId: number;
+    
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
+    
+    rafId = requestAnimationFrame(raf);
+
+    // Add lenis class to html for proper styling
+    document.documentElement.classList.add('lenis');
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+      document.documentElement.classList.remove('lenis');
+    };
   }, []);
   return (
     <ThemeProvider>

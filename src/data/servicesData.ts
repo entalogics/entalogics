@@ -918,7 +918,7 @@ export const servicesData: Record<string, Service> = {
     slug: "automation-workflow-tools",
     icon: Settings,
     iconName: "Automation & Workflow Tools",
-    thumbnail: "/assets/services/soft.jpg",
+    thumbnail: "/assets/services/automation.jpg",
     technologies: ["python", "nodejs", "typescript", "docker", "powershell", "power-automate", "microsoft-teams"],
     tagline: "Design scripts, bots, and automation systems to save time and cut manual work.",
     headline: "Automation & Workflow Tools",

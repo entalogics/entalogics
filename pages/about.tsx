@@ -3,24 +3,14 @@
 import React from "react"
 import Head from "next/head"
 import Link from "next/link"
-import { motion } from "framer-motion"
 import {
   Users,
-  Rocket,
   ArrowRight,
-  Shield,
-  Zap,
-  Star,
   Award,
-  Building2,
-  Lightbulb,
   Heart,
-  Phone,
-  Calendar,
   CheckCircle,
-  Cpu,
-  MessageSquare,
-  Layers,
+  Lightbulb,
+  Star,
 } from "lucide-react"
 import Layout from "../src/components/Layout"
 import Heading from "../src/components/ui/Heading"
@@ -74,7 +64,7 @@ const AboutPage = () => {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <div className={`bg-white dark:bg-[#0a1225] text-black dark:text-white ${poppins.className}`} style={{ scrollBehavior: 'smooth' }}>
+      <div className={`bg-white dark:bg-[#0a1225] text-black dark:text-white ${poppins.className}`}>
         {/* Hero Section */}
         <section className="relative isolate w-full bg-gradient-to-br from-background dark:from-[#0a1225] to-muted/30 dark:to-gray-800/30 overflow-hidden">
           {/* Background Pattern */}
@@ -184,7 +174,7 @@ const AboutPage = () => {
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             {/* Section Header */}
-            <div className="text-center mb-12 sm:mb-16 md:mb-9">
+            <div className="text-center  md:mb-9">
               <div className="inline-flex items-center gap-2 bg-muted dark:bg-gray-800 border border-border dark:border-gray-700 rounded-full px-4 py-2 mb-6 shadow-sm">
                 <Award className="w-4 h-4 text-primary" />
                 <span className="text-sm font-semibold text-muted-foreground dark:text-gray-300">Leadership</span>
@@ -200,113 +190,58 @@ const AboutPage = () => {
               </Paragraph>
             </div>
 
-            {/* Main Content Grid */}
-            <div className="grid md:grid-cols-12 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
+            {/* Main Content - Plain Text Layout */}
+            <div className="max-w-4xl mx-auto">
               
-              {/* Profile Card - Left Side */}
-              <div className="md:col-span-4 lg:col-span-4">
-                <div className="group relative bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-border dark:border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
-                  
-                  {/* Profile Image */}
-                  <div className="text-center mb-6 sm:mb-8">
-                    <div className="relative inline-block">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 mx-auto relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-xl"></div>
-                        <img 
-                          src="/umar.png" 
-                          alt="Umar Abdullah - Founder & Lead Developer"
-                          className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-lg"
-                        />
-                        {/* Online Status */}
-                        <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-xs px-2 py-1 rounded-full shadow-lg">
-                          <div className="flex items-center gap-1">
-                            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                            <span className="hidden sm:inline">Online</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <Heading level={3} className="text-lg sm:text-xl md:text-2xl mb-2">
-                      Umar Abdullah
-                    </Heading>
-                    <Paragraph size="sm" className="text-muted-foreground dark:text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">
-                      Founder & Lead Developer
-                    </Paragraph>
-                    
-                    {/* Rating */}
-                    <div className="flex justify-center items-center gap-1 mb-4 sm:mb-6">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
-                      ))}
-                      <span className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400 ml-2">5.0 • 50+ reviews</span>
-                    </div>
-                  </div>
-
-                  {/* Status Badges */}
-                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mb-6 sm:mb-8">
-                    <div className="flex items-center justify-center gap-1 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-full text-xs font-medium border border-green-200 dark:border-green-800">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                      <span className="hidden sm:inline">Available</span>
-                      <span className="sm:hidden">Live</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-full text-xs font-medium border border-blue-200 dark:border-blue-800">
-                      <Shield className="w-3 h-3" />
-                      <span className="hidden sm:inline">NDA Safe</span>
-                      <span className="sm:hidden">Safe</span>
-                    </div>
-                    <div className="flex items-center justify-center gap-1 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-full text-xs font-medium border border-purple-200 dark:border-purple-800">
-                      <Zap className="w-3 h-3" />
-                      <span className="hidden sm:inline">Fast</span>
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="space-y-2 sm:space-y-3">
-                    <Link href="/contact">
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        className="w-full shadow-lg hover:shadow-xl py-2.5 sm:py-3 ring-1 ring-primary/20 hover:ring-primary/40 font-normal text-sm sm:text-base"
-                        icon={<Rocket className="w-5 h-5" />}
-                      >
-                        Start Project
-                      </Button>
-                    </Link>
-                    <button
-                      data-cal-link="entalogics/30min"
-                      data-cal-namespace="30min"
-                      data-cal-config='{"layout":"month_view","theme":"auto"}'
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-sm hover:shadow-md cursor-pointer"
+              {/* Founder Introduction - Plain Text */}
+              <div className="space-y-4 sm:space-y-6 mb-8">
+                <div className="space-y-3 sm:space-y-4">
+                  <Paragraph size="sm" className="text-sm sm:text-base">
+                    Hi, I'm <strong className="text-foreground dark:text-white">Umar Abdullah</strong>, Founder & Lead Developer at Entalogics. 
+                    I started this company with one simple belief: <strong className="text-blue-600 dark:text-blue-400">building great software shouldn't cost a fortune.</strong>
+                  </Paragraph>
+                  <Paragraph size="sm" className="text-sm sm:text-base">
+                    I saw too many agencies charging clients for every little thing: separate teams, code reviews, hidden fees. It didn't feel right. So I decided to change that.
+                  </Paragraph>
+                  <Paragraph size="sm" className="text-sm sm:text-base font-semibold text-foreground dark:text-white">
+                    Here's how we do things differently:
+                  </Paragraph>
+                  <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>You work directly with me and our senior team from day one. No bouncing between juniors, no hidden hand-offs.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>We keep the structure lean. You won't be billed for "team layers" or "management markup".</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>We provide independent developers and designers for your project — you pay for individuals doing high-quality work, not for an entire company overhead.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                      <span>Because many of our developers are based in Asia, our labour cost is lower than many European or US-based agencies. That saving is passed on to you.</span>
+                    </li>
+                  </ul>
+                  <div className="w-full flex justify-center">
+                  <Link href="/founder" className="block   mx-auto">
+                    <Button 
+                      variant="primary" 
+                      size="sm"
+                      icon={<ArrowRight className="w-4 h-4" />}
+                      iconPosition="right"
+                      className="!font-medium !px-4 !py-2 o"
                     >
-                      <Calendar className="w-5 h-5" />
-                      Schedule Call
-                    </button>
+                      Meet Founder
+                    </Button>
+                  </Link>
                   </div>
                 </div>
               </div>
 
-              {/* Content Cards - Right Side */}
-              <div className="md:col-span-8 lg:col-span-8 space-y-4 sm:space-y-6">
-                
-                {/* About Card */}
-                <div className="bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-border dark:border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
-                  <Heading level={3} className="mb-4 sm:mb-6 text-lg sm:text-xl">
-                    About
-                  </Heading>
-                  
-                  <div className="space-y-3 sm:space-y-4">
-                    <Paragraph size="sm" className="text-sm sm:text-base">
-                      With over <strong className="text-foreground dark:text-white">5 years of dedicated experience</strong> in full-stack development, 
-                      I specialize in transforming complex business challenges into elegant, scalable solutions.
-                    </Paragraph>
-                    <Paragraph size="sm" className="text-sm sm:text-base">
-                      My expertise spans from building <strong className="text-blue-600 dark:text-blue-400">AI-powered SaaS platforms</strong> to developing 
-                      <strong className="text-green-600 dark:text-green-400"> custom Chromium browsers</strong>, always focusing on delivering 
-                      exceptional user experiences and business value.
-                    </Paragraph>
-                  </div>
-                </div>
+              {/* Content Cards */}
+              <div className="space-y-4 sm:space-y-6">
 
                 {/* Quote Card */}
                 <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/20 dark:via-indigo-950/20 dark:to-purple-950/20 border border-blue-200/30 dark:border-blue-800/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8">
@@ -315,37 +250,23 @@ const AboutPage = () => {
                       <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <blockquote className="text-gray-700 dark:text-gray-300 italic text-sm sm:text-base leading-relaxed mb-3">
-                      "I believe technology should be accessible, powerful, and beautiful. Every line of code I write 
-                      is with the intention of making someone's life easier or their business more successful."
+                      "I made Entalogics so you, the client, get senior-level expertise at fair pricing. No hidden fees. No middle-men. Just direct collaboration and quality you can trust."
                     </blockquote>
                     <cite className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400 font-medium not-italic">
-                      — Umar, Founder & Lead Developer
+                      — Umar Abdullah, Founder & Lead Developer
                     </cite>
                   </div>
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-4">
-                  <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg sm:rounded-xl border border-blue-200/50 dark:border-blue-800/50">
-                    <div className="text-lg sm:text-2xl font-bold text-blue-600 mb-1">24/7</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Support</div>
-                  </div>
-                  <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg sm:rounded-xl border border-green-200/50 dark:border-green-800/50">
-                    <div className="text-lg sm:text-2xl font-bold text-green-600 mb-1">&lt;2h</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Response</div>
-                  </div>
-                  <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-lg sm:rounded-xl border border-purple-200/50 dark:border-purple-800/50">
-                    <div className="text-lg sm:text-2xl font-bold text-purple-600 mb-1">Free</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Consultation</div>
-                  </div>
-                </div>
+               
               </div>
             </div>
           </div>
         </section>
 
         {/* Trusted Companies Section */}
-        <section className="pt-4 pb-16 sm:pb-20 bg-white dark:bg-[#0a1225]">
+        <section className="pt-1 pb-16 sm:pb-20 bg-white dark:bg-[#0a1225]">
           <div className="container mx-auto px-4 md:px-8">
             <TrustedCompanies />
           </div>

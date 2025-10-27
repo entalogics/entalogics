@@ -5,7 +5,6 @@ import Hero from "../src/components/Hero"
 import Services from "../src/components/Services"
 import PortfolioCarousel from "../src/components/PortfolioCarousel"
 import WhyChooseUs from "../src/components/WhyChooseUs"
-import FunFacts from "../src/components/FunFacts"
 import HowWeBuildWithYou from "../src/components/HowWeBuildWithYou"
 import Testimonials from "../src/components/Testimonials"
 import FAQ from "../src/components/FAQ"
@@ -55,11 +54,6 @@ export default function Page() {
           {/* WHY CHOOSE US SECTION */}
           <section className="relative bg-transparent z-10 pt-12 md:pt-16 lg:pt-20 xl:pt-24">
             <WhyChooseUs />
-          </section>
-
-          {/* FUN FACTS SECTION */}
-          <section className="relative bg-transparent z-10 pt-12 md:pt-16 lg:pt-20 xl:pt-24">
-            <FunFacts />
           </section>
 
           {/* HOW WE BUILD SECTION */}
