@@ -47,7 +47,7 @@ const Hero = () => {
           </Paragraph>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row items-center justify-center gap-4 mb-6">
+          <div className="flex  sm:flex-row md:flex-row lg:flex-row items-center justify-center gap-4 mb-6">
             <a href="/contact" className="inline-block group">
               <div 
                 className="relative rounded-lg p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
@@ -55,7 +55,7 @@ const Hero = () => {
                   background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6, #3b82f6)',
                 }}
               >
-                <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-6 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
+                <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
                   <span>Start your project</span>
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
@@ -69,8 +69,8 @@ const Hero = () => {
             </a>
 
             <Link href="/about" className="inline-block">
-              <Button variant="secondary" size="sm" className="text-sm px-11 py-3 whitespace-nowrap">
-                Why choose us
+              <Button variant="secondary" size="sm" className="text-sm px-5 py-3 whitespace-nowrap bg-black dark:bg-white text-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white">
+                About Us
               </Button>
             </Link>
           </div>
