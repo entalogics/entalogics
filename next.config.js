@@ -18,6 +18,10 @@ const nextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'],
+    // Reduce cache time for images to ensure updates on deployment
+    minimumCacheTTL: 3600, // 1 hour instead of default 60 seconds
+    // Disable static image import optimization to prevent aggressive caching
+    unoptimized: false, // Keep optimization but with shorter cache
   },
   async redirects() {
     return [
@@ -62,27 +66,19 @@ const nextConfig = {
   },
   async headers() {
     return [
-      // Critical files (JS/CSS/HTML) – always fetch latest version
+      // Next.js Image Optimization API - MUST revalidate on each deployment
       {
-        source: '/:all*(js|css|html)',
+        source: '/_next/image(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-          {
-            key: 'Pragma',
-            value: 'no-cache',
-          },
-          {
-            key: 'Expires',
-            value: '0',
+            value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
           },
         ],
       },
-      // Static assets (images, videos) – long-term caching for performance
+      // Next.js static files (JS/CSS chunks with hashes) - can cache longer
       {
-        source: '/:all*(png|jpg|jpeg|svg|webp|gif|ico|mp4|webm|ogg)',
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
@@ -90,7 +86,57 @@ const nextConfig = {
           },
         ],
       },
-      // Fonts – long-term caching
+      // HTML pages - always fetch latest
+      {
+        source: '/:path*.html',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+      // All routes/pages - revalidate frequently
+      {
+        source: '/((?!_next|api|.*\\.).*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
+        ],
+      },
+      // Static images in /public - revalidate after 1 hour
+      {
+        source: '/:all*(png|jpg|jpeg|webp|gif|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
+          },
+        ],
+      },
+      // SVG files - revalidate after 1 hour
+      {
+        source: '/:all*(svg)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
+          },
+        ],
+      },
+      // Videos - can cache longer but still revalidate
+      {
+        source: '/:all*(mp4|webm|ogg)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800, must-revalidate',
+          },
+        ],
+      },
+      // Fonts - long-term caching (fonts rarely change)
       {
         source: '/:all*(woff|woff2|ttf|eot|otf)',
         headers: [

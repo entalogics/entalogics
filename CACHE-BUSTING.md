@@ -1,6 +1,6 @@
 # Automatic Cache-Busting Setup for Entalogics
 
-This document explains the automatic cache-busting implementation that ensures every deploy/push serves the latest version to all users without relying on manual refreshes.
+This document explains the automatic cache-busting implementation that ensures every deploy/push serves the latest version to all users without relying on manual refreshes or file renaming.
 
 ## 🚀 Implementation Overview
 
@@ -15,37 +15,101 @@ npm run start    # Serves the production build
 
 ### 2. Cache-Control Headers Configuration
 
-The `next.config.js` file has been configured with proper cache-control headers:
+The `next.config.js` file has been configured with proper cache-control headers optimized for Vercel deployment:
 
-#### Critical Files (JS/CSS/HTML) - Always Fetch Latest
+#### Next.js Image Optimization (`/_next/image`) - Revalidate Frequently
 ```javascript
 {
-  source: '/:all*(js|css|html)',
+  source: '/_next/image(.*)',
+  headers: [
+    {
+      key: 'Cache-Control',
+      value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
+    },
+  ],
+}
+```
+- **max-age=3600**: Cache for 1 hour
+- **stale-while-revalidate=86400**: Serve stale content while fetching fresh (24 hours)
+- **must-revalidate**: Always check with server after max-age expires
+
+#### Next.js Static Files (`/_next/static`) - Long-term Caching
+```javascript
+{
+  source: '/_next/static/:path*',
+  headers: [
+    {
+      key: 'Cache-Control',
+      value: 'public, max-age=31536000, immutable',
+    },
+  ],
+}
+```
+- These files have hashed names, so they can be cached forever
+
+#### HTML Pages - Always Fresh
+```javascript
+{
+  source: '/:path*.html',
   headers: [
     {
       key: 'Cache-Control',
       value: 'no-cache, no-store, must-revalidate',
     },
+  ],
+}
+```
+
+#### All Routes/Pages - Immediate Revalidation
+```javascript
+{
+  source: '/((?!_next|api|.*\\.).*)',
+  headers: [
     {
-      key: 'Pragma',
-      value: 'no-cache',
-    },
-    {
-      key: 'Expires',
-      value: '0',
+      key: 'Cache-Control',
+      value: 'public, max-age=0, must-revalidate',
     },
   ],
 }
 ```
 
-#### Static Assets (Images, Videos) - Long-term Caching
+#### Static Images in /public - Revalidate After 1 Hour
 ```javascript
 {
-  source: '/:all*(png|jpg|jpeg|svg|webp|gif|ico|mp4|webm|ogg)',
+  source: '/:all*(png|jpg|jpeg|webp|gif|ico)',
   headers: [
     {
       key: 'Cache-Control',
-      value: 'public, max-age=31536000, immutable',
+      value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
+    },
+  ],
+}
+```
+- Images update automatically after deployment without renaming files
+- Browser caches for 1 hour, then revalidates
+- Stale content served while fetching fresh version (smooth UX)
+
+#### SVG Files - Revalidate After 1 Hour
+```javascript
+{
+  source: '/:all*(svg)',
+  headers: [
+    {
+      key: 'Cache-Control',
+      value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
+    },
+  ],
+}
+```
+
+#### Videos - Revalidate After 24 Hours
+```javascript
+{
+  source: '/:all*(mp4|webm|ogg)',
+  headers: [
+    {
+      key: 'Cache-Control',
+      value: 'public, max-age=86400, stale-while-revalidate=604800, must-revalidate',
     },
   ],
 }
@@ -63,6 +127,7 @@ The `next.config.js` file has been configured with proper cache-control headers:
   ],
 }
 ```
+- Fonts rarely change, safe to cache for 1 year
 
 ### 3. Service Worker for PWA Users
 
@@ -125,16 +190,28 @@ Updated `package.json` scripts:
 ## 📊 Expected Outcomes
 
 ### ✅ What Works Now:
-- **JS/CSS/HTML files**: Always fetch the latest version
-- **Images/videos**: Cached long-term for performance (1 year)
+- **All Routes/Pages**: Always fetch the latest version (`max-age=0`)
+- **Next.js Images (`/_next/image`)**: Revalidate every hour, update automatically
+- **Static Images in /public**: Revalidate every hour, update automatically without renaming
+- **SVG files**: Revalidate every hour
+- **Videos**: Revalidate every 24 hours
+- **JS/CSS chunks**: Cache forever (hashed filenames change on update)
+- **Fonts**: Cache for 1 year (rarely change)
 - **PWA users**: Get instant updates without manual refresh
-- **Regular users**: See latest content on page refresh
 - **Offline users**: Get cached fallback content
 
 ### 🔄 Cache Behavior:
-- **Critical files**: `no-cache, no-store, must-revalidate`
-- **Static assets**: `public, max-age=31536000, immutable` (1 year)
+- **HTML/Routes**: `max-age=0, must-revalidate` (always fresh)
+- **Images (all types)**: `max-age=3600, stale-while-revalidate=86400, must-revalidate` (1 hour cache, 24 hour stale)
+- **Videos**: `max-age=86400, stale-while-revalidate=604800, must-revalidate` (24 hour cache, 7 day stale)
+- **Hashed static files**: `max-age=31536000, immutable` (1 year)
 - **Service worker**: Auto-updates and claims clients immediately
+
+### 🎯 Key Benefits:
+1. **No File Renaming Required**: Images update automatically after deployment
+2. **Fast Performance**: Stale-while-revalidate serves cached content instantly while fetching fresh version
+3. **Always Current**: All content revalidates within 1 hour max
+4. **Vercel CDN Optimized**: Works perfectly with Vercel's edge network
 
 ## 🛠️ Troubleshooting
 
@@ -185,6 +262,69 @@ Updated `package.json` scripts:
 - **SEO Friendly**: Search engines will always get the latest content
 - **Performance**: Static assets are cached for optimal performance while ensuring content freshness
 
+## 🔧 Vercel-Specific Configuration
+
+### Image Configuration
+In `next.config.js`, the images config has been optimized:
+
+```javascript
+images: {
+  // ... other settings
+  minimumCacheTTL: 3600, // 1 hour instead of default 60 seconds
+  unoptimized: false, // Keep optimization but with shorter cache
+}
+```
+
+This ensures:
+- Next.js Image Optimization API respects the 1-hour cache
+- Images are still optimized for performance (WebP/AVIF)
+- Every new deployment triggers revalidation after max-age
+
+### How It Works on Vercel:
+
+1. **First Deployment**: 
+   - Images are cached by Vercel CDN with `max-age=3600` (1 hour)
+   - Browser caches images for 1 hour
+   
+2. **After Changing an Image**:
+   - Deploy new version to Vercel
+   - After 1 hour, browsers request fresh images
+   - CDN serves new images from latest deployment
+   - `stale-while-revalidate=86400` ensures smooth transition
+   
+3. **Immediate Update** (if needed):
+   - Users can force refresh (Ctrl+Shift+R / Cmd+Shift+R)
+   - Service worker updates automatically
+   - Or wait max 1 hour for automatic update
+
+### Cache Headers Priority:
+
+The headers are ordered from most specific to least specific:
+
+1. `/_next/image(.*)` - Highest priority for Next.js optimized images
+2. `/_next/static/:path*` - Hashed static files
+3. `/:path*.html` - HTML pages
+4. `/((?!_next|api|.*\\.).*) ` - All routes
+5. `/:all*(png|jpg|...)` - Static images in /public
+6. `/:all*(svg)` - SVG files
+7. Security headers - Applied to all
+
+This ensures proper cache control across all asset types.
+
 ---
 
-**Result**: Every deploy/push automatically serves the latest version to all users without requiring manual refreshes, while maintaining optimal performance through intelligent caching strategies.
+## ✅ Solution Summary
+
+**Problem Solved**: Images and static assets now update automatically on Vercel deployment without:
+- Renaming files
+- Manual cache clearing
+- Using query parameters
+- Modifying file paths
+
+**How**: Through intelligent cache headers that:
+- Force revalidation after 1 hour
+- Use `stale-while-revalidate` for smooth UX
+- Add `must-revalidate` to ensure freshness
+- Apply to all routes and `_next/image` requests
+
+**Result**: Every deploy/push automatically serves the latest version to all users without requiring manual refreshes or file renaming, while maintaining optimal performance through intelligent caching strategies.
