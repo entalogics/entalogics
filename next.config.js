@@ -18,10 +18,7 @@ const nextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'],
-    // Reduce cache time for images to ensure updates on deployment
-    minimumCacheTTL: 3600, // 1 hour instead of default 60 seconds
-    // Disable static image import optimization to prevent aggressive caching
-    unoptimized: false, // Keep optimization but with shorter cache
+    minimumCacheTTL: 3600, // 1 hour cache for optimized images
   },
   async redirects() {
     return [
@@ -83,26 +80,6 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      // HTML pages - always fetch latest
-      {
-        source: '/:path*.html',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
-          },
-        ],
-      },
-      // All routes/pages - revalidate frequently
-      {
-        source: '/((?!_next|api|.*\\.).*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=0, must-revalidate',
           },
         ],
       },
