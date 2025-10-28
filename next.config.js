@@ -18,7 +18,7 @@ const nextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 3600, // 1 hour cache for optimized images
+    minimumCacheTTL: 0, // No cache - always fresh images
   },
   async redirects() {
     return [
