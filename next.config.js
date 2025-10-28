@@ -18,7 +18,9 @@ const nextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 0, // No cache - always fresh images
+    minimumCacheTTL: 0, // Disable Next.js image cache
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
     return [
@@ -63,10 +65,34 @@ const nextConfig = {
   },
   async headers() {
     return [
-      // Security headers for all pages
+      // Next.js Image Optimization API - Never cache
+      {
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, must-revalidate',
+          },
+        ],
+      },
+      // Next.js static files with hashes - can cache (immutable)
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // All other routes - never cache
       {
         source: '/:path*',
         headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, must-revalidate',
+          },
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
