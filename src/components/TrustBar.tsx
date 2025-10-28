@@ -61,12 +61,11 @@ const TrustBar = ({ speed = 30 }: TrustBarProps) => {
     <section className="relative pt-6 md:pt-24 flex flex-col items-center justify-center overflow-hidden">
       {/* Heading */}
       <div className="container mx-auto text-center">
-        <Heading level={2} gradient gradientText="Trusted">
-          Trusted by Industry Leaders
+        <Heading level={2} gradient gradientText="Companies">
+        Companies We’ve Worked With
         </Heading>
         <Paragraph size="sm" center className="max-w-2xl mx-auto mt-2">
-          From global startups to funded scaleups — Entalogics has partnered with 500+ teams building AI tools, custom
-          software, and next-gen platforms.
+        Our work spans startups, SMEs, and enterprise companies around the world.
         </Paragraph>
       </div>
 

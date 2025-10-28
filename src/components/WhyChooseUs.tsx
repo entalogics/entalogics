@@ -21,14 +21,6 @@ const stats = [
   { icon: <Star className="w-5 h-5" />, value: "Top Rated", label: "Plus on Upwork" },
 ]
 
-const coreBeliefs = [
-  "Own what you ship",
-  "Build smart, scalable code",
-  "Think like product partners",
-  "Communicate with logic",
-  "Design for clarity & simplicity",
-]
-
 const features = [
   {
     icon: Code2,
@@ -172,23 +164,6 @@ const WhyChooseUs = () => {
   ))}
 </div>
 
-
-        <div className="mb-16 hidden md:block">
-          <SubHeading size="xl" className=" font-poppins font-bold text-gray-900 dark:text-white text-center mb-8">
-            Our Core Beliefs
-          </SubHeading>
-        <div className="flex flex-wrap justify-center gap-2 max-w-6xl mx-auto">
-  {coreBeliefs.map((belief, idx) => (
-    <span
-      key={idx}
-      className="px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-full text-[11px] md:text-xs font-medium border border-blue-200/70 dark:border-blue-700/70 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md backdrop-blur-sm whitespace-nowrap"
-    >
-      {belief}
-    </span>
-  ))}
-</div>
-
-        </div>
 
         <div className="text-center mb-16">
           {/* Badge */}

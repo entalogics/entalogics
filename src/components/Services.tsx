@@ -166,13 +166,12 @@ const Services = () => {
             </span>
           </div>
 
-          <Heading level={2} className="mb-6" gradient={true} gradientText="Solutions">
-            Enterprise-Grade Solutions
+          <Heading level={2} className="mb-6" gradient={true} gradientText="Software Development">
+          Our Software Development Services
           </Heading>
 
            <Paragraph size="sm" className="max-w-4xl mx-auto" center={true}>
-            Entalogics was founded with one goal — to bring clarity and logic into software development. We're a team of
-            engineers, designers, and product minds helping founders go from idea to launch… with systems that scale.
+           Our company provides a wide range of full-cycle software development services. Focus on your core business activities and get an advanced digital product developed by our agency.
           </Paragraph>
         </div>
 
