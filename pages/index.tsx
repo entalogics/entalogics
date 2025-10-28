@@ -33,7 +33,7 @@ export default function Page() {
         <div className="overflow-x-hidden overflow-y-visible max-w-[100vw]">
         
           {/* HERO SECTION */}
-          <section className="relative bg-transparent min-h-screen z-10 overflow-y-visible">
+          <section className="relative bg-transparent min-h-0 md:min-h-0 lg:min-h-screen z-10 overflow-y-visible">
             {/* Section specific gradients */}
             
             <Hero />
@@ -42,7 +42,7 @@ export default function Page() {
      
 
           {/* SERVICES SECTION */}
-          <section className="relative bg-transparent z-10 pt-0 md:pt-12 lg:pt-16 xl:pt-5">
+          <section className="relative bg-transparent z-10 pt-0 md:pt-0 lg:pt-16 xl:pt-5">
             <Services />
           </section>
 

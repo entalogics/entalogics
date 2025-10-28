@@ -1,8 +1,8 @@
 // Service Worker for Entalogics - Automatic Cache Busting
 // This ensures PWA users get instant updates on every deploy
 
-const CACHE_NAME = 'entalogics-v1';
-const STATIC_CACHE_NAME = 'entalogics-static-v1';
+const CACHE_NAME = 'entalogics-v2';
+const STATIC_CACHE_NAME = 'entalogics-static-v2';
 
 // Files to cache for offline functionality
 const STATIC_ASSETS = [
@@ -72,8 +72,11 @@ self.addEventListener('fetch', (event) => {
   }
   
   // Handle different types of requests
-  if (isStaticAsset(request)) {
-    // Static assets: Cache first strategy
+  if (isImage(request)) {
+    // Images: Network first strategy (ALWAYS get latest images)
+    event.respondWith(networkFirst(request));
+  } else if (isFont(request)) {
+    // Fonts: Cache first strategy (fonts rarely change)
     event.respondWith(cacheFirst(request));
   } else if (isHTMLPage(request)) {
     // HTML pages: Network first strategy (always get latest)
@@ -84,11 +87,18 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
-// Helper function to check if request is for static assets
-function isStaticAsset(request) {
+// Helper function to check if request is for images
+function isImage(request) {
   const url = new URL(request.url);
-  const staticExtensions = ['.png', '.jpg', '.jpeg', '.svg', '.webp', '.gif', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.css'];
-  return staticExtensions.some(ext => url.pathname.endsWith(ext));
+  const imageExtensions = ['.png', '.jpg', '.jpeg', '.svg', '.webp', '.gif', '.ico'];
+  return imageExtensions.some(ext => url.pathname.endsWith(ext));
+}
+
+// Helper function to check if request is for fonts
+function isFont(request) {
+  const url = new URL(request.url);
+  const fontExtensions = ['.woff', '.woff2', '.ttf', '.eot', '.otf'];
+  return fontExtensions.some(ext => url.pathname.endsWith(ext));
 }
 
 // Helper function to check if request is for HTML page
@@ -122,13 +132,22 @@ async function cacheFirst(request) {
 async function networkFirst(request) {
   try {
     const networkResponse = await fetch(request);
-    if (networkResponse.ok) {
+    
+    // DON'T cache images - always fetch fresh from network
+    if (!isImage(request) && networkResponse.ok) {
       const cache = await caches.open(CACHE_NAME);
       cache.put(request, networkResponse.clone());
     }
+    
     return networkResponse;
   } catch (error) {
     console.log('Network failed, trying cache:', error);
+    
+    // For images, DON'T serve from cache - fail gracefully instead
+    if (isImage(request)) {
+      return new Response('Image unavailable offline', { status: 503 });
+    }
+    
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
       return cachedResponse;

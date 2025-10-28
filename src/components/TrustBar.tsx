@@ -51,7 +51,7 @@ const TrustBar = ({ speed = 30 }: TrustBarProps) => {
           alt={logo.name}
           width={80}
           height={40}
-          className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+          className="object-contain opacity-100"
           style={{ display: "block" }}
         />
       </div>

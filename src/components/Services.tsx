@@ -158,7 +158,7 @@ const Services = () => {
   return (
     <section id="services" className="relative  px-4 md:px-8 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-7xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-10 lg:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted dark:bg-gray-800 border border-border dark:border-gray-700 mb-6">
             <Shield className="w-4 h-4 text-primary" />
             <span className="text-sm font-semibold text-muted-foreground dark:text-gray-300 ">

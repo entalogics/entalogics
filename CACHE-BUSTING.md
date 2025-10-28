@@ -383,34 +383,66 @@ images: {
 
 ---
 
-## 🔥 For Current Deployment - Clear Vercel Cache
+## 🔥 Service Worker Fix - THE REAL CULPRIT!
 
-If you're still seeing old images after this deployment:
+**IMPORTANT**: The main issue was the **Service Worker** caching images with a "cache-first" strategy!
 
-### Method 1: Vercel Dashboard
+### What We Fixed in `public/sw.js`:
+
+1. **Changed cache version** from `v1` to `v2` (forces cache refresh)
+2. **Changed image strategy** from "cache-first" to "network-first" 
+3. **Disabled image caching completely** - images NEVER cached by service worker
+4. **Fonts still cached** - they rarely change, safe to cache
+
+```javascript
+// NEW CODE in sw.js:
+if (isImage(request)) {
+  // Images: Network first strategy (ALWAYS get latest images)
+  event.respondWith(networkFirst(request));
+} else if (isFont(request)) {
+  // Fonts: Cache first strategy (fonts rarely change)
+  event.respondWith(cacheFirst(request));
+}
+
+// In networkFirst function:
+// DON'T cache images - always fetch fresh from network
+if (!isImage(request) && networkResponse.ok) {
+  const cache = await caches.open(CACHE_NAME);
+  cache.put(request, networkResponse.clone());
+}
+```
+
+### For Current Deployment:
+
+#### Method 1: Clear Service Worker Cache (MOST IMPORTANT)
+```javascript
+// Open browser DevTools → Console and run:
+navigator.serviceWorker.getRegistrations().then(registrations => {
+  registrations.forEach(registration => registration.unregister());
+});
+
+// Then refresh page - new service worker will install
+```
+
+#### Method 2: Vercel Dashboard Cache Clear
 1. Go to your project on Vercel
 2. Settings → Data Cache
 3. Click "Purge Everything"
 4. Redeploy
 
-### Method 2: Force Redeploy
-```bash
-# Delete .vercel folder
-rm -rf .vercel
-
-# Commit these config changes
-git add next.config.js vercel.json
-git commit -m "fix: aggressive cache busting for images"
-git push
-
-# This triggers fresh deployment
-```
-
-### Method 3: Hard Refresh for Users
+#### Method 3: Hard Refresh for Users
 - **Windows/Linux**: `Ctrl + Shift + R`
 - **Mac**: `Cmd + Shift + R`
 - **Or**: Open DevTools → Right-click refresh → "Empty Cache and Hard Reload"
 
 ---
 
-**Result**: Images will NEVER be cached. Every deployment serves fresh images immediately. Perfect for content that changes often!
+## ✅ Complete Solution Summary
+
+**Three-Layer Cache Busting:**
+
+1. **Vercel Headers** (`vercel.json`): `no-cache, no-store` for all images
+2. **Next.js Config** (`next.config.js`): `minimumCacheTTL: 0` for Image Optimization API
+3. **Service Worker** (`public/sw.js`): Network-first strategy, ZERO caching for images
+
+**Result**: Images will update **INSTANTLY** on every deployment. No waiting, no cache issues, 100% fresh content!
