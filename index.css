@@ -826,6 +826,16 @@
   }
 }
 
+/* Border Beam Animation */
+@keyframes border-beam {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
 /* Glowing Button Styles */
 @keyframes glowing-border {
   0% {

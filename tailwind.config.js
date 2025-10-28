@@ -163,8 +163,13 @@ module.exports = {
         'gradient': 'gradient 15s ease infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
       },
       keyframes: {
+        'border-beam': {
+          '0%': { 'offset-distance': '0%' },
+          '100%': { 'offset-distance': '100%' },
+        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
