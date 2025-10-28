@@ -63,66 +63,6 @@ const nextConfig = {
   },
   async headers() {
     return [
-      // Next.js Image Optimization API - MUST revalidate on each deployment
-      {
-        source: '/_next/image(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
-          },
-        ],
-      },
-      // Next.js static files (JS/CSS chunks with hashes) - can cache longer
-      {
-        source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      // Static images in /public - revalidate after 1 hour
-      {
-        source: '/:all*(png|jpg|jpeg|webp|gif|ico)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
-          },
-        ],
-      },
-      // SVG files - revalidate after 1 hour
-      {
-        source: '/:all*(svg)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, stale-while-revalidate=86400, must-revalidate',
-          },
-        ],
-      },
-      // Videos - can cache longer but still revalidate
-      {
-        source: '/:all*(mp4|webm|ogg)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, stale-while-revalidate=604800, must-revalidate',
-          },
-        ],
-      },
-      // Fonts - long-term caching (fonts rarely change)
-      {
-        source: '/:all*(woff|woff2|ttf|eot|otf)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
       // Security headers for all pages
       {
         source: '/:path*',
