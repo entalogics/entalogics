@@ -18,13 +18,22 @@ const logos = [
   { name: "Aol", src: "/assets/trustbar logos/Aol Logo-01.svg" },
   { name: "Upwork", src: "/assets/trustbar logos/Upwork Logo-01.svg" },
   { name: "SentryBay", src: "/assets/trustbar logos/SentryBay-Limited-logo-01-01.svg" },
+  { name: "Sociall", src: "/assets/trustbar logos/sociall.svg" },
+  { name: "Modestly", src: "/assets/trustbar logos/modestly.svg" },
+
 ]
 
 interface TrustBarProps {
   speed?: number
+  showHeading?: boolean
+  showDescription?: boolean
+  descriptionBelow?: boolean
+  noPaddingTop?: boolean
+  noDescriptionGap?: boolean
+  descriptionMarginTop?: string
 }
 
-const TrustBar = ({ speed = 30 }: TrustBarProps) => {
+const TrustBar = ({ speed = 30, showHeading = true, showDescription = true, descriptionBelow = false, noPaddingTop = false, noDescriptionGap = false, descriptionMarginTop }: TrustBarProps) => {
   const { theme } = useTheme()
 
   const faviconSrc =
@@ -58,16 +67,22 @@ const TrustBar = ({ speed = 30 }: TrustBarProps) => {
     ))
 
   return (
-    <section className="relative pt-6 md:pt-24 flex flex-col items-center justify-center overflow-hidden">
-      {/* Heading */}
-      <div className="container mx-auto text-center">
-        <Heading level={2} gradient gradientText="Companies">
-        Companies We’ve Worked With
-        </Heading>
-        <Paragraph size="sm" center className="max-w-2xl mx-auto mt-2">
-        Our work spans startups, SMEs, and enterprise companies around the world.
-        </Paragraph>
-      </div>
+    <section className={`relative ${noPaddingTop ? 'pt-0' : 'pt-6 md:pt-24'} flex flex-col items-center justify-center overflow-hidden`}>
+      {/* Heading and Description Above (if not descriptionBelow) */}
+      {(showHeading || (showDescription && !descriptionBelow)) && (
+        <div className="container mx-auto text-center">
+          {showHeading && (
+            <Heading level={2} gradient gradientText="Companies">
+              Companies We've Worked With
+            </Heading>
+          )}
+          {showDescription && !descriptionBelow && (
+            <Paragraph size="sm" center className="max-w-2xl mx-auto mt-2">
+              Our work spans startups, SMEs, and enterprise companies around the world.
+            </Paragraph>
+          )}
+        </div>
+      )}
 
       <div className="relative w-full flex items-center justify-center " style={{ minHeight: 180 }}>
         {/* Center Icon */}
@@ -115,6 +130,15 @@ const TrustBar = ({ speed = 30 }: TrustBarProps) => {
           </Marquee>
         </div>
       </div>
+
+      {/* Description Below (if descriptionBelow is true) */}
+      {showDescription && descriptionBelow && (
+        <div className={`container mx-auto text-center ${descriptionMarginTop || (noDescriptionGap ? 'mt-0' : 'mt-6')}`}>
+          <Paragraph size="sm" center className="max-w-2xl mx-auto">
+            Our work spans startups, SMEs, and enterprise companies around the world.
+          </Paragraph>
+        </div>
+      )}
     </section>
   )
 }

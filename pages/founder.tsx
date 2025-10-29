@@ -342,8 +342,7 @@ const FounderPage = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <CTA />
+
       </div>
     </Layout>
   )

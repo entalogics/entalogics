@@ -16,6 +16,7 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
   const footerLinks = {
     company: [
       { name: "About Us", path: "/about" },
+      { name: "Our Team", path: "/team" },
       { name: "Meet the Founder", path: "/founder" },
       { name: "GDPR", path: "/gdpr" },
       { name: "Privacy Policy", path: "/privacy-policy" },

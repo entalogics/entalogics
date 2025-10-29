@@ -71,9 +71,9 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12 lg:py-16 xl:py-24">
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-6 lg:gap-12 items-center">
               {/* Left Content */}
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6 md:space-y-4 lg:space-y-6">
                 {/* Badge */}
                 <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 shadow-sm hover:shadow-md transition-all duration-300">
                   <div className="p-1 bg-primary/20 dark:bg-primary/30 rounded-full mr-2">
@@ -83,10 +83,10 @@ const AboutPage = () => {
               </div>
               
                 {/* Main Heading */}
-                <div className="space-y-3 sm:space-y-4">
+                <div className="space-y-3 sm:space-y-4 md:space-y-3 lg:space-y-4">
                   <Heading 
                     level={1}
-                    className="text-balance font-poppins text-[clamp(1.3rem,6vw,3.2rem)] font-extrabold leading-[1.15] tracking-tight"
+                    className="text-balance font-poppins text-[clamp(1.3rem,6vw,3.2rem)] md:text-[clamp(1.5rem,4vw,2.5rem)] lg:text-[clamp(1.3rem,6vw,3.2rem)] font-extrabold leading-[1.15] tracking-tight"
                   >
                     Meet the Team Behind Your{" "}
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
@@ -94,7 +94,7 @@ const AboutPage = () => {
                 </span>
               </Heading>
               
-                  <Paragraph size="sm" className="text-pretty font-poppins text-sm sm:text-base" center={false}>
+                  <Paragraph size="sm" className="text-pretty font-poppins text-sm sm:text-base md:text-sm lg:text-base" center={false}>
                     We're a passionate team of developers, designers, and innovators who believe in the power of 
                     technology to transform businesses. With years of experience and a commitment to excellence, 
                     we turn your vision into reality.
@@ -102,27 +102,27 @@ const AboutPage = () => {
                 </div>
 
                 {/* Team Highlights */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <div className="flex items-center gap-2 text-xs sm:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-2 lg:gap-3">
+                  <div className="flex items-center gap-2 text-xs sm:text-[13px] md:text-xs lg:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
                     <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"><Users size={14} /></div>
                     <span className="truncate opacity-90">Experienced Developers</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs sm:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
+                  <div className="flex items-center gap-2 text-xs sm:text-[13px] md:text-xs lg:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
                     <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"><Award size={14} /></div>
                     <span className="truncate opacity-90">Award-Winning Team</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs sm:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
+                  <div className="flex items-center gap-2 text-xs sm:text-[13px] md:text-xs lg:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
                     <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"><Heart size={14} /></div>
                     <span className="truncate opacity-90">Client-Focused Approach</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs sm:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
+                  <div className="flex items-center gap-2 text-xs sm:text-[13px] md:text-xs lg:text-[13px] text-gray-600 dark:text-gray-400 font-poppins leading-snug">
                     <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"><Lightbulb size={14} /></div>
                     <span className="truncate opacity-90">Innovation-Driven</span>
                   </div>
                 </div>
 
                 {/* Team Stats - Small Badges */}
-                <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 sm:gap-2 pt-2 sm:pt-3">
+                <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 sm:gap-2 md:gap-1.5 lg:gap-2 pt-2 sm:pt-3 md:pt-2 lg:pt-3">
                   <div className="inline-flex items-center gap-1 bg-card dark:bg-gray-800 rounded-full border border-border dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 px-2.5 sm:px-3 py-1 sm:py-1.5 group">
                     <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-br from-blue-500/10 to-blue-600/20 dark:from-blue-500/20 dark:to-blue-600/30 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Users className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-blue-600 dark:text-blue-400" />
@@ -148,14 +148,14 @@ const AboutPage = () => {
 
               {/* Right Visual - CONTROLLED HEIGHT */}
               <div className="relative hidden md:block">
-                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-card dark:from-gray-800 to-muted dark:to-gray-700 border-2 border-border/50 dark:border-gray-600/50 shadow-xl">
-                  <div style={{ height: "440px", minHeight: "440px" }} className="relative">
+                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl  ">
+                  <div className="relative md:h-[340px] md:min-h-[340px] lg:h-[440px] lg:min-h-[440px]">
                     <img
-                      src="./about.png"
+                      src="./entalogics.png"
                       alt="About Entalogics Team"
                       className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div> */}
                   </div>
                 </div>
               </div>

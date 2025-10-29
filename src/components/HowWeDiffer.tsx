@@ -1,64 +1,43 @@
 import React from "react"
-import {
-  Users,
-  TrendingUp,
-  Target,
-  Globe,
-  Building2,
-  Heart,
-} from "lucide-react"
+import { X, Check, Zap } from "lucide-react"
 import Heading from "./ui/Heading"
 
-interface DifferenceItem {
-  icon: React.ReactNode
-  title: string
-  description: string
-  bgColor: string
-  iconColor: string
+interface ComparisonItem {
+  category: string
+  others: string
+  us: string
 }
 
-const differences: DifferenceItem[] = [
+const comparisons: ComparisonItem[] = [
   {
-    icon: <Users className="w-6 h-6" />,
-    title: "Direct Senior Access",
-    description: "You work directly with me and our senior team from day one. No bouncing between juniors, no hidden hand-offs.",
-    bgColor: "bg-blue-100 dark:bg-blue-900/30",
-    iconColor: "text-blue-600",
+    category: "Direct Senior Access",
+    others: "Junior developers handle most work",
+    us: "Work directly with senior team from day one",
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: "Lean Structure",
-    description: "We keep the structure lean. You won't be billed for \"team layers\" or \"management markup\".",
-    bgColor: "bg-green-100 dark:bg-green-900/30",
-    iconColor: "text-green-600",
+    category: "Lean Structure",
+    others: "Multiple team layers & management markup",
+    us: "No hidden costs - pay for quality work only",
   },
   {
-    icon: <Target className="w-6 h-6" />,
-    title: "Independent Specialists",
-    description: "We provide independent developers and designers for your project — you pay for individuals doing high-quality work, not for an entire company overhead.",
-    bgColor: "bg-purple-100 dark:bg-purple-900/30",
-    iconColor: "text-purple-600",
+    category: "Independent Specialists",
+    others: "Full company overhead included in pricing",
+    us: "Individual experts - no company overhead",
   },
   {
-    icon: <Globe className="w-6 h-6" />,
-    title: "Global Talent, Fair Pricing",
-    description: "Because many of our developers are based in Asia, our labour cost is lower than many European or US-based agencies. That saving is passed on to you.",
-    bgColor: "bg-yellow-100 dark:bg-yellow-900/30",
-    iconColor: "text-yellow-600",
+    category: "Global Talent, Fair Pricing",
+    others: "High European/US agency rates",
+    us: "Global talent with fair, transparent pricing",
   },
   {
-    icon: <Building2 className="w-6 h-6" />,
-    title: "Internal Global Agency",
-    description: "We operate like an internal global agency: elite developers, worldwide standards, modern tools — but without the fluff.",
-    bgColor: "bg-red-100 dark:bg-red-900/30",
-    iconColor: "text-red-600",
+    category: "Internal Global Agency",
+    others: "Bloated with unnecessary processes",
+    us: "Elite developers, modern tools - no fluff",
   },
   {
-    icon: <Heart className="w-6 h-6" />,
-    title: "Your Success Matters",
-    description: "Your success matters to us. We don't just write code. We build products that scale, meet your goals, and deliver real value.",
-    bgColor: "bg-indigo-100 dark:bg-indigo-900/30",
-    iconColor: "text-indigo-600",
+    category: "Your Success Matters",
+    others: "Just write code and move on",
+    us: "Build products that scale and deliver real value",
   },
 ]
 
@@ -72,34 +51,86 @@ const HowWeDiffer: React.FC<HowWeDifferProps> = ({
   className = "" 
 }) => {
   return (
-    <div className={`bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/10 dark:to-purple-950/10 border border-blue-200/50 dark:border-blue-800/50 rounded-2xl p-6 sm:p-8 ${className}`}>
+    <div className={className}>
       {showHeading && (
-        <Heading level={2} className="mb-6 text-center" gradient={true} gradientText="Differently">
+        <Heading level={2} className="mb-12 text-center" gradient={true} gradientText="Differently">
           Here's How We Do Things Differently
         </Heading>
       )}
       
-      <div className="space-y-4">
-        {differences.map((item, index) => (
-          <div 
-            key={index}
-            className="flex items-start gap-4 p-4 bg-white/60 dark:bg-gray-800/40 rounded-xl hover:shadow-md transition-shadow duration-300"
-          >
-            <div className={`w-12 h-12 rounded-full ${item.bgColor} flex items-center justify-center flex-shrink-0`}>
-              <div className={item.iconColor}>
-                {item.icon}
+      <div className="max-w-6xl mx-auto">
+        {/* Comparison Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* LEFT SIDE - Others */}
+          <div className="space-y-4">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-500 text-white font-semibold text-sm shadow-lg">
+                <X className="w-4 h-4" />
+                Others
               </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-foreground dark:text-white mb-2">
-                {item.title}
-              </h4>
-              <p className="text-sm text-gray-700 dark:text-gray-300">
-                {item.description}
-              </p>
-            </div>
+            
+            {comparisons.map((item, index) => (
+              <div 
+                key={`others-${index}`}
+                className="group p-5 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800/40 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300"
+              >
+                <div className="flex items-start gap-3 mb-2">
+                  <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500 flex items-center justify-center">
+                    <X className="w-4 h-4 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm pt-0.5">
+                    {item.category}
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed pl-10">
+                  {item.others}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
+
+          {/* RIGHT SIDE - Entalogics */}
+          <div className="space-y-4">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-green-500 text-white font-semibold text-sm shadow-lg">
+                <Check className="w-4 h-4" />
+                Entalogics
+              </div>
+            </div>
+            
+            {comparisons.map((item, index) => (
+              <div 
+                key={`us-${index}`}
+                className="group relative p-5 rounded-xl bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800/40 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300"
+              >
+                {/* Shine Effect on Hover */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-green-400/20 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500" />
+                
+                <div className="relative">
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-green-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm pt-0.5">
+                      {item.category}
+                    </h4>
+                  </div>
+                  <p className="text-sm text-gray-900 dark:text-white leading-relaxed pl-10 font-medium">
+                    {item.us}
+                  </p>
+                  
+                  {/* Lightning Badge on Hover */}
+                  <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center animate-pulse shadow-md">
+                      <Zap className="w-3 h-3 text-white fill-white" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )
