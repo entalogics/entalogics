@@ -15,11 +15,11 @@ const ProjectCTA = () => {
         Let's discuss your project and see how we can help you achieve your goals with quality software at fair pricing.
       </Paragraph>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
-        <Link href="/quote">
+        <Link href="/quote" className="w-full sm:w-auto">
           <Button
             variant="secondary"
             size="md"
-            className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg font-normal"
+            className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg font-normal w-full sm:w-auto"
           >
             Get a Quote
           </Button>
@@ -28,7 +28,7 @@ const ProjectCTA = () => {
           data-cal-link="entalogics/30min"
           data-cal-namespace="30min"
           data-cal-config='{"layout":"month_view","theme":"auto"}'
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-lg transition-colors shadow-sm hover:shadow-md cursor-pointer backdrop-blur-sm"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-lg transition-colors shadow-sm hover:shadow-md cursor-pointer backdrop-blur-sm"
         >
           <Calendar className="w-5 h-5" />
           Schedule a Call

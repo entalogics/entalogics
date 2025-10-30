@@ -294,13 +294,13 @@ const TeamPage = () => {
           </div>
         </section>
 
-       <section>
+       <section className="pb-8 sm:pb-12 md:pb-16">
         <TrustedCompanies/>
        </section>
 
 
         {/* CTA Section */}
-        <section className="py-8 sm:py-12 md:py-16 pt-0 bg-white dark:bg-[#0a1225]">
+        <section className="py-8 sm:py-12 md:py-16 bg-white dark:bg-[#0a1225]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProjectCTA />
           </div>
