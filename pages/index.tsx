@@ -13,10 +13,11 @@ import Contact from "../src/components/Contact"
 import TrustBar from "../src/components/TrustBar"
 import Head from "next/head"
 
+
 export default function Page() {
   return (
     <>
-       <Head>
+      <Head>
         <title>Custom Software Development | Entalogics</title>
         <meta name="description" content="AI, SaaS, Web & App Development. We turn your idea into a logic-driven, scalable product. Built with clean code." />
         <meta property="og:title" content="Entalogics - Scalable Software Development" />
@@ -31,15 +32,15 @@ export default function Page() {
       <Layout noPaddingTop canonicalPath="/">
         {/* Global Background Container - Fixed backgrounds */}
         <div className="overflow-x-hidden overflow-y-visible max-w-[100vw]">
-        
+
           {/* HERO SECTION */}
           <section className="relative bg-transparent min-h-0 md:min-h-0 lg:min-h-screen z-10 overflow-y-visible">
             {/* Section specific gradients */}
-            
+
             <Hero />
           </section>
 
-     
+
 
           {/* SERVICES SECTION */}
           <section className="relative bg-transparent z-10 pt-0 md:pt-0 lg:pt-16 xl:pt-5">
@@ -61,6 +62,12 @@ export default function Page() {
             <HowWeBuildWithYou />
           </section>
 
+
+          <section className="relative bg-transparent z-10 pt-12 md:pt-16 lg:pt-20 xl:pt-24">
+       
+          </section>
+
+
           {/* TESTIMONIALS SECTION */}
           <section className="relative bg-transparent z-10 pt-12 md:pt-16 lg:pt-20 xl:pt-24">
             <Testimonials />
@@ -68,7 +75,7 @@ export default function Page() {
 
           {/* FAQ SECTION */}
           <section id="faq" className="relative bg-transparent z-10 pt-12 md:pt-16 lg:pt-20 xl:pt-24">
-           
+
             <FAQ />
           </section>
 

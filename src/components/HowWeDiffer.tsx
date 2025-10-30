@@ -137,4 +137,3 @@ const HowWeDiffer: React.FC<HowWeDifferProps> = ({
 }
 
 export default HowWeDiffer
-

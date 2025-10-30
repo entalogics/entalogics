@@ -13,7 +13,6 @@ const poppins = Poppins({
 })
 
 const logos = [
-  { name: "Marvian", src: "/assets/trustbar logos/marvian logo-01.svg" },
   { name: "Matchups", src: "/assets/trustbar logos/Matchups Logo-01.svg" },
   { name: "Aol", src: "/assets/trustbar logos/Aol Logo-01.svg" },
   { name: "Upwork", src: "/assets/trustbar logos/Upwork Logo-01.svg" },

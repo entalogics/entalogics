@@ -9,6 +9,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar for Marquee component */
+.rfm-marquee-container,
+.rfm-marquee,
+.rfm-initial-child-container,
+.rfm-child {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.rfm-marquee-container::-webkit-scrollbar,
+.rfm-marquee::-webkit-scrollbar,
+.rfm-initial-child-container::-webkit-scrollbar,
+.rfm-child::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
 /* Gradient text for blog titles */
 .gradient-text {
   background: linear-gradient(135deg, #3B82F6, #8B5CF6, #3B82F6);
