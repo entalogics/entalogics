@@ -154,7 +154,7 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
   ]
 
   // Calculate which steps are completed based on scroll progress
-  // Each step turns green when progress line touches it
+  // Each step turns blue when progress line touches it
   const getStepCompletion = (index: number, progress: number, totalSteps: number) => {
     // Each step completes when progress reaches its position
     // Step 1 at ~20% (0.2), Step 2 at ~40% (0.4), Step 3 at ~60% (0.6), etc.
@@ -176,7 +176,7 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
               level={2}
               gradient={true}
               gradientText="Process"
-              className="mb-4 text-[#1A2B48] dark:text-white font-poppins text-left lg:text-right"
+              className="mb-4 text-black dark:text-white font-poppins text-left lg:text-right"
             >
               UI/UX Design Process: Step-by-step
             </Heading>
@@ -192,7 +192,7 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
             {/* Central Vertical Line - Progress Fill (moves with scroll) */}
             <div 
               ref={lineRef}
-              className="absolute left-4 top-0 w-0.5 bg-[#4EBA85] transition-all duration-300 ease-out"
+              className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 transition-all duration-300 ease-out"
               style={{
                 height: `${Math.max(0, Math.min(100, scrollProgress * 100))}%`,
                 opacity: scrollProgress > 0 ? 1 : 0,
@@ -214,9 +214,9 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
                 if (scrollProgress < fadeStart) {
                   circleOpacity = 0 // Gray
                 } else if (scrollProgress > fadeEnd) {
-                  circleOpacity = 1 // Green
+                  circleOpacity = 1 // Blue
                 } else {
-                  // Smooth transition between gray and green
+                  // Smooth transition between gray and blue
                   circleOpacity = (scrollProgress - fadeStart) / (fadeEnd - fadeStart)
                 }
 
@@ -239,9 +239,9 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
                           )}
                         </div>
                         
-                        {/* Green background with checkmark (fades in when progress reaches step) */}
+                        {/* Blue background with checkmark (fades in when progress reaches step) */}
                         <div
-                          className="absolute top-0 left-0 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-[#4EBA85] transition-opacity duration-500"
+                          className="absolute top-0 left-0 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-blue-500 to-purple-600 transition-opacity duration-500"
                           style={{
                             opacity: circleOpacity
                           }}
@@ -253,10 +253,10 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
 
                     {/* Content */}
                     <div className="flex-1 pt-1 min-w-0">
-                      <h3 className="text-lg font-bold text-[#1A2B48] dark:text-white mb-2 font-poppins break-words">
+                      <h3 className="text-lg font-bold text-black dark:text-white mb-2 font-poppins break-words">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-[#374151] dark:text-gray-400 leading-relaxed font-poppins break-words">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins break-words">
                         {step.description}
                       </p>
                     </div>
@@ -399,7 +399,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
             <div className="mb-6 sm:mb-8">
               <nav className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
                 <Link href="/" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-green-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-blue-500">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                   </svg>
@@ -416,7 +416,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
               <div className="space-y-6">
                 {/* Main Heading - Two Lines */}
                 <div className="space-y-4">
-                  <Heading level={1} className="text-[#1A2B48] dark:text-white whitespace-pre-line" gradient={true} gradientText="services">
+                  <Heading level={1} className="text-black dark:text-white whitespace-pre-line" gradient={true} gradientText="services">
                     {service.title + "\nservices"}
                   </Heading>
 
@@ -426,43 +426,49 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   </p>
                 </div>
 
-                {/* CTA Button - Green with Arrow */}
+                {/* CTA Button - Simple like homepage */}
                 <div className="pt-4">
-                  <Link href="/contact">
-                    <button className="group relative inline-flex items-center gap-2.5 bg-[#4EBA85] hover:bg-[#45a875] text-white font-semibold px-5 pr-2 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
-                      <span className="font-poppins font-semibold" style={{ fontSize: '14px', fontWeight: 600 }}>Get in touch</span>
-                      <div className="flex items-center justify-center w-7 h-7 bg-[#1A2B48] rounded-full flex-shrink-0">
-                        <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform" />
-                      </div>
-                    </button>
+                  <Link href="/contact" className="inline-block group">
+                    <div 
+                      className="relative rounded-lg p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
+                      style={{
+                        background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6, #3b82f6)',
+                      }}
+                    >
+                      <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
+                        <span className="font-poppins font-semibold" style={{ fontSize: '14px', fontWeight: 600 }}>Get in touch</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                      </button>
+                    </div>
                   </Link>
-                  </div>
                 </div>
+
+              </div>
 
               {/* Right Content - Clutch and Upwork Badges */}
               <div className="flex flex-col gap-8 items-start lg:items-end">
-                 {/* Clutch Rating */}
-                 <div className="flex items-center gap-3">
-                   <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40">
-                       <path fill="#19313C" d="M19.463 3.103c-6.705.93-11.834 5.084-13.76 11.145-.75 2.346-.926 6.452-.4 8.92.5 2.396 2.276 5.867 3.902 7.626 1.777 1.955 4.454 3.617 7.156 4.497 2.026.66 2.527.709 5.73.709 3.177 0 3.677-.073 5.503-.684 2.377-.831 4.354-1.956 6.13-3.52L35 30.672l-2.577-2.542c-1.401-1.368-2.677-2.517-2.802-2.517s-.676.39-1.226.88c-.55.489-1.626 1.173-2.402 1.54-1.226.562-1.666.967-3.993.967-2.377 0-2.812-.405-4.213-1.04-3.127-1.394-5.079-4.327-5.279-7.87-.3-5.622 3.503-9.606 9.182-9.679 2.602-.024 4.403.538 6.38 1.98l1.601 1.197 2.677-2.64L35 8.335l-1.576-1.271c-1.701-1.369-5.354-3.226-7.23-3.666-1.627-.367-5.08-.514-6.73-.294"></path>
-                       <path fill="#FE3D2E" d="M19.312 14.59c-1.326.587-2.727 2.224-3.102 3.617-.575 2.249.425 4.717 2.427 5.94 3.778 2.346 8.581-.22 8.581-4.571-.025-3.226-2.276-5.45-5.554-5.45-.75 0-1.776.22-2.352.464"></path>
-                     </svg>
+                {/* Clutch Rating */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40">
+                      <path fill="#19313C" d="M19.463 3.103c-6.705.93-11.834 5.084-13.76 11.145-.75 2.346-.926 6.452-.4 8.92.5 2.396 2.276 5.867 3.902 7.626 1.777 1.955 4.454 3.617 7.156 4.497 2.026.66 2.527.709 5.73.709 3.177 0 3.677-.073 5.503-.684 2.377-.831 4.354-1.956 6.13-3.52L35 30.672l-2.577-2.542c-1.401-1.368-2.677-2.517-2.802-2.517s-.676.39-1.226.88c-.55.489-1.626 1.173-2.402 1.54-1.226.562-1.666.967-3.993.967-2.377 0-2.812-.405-4.213-1.04-3.127-1.394-5.079-4.327-5.279-7.87-.3-5.622 3.503-9.606 9.182-9.679 2.602-.024 4.403.538 6.38 1.98l1.601 1.197 2.677-2.64L35 8.335l-1.576-1.271c-1.701-1.369-5.354-3.226-7.23-3.666-1.627-.367-5.08-.514-6.73-.294"></path>
+                      <path fill="#FE3D2E" d="M19.312 14.59c-1.326.587-2.727 2.224-3.102 3.617-.575 2.249.425 4.717 2.427 5.94 3.778 2.346 8.581-.22 8.581-4.571-.025-3.226-2.276-5.45-5.554-5.45-.75 0-1.776.22-2.352.464"></path>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-black dark:text-white font-poppins" style={{ fontSize: '16px', fontWeight: 600 }}>5.0</span>
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" className="w-4 h-4">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                          </svg>
+                        ))}
                    </div>
-                   <div className="flex flex-col gap-1">
-                     <div className="flex items-center gap-2">
-                       <span className="text-gray-900 dark:text-white font-poppins" style={{ fontSize: '16px', fontWeight: 600 }}>5.0</span>
-                       <div className="flex gap-0.5">
-                         {[...Array(5)].map((_, i) => (
-                           <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" className="w-4 h-4">
-                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                           </svg>
-                         ))}
-                    </div>
-                  </div>
-                     <p className="text-xs font-normal text-gray-500 dark:text-gray-400 font-poppins">Based on 30+ Reviews</p>
-                    </div>
-                  </div>
+                 </div>
+                    <p className="text-xs font-normal text-gray-500 dark:text-gray-400 font-poppins">Based on 100+ Reviews</p>
+                   </div>
+                 </div>
 
                 {/* Upwork Badges */}
                 <div className="flex items-start gap-3">
@@ -476,13 +482,13 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-pink-500">
                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                        </svg>
-                       <span className="text-gray-900 dark:text-white font-poppins" style={{ fontSize: '12px', fontWeight: 400, fontStyle: 'normal', fontVariant: 'normal' }}>TOP RATED PLUS</span>
+                       <span className="text-black dark:text-white font-poppins" style={{ fontSize: '12px', fontWeight: 400, fontStyle: 'normal', fontVariant: 'normal' }}>TOP RATED PLUS</span>
                     </div>
                      <div className="flex items-center gap-1.5">
                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-blue-500">
                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                        </svg>
-                       <span className="text-gray-900 dark:text-white font-poppins" style={{ fontSize: '12px', fontWeight: 400, fontStyle: 'normal', fontVariant: 'normal' }}>100% Job Success</span>
+                       <span className="text-black dark:text-white font-poppins" style={{ fontSize: '12px', fontWeight: 400, fontStyle: 'normal', fontVariant: 'normal' }}>100% Job Success</span>
                   </div>
                 </div>
               </div>
@@ -494,7 +500,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
         {/* Our Awards Section */}
         <section className="relative bg-white dark:bg-[#0a1225] pt-6 pb-12 lg:pt-8 lg:pb-16">
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Heading level={2} className="mb-8 sm:mb-12 text-[#1A2B48] dark:text-white" gradient={true} gradientText="awards">
+            <Heading level={2} className="mb-8 sm:mb-12 text-black dark:text-white" gradient={true} gradientText="awards">
               Our awards
             </Heading>
             
@@ -581,7 +587,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                         </svg>
                       ) : (
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 dark:text-gray-400 w-6 h-6 sm:w-7 sm:h-7">
-                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                           <path d="m9 12 2 2 4-4"></path>
                         </svg>
                   )}
@@ -751,7 +757,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   level={2}
                   gradient={true}
                   gradientText="Included"
-                  className="mb-4 text-[#1A2B48] dark:text-white font-poppins"
+                  className="mb-4 text-black dark:text-white font-poppins"
                 >
                   What's Included
                 </Heading>
@@ -765,10 +771,10 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   <div className="relative z-10">
               {/* Header */}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-400 to-green-400 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
                       <FileText className="w-6 h-6 text-white" />
                 </div>
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white font-poppins">
+                    <h3 className="text-lg md:text-xl font-bold text-black dark:text-white font-poppins">
                       Free Custom Design Creation
                     </h3>
               </div>
@@ -781,13 +787,13 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   {/* Bullet Points */}
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4EBA85] flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins">
                         By choosing Entalogics to cover the complex development cycle, you can save money on design services and get a custom design solution developed in strict alignment with your requirements and business objectives.
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4EBA85] flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins">
                         Get your solution developed from scratch and reduce expenses with our special deal that includes free custom design creation.
                       </p>
@@ -802,10 +808,10 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   <div className="relative z-10">
                   {/* Header */}
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-400 to-green-400 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0">
                       <BarChart3 className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white font-poppins">
+                    <h3 className="text-lg md:text-xl font-bold text-black dark:text-white font-poppins">
                       Free Design Audit
                     </h3>
                           </div>
@@ -813,25 +819,25 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   {/* Bullet Points */}
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4EBA85] flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins">
                         Entalogics provides a free design audit if you choose us for the redesign or implementation.
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4EBA85] flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins">
                         Using established usability principles, we analyze your design's aesthetics, consistency, and user interface elements, ensure accessibility compliance, and test performance across devices.
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4EBA85] flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins">
                         We provide a detailed report with issues and recommendations for improvement.
                       </p>
                     </li>
                     <li className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#4EBA85] flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-poppins">
                         Benefit from our problem-solving skills, efficiency, and expertise in order to create intuitive and accessible designs that enhance user experience.
                       </p>
@@ -843,13 +849,18 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
 
               {/* CTA Button */}
               <div className="flex justify-center">
-                <Link href="/contact">
-                  <button className="group relative inline-flex items-center gap-2.5 bg-[#4EBA85] hover:bg-[#45a875] text-white font-semibold px-5 pr-2 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
-                    <span className="font-poppins" style={{ fontSize: '14px', fontWeight: 600 }}>Let's cooperate</span>
-                    <div className="flex items-center justify-center w-7 h-7 bg-[#1A2B48] rounded-full flex-shrink-0">
-                      <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform" />
-                      </div>
-                  </button>
+                <Link href="/contact" className="inline-block group">
+                  <div 
+                    className="relative rounded-lg p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
+                    style={{
+                      background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6, #3b82f6)',
+                    }}
+                  >
+                    <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
+                      <span className="font-poppins" style={{ fontSize: '14px', fontWeight: 600 }}>Let's cooperate</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                  </div>
                 </Link>
               </div>
             </div>

@@ -161,7 +161,7 @@ const ServiceOfferingsCarousel: React.FC<ServiceOfferingsCarouselProps> = ({
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 lg:mb-12">
-          <Heading level={2} className="mb-4 text-[#1A2B48] dark:text-white" gradient={true} gradientText={gradientText}>
+          <Heading level={2} className="mb-4 text-black dark:text-white" gradient={true} gradientText={gradientText}>
             {title}
           </Heading>
           <p className="max-w-3xl mx-auto text-[#374151] dark:text-gray-300 font-poppins text-center" style={{ fontSize: '16px', fontWeight: 400 }}>
@@ -225,7 +225,7 @@ const ServiceOfferingsCarousel: React.FC<ServiceOfferingsCarouselProps> = ({
                   <div className="relative z-10 flex flex-col h-full">
                   {/* Icon */}
                   <div className="mb-4 flex-shrink-0">
-                    <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                       {offering.customIcon ? (
                         offering.customIcon
                       ) : index === 2 && offering.icon === Search ? (
@@ -240,7 +240,7 @@ const ServiceOfferingsCarousel: React.FC<ServiceOfferingsCarouselProps> = ({
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 font-poppins flex-shrink-0 truncate" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>
+                  <h3 className="text-lg font-bold text-black dark:text-white mb-3 font-poppins flex-shrink-0 truncate" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>
                     {offering.title.length > 40 ? `${offering.title.substring(0, 40)}...` : offering.title}
                   </h3>
 
@@ -312,7 +312,7 @@ const ServiceOfferingsCarousel: React.FC<ServiceOfferingsCarouselProps> = ({
             cursor: pointer;
           }
           .service-offerings-carousel .swiper-pagination-bullet-active {
-            background-color: #4EBA85;
+            background-color: #3b82f6;
             width: 8px;
             height: 8px;
           }
