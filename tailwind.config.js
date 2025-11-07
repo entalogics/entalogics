@@ -78,6 +78,7 @@ module.exports = {
         'display': ['Sora', 'system-ui', 'sans-serif'],
           'poppins': "var(--font-poppins)",
           'arizonia': ['Arizonia', 'cursive'],
+          'zilla-slab-highlight': ['Zilla Slab Highlight', 'serif'],
          
       },
       fontSize: {

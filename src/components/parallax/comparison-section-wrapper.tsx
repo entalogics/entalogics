@@ -90,7 +90,7 @@ export default function ComparisonSectionWrapper() {
   return (
     <div 
       ref={container}
-      className="relative w-full bg-white dark:bg-[#0a1225] scroll-smooth-section"
+      className="relative w-full  scroll-smooth-section"
       style={{
         // Container height includes header + cards - reduced for faster scroll
         // minHeight: `${100 + (comparisonCards.length - 1) * 50}vh`,

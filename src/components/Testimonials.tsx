@@ -51,7 +51,7 @@ const Testimonials: React.FC = () => {
   return (
     <section
       id="testimonials-section"
-      className="relative bg-white dark:bg-[#0a1225] py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative py-16 md:py-20 lg:py-24 overflow-hidden"
     >
       {/* Background Grid Pattern - Adapts to theme */}
       <div
@@ -75,11 +75,8 @@ const Testimonials: React.FC = () => {
         }}
       />
 
-      {/* Radial Gradients - Adapts to theme */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-600/10 dark:bg-blue-600/15 rounded-full blur-[100px] opacity-40 dark:opacity-60" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange-500/10 dark:bg-orange-500/15 rounded-full blur-[100px] opacity-40 dark:opacity-60" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-3">
         {/* Badge - Separate on top like other components */}
         <div className="text-center mb-8 md:mb-10 lg:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted dark:bg-gray-800 border border-border dark:border-gray-700 mb-6">
@@ -90,11 +87,11 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2  items-start lg:items-center justify-center ">
           {/* Left Section - Text Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center max-w-2xl mx-auto lg:mx-0 lg:text-left flex flex-col items-end  pr-10 max-md:pr-0 max-md:items-center max-md:text-center">
             {/* Main Heading - Larger and more prominent */}
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white leading-[1.1] tracking-tight ${poppins.className}`}>
+            <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white leading-[1.1] tracking-tight ${poppins.className}   max-w-xl max-md:max-w-screen`}>
               Trusted by clients{" "}
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                 worldwide
@@ -108,13 +105,14 @@ const Testimonials: React.FC = () => {
           </div>
 
           {/* Right Section - Testimonial Slider */}
-          <div className="relative mt-8 lg:mt-0 w-full lg:max-w-md lg:w-auto">
+          <div className="relative mt-8 lg:mt-0 w-full max-w-md sm:max-w-lg lg:max-w-md  lg:justify-self-end pr-7 max-md:pr-0 max-md:justify-self-center max-md:flex max-md:justify-center max-md:items-center max-md:max-w-[90%] max-md:self-center max-lg:justify-self-center max-lg:pr-0">
             {/* Rotated Blurred Background Card */}
-            <div className="absolute inset-0 z-[1] transform -rotate-6 -translate-x-1 translate-y-1 rounded-2xl bg-black/20 dark:bg-white/30  opacity-1 "></div>
+            <div className="absolute inset-0 z-[1] transform -rotate-6 -translate-x-1 translate-y-1 rounded-2xl bg-black/20 dark:bg-white/30  opacity-1 right-6  max-md:w-[95%] max-md:right-0 max-md:left-3">
+            </div>
 
             {/* Static Card Background */}
             <div 
-              className="relative rounded-2xl z-20 overflow-hidden px-6 pt-8 pb-[3vw] md:pt-12 md:pb-10 md:px-0 w-[97%] md:w-full h-[280px] md:h-auto md:min-h-[398px] bg-[#1d4bcf]/95"
+              className="relative rounded-2xl z-20 overflow-hidden px-6 pt-8 pb-[3vw] md:pt-12 md:pb-10 md:px-0 w-[97%] md:w-full h-[280px] md:h-auto md:min-h-[398px] bg-[#1d4bcf]/95 max-md:w-[95%] "
             >
 
               {/* Watermark Quote Icon - Static */}

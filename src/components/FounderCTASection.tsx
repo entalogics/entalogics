@@ -19,7 +19,7 @@ const FounderCTASection: React.FC<FounderCTASectionProps> = ({
   showScheduleButton = true,
 }) => {
   return (
-    <section className="pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 bg-white dark:bg-[#0a1225] relative">
+    <section className="pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12  relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="space-y-8">
           {/* CTA */}

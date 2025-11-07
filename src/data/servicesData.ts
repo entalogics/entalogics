@@ -60,7 +60,7 @@ export const servicesData: Record<string, Service> = {
     thumbnail: "/assets/services/saas1.jpg",
     technologies: ["react", "nextjs", "typescript", "nodejs", "postgresql", "docker"],
     tagline:
-      "We design & build SaaS platforms from idea to scale. Think dashboards, billing, auth, API, onboarding — we handle it all.",
+      "Launch and scale SaaS products with built-in billing, dashboards, onboarding, and the APIs your roadmap depends on.",
     headline: "SaaS Product Development",
     description:
       "Launch, scale, and automate your SaaS business with a team that handles everything: dashboards, billing, onboarding, and more. We build SaaS platforms that are robust, secure, and ready for growth.",
@@ -189,7 +189,7 @@ export const servicesData: Record<string, Service> = {
   iconName: "Web Development",
   thumbnail: "/assets/services/web-app1.jpg",
   technologies: ["react", "nextjs", "typescript", "tailwindcss", "nodejs", "postgresql"],
-  tagline: "Modern, responsive websites & web apps. React, Next.js, full-stack solutions that scale.",
+  tagline: "Design and ship modern web apps with fast frontends, secure backends, and SEO-ready foundations that convert.",
   headline: "Web Development",
   description:
     "We build modern, responsive websites and web applications using cutting-edge technologies. From simple landing pages to complex full-stack applications with React, Next.js, and robust backend solutions.",
@@ -317,7 +317,7 @@ export const servicesData: Record<string, Service> = {
     iconName: "AI-Powered Apps & Platforms",
     thumbnail: "/assets/services/ai1.jpg",
     technologies: ["python", "react", "nextjs", "typescript", "nodejs", "postgresql"],
-    tagline: "We develop AI-native tools and workflows — from custom LLM apps to agent-powered dashboards.",
+    tagline: "Embed AI agents, LLM workflows, and automation into your product with measurable results and reliable monitoring.",
     headline: "AI-Powered Apps & Platforms",
     description:
       "From custom LLM apps to agent-powered dashboards, we build AI-native tools that drive real business value. Integrate OpenAI, DeepSeek, and more into your workflows. We help you leverage artificial intelligence to automate processes, enhance user experiences, and unlock new possibilities for your business with cutting-edge AI technologies and advanced machine learning models.",
@@ -438,7 +438,7 @@ export const servicesData: Record<string, Service> = {
     thumbnail: "/assets/services/soft1.jpg",
     technologies: ["flutter", "react", "typescript", "nodejs", "docker"],
     tagline:
-      "Cross-platform desktop & mobile apps with native performance. Flutter, React Native, Electron — we build for all platforms.",
+      "Build cross-platform desktop and mobile apps that feel native, integrate deeply with each OS, and ship ready for stores.",
     headline: "Desktop & Mobile App Development",
     description:
       "We build high-performance desktop and mobile applications with deep OS integrations. From cross-platform mobile apps using Flutter and React Native to native desktop software for Windows, Mac, and Linux.",
@@ -550,7 +550,7 @@ export const servicesData: Record<string, Service> = {
     iconName: "Chromium & Browser Development",
     thumbnail: "/assets/services/chromium1.jpg",
     technologies: ["react", "typescript", "nodejs", "docker"],
-    tagline: "Custom browsers for privacy, crypto, AI, or enterprise use.",
+    tagline: "Customise Chromium with your branding, privacy controls, wallets, and search so the browser fits your strategy.",
     headline: "Chromium & Browser Development",
     description:
       "Custom browsers for privacy, crypto, AI, or enterprise use. We build and modify Chromium-based browsers tailored for your needs, including custom UI, search engine, and feature integrations.",
@@ -650,7 +650,7 @@ export const servicesData: Record<string, Service> = {
     iconName: "UI/UX Design",
     thumbnail: "/assets/services/ui1.jpg",
     technologies: ["figma", "react", "tailwindcss", "typescript"],
-    tagline: "We create intuitive, clean interfaces that convert. From Figma to functional.",
+    tagline: "Turn complex products into intuitive journeys with research-led UX, polished UI systems, and developer-ready files.",
     headline: "UI/UX Design",
     description:
       "We create intuitive, clean interfaces that convert. From Figma to functional, our design team ensures your product is beautiful, usable, and conversion-focused. We deliver comprehensive UI/UX design solutions that enhance user engagement and distinguish you in a competitive landscape by analyzing business goals, competitors, and audience needs to create sleek, user-friendly interfaces that drive results.",
@@ -744,7 +744,7 @@ export const servicesData: Record<string, Service> = {
     iconName: "Maintenance & Support",
     thumbnail: "/assets/services/maintainance1.jpg",
     technologies: ["docker", "nodejs", "postgresql", "typescript"],
-    tagline: "We keep your software running smoothly with proactive care… fixing issues before you even no…",
+    tagline: "Keep shipping confidently with proactive monitoring, updates, and fixes that keep your product fast and stable.",
     headline: "Maintenance & Support",
     description:
       "Keep your software running smoothly with proactive care. We fix issues before you even notice, with 24/7 monitoring, security updates, and performance tuning.",
@@ -799,7 +799,7 @@ export const servicesData: Record<string, Service> = {
     iconName: "Cloud & DevOps Solutions",
     thumbnail: "/assets/services/illlustration1.jpg",
     technologies: ["docker", "nodejs", "postgresql", "python"],
-    tagline: "Set up CI/CD pipelines, cloud hosting, and monitoring for smooth deployments.",
+    tagline: "Automate deployments with CI/CD, cloud infrastructure, and observability so every release is predictable.",
     headline: "Cloud & DevOps Solutions",
     description:
       "We help you set up robust CI/CD pipelines, cloud hosting, and comprehensive monitoring systems for smooth and reliable deployments. From infrastructure setup to automated deployments, we handle it all.",
@@ -920,7 +920,7 @@ export const servicesData: Record<string, Service> = {
     iconName: "Automation & Workflow Tools",
     thumbnail: "/assets/services/automation1.jpg",
     technologies: ["python", "nodejs", "typescript", "docker", "powershell", "power-automate", "microsoft-teams"],
-    tagline: "Design scripts, bots, and automation systems to save time and cut manual work.",
+    tagline: "Replace repetitive work with custom scripts, bots, and integrations that plug straight into your existing stack.",
     headline: "Automation & Workflow Tools",
     description:
       "We design and build custom automation scripts, bots, and workflow systems that save time and eliminate manual work. From simple scripts to complex automation platforms, we help you work smarter, not harder.",

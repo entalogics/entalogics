@@ -10,3 +10,11 @@ declare global {
 
 export {};
 
+
+export interface PortfolioItem {
+  img: string;
+  alt: string;
+  slug: string;
+  title: string;
+  description: string;
+}

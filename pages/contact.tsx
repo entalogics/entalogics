@@ -1288,9 +1288,9 @@ export default function QuotePage() {
                     icon: Mail,
                        title: "Email Us",
                        description: "Send us a message anytime",
-                       contact: "entalogics@gmail.com",
+                       contact: "info@entalogics.com",
                        color: "blue",
-                       href: "mailto:entalogics@gmail.com",
+                       href: "mailto:info@entalogics.com",
                        bgGradient: "from-blue-50/50 to-cyan-50/30 dark:from-blue-900/20 dark:to-cyan-900/10",
                        hoverGradient: "from-blue-500/5 to-cyan-500/5"
                   },

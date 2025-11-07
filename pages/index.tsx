@@ -32,48 +32,58 @@ export default function Page() {
       </Head>
 
       <Layout noPaddingTop canonicalPath="/">
-        {/* Global Background Container - Removed overflow-x-hidden to allow sticky positioning */}
-        <div className="w-full">
+        {/* Global Background Container - No overflow-hidden to allow sticky positioning for parallax */}
+        <div className="w-full relative max-w-[100vw]">
 
           {/* HERO SECTION */}
-          <section className="relative bg-transparent  overflow-y-visible">
-            {/* Section specific gradients */}
-
-            <Hero />
+          <section 
+            className="relative overflow-y-visible bg-white dark:bg-[#0a1225]" 
+            style={{ 
+              overflowX: 'clip'
+            }}
+          >
+            <div className="relative z-10">
+              <Hero />
+            </div>
           </section>
 
 
 
           {/* SERVICES SECTION */}
-          <section className="relative bg-transparent pt-0 md:pt-0 lg:pt-16 xl:pt-5">
-            <Services />
+          <section 
+            className="relative pt-0 md:pt-0 lg:pt-16 xl:pt-5" 
+            style={{ 
+              overflowX: 'clip'
+            }}
+          >
+            <div className="relative z-10">
+              <Services />
+            </div>
           </section>
 
           {/* PORTFOLIO SECTION */}
-          <section className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-24">
+          <section className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-24" style={{ overflowX: 'clip' }}>
             <PortfolioCarousel />
           </section>
 
           {/* WHY CHOOSE US SECTION */}
            {/* HOW WE DIFFER PARALLAX SECTION - Isolated from z-index stacking */}
-           <section className="relative bg-transparent pt-12 md:pt-5 lg:pt-5 xl:pt-5">
+           <section className="relative bg-transparent pt-12 md:pt-5 lg:pt-5 xl:pt-5" style={{ overflowX: 'clip' }}>
             <ComparisonSectionWrapper />
           </section>
           {/* HOW WE BUILD SECTION */}
-          <section className="relative bg-transparent pt-12 md:pt-10 lg:pt-10 xl:pt-10">
-            <HowWeBuildWithYou />
-          </section>
+          
            
       
 
 
           {/* TESTIMONIALS SECTION */}
-          <section className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-24">
+          <section className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-0" style={{ overflowX: 'clip' }}>
             <Testimonials />
           </section>
 
           {/* FAQ SECTION */}
-          <section id="faq" className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-24">
+          <section id="faq" className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-24" style={{ overflowX: 'clip' }}>
             <FAQ showCta={false} />
           </section>
 
@@ -81,12 +91,12 @@ export default function Page() {
           <FounderCTASection />
 
           {/* BLOG SECTION */}
-          <section className="relative bg-transparent pt-6 md:pt-8 lg:pt-10 xl:pt-12">
+          <section className="relative bg-transparent pt-6 md:pt-8 lg:pt-10 xl:pt-12" style={{ overflowX: 'clip' }}>
             <Blog />
           </section>
 
           {/* CONTACT SECTION */}
-          <section id="contact" className="relative bg-transparent py-12 md:py-16 lg:py-20 xl:pt-24">
+          <section id="contact" className="relative bg-transparent py-12 md:py-16 lg:py-20 xl:pt-24" style={{ overflowX: 'clip' }}>
             <Contact />
           </section>
         </div>
@@ -106,11 +116,14 @@ export default function Page() {
         /* Smooth scroll behavior */
         html {
           scroll-behavior: smooth;
+          overflow-x: hidden;
+          max-width: 100vw;
         }
 
         /* Prevent gradient cutting during scroll */
         body {
           overflow-x: hidden;
+          max-width: 100vw;
         }
       `}</style>
     </>

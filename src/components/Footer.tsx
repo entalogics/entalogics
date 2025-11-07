@@ -36,14 +36,14 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
   const socialLinks = [
     { icon: Twitter, path: "https://x.com/EntaLogics", accentColor: "neon-orange", label: "X (Twitter)" },
     { icon: Facebook, path: "https://m.facebook.com/EntaLogics/", accentColor: "neon-cyan", label: "Facebook" },
-    { icon: Mail, path: "mailto:entalogics@gmail.com", accentColor: "neon-orange", label: "Email" },
+    { icon: Mail, path: "mailto:info@entalogics.com", accentColor: "neon-orange", label: "Email" },
     { icon: MessageCircle, path: "https://wa.me/923207385471", accentColor: "neon-cyan", label: "WhatsApp" },
   ]
 
   return (
-    <footer className="bg-white dark:bg-[#0a1225] relative overflow-hidden">
+    <footer className=" relative overflow-hidden">
       {/* Top Fade Effect - More pronounced */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-white/50 to-white dark:from-[#0a1225]/0 dark:via-[#0a1225]/50 dark:to-[#0a1225] pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-32  pointer-events-none"></div>
       
       {/* Background Effects */}
   

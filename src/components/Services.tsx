@@ -36,9 +36,9 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ service }: ServiceCardProps) => {
-  return (
-    <div className="group relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-      <div className="relative h-52 overflow-hidden rounded-t-2xl">
+  const cardContent = (
+    <div className="relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-md shadow-sm transition-all duration-500 overflow-hidden transform group-hover:shadow-xl group-hover:-translate-y-2">
+      <div className="relative h-52 overflow-hidden rounded-t-md">
         <img
           src={
             service.thumbnail ||
@@ -55,25 +55,11 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         />
       </div>
 
-      <div className="relative z-10 flex-grow flex flex-col p-3">
+      <div className="relative z-10 flex-grow flex flex-col p-3 pb-1">
         <div className="flex-grow flex flex-col">
-          {/* Service Icon */}
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-600/20 dark:from-blue-500/20 dark:to-purple-600/30 flex items-center justify-center border border-blue-200/50 dark:border-blue-700/50">
-              <service.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            </div>
-            <Heading
-              level={4}
-              className="tracking-tight text-card-foreground dark:text-white leading-tight group-hover:text-primary transition-colors duration-300"
-              gradient={false}
-            >
-              {service.title}
-            </Heading>
-          </div>
-
           <Paragraph
             size="sm"
-            className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-3 line-clamp-2"
+            className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-3 line-clamp-3"
             center={false}
           >
             {service.tagline}
@@ -86,7 +72,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                 Key Features
               </h5>
               {Array.isArray(service.features) && typeof service.features[0] === "string" ? (
-                <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 ">
                   {(service.features as string[]).map((feature, idx) => (
                     <div
                       key={idx}
@@ -100,7 +86,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                   ))}
                 </div>
               ) : Array.isArray(service.features[0]) ? (
-                <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 ">
                   {service.features
                     .flat()
                     .slice(0, 4)
@@ -109,7 +95,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                         feature && (
                           <div
                             key={idx}
-                            className="flex items-start gap-2 p-1 rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
+                            className="flex items-start gap-2  rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
                           >
                             <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
                             <span className="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
@@ -120,7 +106,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                     )}
                 </div>
               ) : (
-                <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 ">
                   {service.features.slice(0, 4).map((feature, idx) => (
                     <div
                       key={idx}
@@ -139,19 +125,30 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
 
         <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
-          {service.slug ? (
-            <Link
-              href={`/services/${service.slug}`}
-              className="inline-flex items-center justify-center px-6  mx-auto py-2 rounded-xl bg-transparent text-primary font-semibold border-[1px] border-primary/20 dark:border-primary/30 hover:shadow-lg transition-all duration-300 group/btn text-sm hover:bg-primary/5 dark:hover:bg-primary/10"
-            >
-              <span>Learn More</span>
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1" />
-            </Link>
-          ) : null}
+          <span className="group inline-flex items-center justify-center px-6 mx-auto py-2 rounded-xl bg-transparent text-primary font-semibold text-sm transition-all duration-200">
+            <span className="relative inline-flex items-center gap-2">
+              Learn More
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </span>
+          </span>
         </div>
       </div>
     </div>
   )
+
+  if (service.slug) {
+    return (
+      <Link
+        href={`/services/${service.slug}`}
+        className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+        aria-label={`Learn more about ${service.title}`}
+      >
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return <div className="group block h-full">{cardContent}</div>
 }
 
 const Services = () => {

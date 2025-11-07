@@ -79,7 +79,7 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
         className={`pointer-events-auto w-full max-w-6xl mx-auto px-2 transition-all duration-300 ${shrink ? "max-w-xl" : "max-w-6xl"}`}
       >
         <div
-          className={`grid grid-cols-2 md:grid-cols-3 items-center bg-white/80 dark:bg-[#0a1225]/80 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200 dark:border-blue-900/40 ${shrink ? "px-3 py-1" : "px-4 py-2 md:py-3"} transition-all duration-300 w-full`}
+          className={`grid grid-cols-2 md:grid-cols-3 items-center bg-white/80 dark:bg-[#0a1225]/80 backdrop-blur-lg rounded-md shadow-md border border-gray-200 dark:border-blue-900/40 ${shrink ? "px-3 py-1" : "px-4 py-2 md:py-3"} transition-all duration-300 w-full`}
         >
           {/* Logo */}
           <div className="flex items-center justify-self-start">
@@ -174,7 +174,7 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleNavClick("#contact")}
-              className={`hidden md:flex lg:flex items-center justify-center transition-all duration-200 font-semibold rounded-xl shadow-md text-sm ${shrink ? "" : ""}
+              className={`hidden md:flex lg:flex items-center justify-center transition-all duration-200 font-semibold rounded-md shadow-sm text-sm ${shrink ? "" : ""}
                 ${
                   theme === "dark"
                     ? shrink
@@ -390,7 +390,7 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
                   <MotionButton
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    onClick={() => (window.location.href = "mailto:entalogics@gmail.com")}
+                    onClick={() => (window.location.href = "mailto:info@entalogics.com")}
                     className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium min-h-[44px]"
                     type="button"
                   >

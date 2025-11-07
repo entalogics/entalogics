@@ -33,7 +33,7 @@ const Blog = () => {
   return (
     <section
       id="blog"
-      className="relative px-4 md:px-12 py-1 md:py-2 overflow-hidden bg-white dark:bg-[#0a1225]"
+      className="relative px-4 md:px-12 py-1 md:py-2 overflow-hidden "
     >
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-7xl">

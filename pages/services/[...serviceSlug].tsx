@@ -168,7 +168,7 @@ const ProcessStepsSection: React.FC<{ steps: Array<{ title: string; description:
 
   return (
     <section ref={sectionRef} className="bg-white dark:bg-[#0a1225]">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 xl:pt-24 pb-4 sm:pb-6 lg:pb-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-9 xl:pt-9 pb-4 sm:pb-6 lg:pb-8">
         <div className="grid lg:grid-cols-[40%_60%] gap-12 lg:gap-8 items-start">
           {/* Left Side - Title */}
           <div className="lg:sticky lg:top-24 lg:text-right">
@@ -873,12 +873,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
           )}
 
           {/* Testimonials Section */}
-          <div className="pt-8 md:pt-10 lg:pt-12">
+          <div className="pt-4 md:pt-6 lg:pt-8">
             <Testimonials />
           </div>
 
           {/* FAQ Section (CTA hidden on service page) */}
-          <div className="pt-12 md:pt-16 lg:pt-24 bg-muted/30 dark:bg-[#0a1225]">
+          <div className="pt-4 md:pt-6 lg:pt-8 bg-muted/30 dark:bg-[#0a1225]">
             <FAQ showCta={false} />
           </div>
 

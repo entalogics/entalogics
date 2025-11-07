@@ -1,9 +1,10 @@
 "use client"
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import TrustBar from "./TrustBar"
 import Link from "next/link"
-import { Sora, Inter, Poppins } from "next/font/google"
+import { Sora, Inter, Poppins, Arizonia } from "next/font/google"
 import Button from "./ui/Button"
 import Paragraph from "./ui/Paragraph"
 import Heading from "./ui/Heading"
@@ -11,8 +12,61 @@ import Heading from "./ui/Heading"
 const sora = Sora({ subsets: ["latin"], weight: ["400", "600", "800"], display: "swap" })
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "800", "900"], display: "swap" })
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700", "800", "900"], display: "swap" })
+const arizonia = Arizonia({ subsets: ["latin"], weight: "400", display: "swap" })
+
+const HERO_TAGLINES = [
+  "Build with Logic",
+  "Create with Precision",
+  "Innovate with Purpose",
+  "Scale with Confidence",
+  "Deliver with Clarity",
+]
+
+const HERO_BADGE_LINES = [
+  "Featured on Clutch",
+  "Recognized by GoodFirms",
+  "Partnered with 30+ startups",
+]
 
 const Hero = () => {
+  const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0)
+  const [displayedText, setDisplayedText] = useState("")
+  const [isLineComplete, setIsLineComplete] = useState(false)
+  const [currentBadgeIndex, setCurrentBadgeIndex] = useState(0)
+
+  useEffect(() => {
+    const fullText = HERO_TAGLINES[currentTaglineIndex]
+    let timeout: ReturnType<typeof setTimeout>
+
+    if (!isLineComplete) {
+      if (displayedText.length < fullText.length) {
+        timeout = setTimeout(() => {
+          setDisplayedText(fullText.slice(0, displayedText.length + 1))
+        }, 90)
+      } else {
+        timeout = setTimeout(() => {
+          setIsLineComplete(true)
+        }, 2600)
+      }
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayedText("")
+        setIsLineComplete(false)
+        setCurrentTaglineIndex((prev) => (prev + 1) % HERO_TAGLINES.length)
+      }, 250)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [currentTaglineIndex, displayedText, isLineComplete])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBadgeIndex((prev) => (prev + 1) % HERO_BADGE_LINES.length)
+    }, 2600)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <>
       <section
@@ -23,23 +77,60 @@ const Hero = () => {
 
         {/* Main Content Container - no z-index needed here now */}
         <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
-          {/* Badge */}
-          <div className="mb-6 md:mb-8 lg:mb-8">
-            <span className="relative inline-flex  items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-700 shadow transition-all duration-300">
-              Software Development Company
-            </span>
+          {/* Rotating Badge Lines */}
+          <div className="mb-6 md:mb-8 lg:mb-8 h-9 flex items-center justify-center">
+            <div className="relative overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={HERO_BADGE_LINES[currentBadgeIndex]}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  style={{ display: "inline-flex" }}
+                >
+                  <Link
+                    href={(() => {
+                      switch (currentBadgeIndex) {
+                        case 0:
+                          return "https://clutch.co/profile/entalogics"
+                        case 1:
+                          return "https://www.goodfirms.co/company/entalogics"
+                        default:
+                          return "/portfolio"
+                      }
+                    })()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold text-blue-700 dark:text-blue-200 border border-blue-200/70 dark:border-blue-500/40 shadow-[0_10px_30px_rgba(59,130,246,0.18)] backdrop-blur-md bg-[linear-gradient(135deg,rgba(255,255,255,0.78)_0%,rgba(236,240,255,0.65)_50%,rgba(230,245,255,0.82)_100%)] dark:bg-[linear-gradient(135deg,rgba(18,28,56,0.75)_0%,rgba(12,24,48,0.68)_50%,rgba(6,20,48,0.78)_100%)] hover:shadow-[0_12px_32px_rgba(59,130,246,0.22)] transition-shadow duration-300"
+                  >
+                    {HERO_BADGE_LINES[currentBadgeIndex]}
+                  </Link>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
           {/* Main heading with gradient */}
-          <Heading level={1}
-            className={`relative  text-[clamp(1.3rem,6vw,3.2rem)] font-[700] leading-[1.15] mb-4 md:mb-6 lg:mb-7  ${poppins.className}`}
+          <Heading
+            level={1}
+            className={`relative text-[clamp(1.3rem,6vw,3.2rem)] font-[700] leading-[1.15] mb-4 md:mb-6 lg:mb-7 ${poppins.className}`}
           >
-            <span className="text-black dark:text-white">Software </span>
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">Development</span>
-            <span className="text-black dark:text-white"> Company Business & IT Solutions</span>
+            <span className="text-black dark:text-white">Custom </span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Software
+            </span>
+            <span className="text-black dark:text-white"> Development</span>
             <br />
-            <span className="text-black dark:text-white font-arizonia font-[400] ">Build with </span>
-            <span className="bg-gradient-to-r from-blue-600  via-purple-600 to-blue-600 bg-clip-text text-transparent font-arizonia  font-[400]">Logic</span>
-            <span className="text-black dark:text-white">.</span>
+            <span className="text-black dark:text-white">Business & IT Solutions</span>
+            <br />
+            <span className="relative block mt-3 min-h-[2.6rem] sm:min-h-[3rem]">
+              <span
+                className={`block  bg-clip-text font-zilla-slab-highlight leading-tight text-black dark:text-white text-[40px] max-md:text-[25px]`}
+              >
+                {displayedText}
+          
+              </span>
+            </span>
           </Heading>
           {/* Subtitle */}
           <Paragraph size="sm" className="mb-8 md:mb-10 lg:mb-12 max-w-3xl mx-auto">
@@ -78,7 +169,7 @@ const Hero = () => {
           </div>
 
           {/* Platform Award Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-8 mb-6">
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-8 mb-6">
             {[
               {
                 title: "Top App\nDevelopment\nCompany",
@@ -103,10 +194,17 @@ const Hero = () => {
             ].map((badge, index) => (
               <div
                 key={index}
-                className="relative group flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className={`relative group flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                  index === 3 ? "hidden sm:flex" : "flex"
+                }`}
               >
                 {/* Award Badge SVG - Pixel Perfect */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="90" height="95" viewBox="0 0 214 221" fill="none" className="text-yellow-400 dark:text-yellow-500 group-hover:text-yellow-500 dark:group-hover:text-yellow-400 transition-colors duration-300 sm:w-[100px] sm:h-[105px] md:w-[110px] md:h-[115px]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 214 221"
+                  fill="none"
+                  className="text-yellow-400 dark:text-yellow-500 group-hover:text-yellow-500 dark:group-hover:text-yellow-400 transition-colors duration-300 w-[78px] h-[82px] sm:w-[94px] sm:h-[98px] md:w-[110px] md:h-[115px]"
+                >
                   {/* Left Laurel */}
                   <path fill="currentColor" d="M19.645 48.83c3.343-2.702 8.173-2.648 8.398-2.342 0 0-2.431 2.53-4.857 6.958-2.052 3.748-7.946 2.425-7.946 2.425s1.062-4.34 4.407-7.041z"></path>
                   <path fill="currentColor" d="M12.14 57.33c-.017 1.56-.376 3.01-.83 4.231.743-.886 1.67-1.768 2.794-2.47 3.639-2.265 8.421-1.605 8.608-1.274 0 0-2.713 2.208-5.646 6.304-2.483 3.464-8.17 1.414-8.17 1.414s.08-.21.243-.56c-.93-.881-4.163-4.27-2.744-7.67 1.945-4.669 2.416-8.178 2.416-8.178.372-.008 3.374 3.855 3.328 8.204"></path>
