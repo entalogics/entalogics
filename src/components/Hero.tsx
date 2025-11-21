@@ -196,7 +196,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <section id="home" className="pb-10 pt-0 max-md:pt-2">
+      <section id="home" className="pb-0 pt-0 max-md:pt-2">
         <TrustBar />
       </section>
     </>
