@@ -36,7 +36,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className={`relative isolate w-full overflow-hidden !overflow-y-visible flex flex-col items-center justify-center pt-24 md:pt-28 lg:pt-32 px-10 max-2xl:px-[70px]  max-md:px-4  pb-3 md:pb-7 lg:pb-3 xl:pb-7 ${sora.className}`}
+        className={`relative isolate w-full overflow-hidden !overflow-y-visible flex flex-col items-center justify-center pt-32 md:pt-32 lg:pt-40 px-10 max-2xl:px-[70px]  max-md:px-4  pb-3 md:pb-7 lg:pb-3 xl:pb-7 ${sora.className}`}
       >
         {/* Main Content Container */}
         <div className="w-full max-w-[1050px] max-laptop:max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-12 items-center">
@@ -101,7 +101,7 @@ const Hero = () => {
             <p className="mb-5 max-w-xl mx-auto lg:mx-0 text-gray-600 dark:text-gray-400 leading-relaxed max-laptop:text-[15px] text-md max-md:text-[13px]">
               We build Custom Chromium Browsers, Web, Desktop & Mobile Apps, AI/ML Tools, and SaaS Products for Startups, SMEs, and B2B Companies.
               <br />
-              <span className="inline-block mt-2 text-blue-600 dark:text-blue-400 font-medium">"Open to Tech Partnerships"</span>
+              <span className="inline-block mt-2 text-blue-600 dark:text-blue-400 font-medium text-[14px]">"Open to Tech Partnerships"</span>
             </p>
 
             {/* Buttons */}
@@ -113,21 +113,21 @@ const Hero = () => {
                     background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6, #3b82f6)',
                   }}
                 >
-                  <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-6 py-3.5 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
+                  <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-4 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
                     <span>Start your project</span>
                     <motion.span
                       animate={{ x: [0, 5, 0] }}
                       transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                       style={{ display: "inline-flex" }}
                     >
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <ArrowRight className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
                     </motion.span>
                   </button>
                 </div>
               </a>
 
               <Link href="/about" className="inline-block">
-                <Button variant="secondary" size="sm" className="text-sm px-6 py-3.5 whitespace-nowrap bg-transparent border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <Button variant="secondary" size="sm" className="text-sm font-[500] px-4 py-3 whitespace-nowrap bg-transparent border border-gray-300 dark:border-gray-700  dark:text-white hover:bg-black/90 dark:hover:bg-gray-800 transition-colors bg-black text-white">
                   About Us
                 </Button>
               </Link>
