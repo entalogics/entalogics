@@ -7,6 +7,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 import { Poppins } from "next/font/google"
 import { MessageSquare } from "lucide-react"
+import { testimonials } from "@/data/testimonialsData"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,37 +16,9 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-interface Testimonial {
-  id: number
-  text: string
-  author: string
-  role: string
-  avatar: string
-}
 
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    text: "Working with this team we game-changer. The AI-enhanced they delivered helped reduce bounce rates by 40% engagement like never before.",
-    author: "Lauren M",
-    role: "hardware Technician",
-    avatar: "https://demo.awaikenthemes.com/nextmind/wp-content/uploads/2025/05/author-3.jpg"
-  },
-  {
-    id: 2,
-    text: "Working with this team we game-changer. The AI-enhanced they delivered helped reduce bounce rates by 40% engagement like never before.",
-    author: "Jason M",
-    role: "hardware Technician",
-    avatar: "https://demo.awaikenthemes.com/nextmind/wp-content/uploads/2025/05/author-2.jpg"
-  },
-  {
-    id: 3,
-    text: "Working with this team we game-changer. The AI-enhanced they delivered helped reduce bounce rates by 40% engagement like never before.",
-    author: "Jenny W",
-    role: "fintech startup",
-    avatar: "https://demo.awaikenthemes.com/nextmind/wp-content/uploads/2025/05/author-1.jpg"
-  },
-]
+
+
 
 const Testimonials: React.FC = () => {
   return (
@@ -112,7 +85,7 @@ const Testimonials: React.FC = () => {
 
             {/* Static Card Background */}
             <div 
-              className="relative rounded-2xl z-20 overflow-hidden px-6 pt-8 pb-[3vw] md:pt-12 md:pb-10 md:px-0 w-[97%] md:w-full h-[280px] md:h-auto md:min-h-[398px] bg-[#1d4bcf]/95 max-md:w-[95%] "
+              className="relative rounded-2xl z-20 overflow-hidden px-6 pt-8 pb-[3vw] md:pt-12 md:pb-10 md:px-0 w-[97%] md:w-full h-[280px] md:h-[398px] bg-[#1d4bcf]/95 max-md:w-[95%] "
             >
 
               {/* Watermark Quote Icon - Static */}
@@ -184,8 +157,8 @@ const Testimonials: React.FC = () => {
                         <div className="w-full h-px bg-white/20 mb-4 md:mb-6"></div>
 
                         {/* Testimonial Text - Below */}
-                        <div>
-                          <p className="text-white text-[15px] sm:text-base md:text-lg lg:text-xl leading-[1.6] md:leading-[1.7] font-normal">
+                        <div className="overflow-hidden">
+                          <p className="text-white text-[15px] sm:text-base md:text-lg lg:text-xl leading-[1.6] md:leading-[1.7] font-normal testimonial-text">
                             "{testimonial.text}"
                           </p>
                         </div>
@@ -250,6 +223,20 @@ const Testimonials: React.FC = () => {
                 border-color: white;
                 width: 24px;
                 border-radius: 12px;
+              }
+
+              .testimonial-text {
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+
+              @media (min-width: 768px) {
+                .testimonial-text {
+                  -webkit-line-clamp: 5;
+                }
               }
             `}</style>
           </div>
