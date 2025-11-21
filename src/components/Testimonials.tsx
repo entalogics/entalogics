@@ -1,8 +1,9 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Autoplay } from "swiper/modules"
+import { Autoplay } from "swiper/modules"
+import type { Swiper as SwiperType } from "swiper"
 import "swiper/css"
 import "swiper/css/pagination"
 import { Poppins } from "next/font/google"
@@ -21,6 +22,39 @@ const poppins = Poppins({
 
 
 const Testimonials: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const swiperRef = useRef<SwiperType | null>(null)
+  // Dynamic bullets: show as many as testimonials, but max 5
+  const maxBullets = Math.min(testimonials.length, 5)
+
+  // Calculate which bullet should be active
+  const getActiveBulletIndex = () => {
+    return activeIndex % maxBullets
+  }
+
+  // Handle bullet click
+  const handleBulletClick = (bulletIndex: number) => {
+    if (!swiperRef.current) return
+
+    // If testimonials are less than or equal to maxBullets, directly navigate
+    if (testimonials.length <= maxBullets) {
+      swiperRef.current.slideToLoop(bulletIndex)
+    } else {
+      // Calculate the actual slide index based on current position
+      const currentGroup = Math.floor(activeIndex / maxBullets)
+      const targetIndex = currentGroup * maxBullets + bulletIndex
+
+      // Navigate to the target slide
+      if (targetIndex < testimonials.length) {
+        swiperRef.current.slideToLoop(targetIndex)
+      } else {
+        // If beyond testimonials, go to the equivalent position in loop
+        const loopedIndex = targetIndex % testimonials.length
+        swiperRef.current.slideToLoop(loopedIndex)
+      }
+    }
+  }
+
   return (
     <section
       id="testimonials-section"
@@ -80,12 +114,12 @@ const Testimonials: React.FC = () => {
           {/* Right Section - Testimonial Slider */}
           <div className="relative mt-8 lg:mt-0 w-full max-w-md sm:max-w-lg lg:max-w-md  lg:justify-self-end pr-7 max-md:pr-0 max-md:justify-self-center max-md:flex max-md:justify-center max-md:items-center max-md:max-w-[90%] max-md:self-center max-lg:justify-self-center max-lg:pr-0">
             {/* Rotated Blurred Background Card */}
-            <div className="absolute inset-0 z-[1] transform -rotate-6 -translate-x-1 translate-y-1 rounded-2xl bg-black/20 dark:bg-white/30  opacity-1 right-6  max-md:w-[95%] max-md:right-0 max-md:left-3">
+            <div className="absolute inset-0 z-[1] transform -rotate-6 -translate-x-1 translate-y-1 rounded-md bg-black/20 dark:bg-white/30  opacity-1 right-6  max-md:w-[95%] max-md:right-0 max-md:left-3">
             </div>
 
             {/* Static Card Background */}
-            <div 
-              className="relative rounded-2xl z-20 overflow-hidden px-6 pt-8 pb-[3vw] md:pt-12 md:pb-10 md:px-0 w-[97%] md:w-full h-[280px] md:h-[398px] bg-[#1d4bcf]/95 max-md:w-[95%] "
+            <div
+              className="relative rounded-md z-20 overflow-hidden px-6 pt-8 pb-[3vw] md:pt-12 md:pb-10 md:px-0 w-[97%] md:w-full h-[280px] md:h-[398px] bg-[#1d4bcf]/95 max-md:w-[95%] "
             >
 
               {/* Watermark Quote Icon - Static */}
@@ -110,7 +144,7 @@ const Testimonials: React.FC = () => {
               {/* Swiper for Content Only */}
               <div className="relative overflow-hidden">
                 <Swiper
-                  modules={[Pagination, Autoplay]}
+                  modules={[Autoplay]}
                   spaceBetween={0}
                   slidesPerView={1}
                   autoplay={{
@@ -118,14 +152,17 @@ const Testimonials: React.FC = () => {
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                   }}
-                  pagination={{
-                    clickable: true,
-                    bulletClass: "swiper-pagination-bullet testimonial-bullet",
-                    bulletActiveClass: "swiper-pagination-bullet-active testimonial-bullet-active",
-                    el: ".testimonial-pagination",
-                  }}
                   loop={true}
                   className="testimonial-swiper"
+                  onSlideChange={(swiper) => {
+                    // Get real index (accounting for loop duplicates)
+                    const realIndex = swiper.realIndex
+                    setActiveIndex(realIndex)
+                  }}
+                  onSwiper={(swiper) => {
+                    swiperRef.current = swiper
+                    setActiveIndex(swiper.realIndex)
+                  }}
                 >
                   {testimonials.map((testimonial) => (
                     <SwiperSlide key={testimonial.id}>
@@ -168,8 +205,20 @@ const Testimonials: React.FC = () => {
                 </Swiper>
               </div>
 
-              {/* Pagination - Bottom Left Inside Card */}
-              <div className="testimonial-pagination absolute bottom-4 left-6 md:bottom-6 md:left-10 z-20"></div>
+              {/* Custom Pagination - Bottom Left Inside Card */}
+              <div className="testimonial-pagination absolute bottom-4 left-6 md:bottom-6 md:left-10 z-20 flex gap-2">
+                {Array.from({ length: maxBullets }).map((_, index) => {
+                  const isActive = index === getActiveBulletIndex()
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => handleBulletClick(index)}
+                      className={`testimonial-bullet ${isActive ? 'testimonial-bullet-active' : ''}`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  )
+                })}
+              </div>
             </div>
 
             {/* Custom Pagination Styles - Bottom Left */}
@@ -216,6 +265,8 @@ const Testimonials: React.FC = () => {
                 transition: all 0.3s ease;
                 cursor: pointer;
                 margin: 0 !important;
+                padding: 0;
+                outline: none;
               }
 
               .testimonial-pagination .testimonial-bullet-active {

@@ -23,7 +23,7 @@ const FounderCTASection: React.FC<FounderCTASectionProps> = ({
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="space-y-8">
           {/* CTA */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white shadow-xl">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-md p-8 text-center text-white shadow-xl">
             <Heading level={3} className="text-white mb-4">
               {title}
             </Heading>

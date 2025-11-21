@@ -46,9 +46,9 @@ interface HowWeDifferProps {
   className?: string
 }
 
-const HowWeDiffer: React.FC<HowWeDifferProps> = ({ 
-  showHeading = true, 
-  className = "" 
+const HowWeDiffer: React.FC<HowWeDifferProps> = ({
+  showHeading = true,
+  className = ""
 }) => {
   return (
     <div className={className}>
@@ -57,7 +57,7 @@ const HowWeDiffer: React.FC<HowWeDifferProps> = ({
           Here's How We Do Things Differently
         </Heading>
       )}
-      
+
       <div className="max-w-6xl mx-auto">
         {/* Comparison Grid */}
         <div className="grid md:grid-cols-2 gap-6">
@@ -69,9 +69,9 @@ const HowWeDiffer: React.FC<HowWeDifferProps> = ({
                 Others
               </div>
             </div>
-            
+
             {comparisons.map((item, index) => (
-              <div 
+              <div
                 key={`others-${index}`}
                 className="group p-5 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800/40 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300"
               >
@@ -98,15 +98,15 @@ const HowWeDiffer: React.FC<HowWeDifferProps> = ({
                 Entalogics
               </div>
             </div>
-            
+
             {comparisons.map((item, index) => (
-              <div 
+              <div
                 key={`us-${index}`}
                 className="group relative p-5 rounded-xl bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800/40 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Shine Effect on Hover */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-green-400/20 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500" />
-                
+
                 <div className="relative">
                   <div className="flex items-start gap-3 mb-2">
                     <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-green-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -119,7 +119,7 @@ const HowWeDiffer: React.FC<HowWeDifferProps> = ({
                   <p className="text-sm text-gray-900 dark:text-white leading-relaxed pl-10 font-medium">
                     {item.us}
                   </p>
-                  
+
                   {/* Lightning Badge on Hover */}
                   <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-6 h-6 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center animate-pulse shadow-md">

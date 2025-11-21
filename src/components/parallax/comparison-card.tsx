@@ -32,7 +32,7 @@ export default function ComparisonCardComponent({ card, index, progress, range, 
         } as any}
       >
         {/* Comparison Card - Simple Design */}
-        <div className="mx-auto max-w-[95%] sm:max-w-[90%] md:max-w-2xl lg:max-w-4xl rounded-lg md:rounded-2xl bg-white dark:bg-gray-800/95 backdrop-blur-sm shadow-lg md:shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="mx-auto max-w-[95%] sm:max-w-[90%] md:max-w-2xl lg:max-w-4xl rounded-lg md:rounded-md bg-white dark:bg-gray-800/95 backdrop-blur-sm shadow-lg md:shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
           {/* Comparison Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200 dark:divide-gray-700">
             {/* Left Side - Others */}

@@ -30,4 +30,6 @@ export const testimonials: Testimonial[] = [
       role: "fintech startup",
       avatar: "https://demo.awaikenthemes.com/nextmind/wp-content/uploads/2025/05/author-1.jpg"
     },
+    
+    
   ]

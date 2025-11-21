@@ -5,8 +5,8 @@ module.exports = {
   darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-     "./pages/**/*.{js,ts,jsx,tsx}",
-     "./src/components/parallax/**/*.{js,jsx,ts,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/parallax/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -76,10 +76,10 @@ module.exports = {
       fontFamily: {
         'sans': ['Sora', 'system-ui', 'sans-serif'],
         'display': ['Sora', 'system-ui', 'sans-serif'],
-          'poppins': "var(--font-poppins)",
-          'arizonia': ['Arizonia', 'cursive'],
-          'zilla-slab-highlight': ['Zilla Slab Highlight', 'serif'],
-         
+        'poppins': "var(--font-poppins)",
+        'arizonia': ['Arizonia', 'cursive'],
+        'zilla-slab-highlight': ['Zilla Slab Highlight', 'serif'],
+
       },
       fontSize: {
         'xs': ['clamp(0.65rem, 1vw, 0.75rem)', { lineHeight: '1.4' }],
@@ -237,6 +237,7 @@ module.exports = {
         'lg': '1024px',
         'xl': '1280px',
         '2xl': '1536px',
+        'laptop': '1400px',
       },
     },
   },

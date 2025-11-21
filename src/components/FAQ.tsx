@@ -102,27 +102,24 @@ const FAQ = ({ showCta = true }: FAQProps) => {
           {faqs.map((faq, idx) => (
             <div
               key={`${faq.question}-${idx}`}
-              className={`border rounded-lg sm:rounded-xl transition-colors duration-200 ${
-                openIndex === idx
-                  ? "border-blue-200 dark:border-blue-800 bg-gradient-to-br from-blue-50/90 to-blue-50/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-sm"
-                  : "border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-sm"
-              }`}
+              className={`border rounded-md sm:rounded-md transition-colors duration-200 ${openIndex === idx
+                ? "border-blue-200 dark:border-blue-800 bg-gradient-to-br from-blue-50/90 to-blue-50/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-sm"
+                : "border-gray-200 dark:border-gray-700 bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-sm"
+                }`}
             >
               <button
-                className={`w-full flex items-center justify-between p-4 sm:p-6 text-left focus:outline-none transition-colors duration-200 ${
-                  openIndex === idx
-                    ? "" // Removed hover effect for opened questions
-                    : "hover:bg-gray-50 dark:hover:bg-gray-700/50"
-                }`}
+                className={`w-full flex items-center justify-between p-4 sm:p-6 text-left focus:outline-none transition-colors duration-200 ${openIndex === idx
+                  ? "" // Removed hover effect for opened questions
+                  : "hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                  }`}
                 onClick={() => toggleFAQ(idx)}
                 aria-expanded={openIndex === idx}
                 aria-controls={`faq-panel-${idx}`}
               >
                 <div className="flex-1 pr-3 sm:pr-4">
                   <h3
-                    className={`font-semibold text-base sm:text-lg transition-colors duration-200 leading-tight ${
-                      openIndex === idx ? "text-blue-600 dark:text-blue-400" : "text-gray-900 dark:text-white"
-                    } ${poppins.className}`}
+                    className={`font-semibold text-base sm:text-lg transition-colors duration-200 leading-tight ${openIndex === idx ? "text-blue-600 dark:text-blue-400" : "text-gray-900 dark:text-white"
+                      } ${poppins.className}`}
                   >
                     {faq.question}
                   </h3>
@@ -130,11 +127,10 @@ const FAQ = ({ showCta = true }: FAQProps) => {
                 <div className="flex-shrink-0 ml-3 sm:ml-4">
                   <ChevronDown
                     size={18}
-                    className={`transition-transform duration-200 ${
-                      openIndex === idx
-                        ? "transform rotate-180 text-blue-600 dark:text-blue-400"
-                        : "text-gray-500 dark:text-gray-400"
-                    }`}
+                    className={`transition-transform duration-200 ${openIndex === idx
+                      ? "transform rotate-180 text-blue-600 dark:text-blue-400"
+                      : "text-gray-500 dark:text-gray-400"
+                      }`}
                   />
                 </div>
               </button>
@@ -159,7 +155,7 @@ const FAQ = ({ showCta = true }: FAQProps) => {
             <Paragraph size="lg" className="mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
               Our team is here to help you understand how we can bring your project to life.
             </Paragraph>
-            
+
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
               <Button
                 variant="primary"
