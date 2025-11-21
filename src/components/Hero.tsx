@@ -39,7 +39,7 @@ const Hero = () => {
         className={`relative isolate w-full overflow-hidden !overflow-y-visible flex flex-col items-center justify-center pt-24 md:pt-28 lg:pt-32 px-10 max-2xl:px-[70px]  max-md:px-4  pb-3 md:pb-7 lg:pb-3 xl:pb-7 ${sora.className}`}
       >
         {/* Main Content Container */}
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-12 items-center">
+        <div className="w-full max-w-[1050px] max-laptop:max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-12 items-center">
 
           {/* Left Column: Text Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-1 lg:col-span-7">
@@ -138,7 +138,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column: Hero Image */}
-          <div className="flex items-center justify-center order-2 lg:justify-start lg:col-span-5 ">
+          <div className="flex items-center justify-center order-2 lg:justify-end lg:col-span-5 ">
             {/* <div className="relative w-full max-w-lg">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-3xl rounded-full"></div>
               <Image
@@ -154,7 +154,7 @@ const Hero = () => {
 
 
 
-            <div className="flex items-center justify-center lg:justify-start gap-4 mt-6 max-w-[400px] max-md:w-[400px] flex-wrap">
+            <div className="flex items-center justify-center lg:justify-end gap-4 mt-6 max-w-[400px] max-md:w-[400px] mr-5 max-md:mr-0 flex-wrap">
               <a href="https://clutch.co/profile/entalogics" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
                 <Image
                   src="/assets/badges/entalogics-clutch.svg"
