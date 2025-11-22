@@ -39,11 +39,7 @@ const TrustBar = ({ speed = 30, noPaddingTop = false }: TrustBarProps) => {
 
   return (
     <section className={`relative ${noPaddingTop ? 'pt-0' : 'pt-0 md:pt-0'} flex flex-col items-center justify-center overflow-hidden`}>
-      <div className="container mx-auto text-center px-4">
-        <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 text-[13px]">
-          Our work spans startups, SMEs, and enterprise companies around the world.
-        </p>
-      </div>
+     
       {/* Marquee Section */}
       <div className="relative w-full flex items-center justify-center " style={{ minHeight: 80 }}>
         <Marquee
@@ -72,6 +68,11 @@ const TrustBar = ({ speed = 30, noPaddingTop = false }: TrustBarProps) => {
       </div>
 
       {/* Description Below */}
+      <div className="container mx-auto text-center px-4 pb-3">
+        <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 text-[13px]">
+          Our work spans startups, SMEs, and enterprise companies around the world.
+        </p>
+      </div>
 
     </section>
   )

@@ -27,7 +27,7 @@ import {
 import Link from "next/link"
 import Head from "next/head"
 import Layout from "../../src/components/Layout"
-import Testimonials from "../../src/components/Testimonials"
+import Reviews from "../../src/components/Reviews"
 import FAQ from "../../src/components/FAQ"
 import CTA from "../../src/components/CTA"
 import FounderCTASection from "../../src/components/FounderCTASection"
@@ -872,9 +872,9 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
             <ProcessStepsSection steps={service.methodology.steps} />
           )}
 
-          {/* Testimonials Section */}
+          {/* Reviews Section */}
           <div className="pt-4 md:pt-6 lg:pt-8">
-            <Testimonials />
+            <Reviews />
           </div>
 
           {/* FAQ Section (CTA hidden on service page) */}

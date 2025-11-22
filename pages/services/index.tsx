@@ -45,14 +45,14 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   const IconComponent = originalService?.icon || Building2
 
   return (
-    <div className="group relative h-full flex flex-col bg-transparent dark:bg-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/15 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+    <div className="group relative h-full flex flex-col bg-transparent dark:bg-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/15 rounded-md shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
       {/* Enhanced glassy overlay effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 via-white/5 to-transparent dark:from-white/10 dark:via-white/3 dark:to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 rounded-md bg-gradient-to-br from-white/20 via-white/5 to-transparent dark:from-white/10 dark:via-white/3 dark:to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
       {/* Additional glassy border effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       {/* Glassy shine effect */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-white/10 to-transparent dark:via-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      <div className="relative h-52 overflow-hidden rounded-t-2xl">
+      <div className="absolute inset-0 rounded-md bg-gradient-to-br from-transparent via-white/10 to-transparent dark:via-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="relative h-52 overflow-hidden rounded-t-md">
         <img
           src={
             service.thumbnail ||

@@ -2,11 +2,11 @@
 
 import Layout from "../src/components/Layout"
 import Hero from "../src/components/Hero"
+import Reviews from "../src/components/Reviews"
 import Services from "../src/components/Services"
 import PortfolioCarousel from "../src/components/PortfolioCarousel"
 import WhyChooseUs from "../src/components/WhyChooseUs"
 import HowWeBuildWithYou from "../src/components/HowWeBuildWithYou"
-import Testimonials from "../src/components/Testimonials"
 import FAQ from "../src/components/FAQ"
 import Blog from "../src/components/Blog"
 import Contact from "../src/components/Contact"
@@ -47,7 +47,17 @@ export default function Page() {
             </div>
           </section>
 
-
+          {/* REVIEWS SECTION */}
+          <section 
+            className="relative pt-5" 
+            style={{ 
+              overflowX: 'clip'
+            }}
+          >
+            <div className="relative z-10">
+              <Reviews />
+            </div>
+          </section>
 
           {/* SERVICES SECTION */}
           <section 
@@ -78,9 +88,9 @@ export default function Page() {
 
 
           {/* TESTIMONIALS SECTION */}
-          <section className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-0" style={{ overflowX: 'clip' }}>
+          {/* <section className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-0" style={{ overflowX: 'clip' }}>
             <Testimonials />
-          </section>
+          </section> */}
 
           {/* FAQ SECTION */}
           <section id="faq" className="relative bg-transparent pt-12 md:pt-16 lg:pt-20 xl:pt-24" style={{ overflowX: 'clip' }}>

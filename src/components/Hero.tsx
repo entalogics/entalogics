@@ -91,7 +91,7 @@ const Hero = () => {
                   Software
                 </span>
               </span>
-              <span className="block text-black dark:text-white">Development</span>
+              <span className="block text-black dark:text-white">Development Company</span>
               <span className="block text-[#4F46E5] dark:text-gray-400 text-xl md:text-2xl lg:text-3xl font-[500] mt-3">
                 Business & IT Solutions
               </span>

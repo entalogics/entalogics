@@ -69,10 +69,10 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         </div>
 
         <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
-          <span className="group inline-flex items-center justify-center px-6 mx-auto py-2 rounded-xl bg-transparent text-primary font-semibold text-sm transition-all duration-200">
-            <span className="relative inline-flex items-center gap-2">
+          <span className="group inline-flex items-center justify-center px-6 mx-auto py-2 rounded-xl bg-transparent text-black dark:text-white font-semibold text-sm transition-all duration-200">
+            <span className="relative">
               Learn More
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </span>
           </span>
         </div>
