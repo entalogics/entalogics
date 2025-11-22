@@ -87,7 +87,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
             {service.tagline}
           </Paragraph>
 
-          {service.features && (
+          {/* {service.features && (
             <div className="mb-2">
               <h5 className="font-semibold font-poppins text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2 text-xs">
                 <Star className="w-3 h-3 text-blue-600 " />
@@ -143,7 +143,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                 </div>
               )}
             </div>
-          )}
+          )} */}
         </div>
 
         <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">

@@ -38,7 +38,7 @@ interface ServiceCardProps {
 const ServiceCard = ({ service }: ServiceCardProps) => {
   const cardContent = (
     <div className="relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-md shadow-sm transition-all duration-500 overflow-hidden transform group-hover:shadow-xl group-hover:-translate-y-2">
-      <div className="relative h-52 overflow-hidden rounded-t-md">
+      <div className="relative h-52 overflow-hidden rounded-t-md border-b">
         <img
           src={
             service.thumbnail ||
@@ -51,7 +51,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
             "/placeholder.svg"
           }
           alt={`${service.title} service illustration`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 "
         />
       </div>
 
@@ -59,69 +59,13 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         <div className="flex-grow flex flex-col">
           <Paragraph
             size="sm"
-            className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-3 line-clamp-3"
+            className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-3 line-clamp-3 "
             center={false}
           >
             {service.tagline}
           </Paragraph>
 
-          {service.features && (
-            <div className="mb-2">
-              <h5 className="font-semibold font-poppins text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2 text-xs">
-                <Star className="w-3 h-3 text-blue-600 " />
-                Key Features
-              </h5>
-              {Array.isArray(service.features) && typeof service.features[0] === "string" ? (
-                <div className="grid grid-cols-2 ">
-                  {(service.features as string[]).map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-2 p-1 rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
-                    >
-                      <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs font-poppins text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ) : Array.isArray(service.features[0]) ? (
-                <div className="grid grid-cols-2 ">
-                  {service.features
-                    .flat()
-                    .slice(0, 4)
-                    .map(
-                      (feature, idx) =>
-                        feature && (
-                          <div
-                            key={idx}
-                            className="flex items-start gap-2  rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
-                          >
-                            <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
-                              {feature}
-                            </span>
-                          </div>
-                        ),
-                    )}
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 ">
-                  {service.features.slice(0, 4).map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-2 p-1 rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
-                    >
-                      <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+        
         </div>
 
         <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
