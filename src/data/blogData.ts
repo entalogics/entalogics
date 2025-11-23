@@ -45,7 +45,7 @@ export const blogData: { [key: string]: BlogPost } = {
     publishDate: '2025-01-15',
     readTime: '5 min read',
     category: 'AI Development',
-    image: '/assets/services/ai1.jpg'
+    image: '/assets/services/ai-solutions-for-apps-by-entalogics.svg'
   },
   'saas-architecture-best-practices': {
     slug: 'saas-architecture-best-practices',
@@ -98,7 +98,7 @@ export const blogData: { [key: string]: BlogPost } = {
     publishDate: '2025-01-10',
     readTime: '7 min read',
     category: 'SaaS Development',
-    image: '/assets/services/saas1.jpg'
+    image: '/assets/services/saas-product-development-services-by-entalogics.svg'
   },
   'mobile-app-performance-optimization': {
     slug: 'mobile-app-performance-optimization',
@@ -166,7 +166,7 @@ export const blogData: { [key: string]: BlogPost } = {
     publishDate: '2025-01-05',
     readTime: '6 min read',
     category: 'Mobile Development',
-    image: '/assets/services/mobile-app.jpg'
+    image: '/assets/services/desktop-applications-services-by-entalogics.svg'
   }
 };
 
