@@ -15,7 +15,7 @@ const ProjectCTA = () => {
         Let's discuss your project and see how we can help you achieve your goals with quality software at fair pricing.
       </Paragraph>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
-        <Link href="/contact" className="w-full sm:w-auto">
+        <Link href="/contact-us" className="w-full sm:w-auto">
           <Button
             variant="secondary"
             size="md"

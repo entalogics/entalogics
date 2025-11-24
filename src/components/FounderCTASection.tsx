@@ -32,7 +32,7 @@ const FounderCTASection: React.FC<FounderCTASectionProps> = ({
             </Paragraph>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               {showQuoteButton && (
-                <Link href="/contact" className="w-full sm:w-auto">
+                <Link href="/contact-us" className="w-full sm:w-auto">
                   <Button
                     variant="secondary"
                     size="md"

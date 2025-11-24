@@ -9,7 +9,7 @@ import WhyChooseUs from "../src/components/WhyChooseUs"
 import HowWeBuildWithYou from "../src/components/HowWeBuildWithYou"
 import FAQ from "../src/components/FAQ"
 import Blog from "../src/components/Blog"
-import Contact from "../src/components/Contact"
+import ContactFormSection from "../src/components/ContactFormSection"
 import FounderCTASection from "../src/components/FounderCTASection"
 import TrustBar from "../src/components/TrustBar"
 import Head from "next/head"
@@ -106,8 +106,8 @@ export default function Page() {
           </section>
 
           {/* CONTACT SECTION */}
-          <section id="contact" className="relative bg-transparent py-12 md:py-16 lg:py-20 xl:pt-24" style={{ overflowX: 'clip' }}>
-            <Contact />
+          <section id="contact" className="relative bg-transparent pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-4 md:pb-6 lg:pb-8" style={{ overflowX: 'clip' }}>
+            <ContactFormSection />
           </section>
         </div>
       </Layout>

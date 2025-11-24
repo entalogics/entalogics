@@ -78,7 +78,7 @@ const TypewriterCTA: React.FC<TypewriterCTAProps> = ({
           >{displayText}</span><span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground dark:text-white animate-pulse font-poppins select-none ml-1">|</span>
         </h2>
       </div>
-      <Link href="/contact" className="border-2 border-foreground dark:border-white rounded-full px-6 py-3 bg-transparent hover:bg-foreground hover:text-background dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-foreground dark:text-white font-medium text-sm md:text-base self-start md:self-start flex-shrink-0">
+      <Link href="/contact-us" className="border-2 border-foreground dark:border-white rounded-full px-6 py-3 bg-transparent hover:bg-foreground hover:text-background dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-foreground dark:text-white font-medium text-sm md:text-base self-start md:self-start flex-shrink-0">
         Contact →
       </Link>
       <style jsx>{`

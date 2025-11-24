@@ -11,53 +11,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const {
-    firstName,
-    lastName,
+    fullName,
     company,
     email,
     phone,
     website,
     country,
     description,
-    lookingFor,
-    budget,
-    budgetCustom,
-    timeline,
-    projectType,
+    consent,
   } = req.body
 
-  // Combine firstName and lastName into name for display
-  const name = `${firstName} ${lastName}`.trim()
+  // Use fullName as name for display
+  const name = fullName?.trim() || ""
 
   // Server-side validation
   if (
-    !firstName ||
-    !lastName ||
+    !fullName ||
     !email ||
     !country ||
     !description ||
-    !lookingFor ||
-    !lookingFor.length ||
-    !budget ||
-    !timeline ||
-    !projectType
+    !consent
   ) {
     res.status(400).json({ error: "Missing required fields" })
-    return
-  }
-  if (budget === "Custom budget" && !budgetCustom) {
-    res.status(400).json({ error: "Custom budget amount is required" })
     return
   }
   if (!/^\S+@\S+\.\S+$/.test(email)) {
     res.status(400).json({ error: "Invalid email" })
     return
   }
-
-  const budgetDisplay = budget === "Custom budget" ? budgetCustom : budget
-
-  // Format lookingFor as a comma-separated string
-  const lookingForDisplay = Array.isArray(lookingFor) ? lookingFor.join(", ") : lookingFor
 
   try {
     // 1. Send to Admin (You)
@@ -80,10 +61,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           
           <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #1f2937; margin-top: 0;">Project Details</h3>
-            <p><strong>Project Type:</strong> ${projectType}</p>
-            <p><strong>Timeline:</strong> ${timeline}</p>
-            <p><strong>Services Needed:</strong> ${lookingForDisplay}</p>
-            <p><strong>Budget:</strong> ${budgetDisplay}</p>
+            <p><strong>Message:</strong> See description below</p>
           </div>
           
           <div style="background: #fef3c7; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -113,11 +91,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         country,
         phone: phone || "Not provided",
         website: website || "Not provided",
-        projectType,
-        timeline,
-        lookingForDisplay,
-        budgetDisplay,
-        description,
+        projectType: "Not specified",
+        timeline: "Not specified",
+        lookingForDisplay: "Not specified",
+        budgetDisplay: "Not specified",
+        description: description || "No description provided",
       }),
     })
 

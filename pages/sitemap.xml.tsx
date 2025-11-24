@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       }
     },
     { 
-      url: '/contact', 
+      url: '/contact-us', 
       priority: '0.8', 
       changefreq: 'monthly',
       image: {

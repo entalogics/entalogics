@@ -40,7 +40,19 @@ const Reviews = () => {
               <div className="relative border bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-md h-full cursor-grab active:cursor-grabbing">
                 {/* Arrow Icon - Top Right */}
                 <div className="absolute top-5 right-5">
-                  <ArrowUpRight className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+                  {testimonial.link ? (
+                    <a 
+                      href={testimonial.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ArrowUpRight className="w-5 h-5 text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors cursor-pointer" />
+                    </a>
+                  ) : (
+                    <ArrowUpRight className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+                  )}
                 </div>
 
                 {/* Profile Section */}

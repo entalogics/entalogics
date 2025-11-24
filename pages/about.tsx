@@ -500,7 +500,7 @@ const AboutPage = () => {
                 >
                   To learn more about our approach to business and work, feel free to hop on over to our{" "}
                     <Link 
-                    href="/contact"
+                    href="/contact-us"
                     className="text-black dark:text-blue-400 hover:underline"
                     style={{
                       textDecoration: 'none'

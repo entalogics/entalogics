@@ -106,7 +106,7 @@ const Hero = () => {
 
             {/* Buttons */}
             <div className="flex flex-row items-center justify-center lg:justify-start gap-4 mb-6">
-              <a href="/contact" className="inline-block group">
+              <a href="/contact-us" className="inline-block group">
                 <div
                   className="relative rounded-lg p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
                   style={{

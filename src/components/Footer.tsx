@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Twitter, Linkedin, Github, Mail, ArrowRight, MessageCircle, Facebook } from "lucide-react"
+import { Twitter, Linkedin, Github, Mail, ArrowRight, Facebook } from "lucide-react"
 import { useTheme } from "../context/ThemeContext"
 import Image from "next/image"
 import { servicesData } from "../data/servicesData"
@@ -37,7 +37,7 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
     { icon: Twitter, path: "https://x.com/EntaLogics", accentColor: "neon-orange", label: "X (Twitter)" },
     { icon: Facebook, path: "https://m.facebook.com/EntaLogics/", accentColor: "neon-cyan", label: "Facebook" },
     { icon: Mail, path: "mailto:info@entalogics.com", accentColor: "neon-orange", label: "Email" },
-    { icon: MessageCircle, path: "https://wa.me/923207385471", accentColor: "neon-cyan", label: "WhatsApp" },
+    { icon: Linkedin, path: "https://www.linkedin.com/company/enta-logics", accentColor: "neon-cyan", label: "LinkedIn" },
   ]
 
   return (
@@ -50,7 +50,7 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-20 md:py-24">
+        <div className="pt-8 md:pt-10 lg:pt-12 pb-20 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Brand Section */}
             <div className="lg:col-span-1">

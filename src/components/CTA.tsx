@@ -33,7 +33,7 @@ const CTA = () => {
               icon={<Rocket className="w-4 h-4 sm:w-5 sm:h-5" />}
               className="shadow-lg hover:shadow-xl py-2.5 sm:py-3 ring-1 ring-primary/20 hover:ring-primary/40 font-normal text-sm sm:text-base"
             >
-              <Link href="/contact" className="flex items-center gap-2">
+              <Link href="/contact-us" className="flex items-center gap-2">
                 Get Free Quote
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
               </Link>

@@ -275,7 +275,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
                     size="md"
                     className="shadow-lg hover:shadow-xl ring-1 ring-primary/20 hover:ring-primary/40 font-normal"
                   >
-                    <Link href="/contact" className="flex items-center gap-2">
+                    <Link href="/contact-us" className="flex items-center gap-2">
                       Get Free Quote
                       <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -286,7 +286,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
                     size="md"
                     className="border border-border dark:border-gray-600 font-normal"
                   >
-                    <Link href="/contact" className="flex items-center gap-2">
+                    <Link href="/contact-us" className="flex items-center gap-2">
                       Contact Us
                       <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </Link>

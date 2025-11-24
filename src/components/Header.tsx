@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 // Type assertion for motion components
 const MotionButton = motion.button as any
 const MotionDiv = motion.div as any
-import { Menu, X, Sun, Moon, ArrowUpRight, Home, Briefcase, Image as ImageIcon, HelpCircle, Phone, Mail, MessageCircle, ChevronDown } from "lucide-react"
+import { Menu, X, Sun, Moon, ArrowUpRight, Home, Briefcase, Image as ImageIcon, HelpCircle, Phone, Mail, Linkedin, ChevronDown } from "lucide-react"
 import { useTheme } from "../context/ThemeContext"
 import Link from "next/link"
 import Image from "next/image"
@@ -19,7 +19,7 @@ const navItems: { name: string; href: string }[] = [
   { name: "Services", href: "#services" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "FAQs", href: "#faq" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/contact-us" },
 ]
 
 const Header = ({ logoSrc }: { logoSrc?: string }) => {
@@ -39,10 +39,19 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShrink(window.scrollY > 40)
+      // Only shrink on desktop (md and above)
+      if (window.innerWidth >= 768) {
+        setShrink(window.scrollY > 40)
+      } else {
+        setShrink(false) // Never shrink on mobile
+      }
     }
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleScroll) // Handle resize to check screen size
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleScroll)
+    }
   }, [])
 
   const scrollToSection = (href: string) => {
@@ -139,6 +148,23 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
                 )
               }
               
+              // If it's Contact, use Link to navigate to /contact-us
+              if (item.name === "Contact") {
+                return (
+                  <Link key={index} href="/contact-us">
+                    <MotionButton
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.08 }}
+                      className={`text-base font-medium transition-colors px-2 py-1 rounded ${shrink ? "text-gray-700 dark:text-gray-300 text-sm" : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"}`}
+                      type="button"
+                    >
+                      {item.name}
+                    </MotionButton>
+                  </Link>
+                )
+              }
+              
               return (
               <MotionButton
                 key={index}
@@ -167,14 +193,14 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
               {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5 text-white" />}
             </MotionButton>
             {/* Book a call button: only show on md+ screens */}
-            <MotionButton
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => handleNavClick("#contact")}
-              className={`hidden md:flex lg:flex items-center justify-center transition-all duration-200 font-semibold rounded-md shadow-sm text-sm ${shrink ? "" : ""}
+            <Link href="/contact-us">
+              <MotionButton
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`hidden md:flex lg:flex items-center justify-center transition-all duration-200 font-semibold rounded-md shadow-sm text-sm ${shrink ? "" : ""}
                 ${
                   theme === "dark"
                     ? shrink
@@ -187,15 +213,16 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
               `}
               aria-label="Book a call"
               type="button"
-            >
-              {shrink ? (
-                <ArrowUpRight className="w-5 h-5" />
-              ) : (
-                <>
-                  Book a call <span className="ml-1 text-sm">↗</span>
-                </>
-              )}
-            </MotionButton>
+              >
+                {shrink ? (
+                  <ArrowUpRight className="w-5 h-5" />
+                ) : (
+                  <>
+                    Book a call <span className="ml-1 text-sm">↗</span>
+                  </>
+                )}
+              </MotionButton>
+            </Link>
             {/* Mobile menu button */}
             <MotionButton
               whileTap={{ scale: 0.95 }}
@@ -351,6 +378,27 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
                       )
                     }
                     
+                    // If it's Contact, use Link to navigate to /contact-us
+                    if (item.name === "Contact") {
+                      return (
+                        <Link key={item.name} href="/contact-us" onClick={() => setIsMenuOpen(false)}>
+                          <MotionButton
+                            initial={{ opacity: 0, x: 24 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.05 + index * 0.05 }}
+                            className="w-full text-left px-3 sm:px-4 py-3 sm:py-3.5 rounded-xl text-sm sm:text-[15px] font-medium text-gray-800 dark:text-gray-200 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-blue-500/20 min-h-[48px]"
+                            type="button"
+                          >
+                            <span className="flex items-center">
+                              <Icon className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-gray-400 flex-shrink-0" />
+                              {item.name}
+                              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-auto text-gray-300 flex-shrink-0" />
+                            </span>
+                          </MotionButton>
+                        </Link>
+                      )
+                    }
+                    
                     return (
                       <MotionButton
                         key={item.name}
@@ -399,22 +447,23 @@ const Header = ({ logoSrc }: { logoSrc?: string }) => {
                   <MotionButton
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    onClick={() => (window.location.href = "https://wa.me/923207385471")}
+                    onClick={() => (window.location.href = "https://www.linkedin.com/company/enta-logics")}
                     className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-gray-800 dark:text-gray-200 text-xs sm:text-sm font-medium min-h-[44px]"
                     type="button"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" /> <span className="hidden xs:inline">WhatsApp</span>
+                    <Linkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" /> <span className="hidden xs:inline">LinkedIn</span>
                   </MotionButton>
                 </div>
-              <MotionButton
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                onClick={() => handleNavClick("#contact")}
-                  className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl shadow-md border border-blue-500/40 text-sm sm:text-base min-h-[48px]"
-                type="button"
-              >
-                  Book a call <span className="ml-1">↗</span>
-              </MotionButton>
+              <Link href="/contact-us" className="w-full">
+                <MotionButton
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl shadow-md border border-blue-500/40 text-sm sm:text-base min-h-[48px]"
+                    type="button"
+                  >
+                      Book a call <span className="ml-1">↗</span>
+                </MotionButton>
+              </Link>
               </div>
             </MotionDiv>
           </MotionDiv>

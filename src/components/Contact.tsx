@@ -23,7 +23,7 @@ const Contact = () => {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white px-6 py-3 text-sm font-semibold shadow-[0_12px_30px_rgba(59,130,246,0.25)] hover:shadow-[0_16px_38px_rgba(59,130,246,0.32)] transition-shadow"
               >
                 <Rocket className="h-5 w-5" />

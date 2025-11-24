@@ -428,7 +428,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
 
                   {/* CTA Button - Simple like homepage */}
                   <div className="pt-4 max-sm:pt-0">
-                    <Link href="/contact" className="inline-block group">
+                    <Link href="/contact-us" className="inline-block group">
                       <div
                         className="relative rounded-lg p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
                         style={{
