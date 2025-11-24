@@ -5,10 +5,6 @@ interface EmailTemplateProps {
     country: string
     phone: string
     website: string
-    projectType: string
-    timeline: string
-    lookingForDisplay: string
-    budgetDisplay: string
     description: string
   }
   
@@ -19,10 +15,6 @@ interface EmailTemplateProps {
     country,
     phone,
     website,
-    projectType,
-    timeline,
-    lookingForDisplay,
-    budgetDisplay,
     description,
   }: EmailTemplateProps): string {
     return `
@@ -50,10 +42,6 @@ interface EmailTemplateProps {
 <div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Country:</strong> ${country}</div>
 <div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Phone:</strong> ${phone || "Not provided"}</div>
 <div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Website:</strong> ${website || "Not provided"}</div>
-<div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Project Type:</strong> ${projectType}</div>
-<div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Timeline:</strong> ${timeline}</div>
-<div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Services:</strong> ${lookingForDisplay}</div>
-<div style="margin-bottom:8px;padding:4px 0;border-bottom:1px solid #e5e7eb"><strong>Budget:</strong> ${budgetDisplay}</div>
 <div style="margin-bottom:0;padding:4px 0"><strong>Description:</strong><br><div style="background:white;border:1px solid #d1d5db;border-radius:4px;padding:10px;margin-top:5px;font-style:italic;color:#6b7280">${description.replace(/\n/g, "<br/>").replace(/<br><br>/g, "<br/>")}</div></div>
             </div>
 <div style="background:linear-gradient(135deg,#ecfdf5 0%,#f0fdf4 100%);border:1px solid #bbf7d0;border-radius:6px;padding:15px;margin:15px 0">

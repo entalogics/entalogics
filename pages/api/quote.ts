@@ -91,10 +91,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         country,
         phone: phone || "Not provided",
         website: website || "Not provided",
-        projectType: "Not specified",
-        timeline: "Not specified",
-        lookingForDisplay: "Not specified",
-        budgetDisplay: "Not specified",
         description: description || "No description provided",
       }),
     })
