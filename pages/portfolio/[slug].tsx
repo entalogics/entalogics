@@ -6,11 +6,17 @@ import Layout from '../../src/components/Layout';
 import { ArrowLeft, ExternalLink, Calendar, Clock, Tag, User } from 'lucide-react';
 import Head from 'next/head';
 import { portfolioItems } from '../../src/data/portfolioData';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-const PortfolioCaseStudy = () => {
+interface PortfolioCaseStudyProps {
+  item: typeof portfolioItems[0];
+}
+
+const PortfolioCaseStudy: React.FC<PortfolioCaseStudyProps> = ({ item: propItem }) => {
   const router = useRouter();
   const { slug } = router.query;
-  const item = portfolioItems.find(i => i.slug === slug);
+  // Use prop item if available (from getStaticProps), otherwise find from query
+  const item = propItem || portfolioItems.find(i => i.slug === slug);
 
   if (!item) {
     return (
@@ -196,6 +202,34 @@ const PortfolioCaseStudy = () => {
       </div>
     </Layout>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = portfolioItems.map((item) => ({
+    params: { slug: item.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+  const item = portfolioItems.find((i) => i.slug === slug);
+
+  if (!item) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      item,
+    },
+  };
 };
 
 export default PortfolioCaseStudy; 
