@@ -171,7 +171,7 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
               </div>
               
               {/* Footer */}
-              <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/20 -mx-6 sm:-mx-8 lg:-mx-10 px-6 sm:px-8 lg:px-10">
+              <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/20">
                 <Link
                   href="/contact-us"
                   onClick={onClose}

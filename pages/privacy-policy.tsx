@@ -84,7 +84,7 @@ const PrivacyPolicyPage = () => {
                 {/* Title */}
                 <div className="mb-8">
                   <Heading level={1} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2">
-                    Privacy Policy
+              Privacy Policy
                   </Heading>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Last Modified: January, 2025
@@ -215,7 +215,7 @@ const PrivacyPolicyPage = () => {
                     This Privacy Policy is subject to change at any time, and changes will be effective upon posting on our website. We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
                   </Paragraph>
                 </section>
-              </div>
+            </div>
 
               {/* Table of Contents - Sticky Sidebar - Hidden on Mobile */}
               <aside className="hidden lg:block lg:col-span-1">

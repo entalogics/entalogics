@@ -37,11 +37,11 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
       if (typeof window !== 'undefined') {
         // Large Desktop: 1440px and above
         if (window.innerWidth >= 1440) {
-          setDropdownWidth('35%')
+          setDropdownWidth('45%')
         } 
         // Desktop: 1024px to 1439px - reduced width for 2 columns
         else if (window.innerWidth >= 1024) {
-          setDropdownWidth('40%')
+          setDropdownWidth('60%')
         } else if (window.innerWidth >= 768) {
           setDropdownWidth('80%')
         } else {
@@ -118,7 +118,7 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
                   e.stopPropagation()
                 }}
               >
-                <div className="grid grid-cols-2 gap-3 px-1">
+                <div className="grid grid-cols-2 gap-1.5 px-1">
                   {services.map((service, idx) => {
                     const imagePath = service.imagePath || `/assets/services-logos/${service.slug}.svg`
                     return (
@@ -133,7 +133,7 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
                           transition={{ delay: idx * 0.03 }}
                           whileHover={{ scale: 1.02 }}
                         >
-                          <div className="group flex items-center gap-2.5 p-3.5 rounded-lg border border-transparent hover:border-blue-200 dark:hover:border-blue-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 cursor-pointer">
+                          <div className="group flex items-center gap-2.5 p-2.5 rounded-lg border border-transparent hover:border-blue-200 dark:hover:border-blue-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 cursor-pointer">
                             {/* SVG Icon */}
                             <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center">
                               <img
