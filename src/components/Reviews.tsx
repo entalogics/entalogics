@@ -37,7 +37,7 @@ const Reviews = () => {
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className="!w-[90%] sm:!w-[300px] md:!w-[360px] lg:!w-[380px]">
-              <div className="relative border bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-md h-full cursor-grab active:cursor-grabbing">
+              <div className="relative border border-gray-200 dark:border-gray-700/30 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 transition-all duration-300 hover:shadow-md h-full cursor-grab active:cursor-grabbing">
                 {/* Arrow Icon - Top Right */}
                 <div className="absolute top-5 right-5">
                   {testimonial.link ? (

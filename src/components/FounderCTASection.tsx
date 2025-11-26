@@ -47,7 +47,7 @@ const FounderCTASection: React.FC<FounderCTASectionProps> = ({
                   data-cal-link="entalogics/30min"
                   data-cal-namespace="30min"
                   data-cal-config='{"layout":"month_view","theme":"auto"}'
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-lg transition-colors shadow-sm hover:shadow-md cursor-pointer backdrop-blur-sm w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-md transition-colors shadow-sm hover:shadow-md cursor-pointer backdrop-blur-sm w-full sm:w-auto"
                 >
                   <Calendar className="w-5 h-5" />
                   Schedule a Call

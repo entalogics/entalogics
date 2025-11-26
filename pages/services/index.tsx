@@ -40,11 +40,11 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ service }: ServiceCardProps) => {
-  // Get the icon from the original servicesData
+  // Get the imagePath from the original servicesData
   const originalService = servicesData[service.slug]
-  const IconComponent = originalService?.icon || Building2
+  const imagePath = originalService?.imagePath || `/assets/services-logos/${service.slug}.svg`
 
-  return (
+  const cardContent = (
     <div className="group relative h-full flex flex-col bg-transparent dark:bg-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/15 rounded-md shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
       {/* Enhanced glassy overlay effect */}
       <div className="absolute inset-0 rounded-md bg-gradient-to-br from-white/20 via-white/5 to-transparent dark:from-white/10 dark:via-white/3 dark:to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -52,7 +52,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
       <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       {/* Glassy shine effect */}
       <div className="absolute inset-0 rounded-md bg-gradient-to-br from-transparent via-white/10 to-transparent dark:via-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      <div className="relative h-52 overflow-hidden rounded-t-md">
+      <div className="relative h-52 overflow-hidden rounded-t-md border-b">
         <img
           src={
             service.thumbnail ||
@@ -63,22 +63,8 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         />
       </div>
 
-      <div className="relative z-10 flex-grow flex flex-col p-3">
+      <div className="relative z-10 flex-grow flex flex-col p-3 pb-1">
         <div className="flex-grow flex flex-col">
-          {/* Service Icon */}
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-600/20 dark:from-blue-500/20 dark:to-purple-600/30 flex items-center justify-center border border-blue-200/50 dark:border-blue-700/50">
-              <IconComponent className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            </div>
-            <Heading
-              level={4}
-              className="tracking-tight text-card-foreground dark:text-white leading-tight group-hover:text-primary transition-colors duration-300"
-              gradient={false}
-            >
-              {service.title}
-            </Heading>
-          </div>
-
           <Paragraph
             size="sm"
             className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-3 line-clamp-2"
@@ -86,80 +72,41 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           >
             {service.tagline}
           </Paragraph>
-
-          {/* {service.features && (
-            <div className="mb-2">
-              <h5 className="font-semibold font-poppins text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2 text-xs">
-                <Star className="w-3 h-3 text-blue-600 " />
-                Key Features
-              </h5>
-              {Array.isArray(service.features) && typeof service.features[0] === "string" ? (
-                <div className="grid grid-cols-2 gap-1">
-                  {(service.features as string[]).map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-2 p-1 rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
-                    >
-                      <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs font-poppins text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ) : Array.isArray(service.features[0]) ? (
-                <div className="grid grid-cols-2 gap-1">
-                  {service.features
-                    .flat()
-                    .slice(0, 4)
-                    .map(
-                      (feature, idx) =>
-                        feature && (
-                          <div
-                            key={idx}
-                            className="flex items-start gap-2 p-1 rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
-                          >
-                            <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
-                              {feature}
-                            </span>
-                          </div>
-                        ),
-                    )}
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 gap-1">
-                  {service.features.slice(0, 4).map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-2 p-1 rounded-md hover:bg-muted/30 dark:hover:bg-gray-700/50 transition-colors"
-                    >
-                      <Check className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )} */}
         </div>
 
-        <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
-          {service.slug ? (
-            <Link
-              href={`/services/${service.slug}`}
-              className="inline-flex items-center justify-center px-6  mx-auto py-2 rounded-xl bg-transparent text-primary font-semibold border-[1px] border-primary/20 dark:border-primary/30 hover:shadow-lg transition-all duration-300 group/btn text-sm hover:bg-primary/5 dark:hover:bg-primary/10"
-            >
-              <span>Learn More</span>
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1" />
-            </Link>
-          ) : null}
+        <div className="mt-auto flex-shrink-0 pt-2 pb-1 flex items-end justify-between gap-3">
+          {/* Icon at bottom left */}
+          <img
+            src={imagePath}
+            alt={`${service.title} icon`}
+            className="w-7 h-7 object-contain flex-shrink-0"
+          />
+          
+          {/* Learn More */}
+          <span className="group inline-flex items-center justify-center px-6 py-2 rounded-xl bg-transparent text-black dark:text-white font-semibold text-sm transition-all duration-200">
+            <span className="relative">
+              Learn More
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            </span>
+          </span>
         </div>
       </div>
     </div>
   )
+
+  if (service.slug) {
+    return (
+      <Link
+        href={`/services/${service.slug}`}
+        className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-md"
+        aria-label={`Learn more about ${service.title}`}
+      >
+        {cardContent}
+      </Link>
+    )
+  }
+
+  return <div className="group block h-full">{cardContent}</div>
 }
 
 interface ServicesPageProps {
@@ -246,7 +193,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ services }) => {
           <section className="relative px-4 md:px-8 pt-4 pb-16 lg:pb-24 overflow-hidden bg-background dark:bg-[#0a1225]">
             {/* Subtle background pattern */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808004_1px,transparent_1px),linear-gradient(to_bottom,#80808004_1px,transparent_1px)] bg-[size:48px_48px] dark:bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] dark:bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
-            <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-7xl">
+            <div className="container mx-auto px-0 md:px-8 relative z-10 max-w-7xl">
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
                 {services.map((service, index) => (
                   <div className="h-full w-full" key={service.slug}>

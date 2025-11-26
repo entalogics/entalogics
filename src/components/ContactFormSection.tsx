@@ -277,8 +277,6 @@ async function detectCountryFromIP(): Promise<string> {
       try {
         const data = await response.json()
         if (data.country) {
-          console.log('🌍 Country Detected from IP:', data.country)
-          console.log('📍 IP Address:', data.ip || 'Not available')
           return data.country
         }
       } catch {
@@ -347,8 +345,6 @@ const ContactFormSection = () => {
           setForm((f) => {
             // Only update if country is not already set
             if (!f.country) {
-              console.log('🌍 Country Detected from IP:', detectedCountry)
-              console.log('📍 IP-Based Location:', detectedCountry)
               return { ...f, country: detectedCountry }
             }
             return f
@@ -459,14 +455,16 @@ const ContactFormSection = () => {
             transition={{ duration: 0.8 }}
           >
             {/* Two Separate Cards Container */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 relative overflow-hidden lg:overflow-visible">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 relative overflow-visible">
               {/* LEFT SIDE - Form Card (Separate Container) */}
-              <div className="lg:col-span-2 relative">
+              <div className="lg:col-span-2 relative overflow-visible">
                 {/* Extended Background - Light Mode */}
-                <div className="absolute inset-0 bg-white rounded-lg right-0 lg:-right-32 xl:-right-40 2xl:-right-48 dark:hidden" style={{ zIndex: 0 }}></div>
-                {/* Extended Background - Dark Mode */}
-                <div className="absolute inset-0 bg-gray-800 rounded-lg right-0 lg:-right-32 xl:-right-40 2xl:-right-48 hidden dark:block" style={{ zIndex: 0 }}></div>
-                <div className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden" style={{ zIndex: 1 }}>      
+                <div className="absolute inset-0 bg-white rounded-lg right-0 lg:-right-32 xl:-right-40 2xl:-right-48 dark:hidden border-0 lg:border border-gray-200" style={{ zIndex: 0, boxSizing: 'border-box' }}></div>
+                {/* Extended Background - Dark Mode with Glassy Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-800/90 to-gray-900/70 backdrop-blur-xl rounded-lg right-0 lg:-right-32 xl:-right-40 2xl:-right-48 hidden dark:lg:block border-0 lg:border border-white/15" style={{ zIndex: 0 }}></div>
+                {/* Glassy overlay for dark mode */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-white/10 via-white/5 to-transparent opacity-60 hidden dark:lg:block right-0 lg:-right-32 xl:-right-40 2xl:-right-48" style={{ zIndex: 0.5 }}></div>
+                <div className="relative bg-transparent dark:bg-transparent rounded-lg overflow-visible" style={{ zIndex: 1 }}>      
                   <div className="px-1 py-6 md:p-12" ref={formRef}>
                     <form onSubmit={handleSubmit} className="space-y-8">
                       <input
@@ -575,19 +573,7 @@ const ContactFormSection = () => {
                                   onChange={(e) => {
                                     const companyValue = e.target.value
                                     setForm((f) => {
-                                      const updatedForm = { ...f, company: companyValue }
-                                      
-                                      // Console mein country aur IP location show karo jab company name type ho
-                                      if (companyValue.trim()) {
-                                        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-                                        console.log('🏢 Company Name:', companyValue)
-                                        console.log('🌍 Detected Country:', updatedForm.country || 'Not detected yet')
-                                        console.log('📍 IP-Based Location:', updatedForm.country || 'Other')
-                                        console.log('📧 Email:', updatedForm.email || 'Not entered')
-                                        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-                                      }
-                                      
-                                      return updatedForm
+                                      return { ...f, company: companyValue }
                                     })
                                   }}
                                   placeholder="Your Company Name"
@@ -679,7 +665,7 @@ const ContactFormSection = () => {
                               <button
                                 type="submit"
                                 disabled={loading}
-                                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed border border-blue-500/50"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-md transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed border border-blue-500/50"
                               >
                                 {loading ? (
                                   <>
@@ -743,7 +729,7 @@ const ContactFormSection = () => {
                       data-cal-link="entalogics/30min"
                       data-cal-namespace="30min"
                       data-cal-config='{"layout":"month_view","theme":"auto"}'
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 rounded-lg transition-all shadow-sm hover:shadow-md cursor-pointer backdrop-blur-sm"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 rounded-md transition-all shadow-sm hover:shadow-md cursor-pointer backdrop-blur-sm"
                     >
                       <Calendar className="w-5 h-5" />
                       Schedule a Meeting
@@ -805,79 +791,79 @@ const ContactFormSection = () => {
         {success && (
           <MotionDiv
             key="modal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
             onClick={() => setSuccess(false)}
-          >
+            >
             <MotionDiv
               key="modal-content"
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", duration: 0.4 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8 relative"
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ type: "spring", duration: 0.4 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8 relative"
               onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSuccess(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-                aria-label="Close"
               >
-                <X className="w-6 h-6" />
-              </button>
+                {/* Close Button */}
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="w-6 h-6" />
+                </button>
 
-              {/* Success Content */}
-              <div className="text-center">
+                {/* Success Content */}
+                <div className="text-center">
                 <MotionDiv
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                  className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-                >
-                  <CheckCircle className="w-12 h-12 text-white" strokeWidth={2.5} />
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  >
+                    <CheckCircle className="w-12 h-12 text-white" strokeWidth={2.5} />
                 </MotionDiv>
-                
+                  
                 <MotionH2
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-3xl font-bold text-gray-900 dark:text-white mb-4"
-                >
-                  Message Sent!
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-3xl font-bold text-gray-900 dark:text-white mb-4"
+                  >
+                    Message Sent!
                 </MotionH2>
-                
+                  
                 <MotionP
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed"
-                >
-                  Thank you for reaching out! We've received your message and will get back to you within 24 hours.
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed"
+                  >
+                    Thank you for reaching out! We've received your message and will get back to you within 24 hours.
                 </MotionP>
 
                 <MotionDiv
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-3 justify-center"
-                >
-                  <button
-                    onClick={() => setSuccess(false)}
-                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="flex flex-col sm:flex-row gap-3 justify-center"
                   >
-                    Close
-                  </button>
-                  <Link
-                    href="/"
-                    className="px-6 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold rounded-lg transition-all duration-200 text-center"
-                  >
-                    Go to Home
-                  </Link>
+                    <button
+                      onClick={() => setSuccess(false)}
+                    className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-md transition-all duration-200 shadow-md hover:shadow-lg"
+                    >
+                      Close
+                    </button>
+                    <Link
+                      href="/"
+                    className="px-6 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold rounded-md transition-all duration-200 text-center"
+                    >
+                      Go to Home
+                    </Link>
                 </MotionDiv>
-              </div>
+                </div>
             </MotionDiv>
           </MotionDiv>
         )}

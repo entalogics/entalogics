@@ -24,7 +24,7 @@ const Contact = () => {
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact-us"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white px-6 py-3 text-sm font-semibold shadow-[0_12px_30px_rgba(59,130,246,0.25)] hover:shadow-[0_16px_38px_rgba(59,130,246,0.32)] transition-shadow"
+                className="group inline-flex items-center justify-center gap-2 rounded-md bg-primary text-white px-6 py-3 text-sm font-semibold shadow-[0_12px_30px_rgba(59,130,246,0.25)] hover:shadow-[0_16px_38px_rgba(59,130,246,0.32)] transition-shadow"
               >
                 <Rocket className="h-5 w-5" />
                 Get Free Quote
@@ -35,7 +35,7 @@ const Contact = () => {
                 data-cal-link="entalogics/30min"
                 data-cal-namespace="30min"
                 data-cal-config='{"layout":"month_view","theme":"auto"}'
-                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300/80 dark:border-gray-600 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:border-primary/60 hover:shadow-md transition"
+                className="group inline-flex items-center justify-center gap-2 rounded-md border border-gray-300/80 dark:border-gray-600 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:border-primary/60 hover:shadow-md transition"
               >
                 <Phone className="h-5 w-5" />
                 Schedule Call

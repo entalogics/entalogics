@@ -5,16 +5,19 @@ import React, { useEffect } from "react"
 import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { ArrowUpRight, Briefcase } from "lucide-react"
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
 import { servicesData } from "../data/servicesData"
 
 interface ServicesDropdownProps {
   isOpen: boolean
   onClose: () => void
   shrink: boolean
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }
 
-const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, shrink }) => {
+const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, shrink, onMouseEnter, onMouseLeave }) => {
   const services = Object.values(servicesData)
   const [mounted, setMounted] = React.useState(false)
   const [topPosition, setTopPosition] = React.useState(shrink ? '60px' : '72px')
@@ -32,12 +35,15 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
   useEffect(() => {
     const calculateWidth = () => {
       if (typeof window !== 'undefined') {
-        // Tablet: 768px to 1023px - 95%
-        // Desktop: 1024px and above - 59%
-        if (window.innerWidth >= 1024) {
-          setDropdownWidth('59%')
+        // Large Desktop: 1440px and above
+        if (window.innerWidth >= 1440) {
+          setDropdownWidth('35%')
+        } 
+        // Desktop: 1024px to 1439px - reduced width for 2 columns
+        else if (window.innerWidth >= 1024) {
+          setDropdownWidth('40%')
         } else if (window.innerWidth >= 768) {
-          setDropdownWidth('95%')
+          setDropdownWidth('80%')
         } else {
           // Mobile - full width
           setDropdownWidth('100%')
@@ -67,6 +73,8 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
             zIndex: 50,
             pointerEvents: 'auto',
           }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           <motion.div
             initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
@@ -87,6 +95,8 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
                 padding: 0,
                 overflow: 'visible',
               }}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
               onWheel={(e: React.WheelEvent) => {
                 e.stopPropagation()
               }}
@@ -108,9 +118,9 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
                   e.stopPropagation()
                 }}
               >
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 px-1">
+                <div className="grid grid-cols-2 gap-3 px-1">
                   {services.map((service, idx) => {
-                    const IconComponent = service.icon || Briefcase
+                    const imagePath = service.imagePath || `/assets/services-logos/${service.slug}.svg`
                     return (
                       <Link
                         key={service.slug}
@@ -123,19 +133,20 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
                           transition={{ delay: idx * 0.03 }}
                           whileHover={{ scale: 1.02 }}
                         >
-                          <div className="group flex flex-col gap-2.5 p-3.5 rounded-lg border border-transparent hover:border-blue-200 dark:hover:border-blue-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 cursor-pointer">
-                            {/* Icon & Title Row */}
-                            <div className="flex items-center gap-3">
-                              <IconComponent className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                              <h4 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1 flex-1">
-                                {service.title}
-                              </h4>
+                          <div className="group flex items-center gap-2.5 p-3.5 rounded-lg border border-transparent hover:border-blue-200 dark:hover:border-blue-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-200 cursor-pointer">
+                            {/* SVG Icon */}
+                            <div className="flex-shrink-0 w-5 h-5 flex items-center justify-center">
+                              <img
+                                src={imagePath}
+                                alt={`${service.title} icon`}
+                                className="w-full h-full object-contain"
+                              />
                             </div>
                             
-                            {/* Description */}
-                            <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2 leading-snug ml-8">
-                              {service.tagline}
-                            </p>
+                            {/* Title */}
+                            <h4 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1 flex-1">
+                              {service.title}
+                            </h4>
                           </div>
                         </motion.div>
                       </Link>

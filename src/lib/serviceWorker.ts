@@ -6,18 +6,13 @@ export const registerServiceWorker = () => {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
         .then((registration) => {
-          console.log('Service Worker registered successfully:', registration.scope);
-          
           // Check for updates
           registration.addEventListener('updatefound', () => {
             const newWorker = registration.installing;
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New content is available, prompt user to refresh
-                  console.log('New content available. Please refresh.');
-                  
-                  // Auto-refresh after 1 second
+                  // New content is available, auto-refresh
                   setTimeout(() => {
                     window.location.reload();
                   }, 1000);
@@ -32,7 +27,6 @@ export const registerServiceWorker = () => {
       
       // Listen for service worker updates
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        console.log('Service Worker controller changed');
         window.location.reload();
       });
     });
@@ -45,7 +39,6 @@ export const unregisterServiceWorker = () => {
     navigator.serviceWorker.getRegistrations().then((registrations) => {
       registrations.forEach((registration) => {
         registration.unregister();
-        console.log('Service Worker unregistered');
       });
     });
   }

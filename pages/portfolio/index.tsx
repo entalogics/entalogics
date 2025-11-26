@@ -23,11 +23,20 @@ const PortfolioIndex = () => {
   return (
     <>
       <Head>
-        <title>Portfolio | Entalogics</title>
-        <meta name="description" content="Explore our portfolio of projects - AI, SaaS, Web & App Development. See our work across different categories." />
-        <meta property="og:title" content="Portfolio | Entalogics" />
-        <meta property="og:description" content="Explore our portfolio of projects - AI, SaaS, Web & App Development." />
+        <title>Portfolio | Our Projects & Case Studies | Entalogics</title>
+        <meta name="description" content="Explore our portfolio of successful projects including AI-powered platforms, SaaS applications, custom browsers, web development, and mobile apps. See real-world case studies and client success stories." />
+        <meta name="keywords" content="software development portfolio, SaaS projects, AI development projects, web development portfolio, mobile app portfolio, case studies, software projects, custom browser development, Entalogics portfolio" />
+        <meta name="author" content="Entalogics" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Portfolio | Our Projects & Case Studies | Entalogics" />
+        <meta property="og:description" content="Explore our portfolio of successful projects including AI-powered platforms, SaaS applications, custom browsers, web development, and mobile apps. See real-world case studies and client success stories." />
+        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:url" content="https://entalogics.com/portfolio" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio | Our Projects & Case Studies | Entalogics" />
+        <meta name="twitter:description" content="Explore our portfolio of successful projects including AI-powered platforms, SaaS applications, custom browsers, web development, and mobile apps." />
+        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
         <link rel="canonical" href="https://entalogics.com/portfolio" />
       </Head>
 
@@ -113,7 +122,7 @@ const PortfolioIndex = () => {
                               </p>
                             )}
                             <div className="mt-0.5">
-                              <span className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 group-hover:bg-blue-700 group-hover:shadow-lg">
+                              <span className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 group-hover:bg-blue-700 group-hover:shadow-lg">
                                 View case study
                                 <ArrowRight className="h-4 w-4" />
                               </span>

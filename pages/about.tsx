@@ -88,7 +88,7 @@ const MissionVisionContent = () => {
             <div
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative rounded-xl p-4 flex items-center gap-3 cursor-pointer transition-all duration-300 ${
+              className={`relative rounded-md p-4 flex items-center gap-3 cursor-pointer transition-all duration-300 ${
                 isActive 
                   ? 'bg-blue-50 dark:bg-blue-900/20' 
                   : 'bg-white dark:bg-gray-800'

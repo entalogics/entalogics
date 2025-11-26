@@ -168,7 +168,7 @@ const TeamPage = () => {
         />
         <meta
           name="keywords"
-          content="Entalogics team, development team, full-stack developers, web developers, software engineers"
+          content="Entalogics team, development team, full-stack developers, web developers, software engineers, SaaS developers, AI developers, mobile app developers, UI UX designers, Chromium browser developers, expert developers, software development team"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -324,7 +324,7 @@ const TeamPage = () => {
                   {member.name === "Umar Abdullah" ? (
                     <Link 
                       href="/founder"
-                      className="relative z-10 inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+                      className="relative z-10 inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white rounded-md shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
                       style={{
                         background: `linear-gradient(to right, ${colors.start}, ${colors.middle || colors.start}, ${colors.end})`
                       }}
@@ -335,7 +335,7 @@ const TeamPage = () => {
                       </svg>
                     </Link>
                   ) : (
-                    <div className="relative z-10 inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium rounded-lg border-2"
+                    <div className="relative z-10 inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium rounded-md border-2"
                       style={{
                         borderColor: `${colors.start}40`,
                         color: colors.start,

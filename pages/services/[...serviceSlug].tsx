@@ -311,7 +311,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
     return (
       <Layout>
         <div className="min-h-screen flex items-center justify-center bg-background dark:bg-[#0a1225]">
-          <div className="text-center p-8 max-w-md bg-card dark:bg-gray-800 rounded-2xl shadow-lg border border-border dark:border-gray-700">
+          <div className="text-center p-8 max-w-md bg-card dark:bg-gray-800 rounded-md shadow-lg border border-border dark:border-gray-700">
             <div className="w-16 h-16 mx-auto mb-6 bg-destructive/10 rounded-full flex items-center justify-center">
               <span className="text-2xl font-bold text-destructive">404</span>
             </div>
@@ -321,7 +321,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
             </Paragraph>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-md transition-colors"
             >
               Back to Home
               <div className="w-4 h-4"><ArrowRight size={16} /></div>
@@ -339,8 +339,8 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
     <>
       <Head>
         <title>{`${service?.title || 'Service'} | Entalogics`}</title>
-        <meta name="description" content={service?.tagline || 'Professional software development services'} />
-        <meta name="keywords" content={`${service?.title || 'Service'}, ${(service?.title || 'service').toLowerCase()} development, custom ${(service?.title || 'service').toLowerCase()}, ${(service?.title || 'service').toLowerCase()} services, software development, web development, mobile app development, AI development, SaaS development, Chromium browser development, UI UX design, maintenance support, Entalogics`} />
+        <meta name="description" content={service?.seoDescription || service?.tagline || 'Professional software development services'} />
+        <meta name="keywords" content={service?.seoKeywords || `${service?.title || 'Service'}, ${(service?.title || 'service').toLowerCase()} development, custom ${(service?.title || 'service').toLowerCase()}, ${(service?.title || 'service').toLowerCase()} services, software development, web development, mobile app development, AI development, SaaS development, Chromium browser development, UI UX design, maintenance support, Entalogics`} />
         <meta name="author" content="Entalogics" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -348,7 +348,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content={`${service?.title || 'Service'} | Entalogics`} />
-        <meta property="og:description" content={service?.tagline || 'Professional software development services'} />
+        <meta property="og:description" content={service?.seoDescription || service?.tagline || 'Professional software development services'} />
         <meta property="og:image" content={service.ogImage || "https://entalogics.com/assets/og-image.jpg"} />
         <meta property="og:url" content={`https://entalogics.com/services/${service.slug}`} />
         <meta property="og:site_name" content="Entalogics" />
@@ -356,7 +356,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${service?.title || 'Service'} | Entalogics`} />
-        <meta name="twitter:description" content={service?.tagline || 'Professional software development services'} />
+        <meta name="twitter:description" content={service?.seoDescription || service?.tagline || 'Professional software development services'} />
         <meta name="twitter:image" content={service.ogImage || "https://entalogics.com/assets/og-image.jpg"} />
 
         {/* Additional SEO */}
@@ -435,7 +435,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                           background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6, #3b82f6)',
                         }}
                       >
-                        <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
+                        <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-md flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
                           <span className="font-poppins font-semibold" style={{ fontSize: '14px', fontWeight: 600 }}>Get in touch</span>
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </button>
@@ -766,7 +766,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                 {/* Two Cards Layout */}
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto mb-12">
                   {/* Left Card - Free Custom Design Creation */}
-                  <div className="group relative overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl rounded-xl p-6 lg:p-8 shadow-sm border border-gray-200/40 dark:border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-500">
+                  <div className="group relative overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl rounded-md p-6 lg:p-8 shadow-sm border border-gray-200/40 dark:border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-500">
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-50/10 to-purple-50/10 dark:via-blue-900/10 dark:to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative z-10">
                       {/* Header */}
@@ -803,7 +803,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                   </div>
 
                   {/* Right Card - Free Design Audit */}
-                  <div className="group relative overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl rounded-xl p-6 lg:p-8 shadow-sm border border-gray-200/40 dark:border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-500">
+                  <div className="group relative overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl rounded-md p-6 lg:p-8 shadow-sm border border-gray-200/40 dark:border-gray-700/40 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-500">
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-50/10 to-purple-50/10 dark:via-blue-900/10 dark:to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative z-10">
                       {/* Header */}
@@ -851,12 +851,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
                 <div className="flex justify-center">
                   <Link href="/contact" className="inline-block group">
                     <div
-                      className="relative rounded-lg p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
+                      className="relative rounded-md p-[1px] transition-all duration-300 group-hover:scale-[1.02]"
                       style={{
                         background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6, #3b82f6)',
                       }}
                     >
-                      <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
+                      <button className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-semibold text-sm px-5 py-3 rounded-md flex items-center gap-2 whitespace-nowrap group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(139,92,246,0.3)] transition-shadow duration-300">
                         <span className="font-poppins" style={{ fontSize: '14px', fontWeight: 600 }}>Let's cooperate</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                       </button>

@@ -23,7 +23,7 @@ export default function ComparisonCardComponent({ card, index, progress, range, 
   const scale = useTransform(progress, range, [1, targetScale])
 
   return (
-    <div ref={container} className="h-auto py-2 md:py-4 flex items-center justify-center sticky z-10 px-3 sm:px-4" style={{ top: `300px` }}>
+    <div ref={container} className="h-auto py-2 md:py-4 flex items-center justify-center sticky z-10 md:px-3 sm:px-4" style={{ top: `300px` }}>
       <motion.div
         style={{
           scale,

@@ -36,6 +36,10 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ service }: ServiceCardProps) => {
+  // Get the imagePath from the original servicesData
+  const originalService = servicesData[service.slug]
+  const imagePath = originalService?.imagePath || `/assets/services-logos/${service.slug}.svg`
+
   const cardContent = (
     <div className="relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-md shadow-sm transition-all duration-500 overflow-hidden transform group-hover:shadow-xl group-hover:-translate-y-2">
       <div className="relative h-52 overflow-hidden rounded-t-md border-b">
@@ -68,8 +72,16 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         
         </div>
 
-        <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
-          <span className="group inline-flex items-center justify-center px-6 mx-auto py-2 rounded-xl bg-transparent text-black dark:text-white font-semibold text-sm transition-all duration-200">
+        <div className="mt-auto flex-shrink-0 pt-2 pb-1 flex items-end justify-between gap-3">
+          {/* Icon at bottom left */}
+          <img
+            src={imagePath}
+            alt={`${service.title} icon`}
+            className="w-7 h-7 object-contain flex-shrink-0"
+          />
+          
+          {/* Learn More */}
+          <span className="group inline-flex items-center justify-center px-6 py-2 rounded-xl bg-transparent text-black dark:text-white font-semibold text-sm transition-all duration-200">
             <span className="relative">
               Learn More
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black dark:bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>

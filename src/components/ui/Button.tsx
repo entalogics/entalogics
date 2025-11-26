@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center font-poppins font-bold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+    "inline-flex items-center justify-center font-poppins font-bold rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
 
   const variantClasses = {
     primary: "bg-blue-600 hover:bg-blue-700 text-white shadow hover:shadow-lg focus:ring-blue-400/40 before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:-translate-x-full group-hover:before:translate-x-full before:transition-transform before:duration-500",

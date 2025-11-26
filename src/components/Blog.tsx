@@ -36,7 +36,7 @@ const Blog = () => {
       className="relative px-4 md:px-12 py-1 md:py-2 overflow-hidden "
     >
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-7xl">
+      <div className="container mx-auto px-0 md:px-8 relative z-10 max-w-7xl">
         <div className="text-center mb-16">
           <Heading level={2} className="mb-6" gradient={true} gradientText="Insights">
             Latest Insights
@@ -50,10 +50,10 @@ const Blog = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
           {blogPosts.map((post, index) => (
             <div className="h-full w-full" key={post.slug}>
-              <div className="group relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+              <div className="group relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-lg shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
               {/* Blog Image */}
               {post.image && (
-                <div className="relative h-52 overflow-hidden rounded-t-2xl">
+                <div className="relative h-52 overflow-hidden rounded-t-lg">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -102,7 +102,7 @@ const Blog = () => {
                 <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
                 <Link
                   href={`/blog/${post.slug}`}
-                    className="inline-flex items-center justify-center px-6 mx-auto py-2 rounded-xl bg-transparent text-primary font-semibold border-[1px] border-primary/20 dark:border-primary/30 hover:shadow-lg transition-all duration-300 group/btn text-sm hover:bg-primary/5 dark:hover:bg-primary/10"
+                    className="inline-flex items-center justify-center px-6 mx-auto py-2 rounded-md bg-transparent text-primary font-semibold border-[1px] border-primary/20 dark:border-primary/30 hover:shadow-lg transition-all duration-300 group/btn text-sm hover:bg-primary/5 dark:hover:bg-primary/10"
                 >
                   <span>Read Article</span>
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1" />

@@ -36,22 +36,25 @@ const BlogIndex = () => {
   return (
     <>
       <Head>
-        <title>Blog | Entalogics</title>
-        <meta name="description" content="Insights, tutorials, and thoughts on technology, development, and industry trends from the Entalogics team." />
-        <meta property="og:title" content="Entalogics Blog - Insights & Tutorials" />
-        <meta property="og:description" content="Insights, tutorials, and thoughts on technology, development, and industry trends from the Entalogics team." />
+        <title>Blog | Software Development Insights & Tutorials | Entalogics</title>
+        <meta name="description" content="Read insights, tutorials, and expert articles on software development, SaaS, AI, web development, mobile apps, and technology trends from the Entalogics team." />
+        <meta name="keywords" content="software development blog, SaaS development articles, AI development tutorials, web development insights, mobile app development guides, technology blog, programming tutorials, software engineering blog, Entalogics blog" />
+        <meta name="author" content="Entalogics" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Blog | Software Development Insights & Tutorials | Entalogics" />
+        <meta property="og:description" content="Read insights, tutorials, and expert articles on software development, SaaS, AI, web development, mobile apps, and technology trends from the Entalogics team." />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
         <meta property="og:url" content="https://entalogics.com/blog" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Entalogics Blog - Insights & Tutorials" />
-        <meta name="twitter:description" content="Insights, tutorials, and thoughts on technology, development, and industry trends from the Entalogics team." />
+        <meta name="twitter:title" content="Blog | Software Development Insights & Tutorials | Entalogics" />
+        <meta name="twitter:description" content="Read insights, tutorials, and expert articles on software development, SaaS, AI, web development, mobile apps, and technology trends from the Entalogics team." />
         <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
         <link rel="canonical" href="https://entalogics.com/blog" />
       </Head>
       <Layout>
         <section className="relative px-4 md:px-12 pt-0 pb-8 md:py-12 overflow-hidden bg-white dark:bg-[#0a1225]">
-          <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-7xl">
+          <div className="container mx-auto px-0 md:px-8 relative z-10 max-w-7xl">
 
             {/* Header */}
             <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12 pt-4 md:pt-0">
@@ -72,10 +75,10 @@ const BlogIndex = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
               {blogPosts.map((post, index) => (
                 <div className="h-full w-full" key={post.slug}>
-                  <div className="group relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
+                  <div className="group relative h-full flex flex-col bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl border border-border dark:border-gray-700 rounded-lg shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
                     {/* Blog Image */}
                     {post.image && (
-                      <div className="relative h-52 overflow-hidden rounded-t-2xl">
+                      <div className="relative h-52 overflow-hidden rounded-t-lg">
                         <Image
                           src={post.image}
                           alt={post.title}
@@ -124,7 +127,7 @@ const BlogIndex = () => {
                       <div className="mt-auto flex-shrink-0 pt-2 pb-1 mx-auto">
                     <Link
                       href={`/blog/${post.slug}`}
-                          className="inline-flex items-center justify-center px-6 mx-auto py-2 rounded-xl bg-transparent text-primary font-semibold border-[1px] border-primary/20 dark:border-primary/30 hover:shadow-lg transition-all duration-300 group/btn text-sm hover:bg-primary/5 dark:hover:bg-primary/10"
+                          className="inline-flex items-center justify-center px-6 mx-auto py-2 rounded-md bg-transparent text-primary font-semibold border-[1px] border-primary/20 dark:border-primary/30 hover:shadow-lg transition-all duration-300 group/btn text-sm hover:bg-primary/5 dark:hover:bg-primary/10"
                     >
                           <span>Read Article</span>
                           <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover/btn:translate-x-1" />

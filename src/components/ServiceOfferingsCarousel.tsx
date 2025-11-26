@@ -220,7 +220,7 @@ const ServiceOfferingsCarousel: React.FC<ServiceOfferingsCarouselProps> = ({
           >
             {finalOfferings.map((offering, index) => (
               <SwiperSlide key={index}>
-                <div className="service-offerings-card group relative overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-500 flex flex-col h-full">
+                <div className="service-offerings-card group relative overflow-hidden bg-gradient-to-br from-white/90 to-white/70 dark:from-gray-800/90 dark:to-gray-900/70 backdrop-blur-xl rounded-md p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 transition-all duration-500 flex flex-col h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-50/10 to-purple-50/10 dark:via-blue-900/10 dark:to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10 flex flex-col h-full">
                   {/* Icon */}

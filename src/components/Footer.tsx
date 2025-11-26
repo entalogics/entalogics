@@ -4,6 +4,7 @@ import { Twitter, Linkedin, Github, Mail, ArrowRight, Facebook } from "lucide-re
 import { useTheme } from "../context/ThemeContext"
 import Image from "next/image"
 import { servicesData } from "../data/servicesData"
+import { hireDevelopersByCategory, getHireDeveloperCategories } from "../data/hireDevelopersData"
 
 const Footer = ({ logoSrc }: { logoSrc?: string }) => {
   const { theme } = useTheme()
@@ -13,11 +14,30 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
   // Get services dynamically from servicesData
   const services = Object.values(servicesData).slice(0, 8) // Limit to 8 services for footer
 
+  // Get one developer from each main category for footer
+  const categories = getHireDeveloperCategories()
+  const hireDevelopers = categories.map(category => {
+    const categoryItems = hireDevelopersByCategory[category]
+    return categoryItems && categoryItems.length > 0 ? categoryItems[0] : null
+  }).filter(Boolean)
+  
+  // Add Chromium Browser Developer if not already included
+  const allDevelopers = Object.values(hireDevelopersByCategory).flat()
+  const chromiumDeveloper = allDevelopers.find(dev => dev.slug === "hire-chromium-browser-developers")
+  const hasChromium = hireDevelopers.some(dev => dev?.slug === "hire-chromium-browser-developers")
+  
+  if (chromiumDeveloper && !hasChromium) {
+    hireDevelopers.push(chromiumDeveloper)
+  }
+  
+  const finalHireDevelopers = hireDevelopers.slice(0, 9) // Limit to 9 developers for footer
+
   const footerLinks = {
     company: [
       { name: "About Us", path: "/about" },
       { name: "Our Team", path: "/team" },
       { name: "Meet the Founder", path: "/founder" },
+      { name: "Technologies", path: "/technologies" },
       { name: "GDPR", path: "/gdpr" },
       { name: "Privacy Policy", path: "/privacy-policy" },
       { name: "Terms & Conditions", path: "/terms-and-conditions" },
@@ -26,10 +46,14 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
       name: service.title,
       path: `/services/${service.slug}`
     })),
+    hireDevelopers: finalHireDevelopers.map(dev => ({
+      name: dev!.title,
+      path: `/${dev!.slug}`
+    })),
     connect: [
-      { name: "Contact Us", path: "/#contact" },
+      { name: "Contact Us", path: "/contact-us" },
       { name: "Book a Call", path: "/#contact" },
-      { name: "FAQ", path: "/#faq" },
+      { name: "FAQs", path: "/faqs" },
     ],
   }
 
@@ -50,40 +74,40 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
         {/* Main Footer Content */}
-        <div className="pt-8 md:pt-10 lg:pt-12 pb-20 md:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-16">
             {/* Brand Section */}
             <div className="lg:col-span-1">
-              <div className="mb-8">
-                <Link href="/" className="flex items-center space-x-4 group">
+              <div className="mb-6 sm:mb-8">
+                <Link href="/" className="flex items-center space-x-3 sm:space-x-4 group">
                   <div className="relative">
                     <Image
                       src={faviconSrc || "/placeholder.svg"}
                       alt="Entalogics logo"
                       width={56}
                       height={56}
-                      className="w-12 h-12 sm:w-14 sm:h-14"
+                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
                     />
                     <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
                   </div>
                   <div>
-                    <span className="text-3xl sm:text-4xl font-bold text-black dark:text-white tracking-tight uppercase">
+                    <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white tracking-tight uppercase">
                       ENTALOGICS
                     </span>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 -mt-1 font-medium">
-                      Built With Logic
+                    <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 -mt-0.5 sm:-mt-1 font-medium">
+                      AI amplifies us — it doesn't replace.
                     </div>
                   </div>
                 </Link>
               </div>
 
-              <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-base max-w-sm">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base max-w-sm">
                 We're your full-stack development partner for modern startups and scaleups. From custom browsers to SaaS
                 apps—designed, engineered, and launched with clarity.
               </p>
 
               {/* Social Links */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3 sm:space-x-4">
                 {socialLinks.map((link, index) => (
                   <a
                     key={index}
@@ -91,24 +115,24 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
                     target={link.path.startsWith('http') ? '_blank' : '_self'}
                     rel={link.path.startsWith('http') ? 'noopener noreferrer' : undefined}
                     aria-label={link.label}
-                    className="w-12 h-12 rounded-2xl bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 group"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 group"
                   >
-                    <link.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" strokeWidth={2} />
+                    <link.icon className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" strokeWidth={2} />
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Links Section */}
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-12">
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
               <div>
-                <h4 className="font-bold text-black dark:text-white mb-6 text-lg">Company</h4>
-                <ul className="space-y-3">
+                <h4 className="font-bold text-black dark:text-white mb-4 sm:mb-6 text-base sm:text-lg">Company</h4>
+                <ul className="space-y-2 sm:space-y-3">
                   {footerLinks.company.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.path}
-                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 hover:translate-x-1 block text-base group"
+                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 hover:translate-x-1 block text-sm sm:text-base group"
                       >
                         <span className="group-hover:underline">{link.name}</span>
                       </Link>
@@ -118,13 +142,29 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
               </div>
 
               <div>
-                <h4 className="font-bold text-black dark:text-white mb-6 text-lg">Services</h4>
-                <ul className="space-y-3">
+                <h4 className="font-bold text-black dark:text-white mb-4 sm:mb-6 text-base sm:text-lg">Services</h4>
+                <ul className="space-y-2 sm:space-y-3">
                   {footerLinks.services.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.path}
-                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 hover:translate-x-1 block text-base group"
+                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 hover:translate-x-1 block text-sm sm:text-base group"
+                      >
+                        <span className="group-hover:underline">{link.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-black dark:text-white mb-4 sm:mb-6 text-base sm:text-lg">Hire Developers</h4>
+                <ul className="space-y-2 sm:space-y-3">
+                  {footerLinks.hireDevelopers.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.path}
+                        className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-300 hover:translate-x-1 block text-sm sm:text-base group"
                       >
                         <span className="group-hover:underline">{link.name}</span>
                       </Link>
@@ -138,9 +178,9 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-200 dark:border-gray-800 py-8">
+        <div className="border-t border-gray-200 dark:border-gray-800 py-4 sm:py-6 md:py-8">
           <div className="text-center">
-            <p className="text-gray-500 dark:text-gray-400 font-medium text-sm">
+            <p className="text-gray-500 dark:text-gray-400 font-medium text-xs sm:text-sm">
               &copy; {new Date().getFullYear()} Entalogics. All Rights Reserved.
             </p>
           </div>

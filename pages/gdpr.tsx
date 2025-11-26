@@ -1,9 +1,59 @@
-import React from "react"
+"use client"
+
+import React, { useState, useEffect } from "react"
 import Head from "next/head"
+import Link from "next/link"
+import { Home } from "lucide-react"
 import Layout from "../src/components/Layout"
-import TypewriterCTA from "../src/components/TypewriterCTA"
+import Heading from "../src/components/ui/Heading"
+import Paragraph from "../src/components/ui/Paragraph"
 
 const GDPRPage = () => {
+  const [activeSection, setActiveSection] = useState("")
+
+  const sections = [
+    { id: "introduction", title: "Introduction" },
+    { id: "our-commitment", title: "Our Commitment to GDPR" },
+    { id: "your-rights", title: "Your Rights Under GDPR" },
+    { id: "data-collection", title: "Data Collection" },
+    { id: "legal-basis", title: "Legal Basis for Processing" },
+    { id: "data-security", title: "Data Security" },
+    { id: "data-retention", title: "Data Retention" },
+    { id: "data-breaches", title: "Data Breaches" },
+    { id: "international-transfers", title: "International Data Transfers" },
+    { id: "contact-us", title: "Contact Us" },
+  ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i].id)
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i].id)
+          break
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 100
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    }
+  }
 
   return (
     <>
@@ -13,70 +63,183 @@ const GDPRPage = () => {
         <meta name="keywords" content="GDPR compliance, data protection, privacy regulations, EU data law, personal data security, Entalogics GDPR, data privacy, GDPR compliance software development" />
         <meta name="author" content="Entalogics" />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="GDPR Compliance | Data Protection | Entalogics" />
-        <meta property="og:description" content="Learn about Entalogics' GDPR compliance and data protection measures. We ensure your personal data is secure and handled according to EU regulations." />
-        <meta property="og:url" content="https://entalogics.com/gdpr" />
-        <meta property="og:site_name" content="Entalogics" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="GDPR Compliance | Data Protection | Entalogics" />
-        <meta name="twitter:description" content="Learn about Entalogics' GDPR compliance and data protection measures." />
-        
-        {/* Additional SEO */}
         <link rel="canonical" href="https://entalogics.com/gdpr" />
-        <meta name="theme-color" content="#3b82f6" />
-        
-        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <Layout>
-        <style jsx>{`
-          .outline-text {
-            -webkit-text-stroke: 1px black;
-            color: transparent;
-          }
-          .dark .outline-text {
-            -webkit-text-stroke: 1px white;
-            color: transparent;
-          }
-        `}</style>
-        <div className="min-h-screen bg-background dark:bg-[#0b1327] text-foreground dark:text-white">
-          <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-4 md:py-16">
-            {/* Simple Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-              GDPR
-            </h1>
-            
-            {/* Main Content - Simple Text */}
-            <div className="space-y-6 text-gray-500 dark:text-gray-400 leading-relaxed">
-              <p>
-                The General Data Protection Regulation (EU) 2016/679 (GDPR) is a <span className="text-black dark:text-white font-medium dark:font-normal">regulation</span> in EU law on <span className="text-black dark:text-white font-medium dark:font-normal">data protection</span> and <span className="text-black dark:text-white font-medium dark:font-normal">privacy</span> in the European Union (EU) and the European Economic Area (EEA). It also addresses the transfer of <span className="text-black dark:text-white font-medium dark:font-normal">personal data</span> outside the EU and EEA areas. The GDPR's primary aim is to give individuals control over their personal data and to simplify the regulatory environment for <span className="text-black dark:text-white font-medium dark:font-normal">international business</span> by unifying the regulation within the EU.<sup>[1]</sup> Superseding the Data Protection Directive 95/46/EC, the regulation contains provisions and requirements related to the processing of personal data of individuals (formally called <span className="text-black dark:text-white font-medium dark:font-normal">data subjects</span> in the GDPR) who are located in the EEA, and applies to any enterprise—regardless of its location and the data subjects' citizenship or residence—that is processing the personal information of individuals inside the EEA.<sup>a</sup>
-              </p>
+        <div className="min-h-screen bg-white dark:bg-[#0a1225] text-gray-900 dark:text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+            {/* Breadcrumbs */}
+            <nav className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+              <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <Home className="w-4 h-4" />
+              </Link>
+              <span>/</span>
+              <span className="text-gray-900 dark:text-white">GDPR</span>
+            </nav>
 
-              <p>
-                Controllers and processors of personal data must put in place <span className="text-black dark:text-white font-medium dark:font-normal">appropriate technical and organizational measures</span> to implement the data protection principles. Business processes that handle personal data must be designed and built with consideration of the principles and provide safeguards to protect data (for example, using <span className="text-black dark:text-white font-medium dark:font-normal">pseudonymization</span> or full <span className="text-black dark:text-white font-medium dark:font-normal">anonymization</span> where appropriate). Data controllers must design information systems with privacy in mind. For instance, using the highest-possible privacy settings by default, so that the datasets are not publicly available by default and cannot be used to identify a subject. No personal data may be processed unless this processing is done under one of the six lawful bases specified by the regulation (<span className="text-black dark:text-white font-medium dark:font-normal">consent</span>, <span className="text-black dark:text-white font-medium dark:font-normal">contract</span>, <span className="text-black dark:text-white font-medium dark:font-normal">public task</span>, <span className="text-black dark:text-white font-medium dark:font-normal">vital interest</span>, <span className="text-black dark:text-white font-medium dark:font-normal">legitimate interest</span> or <span className="text-black dark:text-white font-medium dark:font-normal">legal requirement</span>). When the processing is based on consent the data subject has the right to revoke it at any time.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
+              {/* Main Content */}
+              <div className="lg:col-span-3 w-full">
+                {/* Title */}
+                <div className="mb-8">
+                  <Heading level={1} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+                    GDPR Compliance
+                  </Heading>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Last Modified: January, 2025
+                  </p>
+                </div>
 
-              <p>
-                Data controllers must clearly disclose any <span className="text-black dark:text-white font-medium dark:font-normal">data collection</span>, declare the lawful basis and purpose for data processing, and state how long data is being retained and if it is being shared with any third parties or outside of the EEA. Firms have the obligation to protect data of employees and consumers to the degree where only the necessary data is extracted with minimum interference with data privacy from employees, consumers, or third parties. Firms should have internal controls and regulations for various departments such as audit, internal controls, and operations. Data subjects have the right to request a <span className="text-black dark:text-white font-medium dark:font-normal">portable</span> copy of the data collected by a controller in a common format, and the right to have their <span className="text-black dark:text-white font-medium dark:font-normal">data erased</span> under certain circumstances. Public authorities, and businesses whose core activities consist of regular or systematic processing of personal data, are required to employ a <span className="text-black dark:text-white font-medium dark:font-normal">data protection officer (DPO)</span>, who is responsible for managing compliance with the GDPR. Businesses must report <span className="text-black dark:text-white font-medium dark:font-normal">data breaches</span> to national supervisory authorities within <span className="text-black dark:text-white font-medium dark:font-normal">72 hours</span> if they have an adverse effect on user privacy. In some cases, violators of the GDPR may be fined up to <span className="text-black dark:text-white font-medium dark:font-normal">€20 million</span> or up to <span className="text-black dark:text-white font-medium dark:font-normal">4%</span> of the annual worldwide turnover of the preceding financial year in case of an enterprise, whichever is greater.
-              </p>
+                {/* Introduction */}
+                <section id="introduction" className="mb-8">
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    The General Data Protection Regulation (EU) 2016/679 (GDPR) is a regulation in EU law on data protection and privacy in the European Union (EU) and the European Economic Area (EEA). Entalogics is committed to ensuring full compliance with GDPR and protecting the privacy rights of all individuals whose personal data we process.
+                  </Paragraph>
+                </section>
 
-              <p>
-                The GDPR was adopted on <span className="text-black dark:text-white font-medium dark:font-normal">14 April 2016</span>, and became enforceable beginning <span className="text-black dark:text-white font-medium dark:font-normal">25 May 2018</span>. As the GDPR is a <span className="text-black dark:text-white font-medium dark:font-normal">regulation</span>, not a <span className="text-black dark:text-white font-medium dark:font-normal">directive</span>, it is directly binding and applicable, but does provide flexibility for certain aspects of the regulation to be adjusted by individual member states.
-              </p>
+                {/* Our Commitment to GDPR */}
+                <section id="our-commitment" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Our Commitment to GDPR
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Entalogics is committed to protecting the personal data of our clients, employees, and website visitors in accordance with GDPR requirements. We implement appropriate technical and organizational measures to ensure data protection by design and by default, and we regularly review and update our data protection practices to maintain compliance.
+                  </Paragraph>
+                </section>
 
-              <p>
-                The regulation became a model for many national laws outside EU, including Chile, Japan, Brazil, South Korea, Argentina and Kenya. The <span className="text-black dark:text-white font-medium dark:font-normal">California Consumer Privacy Act (CCPA)</span>, adopted on <span className="text-black dark:text-white font-medium dark:font-normal">28 June 2018</span>, has many similarities with the GDPR.<sup>[2]</sup>
-              </p>
+                {/* Your Rights Under GDPR */}
+                <section id="your-rights" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Your Rights Under GDPR
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Under GDPR, you have the following rights regarding your personal data:
+                  </Paragraph>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                    <li><strong>Right to Access:</strong> You have the right to request access to your personal data and receive a copy of the data we hold about you.</li>
+                    <li><strong>Right to Rectification:</strong> You have the right to request correction of inaccurate or incomplete personal data.</li>
+                    <li><strong>Right to Erasure:</strong> You have the right to request deletion of your personal data under certain circumstances.</li>
+                    <li><strong>Right to Restrict Processing:</strong> You have the right to request restriction of processing of your personal data.</li>
+                    <li><strong>Right to Data Portability:</strong> You have the right to receive your personal data in a structured, commonly used format.</li>
+                    <li><strong>Right to Object:</strong> You have the right to object to processing of your personal data for certain purposes.</li>
+                    <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, you have the right to withdraw consent at any time.</li>
+                  </ul>
+                </section>
+
+                {/* Data Collection */}
+                <section id="data-collection" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Data Collection
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    We collect personal data only when necessary for providing our services or when you have given explicit consent. We clearly inform you about what data we collect, why we collect it, and how we use it. We minimize data collection to only what is necessary for the specified purposes.
+                  </Paragraph>
+                </section>
+
+                {/* Legal Basis for Processing */}
+                <section id="legal-basis" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Legal Basis for Processing
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    We process personal data based on one or more of the following legal bases:
+                  </Paragraph>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                    <li><strong>Consent:</strong> When you have given clear consent for specific processing activities</li>
+                    <li><strong>Contract:</strong> When processing is necessary for the performance of a contract with you</li>
+                    <li><strong>Legal Obligation:</strong> When processing is necessary to comply with legal obligations</li>
+                    <li><strong>Legitimate Interests:</strong> When processing is necessary for our legitimate business interests, provided these do not override your rights and freedoms</li>
+                  </ul>
+                </section>
+
+                {/* Data Security */}
+                <section id="data-security" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Data Security
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    We implement appropriate technical and organizational measures to protect personal data against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, access controls, regular security audits, staff training, and secure data transmission protocols. We regularly review and update our security measures to address emerging threats.
+                  </Paragraph>
+                </section>
+
+                {/* Data Retention */}
+                <section id="data-retention" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Data Retention
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, comply with legal obligations, resolve disputes, and enforce our agreements. When personal data is no longer needed, we securely delete or anonymize it in accordance with our data retention policies and GDPR requirements.
+                  </Paragraph>
+                </section>
+
+                {/* Data Breaches */}
+                <section id="data-breaches" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Data Breaches
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify the relevant supervisory authority within 72 hours of becoming aware of the breach, where feasible. If the breach is likely to result in a high risk to your rights and freedoms, we will also notify you without undue delay.
+                  </Paragraph>
+                </section>
+
+                {/* International Data Transfers */}
+                <section id="international-transfers" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    International Data Transfers
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    When we transfer personal data outside the EEA, we ensure appropriate safeguards are in place, such as standard contractual clauses approved by the European Commission, adequacy decisions, or other legally recognized transfer mechanisms. We ensure that your personal data receives an adequate level of protection regardless of where it is processed.
+                  </Paragraph>
+                </section>
+
+                {/* Contact Us */}
+                <section id="contact-us" className="mb-8">
+                  <Heading level={2} className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    Contact Us
+                  </Heading>
+                  <Paragraph size="md" className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    If you have any questions about our GDPR compliance, wish to exercise your rights under GDPR, or have concerns about how we handle your personal data, please contact us at{" "}
+                    <a href="mailto:info@entalogics.com" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      info@entalogics.com
+                    </a>
+                    {" "}or through our{" "}
+                    <Link href="/contact-us" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      contact page
+                    </Link>
+                    . We will respond to your request within one month.
+                  </Paragraph>
+                </section>
+              </div>
+
+              {/* Table of Contents - Sticky Sidebar - Hidden on Mobile */}
+              <aside className="hidden lg:block lg:col-span-1">
+                <div className="lg:sticky lg:top-24">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                    Table of Contents
+                  </h2>
+                  <ul className="space-y-1">
+                    {sections.map((section) => (
+                      <li key={section.id} className="relative">
+                        <button
+                          onClick={() => scrollToSection(section.id)}
+                          className={`w-full text-left text-sm transition-colors duration-200 pl-3 ${
+                            activeSection === section.id
+                              ? "text-blue-600 dark:text-blue-400 font-medium"
+                              : "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                          }`}
+                        >
+                          {activeSection === section.id && (
+                            <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-600 dark:bg-blue-400"></span>
+                          )}
+                          {section.title}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </aside>
             </div>
-
-            {/* Typewriter CTA Section */}
-            <TypewriterCTA />
           </div>
         </div>
       </Layout>

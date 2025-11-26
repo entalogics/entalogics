@@ -8,6 +8,7 @@ export interface Service {
   icon: React.ElementType
   iconName: string // Added iconName for serialization
   thumbnail?: string // Added thumbnail property to Service interface
+  imagePath?: string // Path to service icon/logo
   features?: string[] | string[][]
   headline?: string
   description?: string
@@ -49,6 +50,8 @@ export interface Service {
     question: string
     answer: string
   }[]
+  seoKeywords?: string
+  seoDescription?: string
 }
 
 export const servicesData: Record<string, Service> = {
@@ -58,6 +61,7 @@ export const servicesData: Record<string, Service> = {
     icon: Code,
     iconName: "SaaS Product Development",
     thumbnail: "/assets/services/saas-product-development-services-by-entalogics.svg",
+    imagePath: "/assets/services-logos/saas.svg",
     technologies: ["react", "nextjs", "typescript", "nodejs", "postgresql", "docker"],
     tagline:
       "Launch and scale SaaS products with built-in billing, dashboards, onboarding, and the APIs your roadmap depends on.",
@@ -181,6 +185,8 @@ export const servicesData: Record<string, Service> = {
         answer: "Yes, we handle everything from deployment to ongoing maintenance and scaling as your user base grows.",
       },
     ],
+    seoKeywords: "SaaS development, SaaS product development, SaaS platform development, custom SaaS solutions, SaaS application development, multi-tenant SaaS, SaaS architecture, subscription management, SaaS billing system, cloud SaaS development, Entalogics",
+    seoDescription: "Expert SaaS product development services. Build scalable, secure SaaS platforms with automated billing, multi-tenant architecture, and growth-ready infrastructure. Launch your SaaS product with Entalogics.",
   },
   "web-development": {
   title: "Web Development",
@@ -188,6 +194,7 @@ export const servicesData: Record<string, Service> = {
   icon: Globe,
   iconName: "Web Development",
   thumbnail: "/assets/services/Web Development.svg",
+  imagePath: "/assets/services-logos/web.svg",
   technologies: ["react", "nextjs", "typescript", "tailwindcss", "nodejs", "postgresql"],
   tagline: "Design and ship modern web apps with fast frontends, secure backends, and SEO-ready foundations that convert.",
   headline: "Web Development",
@@ -309,6 +316,8 @@ export const servicesData: Record<string, Service> = {
       technologies: ["Next.js", "Sanity CMS", "TypeScript", "Vercel"],
     },
   ],
+  seoKeywords: "web development, custom web development, web application development, full stack web development, responsive web design, React development, Next.js development, web development services, frontend development, backend development, e-commerce development, CMS development, Entalogics",
+  seoDescription: "Professional web development services. Build modern, responsive websites and web applications with React, Next.js, and full-stack solutions. SEO-optimized, fast, and scalable web development by Entalogics.",
 },
   "ai-apps-development": {
     title: "AI-Powered Apps & Platforms",
@@ -316,6 +325,7 @@ export const servicesData: Record<string, Service> = {
     icon: Brain,
     iconName: "AI-Powered Apps & Platforms",
     thumbnail: "/assets/services/ai-solutions-for-apps-by-entalogics.svg",
+    imagePath: "/assets/services-logos/ai.svg",
     technologies: ["python", "react", "nextjs", "typescript", "nodejs", "postgresql"],
     tagline: "Embed AI agents, LLM workflows, and automation into your product with measurable results and reliable monitoring.",
     headline: "AI-Powered Apps & Platforms",
@@ -428,6 +438,8 @@ export const servicesData: Record<string, Service> = {
         technologies: ["LangChain", "Vector DB", "FastAPI", "Next.js"],
       },
     ],
+    seoKeywords: "AI app development, AI-powered applications, LLM integration, AI automation, machine learning development, AI chatbot development, AI platform development, custom AI solutions, AI workflow automation, generative AI development, Entalogics",
+    seoDescription: "Expert AI-powered app development services. Build intelligent applications with LLM integration, AI automation, and machine learning. Custom AI solutions that deliver measurable results. Entalogics AI development.",
   },
   
   "desktop-mobile-app-development": {
@@ -436,6 +448,7 @@ export const servicesData: Record<string, Service> = {
     icon: Monitor,
     iconName: "Desktop & Mobile App Development",
     thumbnail: "/assets/services/desktop-applications-services-by-entalogics.svg",
+    imagePath: "/assets/services-logos/app.svg",
     technologies: ["flutter", "react", "typescript", "nodejs", "docker"],
     tagline:
       "Build cross-platform desktop and mobile apps that feel native, integrate deeply with each OS, and ship ready for stores.",
@@ -542,6 +555,8 @@ export const servicesData: Record<string, Service> = {
         technologies: ["React Native", "Tauri", "Supabase", "Node.js"],
       },
     ],
+    seoKeywords: "mobile app development, desktop app development, cross-platform app development, Flutter development, React Native development, iOS app development, Android app development, native app development, app store optimization, mobile application development, Entalogics",
+    seoDescription: "Expert desktop and mobile app development services. Build cross-platform applications for iOS, Android, Windows, Mac, and Linux. Native performance with Flutter, React Native, and Electron. Entalogics app development.",
   },
   "chromium-browser-development": {
     title: "Chromium & Browser Development",
@@ -549,6 +564,7 @@ export const servicesData: Record<string, Service> = {
     icon: Chrome,
     iconName: "Chromium & Browser Development",
     thumbnail: "/assets/services/custom-chromium-browser-development-by-entalogics.svg",
+    imagePath: "/assets/services-logos/chromium.svg",
     technologies: ["react", "typescript", "nodejs", "docker"],
     tagline: "Customise Chromium with your branding, privacy controls, wallets, and search so the browser fits your strategy.",
     headline: "Chromium & Browser Development",
@@ -642,6 +658,8 @@ export const servicesData: Record<string, Service> = {
         },
       ],
     },
+    seoKeywords: "Chromium browser development, custom browser development, browser modification, Brave browser development, browser wallet integration, browser AI integration, custom Chromium fork, browser extension development, privacy browser development, browser customization, Entalogics",
+    seoDescription: "Expert Chromium browser development services. Build custom browsers with branding, privacy controls, wallet integration, and AI features. Custom Chromium forks and browser modifications. Entalogics browser development.",
   },
   "ui-ux-design": {
     title: "UI/UX Design",
@@ -649,6 +667,7 @@ export const servicesData: Record<string, Service> = {
     icon: Palette,
     iconName: "UI/UX Design",
     thumbnail: "/assets/services/ui-ux-design-services-by-entalogics.svg",
+    imagePath: "/assets/services-logos/uiux.svg",
     technologies: ["figma", "react", "tailwindcss", "typescript"],
     tagline: "Turn complex products into intuitive journeys with research-led UX, polished UI systems, and developer-ready files.",
     headline: "UI/UX Design",
@@ -736,6 +755,8 @@ export const servicesData: Record<string, Service> = {
         { name: "Docker", icon: "https://cdn.simpleicons.org/docker" }
       ],
     },
+    seoKeywords: "UI UX design, user interface design, user experience design, UX design services, UI design services, web design, mobile app design, design system, wireframing, prototyping, Figma design, user research, Entalogics",
+    seoDescription: "Expert UI/UX design services. Create intuitive, conversion-focused interfaces with research-led UX, polished UI systems, and developer-ready designs. Professional design services by Entalogics.",
   },
   "maintenance-support": {
     title: "Maintenance & Support",
@@ -743,6 +764,7 @@ export const servicesData: Record<string, Service> = {
     icon: Settings,
     iconName: "Maintenance & Support",
     thumbnail: "/assets/services/maintainance1.jpg",
+    imagePath: "/assets/services-logos/maintenance.svg",
     technologies: ["docker", "nodejs", "postgresql", "typescript"],
     tagline: "Keep shipping confidently with proactive monitoring, updates, and fixes that keep your product fast and stable.",
     headline: "Maintenance & Support",
@@ -791,6 +813,8 @@ export const servicesData: Record<string, Service> = {
         { name: "Grafana", icon: "https://cdn.simpleicons.org/grafana" }
       ],
     },
+    seoKeywords: "software maintenance, application support, software support services, maintenance and support, bug fixes, security updates, performance optimization, 24/7 support, software updates, technical support, Entalogics",
+    seoDescription: "Professional software maintenance and support services. 24/7 monitoring, proactive bug fixes, security updates, and performance optimization. Keep your software running smoothly with Entalogics.",
   },
   "cloud-devops-solutions": {
     title: "Cloud & DevOps Solutions",
@@ -798,6 +822,7 @@ export const servicesData: Record<string, Service> = {
     icon: Settings,
     iconName: "Cloud & DevOps Solutions",
     thumbnail: "/assets/services/cloud-and-devops-services-by-entalogics.svg",
+    imagePath: "/assets/services-logos/devops.svg",
     technologies: ["docker", "nodejs", "postgresql", "python"],
     tagline: "Automate deployments with CI/CD, cloud infrastructure, and observability so every release is predictable.",
     headline: "Cloud & DevOps Solutions",
@@ -912,6 +937,8 @@ export const servicesData: Record<string, Service> = {
         technologies: ["Google Cloud", "GitHub Actions", "Kubernetes", "Monitoring"],
       },
     ],
+    seoKeywords: "DevOps services, cloud infrastructure, CI/CD pipeline, cloud deployment, infrastructure automation, Kubernetes, Docker, cloud hosting, AWS DevOps, Google Cloud DevOps, Azure DevOps, infrastructure as code, Entalogics",
+    seoDescription: "Expert Cloud & DevOps solutions. Set up CI/CD pipelines, cloud infrastructure, and automated deployments. Kubernetes, Docker, and infrastructure automation services. Entalogics DevOps.",
   },
   "automation-workflow-tools": {
     title: "Automation & Workflow Tools",
@@ -919,6 +946,7 @@ export const servicesData: Record<string, Service> = {
     icon: Settings,
     iconName: "Automation & Workflow Tools",
     thumbnail: "/assets/services/automation-services-by-entalogics.svg",
+    imagePath: "/assets/services-logos/automation.svg",
     technologies: ["python", "nodejs", "typescript", "docker", "powershell", "power-automate", "microsoft-teams"],
     tagline: "Replace repetitive work with custom scripts, bots, and integrations that plug straight into your existing stack.",
     headline: "Automation & Workflow Tools",
@@ -1030,6 +1058,8 @@ export const servicesData: Record<string, Service> = {
         technologies: ["Python", "Pandas", "Selenium", "AWS S3"],
       },
     ],
+    seoKeywords: "workflow automation, business process automation, automation tools, custom automation scripts, bot development, process optimization, API automation, task automation, workflow tools, business automation, Entalogics",
+    seoDescription: "Expert automation and workflow tools development. Build custom scripts, bots, and automation systems to eliminate repetitive work. Process optimization and workflow automation services. Entalogics automation.",
   },
 }
 

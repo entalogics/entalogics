@@ -17,15 +17,12 @@ const STATIC_ASSETS = [
 
 // Install event - skip waiting to activate immediately
 self.addEventListener('install', (event) => {
-  console.log('Service Worker: Installing...');
-  
   // Skip waiting to activate immediately
   self.skipWaiting();
   
   event.waitUntil(
     caches.open(STATIC_CACHE_NAME)
       .then((cache) => {
-        console.log('Service Worker: Caching static assets');
         return cache.addAll(STATIC_ASSETS);
       })
       .catch((error) => {
@@ -36,8 +33,6 @@ self.addEventListener('install', (event) => {
 
 // Activate event - claim all clients immediately
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker: Activating...');
-  
   // Claim all clients immediately
   clients.claim();
   
@@ -47,7 +42,6 @@ self.addEventListener('activate', (event) => {
         cacheNames.map((cacheName) => {
           // Delete old caches
           if (cacheName !== CACHE_NAME && cacheName !== STATIC_CACHE_NAME) {
-            console.log('Service Worker: Deleting old cache', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -141,7 +135,7 @@ async function networkFirst(request) {
     
     return networkResponse;
   } catch (error) {
-    console.log('Network failed, trying cache:', error);
+    // Network failed, trying cache
     
     // For images, DON'T serve from cache - fail gracefully instead
     if (isImage(request)) {
@@ -165,13 +159,10 @@ self.addEventListener('message', (event) => {
 
 // Handle background sync (if supported)
 self.addEventListener('sync', (event) => {
-  console.log('Service Worker: Background sync', event.tag);
+  // Background sync handler
 });
 
 // Handle push notifications (if needed in future)
 self.addEventListener('push', (event) => {
-  console.log('Service Worker: Push notification received');
   // Handle push notification here if needed
 });
-
-console.log('Service Worker: Loaded successfully');

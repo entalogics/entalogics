@@ -49,12 +49,8 @@ const FounderPage = () => {
 
       <div className={`bg-white dark:bg-[#0a1225] text-black dark:text-white ${poppins.className}`}>
         {/* Hero Section */}
-        <section className="relative isolate w-full bg-gradient-to-br from-background dark:from-[#0a1225] to-muted/30 dark:to-gray-800/30 overflow-hidden">
+        <section className="relative isolate w-full bg-white dark:bg-[#0a1225] overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-          
-          {/* Animated gradient orbs */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-700"></div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-24">
             <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
@@ -104,7 +100,7 @@ const FounderPage = () => {
                     data-cal-link="entalogics/30min"
                     data-cal-namespace="30min"
                     data-cal-config='{"layout":"month_view","theme":"auto"}'
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 md:px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 md:px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap"
                   >
                     <Calendar className="w-5 h-5" />
                     Schedule a Call
@@ -135,16 +131,8 @@ const FounderPage = () => {
 
               {/* Right Image */}
               <div className="relative mt-4 md:mt-0">
-                {/* Floating Badge on Image */}
-                <div className="absolute -top-2 -right-2 md:-top-3 md:-right-3 lg:-top-4 lg:-right-4 z-10 bg-gradient-to-br from-blue-500 to-purple-600 text-white px-2 py-1 md:px-3 md:py-1.5 lg:px-4 lg:py-2 rounded-full shadow-2xl animate-bounce">
-                  <div className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
-                    <TrendingUp className="w-3 h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4" />
-                    <span className="text-xs md:text-xs lg:text-sm font-bold">Top Performer</span>
-                  </div>
-                </div>
-                
                 {/* Rating Badge */}
-                <div className="absolute -bottom-2 -left-2 md:-bottom-3 md:-left-3 lg:-bottom-4 lg:-left-4 z-10 bg-white dark:bg-gray-800 px-2 py-2 md:px-3 md:py-2.5 lg:px-4 lg:py-3 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700">
+                <div className="absolute -bottom-2 -left-2 md:-bottom-3 md:-left-3 lg:-bottom-4 lg:-left-4 z-10 bg-white dark:bg-gray-800 px-2 py-2 md:px-3 md:py-2.5 lg:px-4 lg:py-3 rounded-md shadow-2xl border border-gray-200 dark:border-gray-700">
                   <div className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
                     <div className="flex items-center">
                       <Star className="w-3 h-3 md:w-3.5 md:h-3.5 lg:w-4 lg:h-4 text-yellow-400 fill-yellow-400" />
@@ -158,7 +146,7 @@ const FounderPage = () => {
                   <p className="text-[10px] md:text-[10px] lg:text-xs text-gray-600 dark:text-gray-400 mt-1">Client Rating</p>
                 </div>
 
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card dark:from-gray-800 to-muted dark:to-gray-700 border-2 border-border/50 dark:border-gray-600/50 shadow-2xl">
+                <div className="relative overflow-hidden rounded-md bg-white dark:bg-gray-800 border-2 border-border/50 dark:border-gray-600/50 shadow-2xl">
                   <div className="relative h-[300px] md:h-[450px] lg:h-[500px]">
                     <img
                       src="/umar.png"
@@ -171,7 +159,6 @@ const FounderPage = () => {
               </div>
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-background dark:to-[#0a1225]"></div>
         </section>
 
         {/* Main Story Section */}
@@ -197,7 +184,7 @@ const FounderPage = () => {
               </div>
 
               {/* Quote Section */}
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white shadow-xl">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-md p-8 text-center text-white shadow-xl">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
@@ -210,7 +197,7 @@ const FounderPage = () => {
               </div>
 
               {/* Mission Section */}
-              <div className="bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-border dark:border-gray-700 rounded-2xl p-6 sm:p-8 shadow-lg">
+              <div className="bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-border dark:border-gray-700 rounded-md p-6 sm:p-8 shadow-lg">
                 <Heading level={2} className="mb-6">
                   Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Mission</span>
                 </Heading>
@@ -225,25 +212,25 @@ const FounderPage = () => {
                   </Paragraph>
 
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                    <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md">
                       <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">A straightforward process</span>
                     </div>
-                    <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                    <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-md">
                       <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Real senior developers</span>
                     </div>
-                    <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                    <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-md">
                       <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Transparent pricing</span>
                     </div>
-                    <div className="flex items-center gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl">
+                    <div className="flex items-center gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-md">
                       <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0" />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Global standards</span>
                     </div>
                   </div>
 
-                  <div className="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl border border-indigo-200/50 dark:border-indigo-800/50">
+                  <div className="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-md border border-indigo-200/50 dark:border-indigo-800/50">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       <strong className="text-indigo-600 dark:text-indigo-400">Access to independent specialists</strong>, so you pay for the talent you need — not a full agency markup
                     </p>
@@ -260,13 +247,13 @@ const FounderPage = () => {
               </div>
 
               {/* Expertise Section */}
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 sm:p-8">
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-md p-6 sm:p-8">
                 <Heading level={3} className="mb-6 text-2xl">
                   Areas of Expertise
                 </Heading>
                 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
                     <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
                       <Rocket className="w-5 h-5 text-blue-600" />
                       Custom Chromium Browsers
@@ -276,7 +263,7 @@ const FounderPage = () => {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
                     <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
                       <Lightbulb className="w-5 h-5 text-purple-600" />
                       AI-Powered SaaS Platforms
@@ -286,7 +273,7 @@ const FounderPage = () => {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
                     <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
                       <Globe className="w-5 h-5 text-green-600" />
                       Full-Stack Web Applications
@@ -296,7 +283,7 @@ const FounderPage = () => {
                     </p>
                   </div>
 
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
                     <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
                       <Phone className="w-5 h-5 text-yellow-600" />
                       Mobile Applications

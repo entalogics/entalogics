@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 import CanonicalUrl from './CanonicalUrl';
+import CookieConsent from './CookieConsent';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -53,6 +54,9 @@ const Layout = ({ children, noPaddingTop = false, canonicalPath, noIndex = false
       </main>
 
       <Footer logoSrc="/assets/Favicon/Entalogics favicon blue color.svg" />
+      
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </div>
   );
 };
