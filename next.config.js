@@ -25,8 +25,13 @@ const nextConfig = {
   },
 
   async redirects() {
+    // Only apply redirects in production, not in development
+    if (process.env.NODE_ENV === 'development') {
+      return []
+    }
+
     return [
-      // Redirect www to non-www
+      // Redirect www to non-www (production only)
       {
         source: '/:path*',
         has: [
@@ -38,7 +43,7 @@ const nextConfig = {
         destination: 'https://entalogics.com/:path*',
         permanent: true,
       },
-      // Redirect HTTP to HTTPS
+      // Redirect HTTP to HTTPS (production only)
       {
         source: '/:path*',
         has: [
@@ -51,7 +56,7 @@ const nextConfig = {
         destination: 'https://entalogics.com/:path*',
         permanent: true,
       },
-      // Redirect old domain
+      // Redirect old domain (production only)
       {
         source: '/:path*',
         has: [
