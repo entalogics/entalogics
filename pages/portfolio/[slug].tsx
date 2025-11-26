@@ -41,6 +41,7 @@ const PortfolioCaseStudy: React.FC<PortfolioCaseStudyProps> = ({ item: propItem 
       <Head>
         <title>{item?.title || 'Portfolio Item'} | Entalogics Portfolio</title>
         <meta name="description" content={item?.description || 'Portfolio item from Entalogics'} />
+        <meta name="robots" content="index, follow" />
         <meta property="og:title" content={`${item?.title || 'Portfolio Item'} | Entalogics Portfolio`} />
         <meta property="og:description" content={item?.description || 'Portfolio item from Entalogics'} />
         <meta property="og:image" content={item.img} />

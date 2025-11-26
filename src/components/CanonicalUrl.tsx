@@ -40,10 +40,6 @@ const CanonicalUrl = ({ path, noIndex = false }: CanonicalUrlProps) => {
       <meta property="og:locale" content="en_US" />
       <meta property="og:locale:alternate" content="en_US" />
       
-      {/* Site verification */}
-      <meta name="google-site-verification" content="your-verification-code" />
-      <meta name="msvalidate.01" content="your-bing-verification-code" />
-      
       {/* DNS prefetch for performance */}
       <link rel="dns-prefetch" href="//www.google-analytics.com" />
       <link rel="dns-prefetch" href="//fonts.googleapis.com" />

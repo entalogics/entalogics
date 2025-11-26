@@ -22,6 +22,10 @@ export default function Page() {
       <Head>
         <title>Custom Software Development | Entalogics</title>
         <meta name="description" content="AI, SaaS, Web & App Development. We turn your idea into a logic-driven, scalable product. Built with clean code." />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="yandex" content="index, follow" />
         <meta property="og:title" content="Entalogics - Scalable Software Development" />
         <meta property="og:description" content="We build AI and SaaS products that scale. From idea to launch, with business logic baked in." />
         <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />

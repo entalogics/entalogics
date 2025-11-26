@@ -10,6 +10,20 @@ export default function Document() {
         {/* Sora Google Fonts - removed for next/font migration */}
         <link rel="icon" type="image/svg+xml" href="/assets/Favicon/Entalogics favicon blue color.svg" />
         <meta name="build-version" content={buildVersion} />
+        
+        {/* Global SEO - Allow all search engines to index */}
+        {/* Default: index, follow - Individual pages can override if needed */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="yandex" content="index, follow" />
+        <meta name="slurp" content="index, follow" />
+        
+        {/* Language and Geo */}
+        <meta httpEquiv="content-language" content="en" />
+        <meta name="language" content="English" />
+        <meta name="geo.region" content="AE" />
+        <meta name="geo.placename" content="United Arab Emirates" />
       </Head>
       <body>
         <Main />

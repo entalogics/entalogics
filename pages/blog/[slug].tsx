@@ -51,6 +51,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
       <Head>
         <title>{post?.title || 'Blog Post'} | Entalogics Blog</title>
         <meta name="description" content={post?.excerpt || 'Blog post from Entalogics'} />
+        <meta name="robots" content="index, follow" />
         <meta property="og:title" content={`${post?.title || 'Blog Post'} | Entalogics Blog`} />
         <meta property="og:description" content={post?.excerpt || 'Blog post from Entalogics'} />
         <meta property="og:image" content={post.ogImage || 'https://entalogics.com/assets/og-image.jpg'} />
