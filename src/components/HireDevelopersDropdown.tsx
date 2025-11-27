@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React, { useEffect, useMemo, useCallback } from "react"
 // @ts-ignore - react-dom is available in Next.js
 import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
@@ -21,47 +21,66 @@ interface HireDevelopersDropdownProps {
 
 const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen, onClose, shrink, onMouseEnter, onMouseLeave }) => {
   const [mounted, setMounted] = React.useState(false)
-  const [topPosition, setTopPosition] = React.useState(shrink ? '60px' : '72px')
   const [dropdownWidth, setDropdownWidth] = React.useState('95%')
-  const categories = getHireDeveloperCategories()
+  
+  // Memoize categories to avoid recalculating on every render
+  const categories = useMemo(() => getHireDeveloperCategories(), [])
+
+  // Calculate top position based on shrink state
+  const topPosition = useMemo(() => shrink ? '63px' : '85px', [shrink])
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  useEffect(() => {
-    // Always calculate top position based on current shrink state
-    setTopPosition(shrink ? '63px' : '85px')
-  }, [shrink])
-
-  useEffect(() => {
-    const calculateWidth = () => {
-      if (typeof window !== 'undefined') {
-        // Large Desktop: 1440px and above
-        if (window.innerWidth >= 1440) {
-          setDropdownWidth('1200px')
-        } 
-        // Laptop/Desktop: 1024px to 1439px
-        else if (window.innerWidth >= 1024) {
-          setDropdownWidth('90%')
-        } else if (window.innerWidth >= 768) {
-          setDropdownWidth('90%')
-        } else {
-          // Mobile - full width
-          setDropdownWidth('100%')
-        }
+  // Optimize width calculation with useCallback
+  const calculateWidth = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth
+      if (width >= 1440) {
+        setDropdownWidth('1200px')
+      } else if (width >= 1024) {
+        setDropdownWidth('90%')
+      } else if (width >= 768) {
+        setDropdownWidth('90%')
+      } else {
+        setDropdownWidth('100%')
       }
     }
+  }, [])
 
+  useEffect(() => {
     calculateWidth()
     window.addEventListener('resize', calculateWidth)
     return () => window.removeEventListener('resize', calculateWidth)
+  }, [calculateWidth])
+
+  // Handle wheel event to prevent background scrolling
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.stopPropagation()
   }, [])
+
+  // Handle keyboard escape key to close dropdown
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isOpen, onClose])
 
   const dropdownContent = (
     <AnimatePresence>
       {isOpen && (
         <div
+          role="dialog"
+          aria-label="Hire Developers Menu"
+          aria-modal="false"
           style={{
             position: 'fixed',
             top: topPosition,
@@ -75,6 +94,8 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
             zIndex: 50,
             pointerEvents: 'auto',
           }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           <motion.div
             initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
@@ -94,11 +115,7 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
                 margin: 0,
                 padding: 0,
               }}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              onWheel={(e: React.WheelEvent) => {
-                e.stopPropagation()
-              }}
+              onWheel={handleWheel}
             >
             <div className="w-full mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 py-6" style={{ overflow: 'visible' }}>
               {/* Header */}
@@ -113,13 +130,11 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
                   scrollBehavior: 'smooth',
                   WebkitOverflowScrolling: 'touch'
                 }}
-                onWheel={(e: React.WheelEvent) => {
-                  e.stopPropagation()
-                }}
+                onWheel={handleWheel}
               >
                 {/* Grid layout for categories - 5 columns on desktop, 2 on tablet, 1 on mobile */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
-                  {categories.map((category, categoryIdx) => {
+                  {categories.map((category) => {
                     const items = hireDevelopersByCategory[category]
                     return (
                       <div key={category} className="flex flex-col h-full">
@@ -134,14 +149,13 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
                         
                         {/* Items List - Vertical */}
                         <div className="flex flex-col space-y-1 flex-grow">
-                          {items.map((item, itemIdx) => {
-                            const globalIdx = categoryIdx * 100 + itemIdx
-                            
+                          {items.map((item) => {
                             return (
                               <Link
                                 key={item.slug}
                                 href={`/${item.slug}`}
                                 onClick={onClose}
+                                className="focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset rounded-md"
                               >
                                 <MotionDiv
                                   initial={{ opacity: 1, x: 0 }}
@@ -175,7 +189,7 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
                 <Link
                   href="/contact-us"
                   onClick={onClose}
-                  className="flex items-center justify-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                  className="flex items-center justify-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset rounded-md px-2 py-1"
                 >
                   Contact Us to Hire Developers
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -235,5 +249,5 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
   return createPortal(dropdownContent, document.body)
 }
 
-export default HireDevelopersDropdown
+export default React.memo(HireDevelopersDropdown)
 
