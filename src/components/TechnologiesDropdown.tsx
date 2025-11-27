@@ -40,7 +40,7 @@ const TechnologiesDropdown: React.FC<TechnologiesDropdownProps> = ({ isOpen, onC
       if (typeof window !== 'undefined') {
         // Large Desktop: 1440px and above
         if (window.innerWidth >= 1440) {
-          setDropdownWidth('50%')
+          setDropdownWidth('1000px')
         } 
         // Laptop/Desktop: 1024px to 1439px - increased width for better layout
         else if (window.innerWidth >= 1024) {

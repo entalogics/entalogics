@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
       text: "EntaLogics has successfully delivered extension prototypes on time, and we are impressed with their project management and the finished product. The client communicates with EntaLogics via virtual meetings, email, and messaging apps.",
       author: "Evan Kanouse",
       role: "CEO, Modestly",
-      avatar: "/assets/clients/evan-kanouse-feedback-to-software-company-entalogics.svg",
+      avatar: "/assets/clients/evan-kanouse-feedback-to-software-company-entalogics.png",
       link: "https://clutch.co/go-to-review/60de0d2e-1d4e-44d6-9a15-5da859bf5bcb/417773"
     },
     {

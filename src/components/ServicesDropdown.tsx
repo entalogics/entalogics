@@ -37,7 +37,7 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose, sh
       if (typeof window !== 'undefined') {
         // Large Desktop: 1440px and above
         if (window.innerWidth >= 1440) {
-          setDropdownWidth('45%')
+          setDropdownWidth('850px')
         } 
         // Desktop: 1024px to 1439px - reduced width for 2 columns
         else if (window.innerWidth >= 1024) {

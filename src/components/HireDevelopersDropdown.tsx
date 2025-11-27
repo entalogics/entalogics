@@ -39,7 +39,7 @@ const HireDevelopersDropdown: React.FC<HireDevelopersDropdownProps> = ({ isOpen,
       if (typeof window !== 'undefined') {
         // Large Desktop: 1440px and above
         if (window.innerWidth >= 1440) {
-          setDropdownWidth('50%')
+          setDropdownWidth('1200px')
         } 
         // Laptop/Desktop: 1024px to 1439px
         else if (window.innerWidth >= 1024) {
