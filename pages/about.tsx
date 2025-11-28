@@ -48,15 +48,15 @@ const MissionVisionContent = () => {
     mission: {
       title: "Our Mission",
       paragraphs: [
-        "At Entalogics, our mission is to deliver premium software development with clarity and fairness. We believe in building great software that doesn't cost a fortune, providing our clients with senior-level expertise at transparent pricing.",
-        "We specialize in custom Chromium browsers, AI-powered SaaS platforms, full-stack web applications, and mobile apps. Our goal is to transform innovative concepts into scalable digital products that exceed client expectations while maintaining the highest standards of quality and transparency."
+        "Our mission is simple: deliver premium software development with clarity and fairness. We started Entalogics because we were tired of seeing founders pay $150/hour to talk to managers who then passed work to junior devs making $20/hour. That's not how it should work.",
+        "Today, we connect you directly with senior developers who've built products scaling to $40M+ ARR. No layers. No markup. Just quality code at fair prices. We build custom Chromium browsers, AI-powered SaaS platforms, full-stack apps, and mobile applications — but we never forget that great software shouldn't cost a fortune."
       ]
     },
     vision: {
       title: "Our Vision",
       paragraphs: [
-        "Our vision is to become the leading software development partner for founders, startups, and enterprises worldwide. We envision a future where technology innovation is accessible, affordable, and delivered with integrity.",
-        "We strive to bridge the gap between ambitious ideas and market-ready solutions, empowering businesses to leverage cutting-edge technology without the complexity of traditional agency structures. Through direct collaboration and transparent processes, we help turn bold ideas into scalable products."
+        "We want to change how software development works. Not with flashy offices or big teams, but with real developers building real products. We envision a world where founders can launch their ideas without burning through their funding on agency overhead.",
+        "Our vision? Become the go-to partner for founders who need senior-level expertise without the enterprise price tag. We're building the anti-agency — lean, direct, and focused on what actually matters: code that works, scales, and doesn't break the bank."
       ]
     },
     commitment: {
@@ -69,8 +69,8 @@ const MissionVisionContent = () => {
     values: {
       title: "Core Values",
       paragraphs: [
-        "Transparency, quality, and fairness are at the heart of everything we do. We believe in honest communication, clean code, and ethical business practices that benefit both our clients and our team.",
-        "We value innovation, continuous learning, and staying ahead of technology trends. Our core values drive us to deliver exceptional results while maintaining integrity, fostering creativity, and building solutions that make a real impact."
+        "Transparency. Quality. Fairness. These aren't buzzwords for us — they're how we've operated since day one. We believe in honest communication (no surprises), clean code (code you can actually maintain), and fair pricing (you pay for talent, not overhead).",
+        "We're always learning. Technology changes fast, and so do we. But what never changes is our commitment to building products that actually work, scale, and deliver real value. We're not here to sell you hours. We're here to build solutions that make your business better."
       ]
     },
   }
@@ -488,7 +488,16 @@ const AboutPage = () => {
                     lineHeight: '1.6'
                   }}
                 >
-                  Our experts provide a wide range of services including app design, web development, digital marketing, ecommerce solutions and cloud development. We stay updated with the technology to build innovative digital products that meet client requirements across multiple business verticals and domains by housing some of the best professionals in the industry. To transform the concepts to design, concluding with full executions, we also stay updated with the latest trending technologies. And we evolve with the advancement in technology because we believe in making our technology as your innovation.
+                  We started Entalogics in 2013 because we saw too many founders getting burned by agencies that charged premium prices for junior work. <strong className="text-blue-600 dark:text-blue-400">So we did something different.</strong> We built a team of senior developers who work directly with clients — no project managers, no account executives, no layers that add cost without value.
+                </p>
+                
+                <p 
+                  className="text-sm sm:text-base leading-relaxed text-black dark:text-white mt-4"
+                  style={{
+                    lineHeight: '1.6'
+                  }}
+                >
+                  Today, we've built 600+ products and helped scale companies to $40M+ ARR. We specialize in custom Chromium browsers, AI-powered SaaS platforms, full-stack web apps, and mobile applications. But what hasn't changed is our core belief: <strong className="text-purple-600 dark:text-purple-400">great software shouldn't cost a fortune.</strong>
                 </p>
 
                 {/* Second Paragraph - Call to Action */}

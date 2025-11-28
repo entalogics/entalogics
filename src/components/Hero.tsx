@@ -99,7 +99,7 @@ const Hero = () => {
 
             {/* Subtitle */}
             <p className="mb-5 max-w-xl mx-auto lg:mx-0 text-gray-600 dark:text-gray-400 leading-relaxed max-laptop:text-[15px] text-md max-md:text-[13px]">
-              We build Custom Chromium Browsers, Web, Desktop & Mobile Apps, AI/ML Tools, and SaaS Products for Startups, SMEs, and B2B Companies.
+              Custom Chromium Browsers, Web, Desktop & Mobile Apps, AI/ML Tools, and SaaS Products for Startups, SMEs, and B2B Companies — with <span className="text-blue-600 dark:text-blue-400 font-semibold">senior-level expertise</span>.
               <br />
               <span className="inline-block mt-2 text-blue-600 dark:text-blue-400 font-medium text-[14px]">"Open to Tech Partnerships"</span>
             </p>

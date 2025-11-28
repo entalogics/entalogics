@@ -19,6 +19,7 @@ import {
   Verified,
   Code2,
   TrendingUp,
+  Zap,
 } from "lucide-react"
 import Layout from "../src/components/Layout"
 import Heading from "../src/components/ui/Heading"
@@ -72,23 +73,23 @@ const FounderPage = () => {
                   </div>
                   
                   <Paragraph size="sm" className="text-pretty font-poppins text-sm md:text-base text-gray-600 dark:text-gray-400" center={false}>
-                    Building premium software solutions with <span className="text-blue-600 dark:text-blue-400 font-semibold">fair pricing</span>, <span className="text-purple-600 dark:text-purple-400 font-semibold">senior expertise</span>, and <span className="text-green-600 dark:text-green-400 font-semibold">zero hidden fees</span>. Delivering quality that exceeds expectations while keeping things transparent and straightforward.
+                    At Entalogics, we skip the agency overhead. Work directly with <span className="text-blue-600 dark:text-blue-400 font-semibold">senior developers</span> who've built products scaling to $40M+ ARR. <span className="text-purple-600 dark:text-purple-400 font-semibold">Fair pricing</span> with no hidden fees, no project managers, no layers. Just quality code delivered on time.
                   </Paragraph>
                 </div>
 
                 {/* Key Highlights */}
-                <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    <span className="text-gray-700 dark:text-gray-300">Years of Experience</span>
+                    <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">11+ Years</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    <span className="text-gray-700 dark:text-gray-300">50+ Projects Delivered</span>
+                    <CheckCircle className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">600+ Projects</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                    <span className="text-gray-700 dark:text-gray-300">100% Client Satisfaction</span>
+                    <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400 flex-shrink-0" />
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">100% Satisfaction</span>
                   </div>
                 </div>
 
@@ -174,11 +175,23 @@ const FounderPage = () => {
                 
                 <div className="space-y-4">
                   <Paragraph size="sm">
-                    Hi, I'm <strong className="text-foreground dark:text-white">Umar Abdullah</strong>, Founder & Lead Developer at Entalogics. 
-                    I started this company with one simple belief: <strong className="text-blue-600 dark:text-blue-400">building great software shouldn't cost a fortune.</strong>
+                    Hi, I'm <a href="https://pk.linkedin.com/in/chromiumexpert" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline">Umar Abdullah</a>. 
                   </Paragraph>
+                  
                   <Paragraph size="sm">
-                    I saw too many agencies charging clients for every little thing: separate teams, code reviews, hidden fees. It didn't feel right. So I decided to change that.
+                    I was just another developer frustrated by how broken the agency model was. Clients paying $150/hour to talk to a project manager, who then talked to another manager, who finally passed it to a junior dev making $20/hour. The math never added up.
+                  </Paragraph>
+
+                  <Paragraph size="sm">
+                    I watched founders pour their life savings into projects that dragged on for months, charged for every code review, every meeting, every "change request." Hidden fees everywhere. <strong className="text-blue-600 dark:text-blue-400">It felt wrong.</strong>
+                  </Paragraph>
+
+                  <Paragraph size="sm">
+                    So in 2023, I said screw it. I started Entalogics with one rule: <strong className="text-purple-600 dark:text-purple-400">work directly with senior developers. No layers. No markup. Just quality code at fair prices.</strong>
+                  </Paragraph>
+
+                  <Paragraph size="sm">
+                    Fast forward — we've built 600+ products, scaled companies to $40M+ ARR, and helped founders launch everything from custom Chromium browsers to AI SaaS platforms. But here's what hasn't changed: <strong className="text-green-600 dark:text-green-400">we still believe software shouldn't cost a fortune.</strong>
                   </Paragraph>
                 </div>
               </div>
@@ -196,104 +209,79 @@ const FounderPage = () => {
                 </cite>
               </div>
 
-              {/* Mission Section */}
-              <div className="bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-border dark:border-gray-700 rounded-md p-6 sm:p-8 shadow-lg">
-                <Heading level={2} className="mb-6">
-                  Our <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">Mission</span>
+              {/* Why Top 1% Section */}
+              <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border border-blue-200 dark:border-blue-800 rounded-md p-6 sm:p-8">
+                <Heading level={3} className="mb-6 text-2xl">
+                  Why We're in the <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Top 1%</span>
                 </Heading>
                 
                 <div className="space-y-4">
-                  <Paragraph size="sm">
-                    Our mission is simple: <strong className="text-blue-600 dark:text-blue-400">deliver premium software development with clarity and fairness.</strong>
-                  </Paragraph>
-                  
-                  <Paragraph size="sm" className="font-semibold text-foreground dark:text-white">
-                    We believe you should get:
-                  </Paragraph>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md">
-                      <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">A straightforward process</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-md">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Real senior developers</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-md">
-                      <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Transparent pricing</span>
-                    </div>
-                    <div className="flex items-center gap-3 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-md">
-                      <CheckCircle className="w-5 h-5 text-yellow-600 flex-shrink-0" />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Global standards</span>
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-md border border-indigo-200/50 dark:border-indigo-800/50">
-                    <p className="text-sm text-gray-700 dark:text-gray-300">
-                      <strong className="text-indigo-600 dark:text-indigo-400">Access to independent specialists</strong>, so you pay for the talent you need — not a full agency markup
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                        <TrendingUp className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground dark:text-white mb-2">
+                          We Scale Companies to $40M+ ARR
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Not just code — we build systems that grow. We've helped 33+ products launch and scale to millions in revenue. Our code doesn't just work; it scales.
                     </p>
+                      </div>
+                    </div>
                   </div>
 
-                  <Paragraph size="sm">
-                    We specialise in <strong className="text-blue-600 dark:text-blue-400">custom Chromium browsers</strong>, <strong className="text-purple-600 dark:text-purple-400">AI-powered platforms</strong>, <strong className="text-green-600 dark:text-green-400">full-stack web & mobile apps</strong>. We're here to build what others don't dare.
-                  </Paragraph>
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                        <Code2 className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground dark:text-white mb-2">
+                          Senior Developers, Not Junior Teams
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                          You work directly with developers who've been coding for 10+ years. No project managers, no account executives — just skilled engineers who write clean, maintainable code.
+                    </p>
+                      </div>
+                    </div>
+                  </div>
 
-                  <Paragraph size="sm">
-                    We believe that by keeping things lean, direct, and premium, you get more value, faster results, and no surprises.
-                  </Paragraph>
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <Star className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground dark:text-white mb-2">
+                          Top Rated on Every Platform
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Top Rated Plus on Upwork. Featured on Clutch. Recognized by GoodFirms. 5.0 stars across the board. Our clients don't just like us — they love us enough to come back for project #2, #3, and beyond.
+                    </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center">
+                        <Briefcase className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground dark:text-white mb-2">
+                          We Build What Others Don't Dare
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Custom Chromium browsers? We've done it. AI agents that actually work? Built them. Complex SaaS platforms that handle millions of users? That's our daily. Most agencies say no. We say "let's figure it out."
+                    </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Expertise Section */}
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-md p-6 sm:p-8">
-                <Heading level={3} className="mb-6 text-2xl">
-                  Areas of Expertise
-                </Heading>
-                
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
-                    <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
-                      <Rocket className="w-5 h-5 text-blue-600" />
-                      Custom Chromium Browsers
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Building tailored browser solutions for unique business needs
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
-                    <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
-                      <Lightbulb className="w-5 h-5 text-purple-600" />
-                      AI-Powered SaaS Platforms
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Intelligent software solutions that leverage cutting-edge AI
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
-                    <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
-                      <Globe className="w-5 h-5 text-green-600" />
-                      Full-Stack Web Applications
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Scalable, modern web apps built with the latest technologies
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white dark:bg-gray-800 rounded-md shadow-sm">
-                    <h4 className="font-semibold text-foreground dark:text-white mb-2 flex items-center gap-2">
-                      <Phone className="w-5 h-5 text-yellow-600" />
-                      Mobile Applications
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Native and cross-platform mobile apps for iOS and Android
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

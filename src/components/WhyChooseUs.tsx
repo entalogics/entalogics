@@ -88,8 +88,9 @@ const WhyChooseUs = () => {
           </Heading>
 
              <Paragraph size="sm" className="max-w-4xl mx-auto" center={true}>
-            Entalogics was founded with one goal — to bring clarity and logic into software development. We're a team of
-            engineers, designers, and product minds helping founders go from idea to launch… with systems that scale.
+            I started Entalogics in 2013 because I was frustrated. Founders were paying agencies $150/hour to get code written by junior devs making $20/hour. The math didn't add up — and neither did the quality.
+            <br /><br />
+            So I built something different: <strong className="text-blue-600 dark:text-blue-400">a team of senior developers who work directly with you</strong>. No layers. No markup. Just quality code at fair prices. Today, we've helped 33+ products launch and scale to $40M+ ARR. But the mission never changed: bring clarity and logic into software development.
           </Paragraph>
         </div>
 
@@ -180,7 +181,7 @@ const WhyChooseUs = () => {
           </Heading>
 
           <Paragraph size="sm" className="max-w-2xl mx-auto" center={true}>
-            We stand out from other development agencies through our commitment to excellence, innovation, and long-term partnership
+            Here's why founders choose us over agencies: <strong className="text-blue-600 dark:text-blue-400">we're not an agency</strong>. We're a team of independent senior developers who work directly with you. No project managers. No account executives. Just skilled engineers building products that scale.
           </Paragraph>
         </div>
 
