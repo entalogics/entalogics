@@ -40,9 +40,9 @@ const HireDeveloperPage: React.FC<HireDeveloperPageProps> = ({ hireDeveloper }) 
   return (
     <Layout>
       <Head>
-        <title>{`Hire ${hireDeveloper.title} | Entalogics - Expert ${hireDeveloper.title}`}</title>
-        <meta name="description" content={hireDeveloper.seoDescription || `Hire expert ${hireDeveloper.title} from Entalogics. Professional ${hireDeveloper.title} services for your business needs.`} />
-        <meta name="keywords" content={hireDeveloper.seoKeywords || `hire ${hireDeveloper.title}, ${hireDeveloper.title}, ${hireDeveloper.category}, Entalogics, hire developers`} />
+        <title>{`Hire ${hireDeveloper.title} Worldwide | Top ${hireDeveloper.title} | Entalogics`}</title>
+        <meta name="description" content={`${hireDeveloper.seoDescription || `Hire expert ${hireDeveloper.title} from Entalogics. Professional ${hireDeveloper.title} services for your business needs.`} Serving clients in top global markets including USA (all 50 states, 500+ cities, tech hubs), UK (all regions), Singapore, Japan, China, Canada, Australia, Germany, and 15+ high-value markets.`} />
+        <meta name="keywords" content={`${hireDeveloper.seoKeywords || `hire ${hireDeveloper.title}, ${hireDeveloper.title}, ${hireDeveloper.category}`}, top ${hireDeveloper.title}, best ${hireDeveloper.title} company, hire ${hireDeveloper.title} USA, hire ${hireDeveloper.title} California, hire ${hireDeveloper.title} Texas, hire ${hireDeveloper.title} New York, hire ${hireDeveloper.title} UK, hire ${hireDeveloper.title} Singapore, hire ${hireDeveloper.title} Japan, hire ${hireDeveloper.title} Canada, hire ${hireDeveloper.title} Australia, Entalogics, hire developers`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={`https://entalogics.com/${hireDeveloper.slug}`} />
         

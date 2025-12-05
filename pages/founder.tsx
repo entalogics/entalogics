@@ -179,7 +179,7 @@ const FounderPage = () => {
                   </Paragraph>
                   
                   <Paragraph size="sm">
-                    I was just another developer frustrated by how broken the agency model was. Clients paying $150/hour to talk to a project manager, who then talked to another manager, who finally passed it to a junior dev making $20/hour. The math never added up.
+                    I was just another developer frustrated by how broken the agency model was. Clients paying premium rates to talk to a project manager, who then talked to another manager, who finally passed it to a junior developer. The math never added up.
                   </Paragraph>
 
                   <Paragraph size="sm">

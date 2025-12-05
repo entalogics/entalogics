@@ -57,6 +57,12 @@ module.exports = {
     } else if (path.startsWith('/hire-')) {
       priority = 0.7
       changefreq = 'monthly'
+    } else if (path.startsWith('/locations/')) {
+      priority = 0.7
+      changefreq = 'monthly'
+    } else if (path === '/locations') {
+      priority = 0.7
+      changefreq = 'monthly'
     }
 
     return {

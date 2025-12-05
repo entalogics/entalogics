@@ -74,7 +74,7 @@ const TeamPage = () => {
                 </Heading>
 
                 <Paragraph size="sm" className="max-w-3xl mx-auto text-sm sm:text-base" center={true}>
-                  There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour.
+                  Our team of senior developers, designers, and engineers brings decades of combined experience building products that scale. We work directly with you—no layers, no markup, just quality code and results.
                 </Paragraph>
               </div>
             </div>

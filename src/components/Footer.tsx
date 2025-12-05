@@ -21,16 +21,32 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
     return categoryItems && categoryItems.length > 0 ? categoryItems[0] : null
   }).filter(Boolean)
   
-  // Add Chromium Browser Developer if not already included
+  // Add specific developers that should always be in footer
   const allDevelopers = Object.values(hireDevelopersByCategory).flat()
   const chromiumDeveloper = allDevelopers.find(dev => dev.slug === "hire-chromium-browser-developers")
-  const hasChromium = hireDevelopers.some(dev => dev?.slug === "hire-chromium-browser-developers")
+  const aiMlDeveloper = allDevelopers.find(dev => dev.slug === "hire-ai-ml-developers")
+  const pythonDeveloper = allDevelopers.find(dev => dev.slug === "hire-python-developers")
   
+  const hasChromium = hireDevelopers.some(dev => dev?.slug === "hire-chromium-browser-developers")
+  const hasAiMl = hireDevelopers.some(dev => dev?.slug === "hire-ai-ml-developers")
+  const hasPython = hireDevelopers.some(dev => dev?.slug === "hire-python-developers")
+  
+  // Add Chromium Browser Developer if not already included
   if (chromiumDeveloper && !hasChromium) {
     hireDevelopers.push(chromiumDeveloper)
   }
   
-  const finalHireDevelopers = hireDevelopers.slice(0, 9) // Limit to 9 developers for footer
+  // Add AI/ML Developers if not already included
+  if (aiMlDeveloper && !hasAiMl) {
+    hireDevelopers.push(aiMlDeveloper)
+  }
+  
+  // Add Python Developers if not already included
+  if (pythonDeveloper && !hasPython) {
+    hireDevelopers.push(pythonDeveloper)
+  }
+  
+  const finalHireDevelopers = hireDevelopers.slice(0, 10) // Limit to 10 developers for footer
 
   const footerLinks = {
     company: [
@@ -38,6 +54,8 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
       { name: "Our Team", path: "/team" },
       { name: "Meet the Founder", path: "/founder" },
       { name: "Technologies", path: "/technologies" },
+      { name: "Locations", path: "/locations" },
+      { name: "FAQs", path: "/faqs" },
       { name: "GDPR", path: "/gdpr" },
       { name: "Privacy Policy", path: "/privacy-policy" },
       { name: "Terms & Conditions", path: "/terms-and-conditions" },
@@ -53,7 +71,6 @@ const Footer = ({ logoSrc }: { logoSrc?: string }) => {
     connect: [
       { name: "Contact Us", path: "/contact-us" },
       { name: "Book a Call", path: "/#contact" },
-      { name: "FAQs", path: "/faqs" },
     ],
   }
 

@@ -20,14 +20,10 @@ const poppins = Poppins({
 
 const FAQsPage = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const [activeCategory, setActiveCategory] = useState<string>("All")
+  const allCategories = Array.from(new Set(faqsData.map((faq) => faq.category)))
+  const [activeCategory, setActiveCategory] = useState<string>(allCategories[0] || "")
 
-  const categories = ["All", ...Array.from(new Set(faqsData.map((faq) => faq.category)))]
-
-  const filteredFAQs =
-    activeCategory === "All"
-      ? faqsData
-      : faqsData.filter((faq) => faq.category === activeCategory)
+  const filteredFAQs = faqsData.filter((faq) => faq.category === activeCategory)
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -103,7 +99,7 @@ const FAQsPage = () => {
               {/* Category Filter */}
               <div className="mb-6 md:mb-8">
                 <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-4 pb-4 border-b border-gray-300 dark:border-gray-600">
-                  {categories.map((category) => (
+                  {allCategories.map((category) => (
                     <button
                       key={category}
                       onClick={() => {

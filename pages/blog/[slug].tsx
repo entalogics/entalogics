@@ -7,10 +7,11 @@ import Layout from '../../src/components/Layout';
 import FAQ from '../../src/components/FAQ';
 import FounderCTASection from '../../src/components/FounderCTASection';
 import Heading from '../../src/components/ui/Heading';
-import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft, ArrowRight, ExternalLink, Code, Smartphone, Globe, Brain } from 'lucide-react';
 import { getBlogPost, getBlogPosts } from '../../src/data/blogData';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { servicesData } from '../../src/data/servicesData';
 
 interface BlogPostPageProps {
   post: any;
@@ -54,13 +55,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content={`${post?.title || 'Blog Post'} | Entalogics Blog`} />
         <meta property="og:description" content={post?.excerpt || 'Blog post from Entalogics'} />
-        <meta property="og:image" content={post.ogImage || 'https://entalogics.com/assets/og-image.jpg'} />
+        <meta property="og:image" content={post.ogImage || 'https://entalogics.com/og-image.png'} />
         <meta property="og:url" content={`https://entalogics.com/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post?.title || 'Blog Post'} | Entalogics Blog`} />
         <meta name="twitter:description" content={post?.excerpt || 'Blog post from Entalogics'} />
-        <meta name="twitter:image" content={post.ogImage || 'https://entalogics.com/assets/og-image.jpg'} />
+        <meta name="twitter:image" content={post.ogImage || 'https://entalogics.com/og-image.png'} />
         <link rel="canonical" href={`https://entalogics.com/blog/${post.slug}`} />
       </Head>
       <div className="bg-white dark:bg-[#0a1225] text-black dark:text-white">
@@ -110,6 +111,12 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
                       <Clock className="w-5 h-5" />
                       <span>{post.readTime}</span>
                     </div>
+                    <div className="flex items-center gap-3">
+                      <ExternalLink className="w-5 h-5" />
+                      <Link href="https://entalogics.com" className="text-[#512feb] hover:underline font-medium">
+                        entalogics.com
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               </div>
@@ -140,8 +147,63 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
             </div>
           </div>
 
+          {/* Service Pitch Banner */}
+          <div className="max-w-7xl mx-auto mt-16 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="bg-gradient-to-r from-[#512feb] to-[#6d4aff] rounded-2xl p-8 md:p-10 text-white shadow-xl">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                  <div className="flex-1">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3">
+                      Need Expert Software Development?
+                    </h3>
+                    <p className="text-lg text-white/90 mb-4">
+                      At <strong>Entalogics.com</strong>, we connect you directly with senior developers who've built products scaling to $40M+ ARR. No layers. No markup. Just quality code at fair prices.
+                    </p>
+                    <div className="flex flex-wrap gap-4 mb-4">
+                      <div className="flex items-center gap-2">
+                        <Code className="w-5 h-5" />
+                        <span className="text-sm">SaaS Development</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Smartphone className="w-5 h-5" />
+                        <span className="text-sm">Mobile Apps</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Globe className="w-5 h-5" />
+                        <span className="text-sm">Web Applications</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Brain className="w-5 h-5" />
+                        <span className="text-sm">AI Solutions</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-4">
+                      <Link
+                        href="/services"
+                        className="inline-flex items-center px-6 py-3 bg-white text-[#512feb] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                      >
+                        View Our Services
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </Link>
+                      <Link
+                        href="/#contact"
+                        className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-white/20 transition-colors"
+                      >
+                        Get Started
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
           {/* Article Content */}
-          <div className="max-w-7xl mx-auto mt-16">
+          <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -155,6 +217,37 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
                 } as React.CSSProperties}
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
+            </motion.div>
+          </div>
+
+          {/* Services Quick Links */}
+          <div className="max-w-7xl mx-auto mt-12 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="bg-gray-50 dark:bg-[#1a1f35] rounded-xl p-6 border border-gray-200 dark:border-gray-800">
+                <h4 className="text-xl font-bold mb-4 text-black dark:text-white">
+                  Explore Our Services at <Link href="https://entalogics.com" className="text-[#512feb] hover:underline">Entalogics.com</Link>
+                </h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {Object.values(servicesData).slice(0, 4).map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                      className="p-4 bg-white dark:bg-[#0a1225] rounded-lg border border-gray-200 dark:border-gray-700 hover:border-[#512feb] transition-colors group"
+                    >
+                      <h5 className="font-semibold text-sm text-black dark:text-white group-hover:text-[#512feb] transition-colors mb-2">
+                        {service.title}
+                      </h5>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+                        {service.tagline}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </article>

@@ -339,8 +339,8 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
     <>
       <Head>
         <title>{`${service?.title || 'Service'} | Entalogics`}</title>
-        <meta name="description" content={service?.seoDescription || service?.tagline || 'Professional software development services'} />
-        <meta name="keywords" content={service?.seoKeywords || `${service?.title || 'Service'}, ${(service?.title || 'service').toLowerCase()} development, custom ${(service?.title || 'service').toLowerCase()}, ${(service?.title || 'service').toLowerCase()} services, software development, web development, mobile app development, AI development, SaaS development, Chromium browser development, UI UX design, maintenance support, Entalogics`} />
+        <meta name="description" content={`${service?.seoDescription || service?.tagline || 'Professional software development services'} Serving clients in top global markets including USA (all 50 states, 500+ cities, tech hubs), UK (all regions), Singapore, Japan, China, Canada, Australia, Germany, and 15+ high-value markets.`} />
+        <meta name="keywords" content={`${service?.seoKeywords || `${service?.title || 'Service'}, ${(service?.title || 'service').toLowerCase()} development, custom ${(service?.title || 'service').toLowerCase()}, ${(service?.title || 'service').toLowerCase()} services`}, top ${(service?.title || 'service').toLowerCase()} developers, best ${(service?.title || 'service').toLowerCase()} company, ${(service?.title || 'service').toLowerCase()} developers USA, ${(service?.title || 'service').toLowerCase()} developers California, ${(service?.title || 'service').toLowerCase()} developers Texas, ${(service?.title || 'service').toLowerCase()} developers New York, ${(service?.title || 'service').toLowerCase()} developers UK, ${(service?.title || 'service').toLowerCase()} developers Singapore, ${(service?.title || 'service').toLowerCase()} developers Japan, ${(service?.title || 'service').toLowerCase()} developers Canada, ${(service?.title || 'service').toLowerCase()} developers Australia, software development, web development, mobile app development, AI development, SaaS development, Chromium browser development, UI UX design, maintenance support, Entalogics`} />
         <meta name="author" content="Entalogics" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -349,7 +349,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={`${service?.title || 'Service'} | Entalogics`} />
         <meta property="og:description" content={service?.seoDescription || service?.tagline || 'Professional software development services'} />
-        <meta property="og:image" content={service.ogImage || "https://entalogics.com/assets/og-image.jpg"} />
+        <meta property="og:image" content={service.ogImage || "https://entalogics.com/og-image.png"} />
         <meta property="og:url" content={`https://entalogics.com/services/${service.slug}`} />
         <meta property="og:site_name" content="Entalogics" />
 
@@ -357,7 +357,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ service }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${service?.title || 'Service'} | Entalogics`} />
         <meta name="twitter:description" content={service?.seoDescription || service?.tagline || 'Professional software development services'} />
-        <meta name="twitter:image" content={service.ogImage || "https://entalogics.com/assets/og-image.jpg"} />
+        <meta name="twitter:image" content={service.ogImage || "https://entalogics.com/og-image.png"} />
 
         {/* Additional SEO */}
         <link rel="canonical" href={`https://entalogics.com/services/${service.slug}`} />

@@ -30,13 +30,13 @@ const PortfolioIndex = () => {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Portfolio | Our Projects & Case Studies | Entalogics" />
         <meta property="og:description" content="Explore our portfolio of successful projects including AI-powered platforms, SaaS applications, custom browsers, web development, and mobile apps. See real-world case studies and client success stories." />
-        <meta property="og:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta property="og:image" content="https://entalogics.com/og-image.png" />
         <meta property="og:url" content="https://entalogics.com/portfolio" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfolio | Our Projects & Case Studies | Entalogics" />
         <meta name="twitter:description" content="Explore our portfolio of successful projects including AI-powered platforms, SaaS applications, custom browsers, web development, and mobile apps." />
-        <meta name="twitter:image" content="https://entalogics.com/assets/og-image.jpg" />
+        <meta name="twitter:image" content="https://entalogics.com/og-image.png" />
         <link rel="canonical" href="https://entalogics.com/portfolio" />
       </Head>
 

@@ -48,7 +48,7 @@ const MissionVisionContent = () => {
     mission: {
       title: "Our Mission",
       paragraphs: [
-        "Our mission is simple: deliver premium software development with clarity and fairness. We started Entalogics because we were tired of seeing founders pay $150/hour to talk to managers who then passed work to junior devs making $20/hour. That's not how it should work.",
+        "Our mission is simple: deliver premium software development with clarity and fairness. We started Entalogics because we were tired of seeing founders pay premium rates to talk to managers who then passed work to junior developers. That's not how it should work.",
         "Today, we connect you directly with senior developers who've built products scaling to $40M+ ARR. No layers. No markup. Just quality code at fair prices. We build custom Chromium browsers, AI-powered SaaS platforms, full-stack apps, and mobile applications — but we never forget that great software shouldn't cost a fortune."
       ]
     },
@@ -311,11 +311,18 @@ const AboutPage = () => {
               "name": "Entalogics",
               "url": "https://entalogics.com",
               "logo": "https://entalogics.com/logo.svg",
-              "description": "Entalogics is a software development company serving clients worldwide. We specialize in custom Chromium browsers, AI SaaS platforms, full-stack web applications, and mobile apps.",
+              "description": "Entalogics is a top software development company serving clients worldwide. We specialize in custom Chromium browsers, AI SaaS platforms, full-stack web applications, and mobile apps. Serving 50+ countries including USA (all 50 states), UK (all regions), Canada, Australia, Germany, France, and globally.",
               "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "AE"
+                "addressCountry": "Worldwide"
               },
+              "areaServed": [
+                { "@type": "Country", "name": "United States" },
+                { "@type": "Country", "name": "United Kingdom" },
+                { "@type": "Country", "name": "Canada" },
+                { "@type": "Country", "name": "Australia" },
+                { "@type": "Country", "name": "Worldwide" }
+              ],
               "sameAs": [
                 "https://www.linkedin.com/company/entalogics",
                 "https://twitter.com/entalogics"
@@ -346,7 +353,7 @@ const AboutPage = () => {
                   "@type": "QuantitativeValue",
                   "value": "11-50"
                 },
-                "foundingDate": "2013",
+                "foundingDate": "2023",
                 "description": "Software development company specializing in custom Chromium browsers, AI SaaS platforms, and full-stack applications."
               }
             })
@@ -488,7 +495,7 @@ const AboutPage = () => {
                     lineHeight: '1.6'
                   }}
                 >
-                  We started Entalogics in 2013 because we saw too many founders getting burned by agencies that charged premium prices for junior work. <strong className="text-blue-600 dark:text-blue-400">So we did something different.</strong> We built a team of senior developers who work directly with clients — no project managers, no account executives, no layers that add cost without value.
+                  We started Entalogics in 2023 because we saw too many founders getting burned by agencies that charged premium prices for junior work. <strong className="text-blue-600 dark:text-blue-400">So we did something different.</strong> We built a team of senior developers who work directly with clients — no project managers, no account executives, no layers that add cost without value.
                 </p>
                 
                 <p 

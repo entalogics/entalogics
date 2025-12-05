@@ -88,7 +88,7 @@ const WhyChooseUs = () => {
           </Heading>
 
              <Paragraph size="sm" className="max-w-4xl mx-auto" center={true}>
-            I started Entalogics in 2013 because I was frustrated. Founders were paying agencies $150/hour to get code written by junior devs making $20/hour. The math didn't add up — and neither did the quality.
+            I started Entalogics in 2023 because I was frustrated. Founders were paying agencies premium rates to get code written by junior devs. The math didn't add up — and neither did the quality.
             <br /><br />
             So I built something different: <strong className="text-blue-600 dark:text-blue-400">a team of senior developers who work directly with you</strong>. No layers. No markup. Just quality code at fair prices. Today, we've helped 33+ products launch and scale to $40M+ ARR. But the mission never changed: bring clarity and logic into software development.
           </Paragraph>

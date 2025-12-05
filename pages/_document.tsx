@@ -22,8 +22,8 @@ export default function Document() {
         {/* Language and Geo */}
         <meta httpEquiv="content-language" content="en" />
         <meta name="language" content="English" />
-        <meta name="geo.region" content="AE" />
-        <meta name="geo.placename" content="United Arab Emirates" />
+        <meta name="geo.region" content="Worldwide" />
+        <meta name="geo.placename" content="Global" />
       </Head>
       <body>
         <Main />
